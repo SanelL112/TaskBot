@@ -295,8 +295,16 @@ if __name__ == "__main__":
         print("Please set CONVERSATION_ID in .env")
         exit(1)
 
+
     app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
+    
+    # Auto-start the background 4-hour digest task for the user on boot
+    SANEL_CHAT_ID = 8534649457
+    job_queue = app.job_queue
+    job_queue.run_repeating(check_updates, interval=14400, first=30, chat_id=SANEL_CHAT_ID, name=str(SANEL_CHAT_ID))
+    
     app.add_handler(CommandHandler("start", start))
+
     app.add_handler(CommandHandler("model", model_command))
     app.add_handler(CommandHandler("summary", summary_command))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
