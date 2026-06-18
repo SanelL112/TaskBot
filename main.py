@@ -609,33 +609,44 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     prompt = (
         "You are an offline filtering AI. Read the text extracted from this photo.\n"
         "Extract ONLY the sentences that look like homework, assignments, or important dates.\n"
-        "If there is nothing important, reply exactly with: 'NO_ALERT'\n\n"
+        "If there is nothing important, reply exactly with: 'NO_ALERT'\n"
+        "CRITICAL RULE: If the text is messy and you are unsure if there is an assignment, reply exactly with: 'UNSURE'\n\n"
         f"Caption: {caption}\nPhoto OCR Text:\n{ocr_text}"
     )
     
     import httpx
+    
+    async def _call_ollama(model_name: str) -> str:
+        try:
+            async with httpx.AsyncClient() as client:
+                response = await client.post(
+                    "http://localhost:11434/api/generate",
+                    json={
+                        "model": model_name,
+                        "prompt": prompt,
+                        "stream": False,
+                        "options": {"temperature": 0.0}
+                    },
+                    timeout=120.0
+                )
+            if response.status_code == 200:
+                return response.json().get("response", "").strip()
+        except Exception:
+            pass
+        return ""
+
     try:
-        async with httpx.AsyncClient() as client:
-            response = await client.post(
-                "http://localhost:11434/api/generate",
-                json={
-                    "model": "qwen2:0.5b",
-                    "prompt": prompt,
-                    "stream": False,
-                    "options": {"temperature": 0.0}
-                },
-                timeout=120.0
-            )
-        if response.status_code == 200:
-            extracted = response.json().get("response", "").strip()
-            if extracted and "NO_ALERT" not in extracted.upper():
-                with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "important_extracts.txt"), "a") as f:
-                    f.write(f"\n--- Photo Upload ---\n{extracted}\n")
-                reply = f"✅ Important text found and saved for the next digest!\n\n_Filtered preview:_\n{extracted}"
-            else:
-                reply = "🗑️ Local AI found no urgent assignments in this photo. Ignored."
+        extracted = await _call_ollama("qwen2:0.5b")
+        if "UNSURE" in extracted.upper():
+            await context.bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id, text="⚖️ 0.5B was unsure. Escalating to 3B model...")
+            extracted = await _call_ollama("llama3.2:3b")
+
+        if extracted and "NO_ALERT" not in extracted.upper():
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "important_extracts.txt"), "a") as f:
+                f.write(f"\n--- Photo Upload ---\n{extracted}\n")
+            reply = f"✅ Important text found and saved for the next digest!\n\n_Filtered preview:_\n{extracted}"
         else:
-            reply = "❌ Local LLM offline or returned an error."
+            reply = "🗑️ Local AI found no urgent assignments in this photo. Ignored."
     except Exception as e:
         reply = f"❌ Local LLM connection error: {e}"
         

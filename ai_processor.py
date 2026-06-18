@@ -147,27 +147,37 @@ def call_agy(prompt: str, timeout: int = 180, model: str = "pro") -> str:
         return ""
 
 def call_local_llm(prompt: str) -> str:
-    """Calls Qwen2 0.5B via Ollama for fast, local, offline filtering."""
+    """Calls Qwen2 0.5B via Ollama. Falls back to Llama 3.2 3B if unsure."""
     import requests
-    try:
-        res = requests.post(
-            "http://localhost:11434/api/generate",
-            json={
-                "model": "qwen2:0.5b",
-                "prompt": prompt,
-                "stream": False,
-                "options": {"temperature": 0.0}
-            },
-            timeout=120.0
-        )
-        if res.status_code == 200:
-            return res.json().get("response", "").strip()
-        else:
-            logger.error(f"Ollama returned {res.status_code}")
-            return "Could not summarize locally."
-    except Exception as e:
-        logger.error(f"Ollama connection error: {e}")
-        return "Local LLM offline."
+    
+    def _call(model_name: str) -> str:
+        try:
+            res = requests.post(
+                "http://localhost:11434/api/generate",
+                json={
+                    "model": model_name,
+                    "prompt": prompt,
+                    "stream": False,
+                    "options": {"temperature": 0.0}
+                },
+                timeout=180.0
+            )
+            if res.status_code == 200:
+                return res.json().get("response", "").strip()
+            else:
+                logger.error(f"Ollama returned {res.status_code} for {model_name}")
+                return ""
+        except Exception as e:
+            logger.error(f"Ollama connection error for {model_name}: {e}")
+            return ""
+
+    response = _call("qwen2:0.5b")
+    
+    if "UNSURE" in response.upper():
+        logger.info("Qwen2:0.5b was UNSURE. Falling back to llama3.2:3b...")
+        response = _call("llama3.2:3b")
+        
+    return response if response else "Could not summarize locally."
 
 
 
@@ -186,6 +196,10 @@ def process_source(name: str, data: str) -> str:
     # Trim to 1500 chars per source to keep the local LLM call fast and prevent context overflow
     trimmed = data[:1500] + ("\n[...trimmed...]" if len(data) > 1500 else "")
     prompt = SOURCE_PROMPTS[name].format(data=trimmed)
+    
+    # Inject the fallback trigger rule for Qwen2
+    prompt += "\n\nCRITICAL RULE: If you are unsure if there is anything important, or you cannot understand the text, you MUST reply exactly with the word: UNSURE"
+    
     logger.info(f"Calling LOCAL Qwen2 0.5B for {name} ({len(prompt)} chars)...")
 
     summary = call_local_llm(prompt)
