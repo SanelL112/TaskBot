@@ -270,6 +270,61 @@ def save_state(state):
     with open(STATE_FILE, "w") as f:
         json.dump(state, f)
 
+async def watchdog_check(context: ContextTypes.DEFAULT_TYPE):
+    """Runs every 30 mins to check for urgent anomalies using tiny local model Qwen2 0.5B."""
+    chat_id = context.job.chat_id
+    sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+    from scrapers.canvas_scraper import get_all_canvas_data
+    from scrapers.groupme_scraper import get_latest_messages
+    from scrapers.google_scraper import get_unread_emails, get_classroom_assignments
+    
+    logger.info("Watchdog: Scraping sources...")
+    try:
+        canvas = get_all_canvas_data()
+        classroom = get_classroom_assignments()
+        gmail = get_unread_emails()
+        groupme = get_latest_messages("102851186")
+    except Exception as e:
+        logger.error(f"Watchdog scrape error: {e}")
+        return
+
+    raw_data = f"CANVAS:\n{canvas[:1000]}\n\nCLASSROOM:\n{classroom[:1000]}\n\nGMAIL:\n{gmail[:1000]}\n\nGROUPME:\n{groupme[:1000]}"
+    
+    prompt = (
+        "You are an urgent alert watchdog. Read the following recent school and email notifications.\n"
+        "Look ONLY for critical anomalies or urgent updates (e.g., a sudden deadline extension, a direct message from a teacher, or an emergency alert).\n"
+        "If you find something genuinely urgent, write a short 1-sentence warning about it.\n"
+        "If there is nothing urgent, you MUST reply with exactly the word: NO_ALERT\n\n"
+        f"DATA:\n{raw_data}"
+    )
+
+    try:
+        import httpx
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                "http://localhost:11434/api/generate",
+                json={
+                    "model": "qwen2:0.5b",
+                    "prompt": prompt,
+                    "stream": False,
+                    "options": {"temperature": 0.0}
+                },
+                timeout=120.0
+            )
+        if response.status_code == 200:
+            result = response.json().get("response", "").strip()
+            if result and "NO_ALERT" not in result and len(result) > 10:
+                logger.info(f"Watchdog triggered: {result}")
+                await context.bot.send_message(
+                    chat_id=chat_id, 
+                    text=f"🚨 **WATCHDOG ALERT** 🚨\n\n{result}",
+                    parse_mode="Markdown"
+                )
+            else:
+                logger.info("Watchdog check clear (no alerts).")
+    except Exception as e:
+        logger.error(f"Watchdog Ollama error: {e}")
+
 async def check_updates(context: ContextTypes.DEFAULT_TYPE):
     chat_id = context.job.chat_id
     state = load_state()
@@ -472,7 +527,10 @@ if __name__ == "__main__":
     # Auto-start the background 4-hour digest task for the user on boot
     SANEL_CHAT_ID = 8534649457
     job_queue = app.job_queue
-    job_queue.run_repeating(check_updates, interval=14400, first=30, chat_id=SANEL_CHAT_ID, name=str(SANEL_CHAT_ID))
+    job_queue.run_repeating(check_updates, interval=14400, first=60, chat_id=SANEL_CHAT_ID, name=f"{SANEL_CHAT_ID}_digest")
+    
+    # Auto-start the 30-minute watchdog
+    job_queue.run_repeating(watchdog_check, interval=1800, first=15, chat_id=SANEL_CHAT_ID, name=f"{SANEL_CHAT_ID}_watchdog")
     
     app.add_handler(CommandHandler("start", start))
 
