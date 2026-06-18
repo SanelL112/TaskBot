@@ -80,6 +80,35 @@ def get_new_responses(after_step: int) -> list[str]:
     return responses
 
 
+# ── Topic detection ───────────────────────────────────────────────────────────
+
+TOPIC_KEYWORDS = {
+    "server": [
+        "server", "bot", "install", "restart", "log", "service", "systemd", "process",
+        "bash", "command", "code", "git", "python", "script", "file", "disk", "cpu",
+        "memory", "ram", "port", "ssh", "deploy", "update", "package", "apt", "run",
+        "debug", "error", "crash", "status", "config", "environment", "docker"
+    ],
+    "school": [
+        "canvas", "assignment", "homework", "class", "course", "school", "grade",
+        "notion", "task", "due", "quiz", "test", "exam", "teacher", "student",
+        "classroom", "lecture", "study", "project", "submit", "deadline", "ap",
+        "groupme", "club", "tsa", "skills", "robotics", "hosa", "biotech"
+    ],
+}
+
+def detect_topic(message: str) -> str:
+    """Detect conversation topic from message keywords. Returns 'server', 'school', or 'general'."""
+    msg_lower = message.lower()
+    scores = {topic: 0 for topic in TOPIC_KEYWORDS}
+    for topic, keywords in TOPIC_KEYWORDS.items():
+        for kw in keywords:
+            if kw in msg_lower:
+                scores[topic] += 1
+    best = max(scores, key=scores.get)
+    return best if scores[best] > 0 else "general"
+
+
 # ── Bridge logic ───────────────────────────────────────────────────────────────
 
 async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0) -> str:
@@ -90,9 +119,20 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0) -> s
     except Exception:
         digest_context = "No recent data available."
 
+    # Detect topic and load the matching history file
+    topic = detect_topic(user_message)
+    history_dir = os.path.dirname(os.path.abspath(__file__))
+    history_file = os.path.join(history_dir, f"chat_history_{chat_id}_{topic}.txt")
+    logger.info(f"Topic detected: {topic} -> {os.path.basename(history_file)}")
+
+    topic_labels = {"server": "🖥️ Server & Code", "school": "📚 School & Tasks", "general": "💬 General"}
+    topic_label = topic_labels.get(topic, "💬 General")
+
     system = (
         f"You are a powerful personal assistant AI for Sanel Lathiya running on his personal Debian server. "
         f"You have FULL ROOT ACCESS to the server and can execute any shell command automatically.\n\n"
+        f"CURRENT CONVERSATION TOPIC: {topic_label}\n"
+        f"You are in a focused conversation about this topic. Stay on topic unless Sanel switches subjects.\n\n"
         f"CRITICAL INSTRUCTION — COMMAND EXECUTION:\n"
         f"When Sanel asks you to DO something on the server (install software, restart services, check logs, "
         f"edit files, run scripts, manage processes, etc.), you MUST execute it yourself immediately. "
@@ -100,33 +140,28 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0) -> s
         f"<BASH>your command here</BASH>\n"
         f"The system will automatically run that command as root and show him the output. "
         f"You can chain multiple commands. Always include <BASH> tags when action is needed.\n\n"
-        f"Examples:\n"
-        f"- 'install htop' → <BASH>apt-get install -y htop</BASH>\n"
-        f"- 'restart the bot' → <BASH>systemctl restart bot</BASH>\n"
-        f"- 'show bot logs' → <BASH>journalctl -u bot -n 30 --no-pager</BASH>\n"
-        f"- 'what processes are running' → <BASH>ps aux --sort=-%cpu | head -20</BASH>\n\n"
         f"OTHER CAPABILITIES:\n"
         f"- Every 4 hours: auto-digest from Canvas, Classroom, Gmail, GroupMe\n"
         f"- Notion: assignments auto-pushed to Tasks Tracker\n"
-        f"- /summary: manual digest trigger\n"
-        f"- /bash <cmd>: Sanel can also run commands directly himself\n\n"
+        f"- /summary: manual digest trigger | /bash <cmd>: run commands directly\n\n"
         f"Here is the latest data digest:\n\n{digest_context}\n\n"
         f"Be direct and take action immediately when asked. Never ask for permission."
     )
-    
-    # Custom conversational memory
-    history_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"chat_history_{chat_id}.txt")
+
     try:
         with open(history_file, "r") as f:
             chat_history = f.read()
     except Exception:
         chat_history = ""
-        
-    # Cap history length to avoid huge prompts
+
+    # Cap history to last 4000 chars per topic
     if len(chat_history) > 4000:
-        chat_history = "...\n" + chat_history[-4000:]
-        
-    full_prompt = system + chr(10) + chr(10) + "--- PAST CONVERSATION ---\n" + chat_history + "\n--- END CONVERSATION ---\n\nUser: " + user_message
+        chat_history = "[earlier messages trimmed]\n" + chat_history[-4000:]
+
+    full_prompt = (system + "\n\n"
+                   f"--- {topic_label.upper()} CONVERSATION HISTORY ---\n"
+                   + chat_history +
+                   f"\n--- END HISTORY ---\n\nUser: " + user_message)
     
     model = user_models.get(chat_id, "flash")
     logger.info(f"agy --print model={model}: {user_message[:60]}")
