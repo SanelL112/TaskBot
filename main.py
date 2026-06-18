@@ -97,16 +97,32 @@ TOPIC_KEYWORDS = {
     ],
 }
 
-async def detect_topic(message: str) -> str:
-    """Detect conversation topic using local Ollama model. Returns 'server', 'school', or 'general'."""
+async def detect_topic(message: str, chat_id: int) -> str:
+    """Detect conversation topic using local Ollama model. Returns an existing topic or invents a new one."""
+    import glob
+    import re
+    history_dir = os.path.dirname(os.path.abspath(__file__))
+    existing_files = glob.glob(os.path.join(history_dir, f"chat_history_{chat_id}_*.txt"))
+    
+    existing_topics = []
+    for f in existing_files:
+        basename = os.path.basename(f)
+        m = re.search(f"chat_history_{chat_id}_(.+)\\.txt", basename)
+        if m:
+            existing_topics.append(m.group(1))
+            
+    topics_list_str = ", ".join(existing_topics) if existing_topics else "None"
+
     prompt = (
-        "You are a topic classifier. Categorize the following message into exactly one of these three categories: "
-        "'server' (code, linux, bot, bash, errors, git, docker, processes), "
-        "'school' (canvas, homework, notion tasks, grades, clubs, google classroom), "
-        "or 'general' (anything else, small talk, unrelated questions). "
-        "Reply with ONLY the category name in lowercase and nothing else.\n\n"
+        "You are a topic classifier and router. Your job is to organize a user's messages into distinct conversation files.\n"
+        f"The existing topics are: [{topics_list_str}].\n"
+        "If the following message perfectly matches one of the existing topics, reply with that exact topic name.\n"
+        "If it is a completely new subject, invent a short, 1-2 word topic name for it (e.g., 'math_homework', 'python_bot', 'fitness').\n"
+        "Reply with ONLY the topic name in lowercase, using underscores instead of spaces. Do not write anything else.\n\n"
         f"Message: {message}"
     )
+    
+    topic = "general"
     try:
         import httpx
         async with httpx.AsyncClient() as client:
@@ -122,21 +138,14 @@ async def detect_topic(message: str) -> str:
             )
         if response.status_code == 200:
             result = response.json().get("response", "").strip().lower()
-            if "server" in result: return "server"
-            if "school" in result: return "school"
-            return "general"
+            # Clean up output to be a valid filename string
+            result = re.sub(r'[^a-z0-9_]', '', result.replace(' ', '_'))
+            if result:
+                topic = result
     except Exception as e:
         logger.error(f"Ollama topic detection failed: {e}")
     
-    # Fallback to simple keyword matching if Ollama fails
-    msg_lower = message.lower()
-    scores = {topic: 0 for topic in TOPIC_KEYWORDS}
-    for topic, keywords in TOPIC_KEYWORDS.items():
-        for kw in keywords:
-            if kw in msg_lower:
-                scores[topic] += 1
-    best = max(scores, key=scores.get)
-    return best if scores[best] > 0 else "general"
+    return topic
 
 
 # ── Bridge logic ───────────────────────────────────────────────────────────────
@@ -150,18 +159,15 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0) -> s
         digest_context = "No recent data available."
 
     # Detect topic and load the matching history file
-    topic = await detect_topic(user_message)
+    topic = await detect_topic(user_message, chat_id)
     history_dir = os.path.dirname(os.path.abspath(__file__))
     history_file = os.path.join(history_dir, f"chat_history_{chat_id}_{topic}.txt")
     logger.info(f"Topic detected: {topic} -> {os.path.basename(history_file)}")
 
-    topic_labels = {"server": "🖥️ Server & Code", "school": "📚 School & Tasks", "general": "💬 General"}
-    topic_label = topic_labels.get(topic, "💬 General")
-
     system = (
         f"You are a powerful personal assistant AI for Sanel Lathiya running on his personal Debian server. "
         f"You have FULL ROOT ACCESS to the server and can execute any shell command automatically.\n\n"
-        f"CURRENT CONVERSATION TOPIC: {topic_label}\n"
+        f"CURRENT CONVERSATION TOPIC: {topic}\n"
         f"You are in a focused conversation about this topic. Stay on topic unless Sanel switches subjects.\n\n"
         f"CRITICAL INSTRUCTION — COMMAND EXECUTION:\n"
         f"When Sanel asks you to DO something on the server (install software, restart services, check logs, "
@@ -189,7 +195,7 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0) -> s
         chat_history = "[earlier messages trimmed]\n" + chat_history[-4000:]
 
     full_prompt = (system + "\n\n"
-                   f"--- {topic_label.upper()} CONVERSATION HISTORY ---\n"
+                   f"--- {topic.upper()} CONVERSATION HISTORY ---\n"
                    + chat_history +
                    f"\n--- END HISTORY ---\n\nUser: " + user_message)
     
