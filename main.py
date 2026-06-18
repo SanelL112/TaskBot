@@ -179,6 +179,8 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0) -> s
         f"OTHER CAPABILITIES:\n"
         f"- Every 4 hours: auto-digest from Canvas, Classroom, Gmail, GroupMe\n"
         f"- Notion: assignments auto-pushed to Tasks Tracker\n"
+        f"- Natural Language Notion Updates: If Sanel replies to you about a recent Notion task setting its priority (high/medium/low), status (Not started/In progress/Done), or start/end values, and he gives you an ID (like `1a2b3c...`), use a bash python script to update it. Example:\n"
+        f"<BASH>python3 -c 'from notion_client import update_notion_task; update_notion_task(\"the_long_id_here\", priority=\"high\", status=\"In progress\", start_value=10, end_value=50)'</BASH>\n"
         f"- /summary: manual digest trigger | /bash <cmd>: run commands directly\n\n"
         f"Here is the latest data digest:\n\n{digest_context}\n\n"
         f"Be direct and take action immediately when asked. Never ask for permission."
@@ -354,30 +356,44 @@ async def check_updates(context: ContextTypes.DEFAULT_TYPE):
     for task in ai_result.get("tasks", []):
         thash = get_hash(task.get("id", task.get("title", "")))
         if thash not in state.setdefault("seen_tasks", []):
-            priority = task.get("priority", "medium").lower()
+            priority = str(task.get("priority", "medium")).lower()
+            status = str(task.get("status", "Not started"))
+            start_val = str(task.get("start_value", 0))
+            end_val = str(task.get("end_value", 100))
+            
+            missing = []
+            if priority == "unknown": missing.append("Priority")
+            if status == "unknown": missing.append("Status")
+            if start_val == "unknown": missing.append("Start Value")
+            if end_val == "unknown": missing.append("End Value")
+
             page_id = add_task_to_notion(
                 title=task.get("title"),
                 source=task.get("source"),
                 due_date=task.get("due_date"),
                 url=task.get("url"),
                 priority="medium" if priority == "unknown" else priority,
-                status="Not started",
-                start_value=task.get("start_value", 0),
-                end_value=task.get("end_value", 100),
+                status="Not started" if status == "unknown" else status,
+                start_value=0 if start_val == "unknown" else start_val,
+                end_value=100 if end_val == "unknown" else end_val,
             )
             state["seen_tasks"].append(thash)
+            save_state(state)
             
-            if page_id and priority == "unknown":
-                short_id = thash[:6]
-                state.setdefault("pending_priorities", {})[short_id] = page_id
-                save_state(state)
+            if page_id and missing:
+                missing_str = ", ".join(missing)
+                msg_text = f"🤔 **Added to Notion:** _{task.get('title')}_\n\nI couldn't figure out: **{missing_str}**.\nJust reply naturally and tell me what to set them to! `(ID:{page_id})`"
                 await context.bot.send_message(
                     chat_id=chat_id, 
-                    text=f"🤔 **New task pushed to Notion:**\n_{task.get('title')}_\n\nI couldn't determine the priority. Reply with `/p {short_id} high` (or medium/low) to set it!",
+                    text=msg_text,
                     parse_mode="Markdown"
                 )
+                
+                # Append to Notion history so the LLM knows the Page ID
+                history_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"chat_history_{chat_id}_notion.txt")
+                with open(history_file, "a") as f:
+                    f.write(f"System Background Job: {msg_text}\n")
             else:
-                save_state(state)
                 logger.info(f"Pushed task to Notion: {task.get('title')}")
             
     # 2. Telegram Digest

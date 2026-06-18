@@ -127,8 +127,8 @@ def add_task_to_notion(
             logger.error(res.text[:500])
         return None
 
-def update_notion_task(page_id: str, priority: str = None, status: str = None):
-    """Updates an existing Notion task's priority and/or status."""
+def update_notion_task(page_id: str, priority: str = None, status: str = None, start_value: float = None, end_value: float = None):
+    """Updates an existing Notion task's priority, status, or progress values."""
     if not NOTION_API_KEY or NOTION_API_KEY == "your_notion_api_key":
         return False
         
@@ -148,6 +148,12 @@ def update_notion_task(page_id: str, priority: str = None, status: str = None):
         if status in STATUS_OPTIONS:
             properties["Status"] = {"status": {"name": status}}
             
+    if start_value is not None:
+        properties["Start value"] = {"number": float(start_value)}
+        
+    if end_value is not None:
+        properties["End value"] = {"number": float(end_value)}
+        
     if not properties:
         return True
         
