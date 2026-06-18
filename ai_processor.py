@@ -76,13 +76,13 @@ DIGEST_ASSEMBLY_PROMPT = (
 
 # ── agy helper ────────────────────────────────────────────────────────────────
 
-def call_agy(prompt: str, timeout: int = 180) -> str:
+def call_agy(prompt: str, timeout: int = 180, model: str = "pro") -> str:
     """Call agy --print using a PTY so it doesn't hang on pipe detection."""
     import pty, select, time, os as _os
     try:
         master, slave = pty.openpty()
         proc = subprocess.Popen(
-            [AGENTAPI_BIN, "--model", "pro", "--print", prompt],
+            [AGENTAPI_BIN, "--model", model, "--print", prompt],
             stdin=slave, stdout=slave, stderr=slave,
             close_fds=True
         )
@@ -189,18 +189,49 @@ def assemble_digest(summaries: dict) -> dict:
     # Split tasks JSON from the digest text
     tasks = []
     digest = output
-
     if "TASKS_JSON:" in output:
         parts = output.rsplit("TASKS_JSON:", 1)
         digest = parts[0].strip()
         try:
-            tasks_raw = parts[1].strip()
-            tasks = json.loads(tasks_raw)
+            tasks = json.loads(parts[1].strip())
         except Exception:
             tasks = []
 
+    # ── Deduplication: compare with previous digest via agy Flash ────────────
+    previous_digest_path = os.path.join(BOT_DIR, "latest_digest.txt")
+    previous_digest = ""
+    try:
+        with open(previous_digest_path, "r") as f:
+            previous_digest = f.read().strip()
+    except Exception:
+        pass
+
+    if previous_digest:
+        dedup_prompt = (
+            "You are a digest deduplication assistant.\n"
+            "Below is a PREVIOUS digest and a NEW digest.\n"
+            "Your job is to return the NEW digest with any bullet points, items, or sections "
+            "that are IDENTICAL or essentially the same as the previous digest REMOVED.\n"
+            "Keep everything that is genuinely new, changed, or updated.\n"
+            "If everything is new, return the full new digest unchanged.\n"
+            "If nothing is new, return exactly: NO_NEW_UPDATES\n"
+            "Return ONLY the final cleaned digest text, no explanation.\n\n"
+            f"--- PREVIOUS DIGEST ---\n{previous_digest}\n\n"
+            f"--- NEW DIGEST ---\n{digest}"
+        )
+        logger.info("Deduplicating digest via agy Flash...")
+        deduped = call_agy(dedup_prompt, timeout=60, model="flash")
+        if deduped and deduped.strip() != "NO_NEW_UPDATES" and len(deduped.strip()) > 20:
+            digest = deduped.strip()
+            logger.info("Deduplication complete — new content only.")
+        elif deduped.strip() == "NO_NEW_UPDATES":
+            digest = "✅ Nothing new since the last digest — all caught up!"
+            logger.info("Deduplication: no new updates found.")
+        else:
+            logger.warning("Deduplication failed or returned empty — using full digest.")
+
     # Save final digest to file
-    with open(os.path.join(BOT_DIR, "latest_digest.txt"), "w") as f:
+    with open(previous_digest_path, "w") as f:
         f.write(digest)
 
     return {"tasks": tasks, "digest": digest}
