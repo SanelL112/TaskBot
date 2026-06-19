@@ -103,17 +103,6 @@ async def detect_topic(message: str, chat_id: int) -> str:
     import glob
     import re
     history_dir = os.path.dirname(os.path.abspath(__file__))
-    
-    # Migrate old chat_history_{chat_id}.txt to chat_history_{chat_id}_general.txt if it exists
-    old_history_file = os.path.join(history_dir, f"chat_history_{chat_id}.txt")
-    general_history_file = os.path.join(history_dir, f"chat_history_{chat_id}_general.txt")
-    if os.path.exists(old_history_file) and not os.path.exists(general_history_file):
-        try:
-            os.rename(old_history_file, general_history_file)
-            logger.info(f"Migrated old history file {old_history_file} to {general_history_file}")
-        except Exception as e:
-            logger.error(f"Failed to migrate old history file: {e}")
-
     existing_files = glob.glob(os.path.join(history_dir, f"chat_history_{chat_id}_*.txt"))
     
     existing_topics = []
@@ -123,10 +112,7 @@ async def detect_topic(message: str, chat_id: int) -> str:
         if m:
             existing_topics.append(m.group(1))
             
-    if "general" not in existing_topics:
-        existing_topics.append("general")
-            
-    topics_list_str = ", ".join(existing_topics)
+    topics_list_str = ", ".join(existing_topics) if existing_topics else "None"
 
     prompt = (
         "You are a topic classifier and router. Your job is to organize a user's messages into distinct conversation files.\n"
@@ -163,23 +149,6 @@ async def detect_topic(message: str, chat_id: int) -> str:
     return topic
 
 
-def create_topic_files_if_new(topics: list[str], chat_id: int):
-    """Automatically creates chat history files for newly detected topics if they don't exist."""
-    import re
-    history_dir = os.path.dirname(os.path.abspath(__file__))
-    for t in topics:
-        normalized_topic = re.sub(r'[^a-z0-9_]', '', t.lower().strip().replace(' ', '_'))
-        if normalized_topic:
-            topic_file = os.path.join(history_dir, f"chat_history_{chat_id}_{normalized_topic}.txt")
-            if not os.path.exists(topic_file):
-                try:
-                    with open(topic_file, "w") as f:
-                        f.write(f"System: Topic '{t}' automatically initialized.\n\n")
-                    logger.info(f"Automatically created history file for new topic: {normalized_topic}")
-                except Exception as e:
-                    logger.error(f"Failed to create history file for topic {normalized_topic}: {e}")
-
-
 # ── Bridge logic ───────────────────────────────────────────────────────────────
 
 async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0) -> str:
@@ -192,7 +161,6 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0) -> s
 
     # Detect topic and load the matching history file
     topic = await detect_topic(user_message, chat_id)
-    create_topic_files_if_new([topic], chat_id)
     history_dir = os.path.dirname(os.path.abspath(__file__))
     history_file = os.path.join(history_dir, f"chat_history_{chat_id}_{topic}.txt")
     logger.info(f"Topic detected: {topic} -> {os.path.basename(history_file)}")
@@ -476,7 +444,6 @@ async def check_updates(context: ContextTypes.DEFAULT_TYPE):
     # 3. Ask to Compile Mega Study Guides
     topics = ai_result.get("topics", [])
     if topics:
-        create_topic_files_if_new(topics, chat_id)
         topics_str = "\n".join([f"- {t}" for t in topics])
         msg = (
             f"🧠 **I detected you have upcoming assignments/tests for the following topics:**\n"
@@ -618,7 +585,6 @@ async def summary_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Ask to Compile Mega Study Guides
     topics = ai_result.get("topics", [])
     if topics:
-        create_topic_files_if_new(topics, chat_id)
         topics_str = "\n".join([f"- {t}" for t in topics])
         topic_msg = (
             f"🧠 **I detected you have upcoming assignments/tests for the following topics:**\n"
@@ -764,7 +730,7 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await context.bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id, text="⚖️ 0.5B was unsure. Escalating to 3B model...")
             extracted = await _call_ollama("hf.co/unsloth/Llama-3.2-3B-Instruct-GGUF:latest")
 
-        if extracted and "NO_ALERT" not in extracted.upper():
+        if extracted and "NO_ALERT" not in extracted.upper() and "UNSURE" not in extracted.upper():
             with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "important_extracts.txt"), "a") as f:
                 f.write(f"\n--- Photo Upload ---\n{extracted}\n")
             reply = f"✅ Important text found and saved for the next digest!\n\n_Filtered preview:_\n{extracted}"
