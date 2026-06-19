@@ -139,6 +139,9 @@ async def detect_topic(message: str, chat_id: int) -> str:
         )
         topic = result.stdout.strip().lower()
         topic = re.sub(r'[^a-z0-9_]', '', topic.replace(' ', '_'))
+        if len(topic) > 30:
+            logger.warning(f"Topic name too long from flash model, falling back to 'general': {topic}")
+            return "general"
         return topic if topic else "general"
     except Exception as e:
         logger.error(f"Topic detection failed: {e}")
