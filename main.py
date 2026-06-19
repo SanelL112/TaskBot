@@ -735,9 +735,15 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 f.write(f"\n--- Photo Upload ---\n{extracted}\n")
             reply = f"✅ Important text found and saved for the next digest!\n\n_Filtered preview:_\n{extracted}"
         else:
-            reply = "🗑️ Local AI found no urgent assignments in this photo. Ignored."
+            # User specifically sent a photo, so it's important regardless of what the small model thinks.
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "important_extracts.txt"), "a") as f:
+                f.write(f"\n--- Photo Upload (Raw OCR) ---\n{ocr_text}\n")
+            reply = "⚠️ Local AI couldn't parse specific assignments, but I saved the raw text for the cloud AI to review!"
     except Exception as e:
         reply = f"❌ Local LLM connection error: {e}"
+        # Save raw OCR on error too
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "important_extracts.txt"), "a") as f:
+            f.write(f"\n--- Photo Upload (Raw OCR) ---\n{ocr_text}\n")
         
     try:
         await context.bot.edit_message_text(
