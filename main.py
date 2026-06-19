@@ -21,7 +21,7 @@ TRANSCRIPT_PATH     = os.getenv(
 )
 user_models = {}
 POLL_INTERVAL       = 2    # seconds between transcript polls
-RESPONSE_TIMEOUT    = 120  # seconds to wait for a reply
+RESPONSE_TIMEOUT    = 300  # seconds to wait for a reply
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
@@ -125,30 +125,24 @@ async def detect_topic(message: str, chat_id: int) -> str:
         f"Message: {message}"
     )
     
-    topic = "general"
     try:
-        import httpx
-        async with httpx.AsyncClient() as client:
-            response = await client.post(
-                "http://localhost:11434/api/generate",
-                json={
-                    "model": "hf.co/unsloth/Llama-3.2-3B-Instruct-GGUF:latest",
-                    "prompt": prompt,
-                    "stream": False,
-                    "options": {"temperature": 0.0}
-                },
-                timeout=45.0
-            )
-        if response.status_code == 200:
-            result = response.json().get("response", "").strip().lower()
-            # Clean up output to be a valid filename string
-            result = re.sub(r'[^a-z0-9_]', '', result.replace(' ', '_'))
-            if result:
-                topic = result
+        import subprocess
+        result = await asyncio.wait_for(
+            asyncio.get_event_loop().run_in_executor(
+                None,
+                lambda: subprocess.run(
+                    [AGENTAPI_BIN, "--model", "flash", "--dangerously-skip-permissions", "--print", prompt],
+                    capture_output=True, text=True, timeout=15
+                )
+            ),
+            timeout=20
+        )
+        topic = result.stdout.strip().lower()
+        topic = re.sub(r'[^a-z0-9_]', '', topic.replace(' ', '_'))
+        return topic if topic else "general"
     except Exception as e:
-        logger.error(f"Ollama topic detection failed: {e}")
-    
-    return topic
+        logger.error(f"Topic detection failed: {e}")
+        return "general"
 
 
 # ── Bridge logic ───────────────────────────────────────────────────────────────
@@ -213,53 +207,22 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0) -> s
     logger.info(f"agy --print model={model}: {user_message[:60]}")
     
     out = ""
-    # 1. Ask local Llama 3 Router
-    router_prompt = (
-        f"You are the Router Agent for Sanel's Personal Assistant.\n"
-        f"If the user is just chatting or asking a question that you can answer from the provided context below, respond directly with text.\n"
-        f"If the user is asking you to perform an action, schedule something, search files, read emails, or do anything requiring tools/shell commands, you MUST output exactly and only: <ROUTE_TO_PRO>\n\n"
-        f"CONTEXT: {digest_context}\n\n"
-        f"User: {user_message}"
-    )
-    
-    local_reply = ""
     try:
-        import httpx
-        async with httpx.AsyncClient(timeout=115.0) as client:
-            response = await client.post(
-                "http://localhost:11434/api/generate",
-                json={
-                    "model": "hf.co/unsloth/Llama-3.2-3B-Instruct-GGUF:latest",
-                    "prompt": router_prompt,
-                    "stream": False
-                }
-            )
-        if response.status_code == 200:
-            local_reply = response.json().get("response", "").strip()
+        result = await asyncio.wait_for(
+            asyncio.get_event_loop().run_in_executor(
+                None,
+                lambda: subprocess.run(
+                    [AGENTAPI_BIN, "--model", model, "--dangerously-skip-permissions", "--print", full_prompt],
+                    capture_output=True, text=True, timeout=RESPONSE_TIMEOUT, stdin=subprocess.DEVNULL
+                )
+            ),
+            timeout=RESPONSE_TIMEOUT + 5
+        )
+        out = result.stdout.strip()
+        if not out:
+            out = "⚠️ Assistant returned empty output. " + result.stderr[:200]
     except Exception as e:
-        logger.warning(f"Router (Llama) failed: {e}")
-
-    # 2. Check if we need to route to the heavy Pro model
-    if "<ROUTE_TO_PRO>" in local_reply or not local_reply:
-        logger.info("Routing request to heavy Antigravity PRO agent...")
-        try:
-            result = await asyncio.wait_for(
-                asyncio.get_event_loop().run_in_executor(
-                    None,
-                    lambda: subprocess.run(
-                        [AGENTAPI_BIN, "--model", "pro", "--dangerously-skip-permissions", "--print", full_prompt],
-                        capture_output=True, text=True, timeout=RESPONSE_TIMEOUT, stdin=subprocess.DEVNULL
-                    )
-                ),
-                timeout=RESPONSE_TIMEOUT + 5
-            )
-            out = result.stdout.strip()
-            if not out:
-                out = "⚠️ Pro agent returned empty output. " + result.stderr[:200]
-        except Exception as e:
-            out = f"⚠️ Pro agent timed out or failed: {e}"
-    else:
-        out = local_reply
+        out = f"⚠️ Assistant timed out or failed: {e}"
 
     # Auto-execute any <BASH>...</BASH> blocks in the response
     import re as _re
@@ -361,12 +324,17 @@ async def watchdog_check(context: ContextTypes.DEFAULT_TYPE):
     from scrapers.google_scraper import get_unread_emails, get_classroom_assignments, get_classroom_announcements
     
     logger.info("Watchdog: Scraping sources...")
+    def _run_watchdog_scrape():
+        return (
+            get_all_canvas_data(),
+            get_classroom_assignments(),
+            get_classroom_announcements(),
+            get_unread_emails(),
+            get_latest_messages("102851186")
+        )
+
     try:
-        canvas = get_all_canvas_data()
-        classroom = get_classroom_assignments()
-        classroom_ann = get_classroom_announcements()
-        gmail = get_unread_emails()
-        groupme = get_latest_messages("102851186")
+        canvas, classroom, classroom_ann, gmail, groupme = await asyncio.to_thread(_run_watchdog_scrape)
     except Exception as e:
         logger.error(f"Watchdog scrape error: {e}")
         return
@@ -480,15 +448,18 @@ async def check_updates(context: ContextTypes.DEFAULT_TYPE):
     from notion_client import add_task_to_notion, update_notion_task
     
     logger.info("Background job: Scraping sources...")
-    canvas = get_all_canvas_data()
-    classroom = get_classroom_assignments()
-    classroom_ann = get_classroom_announcements()
-    gmail = get_unread_emails()
-    groupme = get_latest_messages("102851186")
-    gdocs = get_recent_google_docs()
     
-    logger.info("Background job: Processing with AI...")
-    ai_result = process_all_sources(canvas, classroom, gmail, groupme, classroom_ann, gdocs)
+    def _run_digest():
+        c = get_all_canvas_data()
+        cl = get_classroom_assignments()
+        cla = get_classroom_announcements()
+        gm = get_unread_emails()
+        grp = get_latest_messages("102851186")
+        gd = get_recent_google_docs()
+        logger.info("Background job: Processing with AI...")
+        return process_all_sources(c, cl, gm, grp, cla, gd)
+
+    ai_result = await asyncio.to_thread(_run_digest)
     
     # 1. Notion Tasks
     new_tasks = []
