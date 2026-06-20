@@ -44,32 +44,16 @@ async def run_nightly_job(bot, chat_id):
                     text += page.extract_text() + "\n"
                     
                 if len(text.strip()) > 50:
-                    prompt = (
-                        "You are an academic tutor. Read the following text extracted from a practice worksheet or homework assignment.\n"
-                        "Generate 3 challenging practice questions based on the concepts covered in the material.\n"
-                        "At the very bottom, provide the answer key.\n\n"
-                        f"MATERIAL ({title}):\n{text[:15000]}"
-                    )
+                    # Export the extracted PDF text to the massive memory bank instead of sending a Telegram message
+                    output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "source_cache", "pdf_exports.txt")
+                    os.makedirs(os.path.dirname(output_file), exist_ok=True)
                     
-                    async with httpx.AsyncClient() as client:
-                        response = await client.post(
-                            "http://localhost:11434/api/generate",
-                            json={
-                                "model": "hf.co/unsloth/Llama-3.2-3B-Instruct-GGUF:latest",
-                                "prompt": prompt,
-                                "stream": False
-                            },
-                            timeout=300.0
-                        )
-                    
-                    if response.status_code == 200:
-                        gen_text = response.json().get("response", "").strip()
-                        msg = f"🌙 **Nightly Local Processing: {title}**\n\n{gen_text}"
-                        try:
-                            await bot.send_message(chat_id=chat_id, text=msg, disable_notification=True, parse_mode="Markdown")
-                        except Exception:
-                            await bot.send_message(chat_id=chat_id, text=msg, disable_notification=True)
-                        successful.append(item)
+                    with open(output_file, "a", encoding="utf-8") as f:
+                        f.write(f"\n\n=== EXPORTED PDF: {title} ===\n")
+                        f.write(text)
+                        
+                    logger.info(f"Successfully exported {title} to text file.")
+                    successful.append(item)
             except Exception as e:
                 logger.error(f"Failed to process PDF {title}: {e}")
                 

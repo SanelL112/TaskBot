@@ -14,11 +14,16 @@ async def consolidate_memory():
     # Gather raw text
     raw_text = ""
     
-    # 1. Read combined_summaries.txt
+    # 1. Read combined_summaries.txt and pdf_exports.txt
     summaries_file = os.path.join(source_cache_dir, "combined_summaries.txt")
     if os.path.exists(summaries_file):
         with open(summaries_file, "r") as f:
             raw_text += "\n--- DAILY SUMMARIES AND NOTES ---\n" + f.read()
+            
+    pdf_exports_file = os.path.join(source_cache_dir, "pdf_exports.txt")
+    if os.path.exists(pdf_exports_file):
+        with open(pdf_exports_file, "r") as f:
+            raw_text += "\n--- EXPORTED PDFs ---\n" + f.read()
             
     # 2. Read chat_history files
     chat_files = glob.glob(os.path.join(base_dir, "chat_history_*.txt"))
@@ -30,16 +35,15 @@ async def consolidate_memory():
         logger.info("No raw memory to consolidate tonight.")
         return
         
-    logger.info("Consolidating memory via Llama 3 8B...")
     prompt = (
-        "You are the central Memory Consolidation Engine. It is 2:00 AM. Your task is to process the following raw, messy logs from the day "
-        "(including scraped assignments, chat history, and auto-transcribed handwritten notes) and compress them into a pristine, beautifully organized 'curated brain' document.\n\n"
-        "Format your output in Markdown with the following sections:\n"
-        "- **Upcoming Deadlines & Tasks**\n"
-        "- **Current Study Topics** (What is the user currently learning based on their notes? Be specific.)\n"
-        "- **Key Insights** (Important things to remember, group drama, or overarching themes).\n\n"
-        "Discard all redundant greetings, boilerplate text, and irrelevant chatter. Be concise.\n\n"
-        f"RAW DATA:\n{raw_text[:20000]}"
+        "You are the central Memory Consolidation Engine. It is 2:00 AM. Your task is to process the following raw logs from the day "
+        "(including scraped assignments, chat history, and auto-transcribed PDFs) and create a comprehensive, highly detailed index of EVERYTHING that happened.\n\n"
+        "Do NOT summarize or omit details. Instead, format your output as a detailed, bulleted index with the following sections:\n"
+        "- **Comprehensive Daily Index** (List every single distinct event, conversation, file, concept, and insight found in the logs.)\n"
+        "- **Upcoming Deadlines & Tasks** (List all extracted deadlines or action items.)\n"
+        "- **Study Topics & Knowledge** (List all academic concepts covered in the notes/assignments.)\n\n"
+        "Be completely exhaustive. Include details, dates, and specifics.\n\n"
+        f"RAW DATA:\n{raw_text[:30000]}"
     )
     
     try:
@@ -47,14 +51,14 @@ async def consolidate_memory():
             response = await client.post(
                 "http://localhost:11434/api/generate",
                 json={
-                    "model": "llama3.1",
+                    "model": "llama3.2",
                     "prompt": prompt,
                     "stream": False,
                     "options": {
                         "temperature": 0.2
                     }
                 },
-                timeout=7200.0 # Heavy generation could take up to 2 hours on CPU
+                timeout=3600.0
             )
             
         if response.status_code == 200:
@@ -63,7 +67,7 @@ async def consolidate_memory():
             raise Exception(f"Ollama returned {response.status_code}")
             
     except Exception as e:
-        logger.warning(f"Local Llama 3.1 failed to consolidate memory ({e}). Falling back to secure local G1 Flash to protect PII...")
+        logger.warning(f"Local Llama 3.2 failed to consolidate memory ({e}). Falling back to secure local G1 Flash to protect PII...")
         from ai_processor import call_agy
         brain = call_agy(prompt, timeout=180, model="flash")
 
@@ -73,31 +77,47 @@ async def consolidate_memory():
 
     try:
             brain_file = os.path.join(base_dir, "curated_brain.md")
-            existing_brain = ""
-            if os.path.exists(brain_file):
-                with open(brain_file, "r") as f:
-                    existing_brain = f.read()
             
-            final_brain = brain
-            if existing_brain:
-                # Merge old and new
-                merge_prompt = f"Merge the old brain and new daily insights into a single cohesive document.\n\nOLD BRAIN:\n{existing_brain}\n\nNEW INSIGHTS:\n{brain}"
-                try:
-                    async with httpx.AsyncClient() as client:
-                        resp2 = await client.post("http://localhost:11434/api/generate", json={"model": "llama3.1", "prompt": merge_prompt, "stream": False}, timeout=7200.0)
-                        if resp2.status_code == 200:
-                            final_brain = resp2.json().get("response", "").strip()
-                        else:
-                            raise Exception("Ollama merge failed")
-                except Exception as e:
-                    logger.warning(f"Local Llama 3.1 failed to merge brain ({e}). Falling back to secure local G1 Flash...")
-                    from ai_processor import call_agy
-                    merged = call_agy(merge_prompt, timeout=180, model="flash")
-                    if merged: final_brain = merged
-                        
-            with open(brain_file, "w") as f:
-                f.write(final_brain)
+            import datetime
+            today_str = datetime.datetime.now().strftime("%A, %B %d, %Y")
+            
+            with open(brain_file, "a") as f:
+                f.write(f"\n\n# Daily Index: {today_str}\n\n")
+                f.write(brain)
                 
+            # Trigger Deep-Dive Online Researcher
+            logger.info("Triggering offline topic researcher...")
+            try:
+                import subprocess
+                subprocess.run(["python3", os.path.join(base_dir, "overnight_researcher.py")], timeout=1800)
+            except Exception as e:
+                logger.error(f"Overnight researcher failed: {e}")
+                
+            # 3. Process the Daily PDF Queue (Generate Study Guides)
+            logger.info("Processing the nightly PDF queue to generate study guides...")
+            try:
+                subprocess.run(["python3", os.path.join(base_dir, "scrapers", "nightly_processor.py")], timeout=3600)
+            except Exception as e:
+                logger.error(f"Nightly processor failed: {e}")
+                
+            # 4. Massive Historical Indexing
+            logger.info("Running massive historical data export...")
+            try:
+                from scrapers.historical_export import run_all_exports
+                run_all_exports()
+            except Exception as e:
+                logger.error(f"Historical export failed: {e}")
+                
+            logger.info("Running nightly massive indexer via local 8B model...")
+            try:
+                # Run it asynchronously
+                from scrapers.nightly_indexer import run_indexing
+                await run_indexing()
+            except Exception as e:
+                logger.error(f"Nightly indexer failed: {e}")
+                
+            logger.info("Daily pipeline complete.")
+
             # WIPE RAW LOGS
             if os.path.exists(summaries_file):
                 os.remove(summaries_file)
