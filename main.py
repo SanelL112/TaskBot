@@ -150,7 +150,7 @@ async def detect_topic(message: str, chat_id: int) -> str:
 
 # ── Bridge logic ───────────────────────────────────────────────────────────────
 
-async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0) -> str:
+async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0, context=None) -> str:
     """Uses agy --print for a direct response. Works standalone on Debian."""
     try:
         with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "latest_digest.txt"), "r") as f:
@@ -467,22 +467,37 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0) -> s
             "Speak directly to the user. Do not use any bash tags. Keep it concise."
             f"{custom_instructions}"
         )
-        try:
-            summary_result = await asyncio.wait_for(
-                asyncio.get_event_loop().run_in_executor(
-                    None,
-                    lambda: subprocess.run(
-                        [AGENTAPI_BIN, "--model", "flash_lite", "--dangerously-skip-permissions", "--print", summary_prompt],
-                        capture_output=True, text=True, timeout=45, stdin=subprocess.DEVNULL
-                    )
-                ),
-                timeout=50
-            )
-            summary_text = summary_result.stdout.strip()
-            if summary_text:
-                out += f"\n\n🤖 **Verification:**\n{summary_text}"
-        except Exception as e:
-            logger.error(f"Summary agent timeout or error: {e}")
+        async def _run_verification_bg(prompt_text, chat_id_to_notify):
+            try:
+                # Use Owl Alpha as requested, taking as much time as needed (up to 300s)
+                res = await asyncio.wait_for(
+                    asyncio.get_event_loop().run_in_executor(
+                        None,
+                        lambda: subprocess.run(
+                            [AGENTAPI_BIN, "--model", "openrouter:openrouter/owl-alpha", "--dangerously-skip-permissions", "--print", prompt_text],
+                            capture_output=True, text=True, timeout=300, stdin=subprocess.DEVNULL
+                        )
+                    ),
+                    timeout=310
+                )
+                summary_text = res.stdout.strip()
+                if summary_text:
+                    await context.bot.send_message(chat_id=chat_id_to_notify, text=f"🤖 **Verification (Owl Alpha):**\n{summary_text}", parse_mode="Markdown")
+            except Exception as e:
+                logger.error(f"Verification Agent timeout or error: {e}")
+
+        if context:
+            # Tell the user we are verifying in the background
+            asyncio.create_task(_run_verification_bg(summary_prompt, chat_id))
+        else:
+            # Fallback for CLI standalone mode
+            try:
+                summary_result = subprocess.run([AGENTAPI_BIN, "--model", "openrouter:openrouter/owl-alpha", "--dangerously-skip-permissions", "--print", summary_prompt], capture_output=True, text=True, timeout=300, stdin=subprocess.DEVNULL)
+                summary_text = summary_result.stdout.strip()
+                if summary_text:
+                    out += f"\n\n🤖 **Verification:**\n{summary_text}"
+            except Exception as e:
+                logger.error(f"Summary agent error: {e}")
 
     # Append turn to custom history file (with rotation)
     with open(history_file, "a") as f:
@@ -795,7 +810,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     try:
         async with message_lock:
-            reply = await send_to_antigravity_and_wait(user_text, chat_id)
+            reply = await send_to_antigravity_and_wait(user_text, chat_id, context)
 
         # Delete the thinking message
         try:
