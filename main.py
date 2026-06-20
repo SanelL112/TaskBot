@@ -637,16 +637,48 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def model_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
     args = context.args
-    valid = ["flash", "pro", "flash_lite"]
-    if not args or (args[0] not in valid and not args[0].startswith("openrouter:")):
+    
+    FREE_ALIASES = {
+        "ultra": "openrouter:nvidia/nemotron-3-ultra:free",
+        "nex": "openrouter:nexagi/nex-n2-pro:free",
+        "laguna": "openrouter:poolside/laguna-m.1:free",
+        "gpt-oss": "openrouter:openai/gpt-oss-120b:free",
+        "gemma": "openrouter:google/gemma-4-31b:free",
+        "cohere": "openrouter:cohere/north-mini-code:free"
+    }
+    valid_local = ["flash", "pro", "flash_lite"]
+    
+    if not args:
         current = user_models.get(chat_id, "flash")
+        display_current = current.replace("openrouter:", "") if current.startswith("openrouter:") else current
+        alias_list = " | ".join([f"`/model {k}`" for k in FREE_ALIASES.keys()])
         await update.message.reply_text(
-            f"Current model: *{current}*\n\nUsage: `/model flash` | `/model pro` | `/model openrouter:nvidia/nemotron-4-340b-instruct`",
+            f"Current model: *{display_current}*\n\n"
+            f"*Private (G1) Models:* `/model flash` | `/model pro`\n"
+            f"*Free OpenRouter Models:* {alias_list}\n\n"
+            f"_(Note: OpenRouter endpoints are strictly hardcoded to the :free tier to guarantee zero charges)_",
             parse_mode="Markdown"
         )
         return
-    user_models[chat_id] = args[0]
-    await update.message.reply_text(f"Model switched to *{args[0]}* ✅", parse_mode="Markdown")
+        
+    requested = args[0].lower()
+    
+    # 1. Map alias to full OpenRouter model
+    if requested in FREE_ALIASES:
+        requested = FREE_ALIASES[requested]
+        
+    # 2. Check validity and ENFORCE :free safety
+    if requested.startswith("openrouter:"):
+        if not requested.endswith(":free"):
+            requested += ":free" # Force the free endpoint so it never costs money
+    elif requested not in valid_local:
+        await update.message.reply_text("❌ Invalid model choice. Type `/model` to see available options.")
+        return
+        
+    user_models[chat_id] = requested
+    
+    display_name = requested.replace("openrouter:", "") if requested.startswith("openrouter:") else requested
+    await update.message.reply_text(f"Model safely switched to *{display_name}* ✅", parse_mode="Markdown")
 
 
 async def summary_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
