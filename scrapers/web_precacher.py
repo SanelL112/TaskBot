@@ -93,8 +93,9 @@ async def pre_cache_web():
                 sum_prompt = f"Summarize the following educational text about {topic}. Extract key formulas, facts, and examples.\n\nTEXT:\n{text[:10000]}"
                 summary = await _call_or("nvidia/nemotron-3-ultra-550b-a55b:free", sum_prompt)
                 if not summary or any(p in summary.lower()[:50] for p in ["i cannot", "i'm sorry", "i don't know", "as an ai"]):
-                    logger.warning("Nemotron failed summarization, falling back to Owl Alpha...")
-                    fallback = await _call_or("openrouter/owl-alpha", sum_prompt)
+                    logger.warning("Nemotron failed summarization, falling back to local G1 Flash...")
+                    from ai_processor import call_agy
+                    fallback = call_agy(sum_prompt, timeout=120, model="flash")
                     if fallback: summary = fallback
                 if not summary: summary = "Summary unavailable."
                 

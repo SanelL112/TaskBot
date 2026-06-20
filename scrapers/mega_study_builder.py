@@ -127,8 +127,9 @@ def generate_mega_guide(topic: str, pdf_text: str = "") -> str:
     guide_content = _call_or("nvidia/nemotron-3-ultra-550b-a55b:free")
     
     if not guide_content or any(p in guide_content.lower()[:50] for p in ["i cannot", "i'm sorry", "i don't know", "as an ai"]):
-        logger.warning("Nemotron failed or refused to build study guide. Offloading to Owl Alpha 2.4T...")
-        fallback = _call_or("openrouter/owl-alpha")
+        logger.warning("Nemotron failed or refused to build study guide. Offloading to local G1 Flash...")
+        from ai_processor import call_agy
+        fallback = call_agy(prompt, timeout=180, model="flash")
         if fallback:
             guide_content = fallback
     

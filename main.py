@@ -273,17 +273,25 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0) -> s
             fail_phrases = ["i cannot", "i'm sorry", "i don't know", "as an ai", "unable to", "i apologize"]
             if not out or (isinstance(out, str) and any(p in out.lower()[:50] for p in fail_phrases)):
                 if or_model_name == "nvidia/nemotron-3-ultra-550b-a55b:free":
-                    logger.warning("Nemotron failed or refused. Falling back to Owl Alpha 2.4T...")
-                    fallback_out = await _call_or("openrouter/owl-alpha")
-                    if fallback_out:
-                        out = fallback_out
+                    logger.warning("Nemotron failed or refused. Falling back to local G1 Flash...")
+                    result = await asyncio.wait_for(
+                        asyncio.get_event_loop().run_in_executor(
+                            None,
+                            lambda: subprocess.run([AGENTAPI_BIN, "--model", "flash", "--dangerously-skip-permissions", "--print", full_prompt], capture_output=True, text=True, timeout=RESPONSE_TIMEOUT, stdin=subprocess.DEVNULL)
+                        ), timeout=RESPONSE_TIMEOUT + 5)
+                    out = result.stdout.strip()
         except Exception as e:
             if or_model_name == "nvidia/nemotron-3-ultra-550b-a55b:free":
-                logger.warning(f"Nemotron exception ({e}). Falling back to Owl Alpha 2.4T...")
+                logger.warning(f"Nemotron exception ({e}). Falling back to local G1 Flash...")
                 try:
-                    out = await _call_or("openrouter/owl-alpha")
+                    result = await asyncio.wait_for(
+                        asyncio.get_event_loop().run_in_executor(
+                            None,
+                            lambda: subprocess.run([AGENTAPI_BIN, "--model", "flash", "--dangerously-skip-permissions", "--print", full_prompt], capture_output=True, text=True, timeout=RESPONSE_TIMEOUT, stdin=subprocess.DEVNULL)
+                        ), timeout=RESPONSE_TIMEOUT + 5)
+                    out = result.stdout.strip()
                 except Exception as e2:
-                    out = f"⚠️ OpenRouter Exception: {e2}"
+                    out = f"⚠️ Fallback to G1 Exception: {e2}"
             else:
                 out = f"⚠️ OpenRouter Exception: {e}"
                 
@@ -639,6 +647,11 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_text = update.message.text
     chat_id   = update.effective_chat.id
 
+    if user_text.strip().lower() == "models":
+        context.args = []
+        await model_command(update, context)
+        return
+
     if update.message.reply_to_message and update.message.reply_to_message.text:
         reply_text = update.message.reply_to_message.text
         user_text = f"[In reply to your message: \"{reply_text}\"]\n\n{user_text}"
@@ -692,18 +705,32 @@ async def model_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     FREE_ALIASES = {
         "llama3.3": "openrouter:meta-llama/llama-3.3-70b-instruct:free",
+        "llama3.2": "openrouter:meta-llama/llama-3.2-3b-instruct:free",
         "hermes": "openrouter:nousresearch/hermes-3-llama-3.1-405b:free",
         "ultra": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+        "nemotron-super": "openrouter:nvidia/nemotron-3-super-120b-a12b:free",
+        "nemotron-safety": "openrouter:nvidia/nemotron-3.5-content-safety:free",
+        "nemotron-nano": "openrouter:nvidia/nemotron-3-nano-30b-a3b:free",
+        "nemotron-omni": "openrouter:nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+        "nemotron-vl": "openrouter:nvidia/nemotron-nano-12b-v2-vl:free",
+        "nemotron-9b": "openrouter:nvidia/nemotron-nano-9b-v2:free",
         "owl": "openrouter:openrouter/owl-alpha",
         "nex": "openrouter:nex-agi/nex-n2-pro:free",
         "laguna": "openrouter:poolside/laguna-m.1:free",
+        "laguna-xs": "openrouter:poolside/laguna-xs.2:free",
         "gpt-oss": "openrouter:openai/gpt-oss-120b:free",
+        "gpt-oss-20b": "openrouter:openai/gpt-oss-20b:free",
         "gemma": "openrouter:google/gemma-4-31b-it:free",
+        "gemma-26b": "openrouter:google/gemma-4-26b-a4b-it:free",
         "cohere": "openrouter:cohere/north-mini-code:free",
         "qwen-next": "openrouter:qwen/qwen3-next-80b-a3b-instruct:free",
         "qwen-coder": "openrouter:qwen/qwen3-coder:free",
         "lyria": "openrouter:google/lyria-3-pro-preview",
-        "liquid": "openrouter:liquid/lfm-2.5-1.2b-thinking:free"
+        "lyria-clip": "openrouter:google/lyria-3-clip-preview",
+        "liquid": "openrouter:liquid/lfm-2.5-1.2b-thinking:free",
+        "liquid-instruct": "openrouter:liquid/lfm-2.5-1.2b-instruct:free",
+        "dolphin": "openrouter:cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+        "free": "openrouter:openrouter/free"
     }
     valid_local = ["auto", "flash", "pro", "flash_lite"]
     
