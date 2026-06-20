@@ -63,21 +63,12 @@ async def consolidate_memory():
             raise Exception(f"Ollama returned {response.status_code}")
             
     except Exception as e:
-        logger.warning(f"Local Llama 3.1 failed to consolidate memory ({e}). Falling back to Nemotron...")
-        from web_precacher import _call_or
-        brain = asyncio.run(_call_or("nvidia/nemotron-3-ultra-550b-a55b:free", prompt))
-        if not brain or any(p in brain.lower()[:50] for p in ["i cannot", "i'm sorry", "i don't know", "as an ai"]):
-            logger.warning("Nemotron failed memory consolidation. Falling back to Owl Alpha...")
-            fallback = asyncio.run(_call_or("openrouter/owl-alpha", prompt))
-            if fallback and not any(p in fallback.lower()[:50] for p in ["i cannot", "i'm sorry", "i don't know", "as an ai"]):
-                brain = fallback
-            else:
-                logger.warning("Owl Alpha failed memory consolidation. Falling back to local G1 Flash...")
-                from ai_processor import call_agy
-                brain = call_agy(prompt, timeout=180, model="flash")
+        logger.warning(f"Local Llama 3.1 failed to consolidate memory ({e}). Falling back to secure local G1 Flash to protect PII...")
+        from ai_processor import call_agy
+        brain = call_agy(prompt, timeout=180, model="flash")
 
     if not brain:
-        logger.error("All models failed to consolidate memory.")
+        logger.error("All local models failed to consolidate memory. Aborting to protect PII.")
         return
 
     try:
@@ -99,15 +90,9 @@ async def consolidate_memory():
                         else:
                             raise Exception("Ollama merge failed")
                 except Exception as e:
-                    logger.warning(f"Local Llama 3.1 failed to merge brain ({e}). Falling back to Nemotron...")
-                    from web_precacher import _call_or
-                    merged = asyncio.run(_call_or("nvidia/nemotron-3-ultra-550b-a55b:free", merge_prompt))
-                    if not merged or any(p in merged.lower()[:50] for p in ["i cannot", "i'm sorry"]):
-                        fallback = asyncio.run(_call_or("openrouter/owl-alpha", merge_prompt))
-                        if fallback and not any(p in fallback.lower()[:50] for p in ["i cannot", "i'm sorry"]): merged = fallback
-                        else:
-                            from ai_processor import call_agy
-                            merged = call_agy(merge_prompt, timeout=180, model="flash")
+                    logger.warning(f"Local Llama 3.1 failed to merge brain ({e}). Falling back to secure local G1 Flash...")
+                    from ai_processor import call_agy
+                    merged = call_agy(merge_prompt, timeout=180, model="flash")
                     if merged: final_brain = merged
                         
             with open(brain_file, "w") as f:
