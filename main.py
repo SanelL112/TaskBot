@@ -430,7 +430,36 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0) -> s
         output = _run_bash(cmd)
         return f"\n💻 `{cmd}`\n```\n{output}\n```"
 
+    original_out = out
     out = _re.sub(r'<BASH>(.*?)</BASH>', _replace_bash, out, flags=_re.DOTALL)
+    out = _re.sub(r'\[BASH\](.*?)\[/BASH\]', _replace_bash, out, flags=_re.DOTALL)
+
+    if original_out != out and "\n```\n" in out:
+        logger.info("Command executed. Dispatching Summary Agent (flash)...")
+        summary_prompt = (
+            "You are a Summary AI Agent. You just executed a background system command on behalf of the user.\n\n"
+            f"USER REQUEST:\n{user_message}\n\n"
+            f"COMMAND AND OUTPUT:\n{out[-3000:]}\n\n"
+            "Your job is to read the output of the command you just ran, and give the user a quick, natural summary "
+            "confirming whether the task succeeded, failed, or what the exact result was. "
+            "Speak directly to the user. Do not use any bash tags. Keep it concise."
+        )
+        try:
+            summary_result = await asyncio.wait_for(
+                asyncio.get_event_loop().run_in_executor(
+                    None,
+                    lambda: subprocess.run(
+                        [AGENTAPI_BIN, "--model", "flash", "--dangerously-skip-permissions", "--print", summary_prompt],
+                        capture_output=True, text=True, timeout=30, stdin=subprocess.DEVNULL
+                    )
+                ),
+                timeout=35
+            )
+            summary_text = summary_result.stdout.strip()
+            if summary_text:
+                out += f"\n\n🤖 **Verification:**\n{summary_text}"
+        except Exception as e:
+            logger.error(f"Summary agent timeout or error: {e}")
 
     # Append turn to custom history file (with rotation)
     with open(history_file, "a") as f:
