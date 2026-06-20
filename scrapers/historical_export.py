@@ -22,8 +22,28 @@ def get_google_creds():
         return Credentials.from_authorized_user_file(TOKEN_PATH, SCOPES)
     return None
 
+STATE_FILE = os.path.join(ARCHIVE_DIR, 'export_state.json')
+DELTA_FILE = os.path.join(ARCHIVE_DIR, 'delta_export.txt')
+
+def load_state():
+    if os.path.exists(STATE_FILE):
+        try:
+            with open(STATE_FILE, "r") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return {"google_docs": [], "classroom": [], "canvas": [], "gmail": []}
+
+def save_state(state):
+    with open(STATE_FILE, "w") as f:
+        json.dump(state, f)
+
+def append_to_delta(text):
+    with open(DELTA_FILE, "a") as f:
+        f.write(text + "\n")
+
 def export_all_google_docs():
-    logger.info("Exporting ALL Google Docs...")
+    logger.info("Exporting NEW Google Docs...")
     creds = get_google_creds()
     if not creds: return
     
@@ -31,24 +51,30 @@ def export_all_google_docs():
     docs_service = build('docs', 'v1', credentials=creds, cache_discovery=False)
     
     query = "mimeType='application/vnd.google-apps.document' and trashed=false"
-    
-    docs_text = []
     page_token = None
+    state = load_state()
+    new_docs = 0
     
     while True:
         results = drive_service.files().list(q=query, fields="nextPageToken, files(id, name)", pageSize=100, pageToken=page_token).execute()
         items = results.get('files', [])
         
         for item in items:
+            doc_id = item['id']
+            if doc_id in state["google_docs"]:
+                continue
+                
             try:
-                doc = docs_service.documents().get(documentId=item['id']).execute()
+                doc = docs_service.documents().get(documentId=doc_id).execute()
                 content = ""
                 for element in doc.get('body', {}).get('content', []):
                     if 'paragraph' in element:
                         for pe in element['paragraph']['elements']:
                             if 'textRun' in pe:
                                 content += pe['textRun']['content']
-                docs_text.append(f"--- Google Doc: {item['name']} ---\n{content}\n")
+                append_to_delta(f"--- Google Doc: {item['name']} ---\n{content}\n")
+                state["google_docs"].append(doc_id)
+                new_docs += 1
             except Exception as e:
                 pass
                 
@@ -56,40 +82,43 @@ def export_all_google_docs():
         if not page_token:
             break
             
-    with open(os.path.join(ARCHIVE_DIR, "google_docs_export.txt"), "w") as f:
-        f.write("\n".join(docs_text))
-    logger.info(f"Exported {len(docs_text)} Google Docs.")
+    save_state(state)
+    logger.info(f"Exported {new_docs} NEW Google Docs.")
 
 def export_all_classroom():
-    logger.info("Exporting ALL Google Classroom data...")
+    logger.info("Exporting NEW Google Classroom data...")
     creds = get_google_creds()
     if not creds: return
     
     service = build('classroom', 'v1', credentials=creds)
     courses = service.courses().list(courseStates=['ACTIVE']).execute().get('courses', [])
+    state = load_state()
     
-    dump = []
     for course in courses:
-        dump.append(f"=== CLASSROOM COURSE: {course['name']} ===")
         # Announcements
         try:
             announcements = service.courses().announcements().list(courseId=course['id']).execute().get('announcements', [])
             for a in announcements:
-                dump.append(f"Announcement: {a.get('text', '')}")
+                a_id = a.get('id')
+                if a_id and a_id not in state["classroom"]:
+                    append_to_delta(f"=== CLASSROOM COURSE: {course['name']} ===\nAnnouncement: {a.get('text', '')}")
+                    state["classroom"].append(a_id)
         except Exception: pass
         
         # Coursework
         try:
             works = service.courses().courseWork().list(courseId=course['id']).execute().get('courseWork', [])
             for w in works:
-                dump.append(f"Assignment: {w.get('title', '')}\nDesc: {w.get('description', '')}")
+                w_id = w.get('id')
+                if w_id and w_id not in state["classroom"]:
+                    append_to_delta(f"=== CLASSROOM COURSE: {course['name']} ===\nAssignment: {w.get('title', '')}\nDesc: {w.get('description', '')}")
+                    state["classroom"].append(w_id)
         except Exception: pass
         
-    with open(os.path.join(ARCHIVE_DIR, "classroom_export.txt"), "w") as f:
-        f.write("\n".join(dump))
+    save_state(state)
 
 def export_all_canvas():
-    logger.info("Exporting ALL Canvas data...")
+    logger.info("Exporting NEW Canvas data...")
     load_dotenv(os.path.join(BASE_DIR, '..', '.env'))
     API_URL = os.getenv("CANVAS_API_URL", "https://canvas.instructure.com")
     API_TOKEN = os.getenv("CANVAS_API_TOKEN")
@@ -98,46 +127,60 @@ def export_all_canvas():
     canvas = Canvas(API_URL, API_TOKEN)
     user = canvas.get_current_user()
     courses = list(user.get_favorite_courses())
+    state = load_state()
     
-    dump = []
     for c in courses:
-        dump.append(f"=== CANVAS COURSE: {c.name} ===")
         try:
             for assgn in c.get_assignments():
-                dump.append(f"Assignment: {getattr(assgn, 'name', '')} (Due: {getattr(assgn, 'due_at', '')})")
-                desc = getattr(assgn, 'description', '')
-                if desc:
-                    # Strip basic HTML tags
-                    import re
-                    clean = re.sub('<[^<]+?>', '', desc)
-                    dump.append(f"Description: {clean}")
-        except Exception: pass
-        try:
-            for page in c.get_pages():
-                try:
-                    p = c.get_page(page.url)
-                    clean = re.sub('<[^<]+?>', '', getattr(p, 'body', ''))
-                    dump.append(f"Page: {page.title}\n{clean}")
-                except Exception: pass
+                a_id = str(getattr(assgn, 'id', ''))
+                if a_id and a_id not in state["canvas"]:
+                    desc = getattr(assgn, 'description', '')
+                    clean = ""
+                    if desc:
+                        import re
+                        clean = re.sub('<[^<]+?>', '', desc)
+                    append_to_delta(f"=== CANVAS COURSE: {c.name} ===\nAssignment: {getattr(assgn, 'name', '')} (Due: {getattr(assgn, 'due_at', '')})\nDescription: {clean}")
+                    state["canvas"].append(a_id)
         except Exception: pass
         
-    with open(os.path.join(ARCHIVE_DIR, "canvas_export.txt"), "w") as f:
-        f.write("\n".join(dump))
+        try:
+            for page in c.get_pages():
+                p_id = str(getattr(page, 'url', ''))
+                if p_id and p_id not in state["canvas"]:
+                    try:
+                        p = c.get_page(p_id)
+                        import re
+                        clean = re.sub('<[^<]+?>', '', getattr(p, 'body', ''))
+                        append_to_delta(f"=== CANVAS COURSE: {c.name} ===\nPage: {page.title}\n{clean}")
+                        state["canvas"].append(p_id)
+                    except Exception: pass
+        except Exception: pass
+        
+    save_state(state)
 
 def export_all_gmail():
-    logger.info("Exporting ALL recent Gmail...")
+    logger.info("Exporting NEW Gmail...")
     creds = get_google_creds()
     if not creds: return
     
     service = build('gmail', 'v1', credentials=creds)
-    # Pull the last 500 emails to serve as historical context
     results = service.users().messages().list(userId='me', maxResults=500).execute()
     messages = results.get('messages', [])
+    state = load_state()
     
-    dump = []
     for msg in messages:
-        try:
-            msg_data = service.users().messages().get(userId='me', id=msg['id'], format='metadata', metadataHeaders=['Subject', 'From', 'Date']).execute()
+        m_id = msg['id']
+        if m_id not in state["gmail"]:
+            try:
+                msg_data = service.users().messages().get(userId='me', id=m_id, format='metadata', metadataHeaders=['Subject', 'From', 'Date']).execute()
+                headers = msg_data['payload']['headers']
+                subject = next((h['value'] for h in headers if h['name'] == 'Subject'), 'No Subject')
+                sender = next((h['value'] for h in headers if h['name'] == 'From'), 'Unknown Sender')
+                append_to_delta(f"Email from {sender}: {subject}")
+                state["gmail"].append(m_id)
+            except Exception: pass
+            
+    save_state(state)
             headers = msg_data['payload']['headers']
             subject = next((h['value'] for h in headers if h['name'] == 'Subject'), 'No Subject')
             sender = next((h['value'] for h in headers if h['name'] == 'From'), 'Unknown Sender')
