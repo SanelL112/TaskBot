@@ -1087,7 +1087,16 @@ if __name__ == "__main__":
     # Auto-start the background 4-hour digest task for the user on boot
     SANEL_CHAT_ID = 8534649457
     job_queue = app.job_queue
-    job_queue.run_repeating(check_updates, interval=14400, first=14400, chat_id=SANEL_CHAT_ID, name=f"{SANEL_CHAT_ID}_digest")
+    
+    import time
+    try:
+        last_mtime = os.path.getmtime(os.path.join(os.path.dirname(os.path.abspath(__file__)), "latest_digest.txt"))
+        elapsed = time.time() - last_mtime
+        time_until_next = max(5, int(14400 - elapsed))
+    except Exception:
+        time_until_next = 5
+        
+    job_queue.run_repeating(check_updates, interval=14400, first=time_until_next, chat_id=SANEL_CHAT_ID, name=f"{SANEL_CHAT_ID}_digest")
     
     # Auto-start the 30-minute watchdog
     job_queue.run_repeating(watchdog_check, interval=1800, first=1800, chat_id=SANEL_CHAT_ID, name=f"{SANEL_CHAT_ID}_watchdog")
