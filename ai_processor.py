@@ -176,7 +176,7 @@ def call_local_llm(prompt: str) -> str:
             logger.error(f"Ollama connection error for {model_name}: {e}")
             return ""
 
-    response = _call("qwen2:0.5b")
+    response = _call("hf.co/Qwen/Qwen2-0.5B-Instruct-GGUF:latest")
     
     if "UNSURE" in response.upper():
         logger.info("Qwen2:0.5b was UNSURE. Falling back to Llama 3.2 3B GGUF...")

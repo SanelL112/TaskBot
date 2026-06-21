@@ -48,7 +48,7 @@ async def consolidate_memory():
             response = await client.post(
                 "http://localhost:11434/api/generate",
                 json={
-                    "model": "llama3.1",
+                    "model": "hf.co/unsloth/Meta-Llama-3.1-8B-Instruct-GGUF:latest",
                     "prompt": prompt,
                     "stream": False,
                     "options": {
