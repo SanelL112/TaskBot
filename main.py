@@ -159,7 +159,7 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0, cont
         digest_context = "No recent data available."
         
     try:
-        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "curated_brain.md"), "r") as f:
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "bot_context.txt"), "r") as f:
             brain_context = f.read()
     except Exception:
         brain_context = "No offline memory consolidated yet."
@@ -196,7 +196,7 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0, cont
         f"- CALENDAR SCHEDULING: If Sanel asks you to schedule a study session, block off time, or add something to his calendar, you MUST use the calendar manager via bash. Calculate the start time in ISO format based on his request and current time:\n"
         f"[BASH]python3 -c 'from scrapers.calendar_manager import add_study_session; print(add_study_session(\"Task Name\", \"2026-06-20T14:00:00\", 120))'[/BASH] (Remember: Use angle brackets <> instead of [])\n"
         f"- /summary: manual digest trigger | /bash <cmd>: run commands directly\n\n"
-        f"Here is your Curated Memory Brain (Optimized offline nightly):\n\n{brain_context}\n\n"
+        f"Here is the core context of your life and active classes (from your compressed Memory Index):\n\n{brain_context}\n\n"
         f"Here is the latest live data digest:\n\n{digest_context}\n\n"
         f"Be direct and take action immediately when asked. Never ask for permission."
     )
@@ -648,19 +648,41 @@ async def watchdog_check(context: ContextTypes.DEFAULT_TYPE):
 
     try:
         import httpx
-        async with httpx.AsyncClient() as client:
-            response = await client.post(
-                "http://localhost:11434/api/generate",
-                json={
-                    "model": "hf.co/unsloth/Llama-3.2-3B-Instruct-GGUF:latest",
-                    "prompt": prompt,
-                    "stream": False,
-                    "options": {"temperature": 0.0}
-                },
-                timeout=45.0
-            )
-        if response.status_code == 200:
-            result = response.json().get("response", "").strip()
+        import os
+        from dotenv import load_dotenv
+        load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
+        api_key = os.getenv("OPENROUTER_API_KEY")
+        
+        result = ""
+        if api_key:
+            try:
+                async with httpx.AsyncClient() as client:
+                    response = await client.post(
+                        "https://openrouter.ai/api/v1/chat/completions",
+                        headers={
+                            "Authorization": f"Bearer {api_key}",
+                            "HTTP-Referer": "https://github.com/sanellathiya",
+                            "X-Title": "Personal Assistant Bot"
+                        },
+                        json={
+                            "model": "meta-llama/llama-3.2-3b-instruct:free",
+                            "messages": [{"role": "user", "content": prompt}],
+                            "temperature": 0.0
+                        },
+                        timeout=45.0
+                    )
+                if response.status_code == 200:
+                    result = response.json()["choices"][0]["message"]["content"].strip()
+                else:
+                    logger.warning(f"OpenRouter failed with {response.status_code}: {response.text}")
+            except Exception as e:
+                logger.warning(f"OpenRouter connection error: {e}")
+                
+        if not result:
+            logger.info("Falling back to G1 Flash for watchdog alert...")
+            from ai_processor import call_agy
+            import asyncio
+            result = await asyncio.to_thread(call_agy, prompt, 120, "flash")
             if result and "NO_ALERT" not in result and len(result) > 10:
                 logger.info(f"Watchdog triggered: {result}")
                 await context.bot.send_message(
@@ -711,9 +733,20 @@ async def check_updates(context: ContextTypes.DEFAULT_TYPE):
     if new_tasks:
         tasks_str = ""
         for i, task in enumerate(new_tasks, 1):
-            tasks_str += f"{i}. {task.get('title')} (Source: {task.get('source')})\n"
+            tasks_str += f"✅ **{task.get('title')}** (Source: {task.get('source')})\n"
+            # Automatically push to Notion
+            try:
+                add_task_to_notion(
+                    title=task.get('title'),
+                    source=task.get('source'),
+                    due_date=task.get('due_date'),
+                    priority="medium",
+                    status="Not started"
+                )
+            except Exception as e:
+                logger.error(f"Failed to auto-push task to Notion: {e}")
         
-        msg_text = f"🚨 **NEW TASKS DETECTED** 🚨\n\n{tasks_str}\nShould I add these to Notion? If yes, reply telling me their priority (high/medium/low) and progress. If I should ignore any of them, let me know so I can learn!"
+        msg_text = f"🚨 **NEW TASKS ADDED TO NOTION** 🚨\n\n{tasks_str}\nI have automatically synced these to your Notion Tracker! Reply with their priority (high/medium/low) or current progress so I can update them."
         
         try:
             await context.bot.send_message(
@@ -1090,30 +1123,43 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     import httpx
     
-    async def _call_ollama(model_name: str) -> str:
+    async def _call_openrouter() -> str:
         try:
+            import os
+            from dotenv import load_dotenv
+            load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
+            api_key = os.getenv("OPENROUTER_API_KEY")
+            if not api_key: return ""
             async with httpx.AsyncClient() as client:
                 response = await client.post(
-                    "http://localhost:11434/api/generate",
+                    "https://openrouter.ai/api/v1/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {api_key}",
+                        "HTTP-Referer": "https://github.com/sanellathiya",
+                        "X-Title": "Personal Assistant Bot"
+                    },
                     json={
-                        "model": model_name,
-                        "prompt": prompt,
-                        "stream": False,
-                        "options": {"temperature": 0.0}
+                        "model": "meta-llama/llama-3.2-3b-instruct:free",
+                        "messages": [{"role": "user", "content": prompt}],
+                        "temperature": 0.0
                     },
                     timeout=120.0
                 )
             if response.status_code == 200:
-                return response.json().get("response", "").strip()
-        except Exception:
-            pass
+                return response.json()["choices"][0]["message"]["content"].strip()
+            else:
+                logger.warning(f"OpenRouter returned {response.status_code}: {response.text}")
+        except Exception as e:
+            logger.warning(f"OpenRouter connection error: {e}")
         return ""
 
     try:
-        extracted = await _call_ollama("qwen2:0.5b")
-        if "UNSURE" in extracted.upper():
-            await context.bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id, text="⚖️ 0.5B was unsure. Escalating to 3B model...")
-            extracted = await _call_ollama("hf.co/unsloth/Llama-3.2-3B-Instruct-GGUF:latest")
+        extracted = await _call_openrouter()
+        if not extracted:
+            logger.info("Falling back to G1 Flash for photo extraction...")
+            from ai_processor import call_agy
+            import asyncio
+            extracted = await asyncio.to_thread(call_agy, prompt, 120, "flash")
 
         if extracted and "NO_ALERT" not in extracted.upper() and "UNSURE" not in extracted.upper():
             with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "important_extracts.txt"), "a") as f:
@@ -1223,6 +1269,13 @@ if __name__ == "__main__":
         
     job_queue.run_repeating(check_updates, interval=14400, first=time_until_next, chat_id=SANEL_CHAT_ID, name=f"{SANEL_CHAT_ID}_digest")
     
+    async def morning_wrapper(context: ContextTypes.DEFAULT_TYPE):
+        try:
+            import subprocess
+            subprocess.run(["python3", os.path.join(os.path.dirname(os.path.abspath(__file__)), "scrapers", "morning_digest.py")], timeout=60)
+        except Exception as e:
+            logger.error(f"Morning digest error: {e}")
+            
     # Auto-start the 30-minute watchdog
     job_queue.run_repeating(watchdog_check, interval=1800, first=1800, chat_id=SANEL_CHAT_ID, name=f"{SANEL_CHAT_ID}_watchdog")
     
@@ -1231,6 +1284,9 @@ if __name__ == "__main__":
     import pytz
     et_tz = pytz.timezone('US/Eastern')
     job_queue.run_daily(nightly_wrapper, time=datetime.time(hour=1, minute=0, tzinfo=et_tz), chat_id=SANEL_CHAT_ID, name=f"{SANEL_CHAT_ID}_nightly")
+    
+    # Run the Morning Digest every morning at 7:00 AM ET
+    job_queue.run_daily(morning_wrapper, time=datetime.time(hour=7, minute=0, tzinfo=et_tz), chat_id=SANEL_CHAT_ID, name=f"{SANEL_CHAT_ID}_morning")
     
     from telegram.ext import CallbackQueryHandler
     app.add_handler(CommandHandler("start", start))

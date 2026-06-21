@@ -153,6 +153,7 @@ def call_agy(prompt: str, timeout: int = 180, model: str = "flash") -> str:
 def call_local_llm(prompt: str) -> str:
     """Calls Qwen2 0.5B via Ollama. Falls back to Llama 3.2 3B if unsure."""
     import requests
+    import json
     
     def _call(model_name: str) -> str:
         try:
@@ -164,7 +165,7 @@ def call_local_llm(prompt: str) -> str:
                     "stream": False,
                     "options": {"temperature": 0.0}
                 },
-                timeout=30
+                timeout=60
             )
             if res.status_code == 200:
                 return res.json().get("response", "").strip()
@@ -182,9 +183,6 @@ def call_local_llm(prompt: str) -> str:
         response = _call("hf.co/unsloth/Llama-3.2-3B-Instruct-GGUF:latest")
         
     return response if response else "Could not summarize locally."
-
-    # NOTE: If response is empty string, caller treats it as falsy and passes raw data to agy.
-    # This is the correct fallback behavior.
 
 
 

@@ -43,6 +43,7 @@ async def consolidate_memory():
     )
     
     try:
+        import httpx
         async with httpx.AsyncClient() as client:
             response = await client.post(
                 "http://localhost:11434/api/generate",
@@ -83,6 +84,7 @@ async def consolidate_memory():
                 # Merge old and new
                 merge_prompt = f"Merge the old brain and new daily insights into a single cohesive document.\n\nOLD BRAIN:\n{existing_brain}\n\nNEW INSIGHTS:\n{brain}"
                 try:
+                    import httpx
                     async with httpx.AsyncClient() as client:
                         resp2 = await client.post("http://localhost:11434/api/generate", json={"model": "llama3.1", "prompt": merge_prompt, "stream": False}, timeout=7200.0)
                         if resp2.status_code == 200:
@@ -114,10 +116,10 @@ async def consolidate_memory():
             except Exception as e:
                 logger.error(f"Historical export failed: {e}")
                 
-            logger.info("Running nightly massive indexer via local 8B model...")
+            logger.info("Running nightly massive indexer via OpenRouter...")
             try:
                 # Run it asynchronously
-                from scrapers.nightly_indexer import run_indexing
+                from scrapers.offline_indexer import run_indexing
                 await run_indexing()
             except Exception as e:
                 logger.error(f"Nightly indexer failed: {e}")
