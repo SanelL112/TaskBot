@@ -108,14 +108,14 @@ def generate_mega_guide(topic: str, pdf_text: str = "") -> str:
     if os.path.exists(notes_file):
         try:
             with open(notes_file, "r") as f:
-                internal_notes += f.read().strip()
+                internal_notes += f.read().replace('\x00', '').strip()
         except Exception:
             pass
             
     if os.path.exists(pdf_exports_file):
         try:
             with open(pdf_exports_file, "r") as f:
-                internal_notes += "\n\n" + f.read().strip()
+                internal_notes += "\n\n" + f.read().replace('\x00', '').strip()
         except Exception:
             pass
             
@@ -123,7 +123,7 @@ def generate_mega_guide(topic: str, pdf_text: str = "") -> str:
     if os.path.exists(delta_export_file):
         try:
             with open(delta_export_file, "r") as f:
-                internal_notes += "\n\n" + f.read().strip()
+                internal_notes += "\n\n" + f.read().replace('\x00', '').strip()
         except Exception:
             pass
             
