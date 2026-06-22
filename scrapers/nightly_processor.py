@@ -43,6 +43,18 @@ async def run_nightly_job(bot, chat_id):
                 for page in reader.pages:
                     text += page.extract_text() + "\n"
                     
+                if len(text.strip()) <= 50:
+                    try:
+                        import pytesseract
+                        from pdf2image import convert_from_path
+                        logger.info(f"Running nightly OCR on {title}...")
+                        images = convert_from_path(path)
+                        text = ""
+                        for img in images:
+                            text += pytesseract.image_to_string(img) + "\n"
+                    except Exception as e:
+                        logger.error(f"Failed OCR on {title}: {e}")
+                
                 if len(text.strip()) > 50:
                     # Export the extracted PDF text to the massive memory bank instead of sending a Telegram message
                     output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "source_cache", "pdf_exports.txt")

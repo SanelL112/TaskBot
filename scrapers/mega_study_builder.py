@@ -72,7 +72,9 @@ def generate_mega_guide(topic: str, pdf_text: str = "") -> str:
     yt_meta, yt_text = search_youtube(topic)
     web_meta, web_text = search_web_article(topic)
     
-    if not yt_meta and not web_meta and not pdf_text:
+    pdf_exports_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "source_cache", "pdf_exports.txt")
+    has_cache = os.path.exists(pdf_exports_file)
+    if not yt_meta and not web_meta and not pdf_text and not has_cache:
         return f"❌ I couldn't find any good web or YouTube sources for '{topic}'."
         
     # Pull in the user's internal notes from Canvas/Docs/Classroom and Extracted PDFs
@@ -91,6 +93,14 @@ def generate_mega_guide(topic: str, pdf_text: str = "") -> str:
         try:
             with open(pdf_exports_file, "r") as f:
                 internal_notes += "\n\n" + f.read().strip()[-8000:] # Grab last 8k chars of PDFs
+        except Exception:
+            pass
+            
+    delta_export_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "offline_archive", "delta_export.txt")
+    if os.path.exists(delta_export_file):
+        try:
+            with open(delta_export_file, "r") as f:
+                internal_notes += "\n\n" + f.read().strip()[-8000:]
         except Exception:
             pass
             
