@@ -12,24 +12,27 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 MEGA_STUDY_PROMPT = """You are an elite academic tutor. I am trying to build a master study guide for the topic: "{topic}".
-I have autonomously pulled in context from multiple sources, including the teacher's handwritten notes. Synthesize all of this information into the ultimate, extremely comprehensive, beautifully formatted Markdown study guide.
+I have autonomously pulled in context from multiple sources, including the teacher's handwritten notes, web articles, and YouTube transcripts. Synthesize all of this information into the ultimate, extremely comprehensive, beautifully formatted Markdown study guide.
 
 --- TEACHER'S HANDWRITTEN NOTES ---
 {pdf_text}
 
---- YOUTUBE TRANSCRIPT ({yt_title}) ---
+--- YOUTUBE TRANSCRIPTS ({yt_title}) ---
 {transcript}
 
---- WEB ARTICLE SUMMARY ({web_title}) ---
+--- WEB ARTICLE SUMMARIES ({web_title}) ---
 {web_text}
 
 --- YOUR INSTRUCTIONS ---
 Using the provided context and your own vast knowledge, you MUST be as exhaustive and detailed as possible. Do not skip over nuances.
-1. **In-Depth Summary**: Create an incredibly detailed, exhaustive explanation of the topic.
-2. **Core Concepts & Formulas**: Break down every single key formula, date, vocabulary word, or core concept (especially prioritizing the teacher's notes).
-3. **Step-by-Step Tutorial**: Create a comprehensive timeline or step-by-step tutorial explaining how to solve problems or understand the workflow.
+YOUR OUTPUT MUST BE EXTREMELY LONG (At least 10+ pages of material). Do not summarize briefly. Expand endlessly on every single point, breaking them down into microscopic details.
+
+You MUST follow this exact strict format:
+1. **Core Formulas & Theorems**: Break down every single key formula, date, vocabulary word, or core concept. Prioritize the teacher's notes.
+2. **Advanced Strategies & Tactics**: Create a comprehensive list of strategies, workflow timelines, and exact step-by-step tactics to master the topic.
+3. **Deep-Dive Explanations**: Provide incredibly detailed, exhaustive explanations of the topic. Explain the "Why" and the "How".
 4. **Action Plan (What I Need To Do)**: Tell me exactly what I need to do next to master this topic. Give me a clear checklist of specific concepts to memorize, tasks to complete, and areas to focus on.
-5. **Practice Exam**: Write 5 highly challenging practice questions with a detailed answer key at the very bottom.
+5. **Practice Exam (20+ Problems)**: Write 20 highly challenging practice problems with a detailed step-by-step answer key at the very bottom.
 6. **Topic Contextualization**: Even if the provided notes or PDFs do not explicitly mention "{topic}" by name, you MUST extract their underlying concepts and apply them directly to "{topic}". (For example, if the topic is the SAT, aggressively frame the grammar and math concepts from the notes specifically around how they are tested on the SAT).
 
 CRITICAL FORMATTING RULES: 
@@ -40,30 +43,47 @@ CRITICAL FORMATTING RULES:
 
 def search_web_article(topic: str):
     try:
-        results = DDGS().text(f"{topic} tutorial explanation", max_results=2)
+        results = DDGS().text(f"{topic} tutorial explanation", max_results=5)
         if not results:
             return None, ""
-        url = results[0]["href"]
-        title = results[0]["title"]
         
-        # Try to scrape it
-        resp = requests.get(url, timeout=10)
-        soup = BeautifulSoup(resp.content, "html.parser")
-        text = " ".join([p.text for p in soup.find_all("p")])
-        return {"title": title, "link": url}, text[:10000] # Cap at 10k chars
+        combined_text = ""
+        meta_titles = []
+        for res in results:
+            try:
+                resp = requests.get(res["href"], timeout=5)
+                soup = BeautifulSoup(resp.content, "html.parser")
+                combined_text += f"\n--- SOURCE: {res['title']} ---\n"
+                combined_text += " ".join([p.text for p in soup.find_all("p")])[:5000]
+                meta_titles.append(res["title"])
+            except Exception:
+                continue
+                
+        return {"title": " | ".join(meta_titles), "link": results[0]["href"]}, combined_text[:25000]
     except Exception as e:
         logger.error(f"Web search error: {e}")
         return None, ""
 
 def search_youtube(topic: str):
     try:
-        videosSearch = VideosSearch(f"{topic} educational tutorial", limit=1)
+        videosSearch = VideosSearch(f"{topic} educational tutorial", limit=3)
         result = videosSearch.result()
         if result and "result" in result and len(result["result"]) > 0:
-            video = result["result"][0]
-            transcript_list = YouTubeTranscriptApi.get_transcript(video["id"])
-            text = " ".join([item["text"] for item in transcript_list])
-            return {"title": video["title"], "link": video["link"]}, text[:15000]
+            combined_text = ""
+            meta_titles = []
+            
+            for video in result["result"]:
+                try:
+                    transcript_list = YouTubeTranscriptApi.get_transcript(video["id"])
+                    combined_text += f"\n--- VIDEO: {video['title']} ---\n"
+                    combined_text += " ".join([item["text"] for item in transcript_list])
+                    meta_titles.append(video["title"])
+                except Exception:
+                    continue
+                    
+            if combined_text:
+                return {"title": " | ".join(meta_titles), "link": result["result"][0]["link"]}, combined_text[:35000]
+        return None, ""
     except Exception as e:
         logger.error(f"YouTube error: {e}")
         return None, ""

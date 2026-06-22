@@ -1,0 +1,45 @@
+import asyncio
+import os
+import sys
+
+# Ensure the parent directory is in sys.path
+sys.path.append("/home/sanel/personal-assistant-bot")
+
+from scrapers.mega_study_builder import generate_mega_guide
+
+async def main():
+    import datetime
+    import subprocess
+    
+    # Allow passing a dynamic topic via CLI, default to SAT
+    topic = sys.argv[1] if len(sys.argv) > 1 else "Comprehensive SAT Exam Prep Guide"
+    filename_base = topic.replace(" ", "_").replace("/", "_")
+    
+    print(f"Generating Mega Study Guide for: {topic}...")
+    # The pdf_exports.txt is automatically pulled inside generate_mega_guide
+    result = generate_mega_guide(topic)
+    
+    if result:
+        output_md = f"/home/sanel/personal-assistant-bot/{filename_base}_Study_Guide.md"
+        output_docx = f"/home/sanel/personal-assistant-bot/{filename_base}_Study_Guide.docx"
+        
+        # Append to the file instead of overwriting
+        mode = "a" if os.path.exists(output_md) else "w"
+        with open(output_md, mode, encoding="utf-8") as f:
+            if mode == "a":
+                f.write(f"\n\n---\n\n# ADDITIONS: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}\n\n")
+            f.write(result)
+        print(f"Successfully appended study guide to {output_md}")
+        
+        # Convert to DOCX using Pandoc
+        print("Converting Markdown to DOCX format...")
+        try:
+            subprocess.run(["pandoc", output_md, "-o", output_docx], check=True)
+            print(f"Successfully created Word document at {output_docx}")
+        except Exception as e:
+            print(f"Pandoc conversion failed: {e}")
+    else:
+        print("Failed to generate study guide.")
+
+if __name__ == "__main__":
+    asyncio.run(main())

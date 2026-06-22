@@ -253,8 +253,12 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0, cont
             logger.info("Auto-routing to FLASH (PII detected)")
             model = "flash"
         else:
-            logger.info("Auto-routing to OPENROUTER (Safe context)")
-            model = "openrouter:openrouter/owl-alpha"
+            if len(prompt) > 300:
+                logger.info("Auto-routing to NEMOTRON (Long/Complex query)")
+                model = "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free"
+            else:
+                logger.info("Auto-routing to OWL ALPHA (Short/Academic query)")
+                model = "openrouter:openrouter/owl-alpha"
     
     out = ""
     actual_model_used = model
@@ -1315,7 +1319,29 @@ async def nightly_wrapper(context: ContextTypes.DEFAULT_TYPE):
         except Exception: pass
         await pre_cache_web()
         
-        try: await context.bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id, text="💤 **Sleep Cycle Complete:**\n✅ PDFs Processed\n✅ Memory Consolidated\n✅ Web Pre-cached\n\nGood night! 🌙", parse_mode="Markdown")
+        # 4. Auto-Generate SAT Guide
+        try: await context.bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id, text="💤 **Sleep Cycle:**\n✅ Web Pre-cached.\n4️⃣ Building Massive SAT Study Guide...", parse_mode="Markdown")
+        except Exception: pass
+        os.system("/home/sanel/personal-assistant-bot/venv/bin/python /home/sanel/personal-assistant-bot/run_builder.py 'Comprehensive SAT Exam Prep Guide' > /dev/null 2>&1")
+        
+        # 5. Dynamic Daily Topic Guide
+        try: await context.bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id, text="💤 **Sleep Cycle:**\n✅ SAT Guide Built.\n5️⃣ Analyzing today's notes to build a dynamic subject guide...", parse_mode="Markdown")
+        except Exception: pass
+        
+        from ai_processor import call_agy
+        pdf_exports_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "source_cache", "pdf_exports.txt")
+        dynamic_topic = "General Knowledge"
+        if os.path.exists(pdf_exports_file):
+            with open(pdf_exports_file, "r") as f:
+                recent_text = f.read().strip()[-5000:]
+            if recent_text:
+                dynamic_topic = call_agy(f"Based on these study notes, extract the single most specific 1-4 word subject or topic being studied. Respond ONLY with the topic name. Notes: {recent_text}", model="flash")
+                if not dynamic_topic or len(dynamic_topic) > 50:
+                    dynamic_topic = "General Academic Concepts"
+                    
+        os.system(f"/home/sanel/personal-assistant-bot/venv/bin/python /home/sanel/personal-assistant-bot/run_builder.py '{dynamic_topic}' > /dev/null 2>&1")
+        
+        try: await context.bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id, text=f"💤 **Sleep Cycle Complete:**\n✅ PDFs Processed\n✅ Memory Consolidated\n✅ Web Pre-cached\n✅ SAT Guide Updated\n✅ '{dynamic_topic}' Guide Generated!\n\nGood night! 🌙", parse_mode="Markdown")
         except Exception: pass
         
     except Exception as e:
