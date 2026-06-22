@@ -44,23 +44,34 @@ CRITICAL FORMATTING RULES:
 
 def search_web_article(topic: str):
     try:
-        results = DDGS().text(f"{topic} tutorial explanation", max_results=20)
-        if not results:
-            return None, ""
-        
+        queries = [f"{topic} tutorial", f"{topic} explanation", f"{topic} study guide", f"{topic} practice problems", f"{topic} advanced concepts"]
         combined_text = ""
         meta_titles = []
-        for res in results:
+        
+        for q in queries:
             try:
-                resp = requests.get(res["href"], timeout=5)
-                soup = BeautifulSoup(resp.content, "html.parser")
-                combined_text += f"\n--- SOURCE: {res['title']} ---\n"
-                combined_text += " ".join([p.text for p in soup.find_all("p")])
-                meta_titles.append(res["title"])
-            except Exception:
-                continue
+                results = DDGS().text(q, max_results=20)
+                if not results: continue
                 
-        return {"title": " | ".join(meta_titles[:5]) + " (and more...)", "link": results[0]["href"]}, combined_text
+                for res in results:
+                    if len(meta_titles) >= 100: break
+                    if res["title"] in meta_titles: continue
+                    
+                    try:
+                        resp = requests.get(res["href"], timeout=5)
+                        soup = BeautifulSoup(resp.content, "html.parser")
+                        combined_text += f"\n--- SOURCE: {res['title']} ---\n"
+                        combined_text += " ".join([p.text for p in soup.find_all("p")])
+                        meta_titles.append(res["title"])
+                    except Exception:
+                        continue
+            except Exception:
+                pass
+            if len(meta_titles) >= 100: break
+                
+        if meta_titles:
+            return {"title": f"Fetched {len(meta_titles)} Web Articles | " + " | ".join(meta_titles[:5]) + "...", "link": "Multiple Sources"}, combined_text
+        return None, ""
     except Exception as e:
         logger.error(f"Web search error: {e}")
         return None, ""
@@ -68,22 +79,29 @@ def search_web_article(topic: str):
 def search_youtube(topic: str):
     try:
         videosSearch = VideosSearch(f"{topic} educational tutorial", limit=20)
-        result = videosSearch.result()
-        if result and "result" in result and len(result["result"]) > 0:
-            combined_text = ""
-            meta_titles = []
-            
-            for video in result["result"]:
-                try:
-                    transcript_list = YouTubeTranscriptApi.get_transcript(video["id"])
-                    combined_text += f"\n--- VIDEO: {video['title']} ---\n"
-                    combined_text += " ".join([item["text"] for item in transcript_list])
-                    meta_titles.append(video["title"])
-                except Exception:
-                    continue
-                    
-            if combined_text:
-                return {"title": " | ".join(meta_titles[:5]) + " (and more...)", "link": result["result"][0]["link"]}, combined_text
+        combined_text = ""
+        meta_titles = []
+        
+        for _ in range(5): # Loop 5 pages (5 * 20 = 100 videos)
+            try:
+                result = videosSearch.result()
+                if not result or "result" not in result or not result["result"]: break
+                
+                for video in result["result"]:
+                    if len(meta_titles) >= 100: break
+                    try:
+                        transcript_list = YouTubeTranscriptApi.get_transcript(video["id"])
+                        combined_text += f"\n--- VIDEO: {video['title']} ---\n"
+                        combined_text += " ".join([item["text"] for item in transcript_list])
+                        meta_titles.append(video["title"])
+                    except Exception:
+                        continue
+                videosSearch.next()
+            except Exception:
+                break
+                
+        if meta_titles:
+            return {"title": f"Fetched {len(meta_titles)} YouTube Transcripts | " + " | ".join(meta_titles[:5]) + "...", "link": "Multiple Videos"}, combined_text
         return None, ""
     except Exception as e:
         logger.error(f"YouTube error: {e}")
