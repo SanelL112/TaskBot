@@ -233,6 +233,7 @@ Example: ["Chapter 1: Introduction to Formulas", "Chapter 2: Advanced Mechanics"
 
     # PHASE 2: Chunked Generation
     logger.info(f"PHASE 2: Generating {len(outline)} Chapters...")
+    raw_chunks = {}
     full_guide_content = ""
     
     for i, chapter in enumerate(outline):
@@ -261,12 +262,44 @@ INSTRUCTIONS:
         if chunk_result:
             import re
             chunk_result = re.sub(r'<thought>.*?</thought>', '', chunk_result, flags=re.DOTALL).strip()
+            raw_chunks[chapter] = chunk_result
             full_guide_content += f"\n\n{chunk_result}\n\n---\n"
         else:
-            full_guide_content += f"\n\n# {chapter}\n\n*(Failed to generate this section)*\n\n---\n"
+            err_msg = f"\n\n# {chapter}\n\n*(Failed to generate this section)*\n\n---\n"
+            raw_chunks[chapter] = err_msg
+            full_guide_content += err_msg
+
+    # PHASE 4: Editor-in-Chief Verification Loop
+    logger.info("PHASE 4: Editor-in-Chief Verification Loop...")
+    polished_guide_content = ""
+    for i, chapter in enumerate(outline):
+        logger.info(f"Editor Reviewing Chunk {i+1}/{len(outline)}: {chapter}")
+        editor_prompt = f"""You are the elite Editor-in-Chief. Below is the raw, unpolished draft of a massive study guide on "{topic}".
+
+--- ENTIRE UNPOLISHED DRAFT ---
+{full_guide_content}
+--- END DRAFT ---
+
+Your job is to rigorously peer-review and flawlessly format ONLY the section corresponding to: **{chapter}**.
+INSTRUCTIONS:
+1. Fix all disorganized headers to ensure a clean, hierarchical flow.
+2. Verify math equations and fact-check concepts.
+3. CRITICAL: Format ALL math using standard `$ x $` for inline math and `$$ x $$` for block math. Do NOT use \\( or \\[.
+4. Wrap any internal scratchpad inside <thought>...</thought> tags.
+5. Output ONLY the perfectly polished, final version of {chapter}. Do NOT output other chapters.
+"""
+        editor_result = _call_or(editor_prompt)
+        
+        if editor_result:
+            import re
+            editor_result = re.sub(r'<thought>.*?</thought>', '', editor_result, flags=re.DOTALL).strip()
+            polished_guide_content += f"\n\n{editor_result}\n\n---\n"
+        else:
+            logger.warning(f"Editor failed on {chapter}, falling back to unpolished raw chunk.")
+            polished_guide_content += f"\n\n{raw_chunks[chapter]}\n\n---\n"
 
     # PHASE 3: Assembly
-    final_message = f"🧠 **ULTIMATE CHUNKED STUDY GUIDE: {topic}**\n\n*(Generated dynamically via a {len(outline)}-part LLM Chunking Pipeline to bypass token limits)*\n\n{full_guide_content}\n\n**Sources Used:**\n- Classroom PDFs (Local Brain Sync)"
+    final_message = f"🧠 **ULTIMATE CHUNKED STUDY GUIDE: {topic}**\n\n*(Generated dynamically via a {len(outline)}-part LLM Generation & Verification Pipeline to bypass limits)*\n\n{polished_guide_content}\n\n**Sources Used:**\n- Classroom PDFs (Local Brain Sync)"
     if yt_meta:
         final_message += f"\n- YouTube: {yt_meta['title']}"
     if web_meta:
