@@ -1,7690 +1,5990 @@
-# ADDITIONS: 2026-06-22 15:41
-
 🧠 **ULTIMATE CHUNKED STUDY GUIDE: Comprehensive SAT Exam Prep Guide**
 
-*(Generated dynamically via a 10-part LLM Chunking Pipeline to bypass token limits)*
+*(Generated dynamically via a 10-part LLM Generation & Verification Pipeline to bypass limits)*
 
 
 
-# Chapter 1: Core Formulas & Foundations — Linear Functions, Quadratics, and Systems of Equations
-
----
-
-## PART I: LINEAR FUNCTIONS
-
-### 1.1 Definition and Fundamental Properties
-
-A **linear function** is a relationship between an independent variable $x$ and a dependent variable $y$ such that for every constant change in $x$, there exists a corresponding constant change in $y$. This constant ratio of change is what defines linearity.
-
-**The slope** of a line is the ratio of the constant change in $y$ to the constant change in $x$. Given two points $(x_1, y_1)$ and $(x_2, y_2)$ on a line:
-
-$$m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{\Delta y}{\Delta x} = \text{rise over run}$$
-
-The slope $m$ represents the rate of change: for every 1 unit increase in $x$, the value of $y$ increases by $m$ units. A positive slope indicates an upward trend (increasing function), while a negative slope indicates a downward trend (decreasing function). A slope of zero corresponds to a horizontal line, and an undefined slope corresponds to a vertical line.
-
-**Key Properties of Linear Functions:**
-- The graph is always a straight line.
-- The domain and range are all real functions (unless restricted).
-- Every linear function (except vertical lines) has exactly one $x$-intercept and one $y$-intercept.
-- The function is one-to-one (passes the horizontal line test).
+# Chapter 1: SAT Math Foundations — Core Algebra & Linear Equations
 
 ---
 
-### 1.2 The Three Forms of a Linear Equation
+## 1.1 Why Algebra Is the Backbone of the SAT Math Section
 
-#### Form 1: Slope-Intercept Form — $y = mx + b$
+The SAT Math section, whether in its legacy paper format or the current digital adaptive format, draws approximately 30–35% of its questions from what the College Board classifies as the **Algebra** content domain. This makes single-variable linear equations, systems of linear equations, and linear inequalities the single most heavily tested mathematical area on the entire exam. If a student masters nothing else in SAT math, mastery of linear relationships will yield the highest return on investment in terms of raw score points.
 
-This is the most commonly used form and is **best for graphing and analyzing a line**.
+But the importance of algebra extends far beyond the questions that explicitly ask you to "solve for $x$." Algebraic reasoning — the ability to translate a word problem into an equation, to manipulate expressions fluently, to recognize when two equations represent the same line or parallel lines — underpins nearly every other content domain on the test. Geometry problems frequently require setting up linear equations. Data analysis questions often involve interpreting the slope and intercept of a linear model. Even advanced math questions involving quadratics or exponentials sometimes reduce, through substitution or simplification, to linear relationships.
 
-- $m$ = slope of the line
-- $b$ = $y$-intercept (the point $(0, b)$ where the line crosses the $y$-axis)
-
-**How to graph using slope-intercept form:**
-1. Plot the $y$-intercept $(0, b)$ on the coordinate plane.
-2. From that point, use the slope $m = \frac{\text{rise}}{\text{run}}$ to find a second point.
-3. Draw a straight line through both points.
-
-**Example:** Graph $y = \frac{2}{3}x - 4$
-- $y$-intercept: $(0, -4)$
-- Slope: $\frac{2}{3}$ → from $(0,-4)$, go up 2 and right 3 to reach $(3, -2)$
-- Draw the line through $(0,-4)$ and $(3,-2)$
+This chapter provides an exhaustive, rigorous treatment of every algebraic concept the SAT tests at the foundational and intermediate levels. We will proceed from the most basic properties of equations through increasingly sophisticated applications, always with an eye toward the specific ways the College Board constructs its questions and, crucially, its wrong answer traps.
 
 ---
 
-#### Form 2: Point-Slope Form — $y - y_1 = m(x - x_1)$
+## 1.2 The Anatomy of a Linear Equation
 
-This form is **best for modeling** when you know the slope and any single point (not necessarily the $y$-intercept).
+### 1.2.1 What Makes an Equation "Linear"
 
-- $m$ = slope
-- $(x_1, y_1)$ = any known point on the line
+A **linear equation in one variable** is any equation that can be written in the form:
 
-**Derivation:** Starting from the slope formula $m = \frac{y - y_1}{x - x_1}$, cross-multiplying gives $y - y_1 = m(x - x_1)$.
+$$ax + b = 0$$
 
-**Example:** Find the equation of the line with slope $-2$ passing through $(5, 3)$.
-$$y - 3 = -2(x - 5)$$
-$$y - 3 = -2x + 10$$
-$$y = -2x + 13$$
+where $a$ and $b$ are real numbers, $a \neq 0$, and $x$ is the variable. The key characteristic is that the variable appears only to the **first power** — there are no $x^2$ terms, no $\sqrt{x}$ terms, no $\frac{1}{x}$ terms, and no $x$ inside a trigonometric or exponential function.
 
----
+A **linear equation in two variables** takes the form:
 
-#### Form 3: Standard Form — $Ax + By = C$
+$$ax + by = c$$
 
-This form is **best for word problems and standardized testing**, and it can represent ALL lines (including vertical lines, which the other forms cannot).
+where $a$, $b$, and $c$ are real numbers, and at least one of $a$ or $b$ is nonzero. The graph of any such equation is a **straight line** in the $xy$-plane, which is where the term "linear" originates.
 
-- $A$, $B$, and $C$ are integers (by convention, $A$ should be positive)
-- $A$ and $B$ are not both zero
+The SAT tests your ability to move fluidly between three representations of a linear equation:
 
-**Converting to slope-intercept form to find slope:**
+1. **Standard form:** $Ax + By = C$
+2. **Slope-intercept form:** $y = mx + b$
+3. **Point-slope form:** $y - y_1 = m(x - x_1)$
+
+Each form is useful in different contexts, and the SAT frequently requires you to convert from one form to another.
+
+### 1.2.2 The Slope-Intercept Form: $y = mx + b$
+
+This is the most important form for SAT purposes, and you should be able to identify its components instantly:
+
+- **$m$** is the **slope** of the line. It measures the rate of change of $y$ with respect to $x$. Geometrically, it tells you how steep the line is and in which direction it tilts.
+- **$b$** is the **$y$-intercept**. It is the point $(0, b)$ where the line crosses the $y$-axis.
+
+The slope $m$ can be computed from any two points $(x_1, y_1)$ and $(x_2, y_2)$ on the line:
+
+$$m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{\text{rise}}{\text{run}}$$
+
+This formula is provided on the SAT reference sheet, but you should have it memorized to the point of automaticity. The reference sheet will not tell you *how* to use it, and the clock is always running.
+
+**Critical SAT insight:** The slope is not just a number — it is a **rate**. When the SAT presents a word problem involving a constant rate of change (miles per hour, dollars per week, grams per minute), that rate *is* the slope of a linear relationship. Recognizing this connection instantly is one of the most powerful pattern-recognition skills you can develop.
+
+### 1.2.3 The Standard Form: $Ax + By = C$
+
+The standard form is particularly useful for:
+
+- **Identifying intercepts quickly:** To find the $x$-intercept, set $y = 0$ and solve: $x = \frac{C}{A}$. To find the $y$-intercept, set $x = 0$ and solve: $y = \frac{C}{B}$.
+- **Determining whether two lines are parallel or perpendicular** (when both equations are in standard form, you can compare coefficients without converting).
+- **Working with systems of equations** where elimination is the preferred method.
+
+To convert from standard form to slope-intercept form, solve for $y$:
+
 $$By = -Ax + C$$
+
 $$y = -\frac{A}{B}x + \frac{C}{B}$$
 
-Therefore, the slope is $-\frac{A}{B}$ and the $y$-intercept is $\frac{C}{B}$.
+Thus, the slope is $-\frac{A}{B}$ and the $y$-intercept is $\frac{C}{B}$. You should be able to perform this conversion mentally for simple integer coefficients.
 
-**Intercepts from Standard Form:**
-- $x$-intercept: Set $y = 0$, solve for $x$: $x = \frac{C}{A}$, giving point $\left(\frac{C}{A}, 0\right)$
-- $y$-intercept: Set $x = 0$, solve for $y$: $y = \frac{C}{B}$, giving point $\left(0, \frac{C}{B}\right)$
+### 1.2.4 The Point-Slope Form: $y - y_1 = m(x - x_1)$
 
----
+This form is used when you know the slope $m$ and a single point $(x_1, y_1)$ on the line. While the SAT rarely asks you to write an equation explicitly in point-slope form, the underlying concept — that a line is determined by a point and a slope — is tested constantly.
 
-### 1.3 Converting Between Forms
-
-**Point-Slope → Standard Form:**
-Multiply through by the LCD if the slope is a fraction, then rearrange to get $Ax + By = C$.
-
-**Example:** Convert $y - 4 = \frac{3}{5}(x + 2)$ to standard form.
-$$y - 4 = \frac{3}{5}x + \frac{6}{5}$$
-Multiply everything by 5:
-$$5y - 20 = 3x + 6$$
-$$-3x + 5y = 26$$
-$$3x - 5y = -26$$
-
-**Standard Form → Slope-Intercept Form:**
-Isolate $y$:
-
-**Example:** Convert $4x + 7y = -12$ to slope-intercept form.
-$$7y = -4x - 12$$
-$$y = -\frac{4}{7}x - \frac{12}{7}$$
+The point-slope form is also the conceptual foundation for understanding **linear approximations** and **tangent lines** in more advanced mathematics, though the SAT itself stays within the realm of exact linear relationships.
 
 ---
 
-### 1.4 Parallel and Perpendicular Lines
+## 1.3 Solving Linear Equations in One Variable
 
-| Relationship | Condition on Slopes |
-|---|---|
-| **Parallel lines** | $m_1 = m_2$ (same slope, different $y$-intercepts) |
-| **Perpendicular lines** | $m_1 \cdot m_2 = -1$ (negative reciprocal slopes) |
+### 1.3.1 The Fundamental Principle: Equivalence-Preserving Operations
 
-**Negative Reciprocal:** If $m = \frac{a}{b}$, then the perpendicular slope is $-\frac{b}{a}$.
+The entire theory of solving linear equations rests on a single principle: **performing the same operation to both sides of an equation produces an equivalent equation** (an equation with the same solution set).
 
-**Example:** Find the slope of a line:
-- **Parallel** to $3x - 6y = 12$: First convert to $y = \frac{1}{2}x - 2$, so $m = \frac{1}{2}$. Parallel slope = $\frac{1}{2}$.
-- **Perpendicular** to the same line: Perpendicular slope = $-2$.
+The operations that preserve equivalence are:
 
-**SAT/ACT Trap:** A system of two linear equations has **no solution** when the lines are parallel ($m_1 = m_2$ but different $y$-intercepts). It has **infinitely many solutions** when the lines are identical (same slope AND same $y$-intercept). It has **exactly one solution** when the slopes are different.
+1. **Adding the same expression to both sides:** If $A = B$, then $A + C = B + C$.
+2. **Subtracting the same expression from both sides:** If $A = B$, then $A - C = B - C$.
+3. **Multiplying both sides by the same nonzero expression:** If $A = B$ and $C \neq 0$, then $AC = BC$.
+4. **Dividing both sides by the same nonzero expression:** If $A = B$ and $C \neq 0$, then $\frac{A}{C} = \frac{B}{C}$.
 
----
+**Warning about multiplication and division:** If you multiply both sides by an expression that *could* be zero (such as a variable expression), you may introduce **extraneous solutions**. If you divide by an expression that could be zero, you may **lose solutions**. The SAT occasionally tests this understanding, particularly in rational equations.
 
-### 1.5 Interpreting Linear Models in Context
+### 1.3.2 Step-by-Step Solution of $ax + b = cx + d$
 
-When a linear equation models a real-world scenario, each part of the equation has meaning:
+The general linear equation in one variable (with the variable appearing on both sides) takes this form. The solution algorithm is:
 
-For $y = mx + b$:
-- **$b$ (the $y$-intercept):** The starting value — the value of $y$ when $x = 0$. This is the initial amount, fixed cost, or baseline.
-- **$m$ (the slope):** The rate of change — how much $y$ changes for each 1-unit increase in $x$. This is the per-unit cost, rate of growth, or speed.
-- **$x$:** The independent variable (input) — often represents time, quantity, etc.
-- **$y$:** The dependent variable (output) — the quantity being modeled.
+1. **Move all variable terms to one side:** Subtract $cx$ from both sides: $(a-c)x + b = d$.
+2. **Move all constant terms to the other side:** Subtract $b$ from both sides: $(a-c)x = d - b$.
+3. **Isolate the variable:** Divide both sides by $(a-c)$, provided $a \neq c$: $x = \frac{d - b}{a - c}$.
 
-**Example Interpretation:**
-The number of phones remaining in a store after $h$ hours is modeled by $P = 200 - 18h$.
-- $200$: The store started with 200 phones (initial stock at $h = 0$)
-- $-18$: The store sells 18 phones per hour (rate of decrease)
-- When $P = 0$: $0 = 200 - 18h \Rightarrow h = \frac{200}{18} \approx 11.1$ hours to sell out
+**Special cases the SAT loves to test:**
 
----
+- **If $a = c$ and $d = b$:** The equation reduces to $0 = 0$, which is true for all $x$. The equation has **infinitely many solutions** (it is an identity).
+- **If $a = c$ and $d \neq b$:** The equation reduces to $0 = \text{(nonzero)}$, which is never true. The equation has **no solution** (it is a contradiction).
 
-### 1.6 Linear Functions Practice Problems
+These special cases appear on the SAT with surprising frequency, often disguised within more complex-looking equations. The key is to simplify first, then analyze.
 
-**Problem 1:** A line passes through $(3, 7)$ and $(-1, -5)$. Find the equation in slope-intercept form.
+### 1.3.3 Equations with Fractions
 
-**Solution:**
-$$m = \frac{-5 - 7}{-1 - 3} = \frac{-12}{-4} = 3$$
-Using point-slope with $(3, 7)$:
-$$y - 7 = 3(x - 3)$$
-$$y = 3x - 9 + 7$$
-$$\boxed{y = 3x - 2}$$
+Linear equations on the SAT frequently involve fractional coefficients. The standard technique is to **clear fractions** by multiplying both sides by the **least common denominator (LCD)** of all fractions in the equation.
 
-**Problem 2:** For what value of $c$ does the system $\begin{cases} 3x - cy = 2 \\ 4x + y = 12 \end{cases}$ have no solution?
+For example, given:
 
-**Solution:** For no solution, the lines must be parallel (same slope, different intercepts).
+$$\frac{x}{3} + \frac{x-1}{4} = 5$$
 
-Line 1: $y = \frac{3}{c}x - \frac{2}{c}$, slope $= \frac{3}{c}$
-Line 2: $y = -4x + 12$, slope $= -4$
+The LCD of 3 and 4 is 12. Multiply every term by 12:
 
-Set slopes equal: $\frac{3}{c} = -4 \Rightarrow c = -\frac{3}{4}$
+$$12 \cdot \frac{x}{3} + 12 \cdot \frac{x-1}{4} = 12 \cdot 5$$
 
-Check: Line 1 becomes $3x + \frac{3}{4}y = 2$, or $12x + 3y = 8$. Divide by 3: $4x + y = \frac{8}{3}$. Line 2 is $4x + y = 12$. Same slope, different intercepts ✓
+$$4x + 3(x-1) = 60$$
 
-$$\boxed{c = -\frac{3}{4}}$$
+$$4x + 3x - 3 = 60$$
 
-**Problem 3:** The equation $r = \frac{3}{5}f + 8$ models the number of rabbits $r$ in a forest as a function of the number of foxes $f$. If there are 40 rabbits, how many foxes are in the forest?
+$$7x = 63$$
 
-**Solution:**
-$$40 = \frac{3}{5}f + 8$$
-$$32 = \frac{3}{5}f$$
-$$f = \frac{32 \times 5}{3} = \frac{160}{3} \approx 53.3$$
+$$x = 9$$
 
-Since the number of foxes must be a whole number, we interpret this as: at 53 foxes, there would be approximately 40 rabbits. If the problem asks for an exact answer:
+**SAT trap to avoid:** When clearing fractions, you must multiply *every* term on *both* sides by the LCD, including terms that are not fractions. A common error is to forget to multiply the constant term.
 
-$$\boxed{f = \frac{160}{3}}$$
+### 1.3.4 Equations with Decimals
+
+When an equation contains decimals, you can either work with the decimals directly (using the calculator, which is permitted on all Digital SAT Math modules) or clear the decimals by multiplying both sides by an appropriate power of 10.
+
+For example:
+
+$$0.3x + 1.2 = 0.7x - 0.8$$
+
+Multiply every term by 10:
+
+$$3x + 12 = 7x - 8$$
+
+Then solve normally: $20 = 4x$, so $x = 5$.
 
 ---
 
-## PART II: QUADRATIC FUNCTIONS AND EQUATIONS
+## 1.4 Linear Inequalities
 
-### 2.1 Definition and Fundamental Properties
+### 1.4.1 The Rules of Inequality Manipulation
 
-A **quadratic function** is a relationship between $y$ and $x$ where $y$ depends on the square of $x$ (i.e., the highest power of $x$ is 2). All quadratics produce a curve called a **parabola** when graphed.
+Solving a linear inequality follows the same steps as solving a linear equation, with **one critical exception**:
 
-**General behavior:**
-- If $a > 0$: The parabola opens **upward** (U-shape), and the vertex is a **minimum** point.
-- If $a < 0$: The parabola opens **downward** (∩-shape), and the vertex is a **maximum** point.
-- All parabolas have an **axis of symmetry** — a vertical line through the vertex that divides the parabola into two mirror-image halves.
+> **When you multiply or divide both sides of an inequality by a negative number, you must reverse the inequality sign.**
 
-**Scaling property:** If the quadratic passes through the origin, then $y \sim x^2$. This means if $x$ is doubled, $y$ is quadrupled; if $x$ is tripled, $y$ is scaled by a factor of 9; if $x$ is multiplied by $\sqrt{2}$, $y$ is scaled by a factor of 2.
+This rule is not arbitrary — it follows from the ordering of real numbers. If $a < b$ and $c < 0$, then $ac > bc$. For example, if $3 < 5$, multiplying both sides by $-1$ gives $-3 > -5$, which is correct.
 
----
+**The SAT tests this rule relentlessly.** A very common wrong answer choice is the result of correctly solving the inequality but forgetting to flip the sign when dividing by a negative number.
 
-### 2.2 The Three Forms of a Quadratic Equation
+### 1.4.2 Compound Inequalities
 
-#### Form 1: Standard Form — $y = ax^2 + bx + c$
+The SAT may present **compound inequalities** — two inequalities joined by "and" (conjunction) or "or" (disjunction).
 
-- $a$ = coefficient of $x^2$ (determines direction and width of parabola)
-- $b$ = coefficient of $x$
-- $c$ = constant term = **$y$-intercept** (the point $(0, c)$)
+- **"And" inequalities** (conjunctions): $a < x < b$ means $x$ must satisfy *both* conditions simultaneously. The solution is the **intersection** of the two individual solution sets.
+- **"Or" inequalities** (disjunctions): $x < a$ or $x > b$ means $x$ satisfies *at least one* condition. The solution is the **union** of the two individual solution sets.
 
-**Finding the vertex from standard form:**
-$$x\text{-coordinate of vertex} = -\frac{b}{2a}$$
-$$y\text{-coordinate of vertex} = f\left(-\frac{b}{2a}\right)$$
+On the number line, "and" solutions form a single continuous interval (if they overlap at all), while "or" solutions form two separate rays.
 
-**Axis of symmetry:** $x = -\frac{b}{2a}$
+### 1.4.3 Inequalities with Absolute Value
 
-**Example:** For $y = 2x^2 - 12x + 7$:
-- Vertex $x$-coordinate: $x = -\frac{-12}{2(2)} = \frac{12}{4} = 3$
-- Vertex $y$-coordinate: $y = 2(9) - 12(3) + 7 = 18 - 36 + 7 = -11$
-- Vertex: $(3, -11)$
-- Axis of symmetry: $x = 3$
+While absolute value is technically part of the Advanced Math domain, the SAT sometimes tests simple absolute value inequalities that reduce to linear cases:
+
+- $|x - a| < b$ (where $b > 0$) is equivalent to $a - b < x < a + b$.
+- $|x - a| > b$ (where $b > 0$) is equivalent to $x < a - b$ or $x > a + b$.
+
+These are worth knowing because they appear in the context of "distance" word problems: $|x - a| < b$ means "the distance from $x$ to $a$ is less than $b$."
 
 ---
 
-#### Form 2: Vertex Form — $y = a(x - h)^2 + k$
+## 1.5 Systems of Linear Equations
 
-This form **directly reveals the vertex** $(h, k)$.
+### 1.5.1 What a System Represents Geometrically
 
-- $(h, k)$ = vertex of the parabola
-- $a$ = same as in standard form (direction and width)
-- Axis of symmetry: $x = h$
+A system of two linear equations in two variables represents two lines in the $xy$-plane. The solution to the system is the point $(x, y)$ where the two lines intersect. There are exactly three possibilities:
 
-**Finding roots using the Square Root Method:**
-$$a(x - h)^2 + k = 0$$
-$$(x - h)^2 = -\frac{k}{a}$$
-$$x - h = \pm\sqrt{-\frac{k}{a}}$$
-$$x = h \pm \sqrt{-\frac{k}{a}}$$
+1. **Exactly one solution:** The lines intersect at a single point. The lines have **different slopes**.
+2. **No solution:** The lines are **parallel** (same slope, different $y$-intercepts). They never intersect.
+3. **Infinitely many solutions:** The lines are **identical** (same slope, same $y$-intercept). Every point on one line is also on the other.
 
-**Note:** This only works when the right-hand side is non-negative. If $-\frac{k}{a} < 0$, there are no real roots.
+The SAT tests all three cases, but the "no solution" and "infinitely many solutions" cases are particularly common because they require conceptual understanding rather than just mechanical solving.
 
-**Example:** Find the roots of $y = 2(x - 7)^2 - 30$.
-$$2(x-7)^2 - 30 = 0$$
-$$(x-7)^2 = 15$$
-$$x - 7 = \pm\sqrt{15}$$
-$$\boxed{x = 7 \pm \sqrt{15}}$$
+### 1.5.2 The Substitution Method
 
----
+The substitution method is most efficient when one of the equations is already solved for one variable (or can be easily solved for one variable).
 
-#### Form 3: Intercept (Factored) Form — $y = a(x - p)(x - q)$
+**Algorithm:**
 
-This form **directly reveals the $x$-intercepts** (roots).
-
-- $p$ and $q$ are the roots (x-intercepts): $(p, 0)$ and $(q, 0)$
-- $a$ = same as in standard form
-
-**Finding the vertex from intercept form:**
-The axis of symmetry lies halfway between the roots:
-$$x = \frac{p + q}{2}$$
-Then substitute back to find the $y$-coordinate.
-
-**Example:** For $y = 3(x - 2)(x - 8)$:
-- Roots: $x = 2$ and $x = 8$
-- Vertex $x$-coordinate: $x = \frac{2 + 8}{2} = 5$
-- Vertex $y$-coordinate: $y = 3(5-2)(5-8) = 3(3)(-3) = -27$
-- Vertex: $(5, -27)$
-
----
-
-### 2.3 The Quadratic Formula
-
-For any quadratic equation $ax^2 + bx + c = 0$, the solutions are:
-
-$$\boxed{x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}$$
-
-**Derivation by Completing the Square:**
-
-Starting with $ax^2 + bx + c = 0$:
-
-1. Divide by $a$: $x^2 + \frac{b}{a}x + \frac{c}{a} = 0$
-2. Move constant: $x^2 + \frac{b}{a}x = -\frac{c}{a}$
-3. Complete the square: $x^2 + \frac{b}{a}x + \frac{b^2}{4a^2} = \frac{b^2}{4a^2} - \frac{c}{a}$
-4. Factor: $\left(x + \frac{b}{2a}\right)^2 = \frac{b^2 - 4ac}{4a^2}$
-5. Square root: $x + \frac{b}{2a} = \pm\frac{\sqrt{b^2 - 4ac}}{2a}$
-6. Solve: $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
-
----
-
-### 2.4 The Discriminant — $D = b^2 - 4ac$
-
-The discriminant tells us the **number and type of solutions** without solving the equation:
-
-| Discriminant Value | Number of Real Roots | Nature of Roots |
-|---|---|---|
-| $D > 0$ | 2 distinct real roots | If $D$ is a perfect square: rational roots. If not: irrational roots. |
-| $D = 0$ | 1 real root (repeated) | The vertex lies on the $x$-axis. |
-| $D < 0$ | 0 real roots | The parabola does not cross the $x$-axis. |
-
-**Example:** Determine the nature of roots for $4x^2 - 12x + 9 = 0$.
-$$D = (-12)^2 - 4(4)(9) = 144 - 144 = 0$$
-One repeated real root. The vertex is on the $x$-axis.
-
----
-
-### 2.5 Sum and Product of Roots
-
-For $ax^2 + bx + c = 0$ with roots $r_1$ and $r_2$:
-
-$$\text{Sum of roots: } r_1 + r_2 = -\frac{b}{a}$$
-$$\text{Product of roots: } r_1 \cdot r_2 = \frac{c}{a}$$
-
-**Application:** If the sum of the roots is 8, then the $x$-coordinate of the vertex is:
-$$x = \frac{r_1 + r_2}{2} = \frac{8}{2} = 4$$
-
-This is consistent with $x = -\frac{b}{2a} = \frac{\text{sum of roots}}{2}$.
-
----
-
-### 2.6 Completing the Square — Converting Standard to Vertex Form
-
-**Procedure for $y = ax^2 + bx + c$:**
-
-1. Factor $a$ from the first two terms: $y = a\left(x^2 + \frac{b}{a}x\right) + c$
-2. Take half of $\frac{b}{a}$, square it: $\left(\frac{b}{2a}\right)^2 = \frac{b^2}{4a^2}$
-3. Add and subtract this inside the parentheses
-4. Factor the perfect square trinomial
-5. Simplify
-
-**Example:** Convert $y = 3x^2 + 12x + 1$ to vertex form.
-
-$$y = 3(x^2 + 4x) + 1$$
-$$y = 3(x^2 + 4x + 4 - 4) + 1$$
-$$y = 3(x + 2)^2 - 12 + 1$$
-$$\boxed{y = 3(x + 2)^2 - 11}$$
-
-Vertex: $(-2, -11)$
-
----
-
-### 2.7 Converting Intercept Form to Standard Form (FOIL)
-
-To convert $y = a(x - p)(x - q)$ to standard form:
-
-1. **F**irst: $x \cdot x = x^2$
-2. **O**uter: $x \cdot (-q) = -qx$
-3. **I**nner: $(-p) \cdot x = -px$
-4. **L**ast: $(-p) \cdot (-q) = pq$
-
-$$y = a(x^2 - qx - px + pq) = a(x^2 - (p+q)x + pq)$$
-
-**Example:** Convert $y = 2(x - 1)(x + 5)$ to standard form.
-$$y = 2(x^2 + 5x - x - 5)$$
-$$y = 2(x^2 + 4x - 5)$$
-$$\boxed{y = 2x^2 + 8x - 10}$$
-
----
-
-### 2.8 Quadratic Practice Problems
-
-**Problem 1:** Find the vertex of $y = -3x^2 + 18x - 14$ and determine whether it is a maximum or minimum.
-
-**Solution:**
-$$x = -\frac{18}{2(-3)} = \frac{-18}{-6} = 3$$
-$$y = -3(9) + 18(3) - 14 = -27 + 54 - 14 = 13$$
-Vertex: $(3, 13)$. Since $a = -3 < 0$, the parabola opens downward, so this is a **maximum**.
-
-$$\boxed{\text{Maximum at } (3, 13)}$$
-
-**Problem 2:** For what value of $k$ does $x^2 + kx + 4 = 0$ have exactly one real solution?
-
-**Solution:** For one real solution, the discriminant must equal zero.
-$$D = k^2 - 4(1)(4) = 0$$
-$$k^2 = 16$$
-$$\boxed{k = \pm 4}$$
-
-**Problem 3:** The sum of the roots of a quadratic is $-6$ and the product is $-7$. Find the quadratic equation in standard form.
-
-**Solution:**
-$$r_1 + r_2 = -\frac{b}{a} = -6$$
-$$r_1 \cdot r_2 = \frac{c}{a} = -7$$
-
-Let $a = 1$: then $b = 6$ and $c = -7$.
-
-$$\boxed{x^2 + 6x - 7 = 0}$$
-
-**Problem 4:** Find all intersection points of $y = x^2 - 7x + 7$ and $y = 2x - 1$.
-
-**Solution:** Set the equations equal:
-$$x^2 - 7x + 7 = 2x - 1$$
-$$x^2 - 9x + 8 = 0$$
-$$(x - 1)(x - 8) = 0$$
-$$x = 1 \text{ or } x = 8$$
-
-When $x = 1$: $y = 2(1) - 1 = 1$. Point: $(1, 1)$
-When $x = 8$: $y = 2(8) - 1 = 15$. Point: $(8, 15)$
-
-$$\boxed{(1, 1) \text{ and } (8, 15)}$$
-
----
-
-## PART III: SYSTEMS OF LINEAR EQUATIONS
-
-### 3.1 What Is a System?
-
-A **system of linear equations** consists of two or more linear equations considered simultaneously. The **solution** to the system is the set of all ordered pairs $(x, y)$ that satisfy every equation in the system.
-
-Geometrically, the solution represents the point(s) where the lines intersect.
-
----
-
-### 3.2 Number of Solutions
-
-A system of two linear equations can have exactly **0, 1, or infinitely many** solutions. It can NEVER have exactly 2 solutions.
-
-| Number of Solutions | Geometric Interpretation | Condition |
-|---|---|---|
-| **0 solutions** | Parallel lines (never intersect) | $m_1 = m_2$ but $b_1 \neq b_2$ |
-| **1 solution** | Lines intersect at one point | $m_1 \neq m_2$ |
-| **Infinitely many solutions** | Same line (coincident) | $m_1 = m_2$ and $b_1 = b_2$ |
-
-**Classification:**
-- **Consistent system:** Has at least one solution (1 or infinitely many)
-- **Inconsistent system:** Has no solutions (parallel lines)
-- **Independent system:** Has exactly one solution (different slopes)
-- **Dependent system:** Has infinitely many solutions (same line)
-
----
-
-### 3.3 Method 1: Substitution
-
-**When to use:** When one variable has a coefficient of $\pm 1$ (or can easily be isolated).
-
-**Procedure:**
-1. Solve one equation for one variable (the one with coefficient $\pm 1$).
-2. Substitute that expression into the other equation.
+1. Solve one equation for one variable (say, $y$ in terms of $x$).
+2. Substitute this expression into the other equation.
 3. Solve the resulting single-variable equation.
 4. Substitute back to find the other variable.
 
-**Example:** Solve $\begin{cases} y = 2x + 1 \\ 3x + 2y = 12 \end{cases}$
+**When to use substitution:** When one equation is in the form $y = \text{(expression in } x\text{)}$ or $x = \text{(expression in } y\text{)}$, or when a variable has coefficient 1 (making it easy to isolate).
 
-Substitute $y = 2x + 1$ into the second equation:
-$$3x + 2(2x + 1) = 12$$
-$$3x + 4x + 2 = 12$$
-$$7x = 10$$
-$$x = \frac{10}{7}$$
+### 1.5.3 The Elimination Method (Linear Combination)
 
-$$y = 2\left(\frac{10}{7}\right) + 1 = \frac{20}{7} + \frac{7}{7} = \frac{27}{7}$$
+The elimination method is most efficient when both equations are in standard form and the coefficients of one variable are the same or opposites (or can be made so by multiplication).
 
-$$\boxed{\left(\frac{10}{7}, \frac{27}{7}\right)}$$
+**Algorithm:**
 
----
-
-### 3.4 Method 2: Elimination (Addition/Subtraction)
-
-**When to use:** When the coefficients of one variable are the same or opposites (or can be made so by multiplication).
-
-**Procedure:**
-1. Choose which variable to eliminate.
-2. Multiply one or both equations by appropriate constants so the coefficients of the chosen variable are opposites.
-3. Add the two equations to eliminate that variable.
+1. Align both equations in standard form.
+2. Multiply one or both equations by constants so that the coefficients of one variable are opposites.
+3. Add the two equations together, eliminating that variable.
 4. Solve the resulting single-variable equation.
 5. Substitute back to find the other variable.
 
-**Example:** Solve $\begin{cases} 5x + 3y = 19 \\ 2x - 3y = -5 \end{cases}$
+**When to use elimination:** When both equations are in standard form $Ax + By = C$, especially when the coefficients are small integers.
 
-The $y$-coefficients are already opposites ($3$ and $-3$). Add the equations:
-$$7x = 14$$
-$$x = 2$$
+### 1.5.4 Determining the Number of Solutions Without Solving
 
-Substitute into the first equation:
-$$5(2) + 3y = 19$$
-$$10 + 3y = 19$$
-$$3y = 9$$
-$$y = 3$$
+Sometimes the SAT asks you to determine *how many* solutions a system has, without requiring you to find the actual solution. This is done by comparing the **ratios of coefficients**.
 
-$$\boxed{(2, 3)}$$
-
-**Example requiring multiplication:** Solve $\begin{cases} 3x + 4y = 10 \\ 5x + 2y = 8 \end{cases}$
-
-Multiply the second equation by $-2$:
-$$\begin{cases} 3x + 4y = 10 \\ -10x - 4y = -16 \end{cases}$$
-
-Add:
-$$-7x = -6$$
-$$x = \frac{6}{7}$$
-
-Substitute into $3x + 4y = 10$:
-$$3\left(\frac{6}{7}\right) + 4y = 10$$
-$$\frac{18}{7} + 4y = 10$$
-$$4y = \frac{52}{7}$$
-$$y = \frac{13}{7}$$
-
-$$\boxed{\left(\frac{6}{7}, \frac{13}{7}\right)}$$
-
----
-
-### 3.5 Method 3: Graphing
-
-**When to use:** When you need a visual understanding or when the equations are already in slope-intercept form.
-
-**Procedure:**
-1. Graph both lines on the same coordinate plane.
-2. Identify the intersection point.
-3. Verify by substituting into both equations.
-
-**Note:** Graphing is the least precise method and is primarily useful for understanding the concept or checking answers.
-
----
-
-### 3.6 Classification Problems
-
-**Problem type:** "For what value of $k$ does the system have no solution / infinitely many solutions?"
-
-**Strategy:** Convert both equations to slope-intercept form and compare slopes and intercepts.
-
-**Example:** Find the value of $a$ for which the system $\begin{cases} 2x + 5y = a \\ 4x + 10y = 60 \end{cases}$ has infinitely many solutions.
-
-**Solution:**
-Line 1: $y = -\frac{2}{5}x + \frac{a}{5}$
-Line 2: $y = -\frac{2}{5}x + 6$
-
-The slopes are already equal ($-\frac{2}{5}$). For infinitely many solutions, the $y$-intercepts must also be equal:
-$$\frac{a}{5} = 6$$
-$$\boxed{a = 30}$$
-
-**Example:** Find the value of $k$ for which the system $\begin{cases} 2x - 5y = 11 \\ kx + 10y = -22 \end{cases}$ has no solution.
-
-**Solution:**
-Line 1: $y = \frac{2}{5}x - \frac{11}{5}$, slope $= \frac{2}{5}$
-Line 2: $y = -\frac{k}{10}x - \frac{22}{10}$, slope $= -\frac{k}{10}$
-
-For no solution, slopes must be equal:
-$$\frac{2}{5} = -\frac{k}{10}$$
-$$k = -4$$
-
-Check: Line 2 becomes $-4x + 10y = -22$, or $2x - 5y = 11$. Wait — this is the same as Line 1! So $k = -4$ gives infinitely many solutions, not no solution.
-
-Let me reconsider. For no solution with the same slope, we need different intercepts. Setting slopes equal: $\frac{2}{5} = -\frac{k}{10}$ gives $k = -4$. But then Line 2: $-4x + 10y = -22$ → divide by $-2$: $2x - 5y = 11$, which IS Line 1. So $k = -4$ gives infinitely many solutions.
-
-For no solution, we need the same slope but different intercepts. Since the slopes are $\frac{2}{5}$ and $-\frac{k}{10}$, setting $\frac{2}{5} = -\frac{k}{10}$ gives $k = -4$. But this makes the lines identical. So there is **no value of $k$** that gives no solution — when the slopes match, the lines are identical.
-
-Actually, let me recheck. Line 2: $kx + 10y = -22$. If $k = -4$: $-4x + 10y = -22$. Divide by $-2$: $2x - 5y = 11$. This is exactly Line 1. So $k = -4$ gives infinitely many solutions.
-
-For no solution, we'd need the same slope but a different constant. Since the constant in Line 2 is fixed at $-22$, and matching slopes forces $k = -4$ which makes the lines identical, there is no value of $k$ that produces no solution.
-
-$$\boxed{k = -4 \text{ gives infinitely many solutions; no value of } k \text{ gives no solution}}$$
-
----
-
-### 3.7 Systems of Equations Practice Problems
-
-**Problem 1:** Solve $\begin{cases} 3x - 4y = 21 \\ 5x + 2y = -5 \end{cases}$
-
-**Solution:** Multiply the second equation by 2:
-$$\begin{cases} 3x - 4y = 21 \\ 10x + 4y = -10 \end{cases}$$
-
-Add: $13x = 11$, so $x = \frac{11}{13}$.
-
-Substitute into $5x + 2y = -5$:
-$$5\left(\frac{11}{13}\right) + 2y = -5$$
-$$\frac{55}{13} + 2y = -5$$
-$$2y = -5 - \frac{55}{13} = \frac{-65 - 55}{13} = \frac{-120}{13}$$
-$$y = \frac{-60}{13}$$
-
-$$\boxed{\left(\frac{11}{13}, -\frac{60}{13}\right)}$$
-
-**Problem 2:** A store sells two types of tickets. Student tickets cost $\$6$ and adult tickets cost $\$10$. If 150 tickets were sold for a total of $\$1,100$, how many of each type were sold?
-
-**Solution:** Let $s$ = number of student tickets, $a$ = number of adult tickets.
-$$\begin{cases} s + a = 150 \\ 6s + 10a = 1100 \end{cases}$$
-
-From the first equation: $s = 150 - a$. Substitute:
-$$6(150 - a) + 10a = 1100$$
-$$900 - 6a + 10a = 1100$$
-$$4a = 200$$
-$$a = 50, \quad s = 100$$
-
-$$\boxed{100 \text{ student tickets and } 50 \text{ adult tickets}}$$
-
-**Problem 3:** For what value of $a$ does $\begin{cases} ax + 2y = 5 \\ 3x + 6y = 15 \end{cases}$ have infinitely many solutions?
-
-**Solution:**
-Line 1: $y = -\frac{a}{2}x + \frac{5}{2}$
-Line 2: $y = -\frac{1}{2}x + \frac{5}{2}$
-
-For infinitely many solutions, slopes must be equal: $-\frac{a}{2} = -\frac{1}{2}$, so $a = 1$.
-
-Check: When $a = 1$, Line 1 is $x + 2y = 5$. Line 2 is $3x + 6y = 15$, which is $3(x + 2y) = 3(5) = 15$. Same line ✓
-
-$$\boxed{a = 1}$$
-
----
-
-## PART IV: COMPREHENSIVE REVIEW AND CHALLENGE PROBLEMS
-
-### Challenge Problem 1 (Linear + Quadratic Intersection)
-
-Find all points where the line $y = 2x + 3$ intersects the parabola $y = x^2 - 4x + 7$.
-
-**Solution:**
-$$x^2 - 4x + 7 = 2x + 3$$
-$$x^2 - 6x + 4 = 0$$
-$$x = \frac{6 \pm \sqrt{36 - 16}}{2} = \frac{6 \pm \sqrt{20}}{2} = \frac{6 \pm 2\sqrt{5}}{2} = 3 \pm \sqrt{5}$$
-
-When $x = 3 + \sqrt{5}$: $y = 2(3 + \sqrt{5}) + 3 = 9 + 2\sqrt{5}$
-When $x = 3 - \sqrt{5}$: $y = 2(3 - \sqrt{5}) + 3 = 9 - 2\sqrt{5}$
-
-$$\boxed{(3 + \sqrt{5},\ 9 + 2\sqrt{5}) \text{ and } (3 - \sqrt{5},\ 9 - 2\sqrt{5})}$$
-
----
-
-### Challenge Problem 2 (System with a Parameter)
-
-Find all values of $k$ for which the system $\begin{cases} y = kx + 4 \\ y = x^2 - 2x + 1 \end{cases}$ has exactly one solution.
-
-**Solution:** Set equal:
-$$kx + 4 = x^2 - 2x + 1$$
-$$x^2 - (k+2)x - 3 = 0$$
-
-For exactly one solution, the discriminant must be zero:
-$$D = (k+2)^2 - 4(1)(-3) = 0$$
-$$(k+2)^2 + 12 = 0$$
-$$(k+2)^2 = -12$$
-
-Since a squared real number cannot be negative, there is **no real value of $k$** for which the system has exactly one solution.
-
-Wait — let me recheck. The problem says "exactly one solution," meaning the line is tangent to the parabola. But the discriminant $(k+2)^2 + 12$ is always positive (minimum value is 12 when $k = -2$). So the line always intersects the parabola at two points.
-
-$$\boxed{\text{No real value of } k \text{ gives exactly one solution.}}$$
-
----
-
-### Challenge Problem 3 (Three-Variable System)
-
-Solve $\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + 2y - z = 2 \end{cases}$
-
-**Solution:**
-
-From Equation 1: $z = 6 - x - y$
-
-Substitute into Equation 2:
-$$2x - y + (6 - x - y) = 3$$
-$$x - 2y + 6 = 3$$
-$$x - 2y = -3 \quad \text{...(4)}$$
-
-Substitute into Equation 3:
-$$x + 2y - (6 - x - y) = 2$$
-$$x + 2y - 6 + x + y = 2$$
-$$2x + 3y = 8 \quad \text{...(5)}$$
-
-From (4): $x = 2y - 3$. Substitute into (5):
-$$2(2y - 3) + 3y = 8$$
-$$4y - 6 + 3y = 8$$
-$$7y = 14$$
-$$y = 2$$
-
-Then $x = 2(2) - 3 = 1$, and $z = 6 - 1 - 2 = 3$.
-
-$$\boxed{(1, 2, 3)}$$
-
----
-
-### Challenge Problem 4 (Quadratic Modeling)
-
-A ball is thrown upward from a height of 5 feet with an initial velocity of 40 feet per second. The height $h$ (in feet) after $t$ seconds is modeled by $h = -16t^2 + 40t + 5$.
-
-(a) What is the maximum height reached?
-(b) When does the ball hit the ground?
-
-**Solution:**
-
-(a) The maximum height occurs at the vertex:
-$$t = -\frac{40}{2(-16)} = \frac{40}{32} = \frac{5}{4} = 1.25 \text{ seconds}$$
-
-$$h = -16\left(\frac{5}{4}\right)^2 + 40\left(\frac{5}{4}\right) + 5 = -16\left(\frac{25}{16}\right) + 50 + 5 = -25 + 55 = 30$$
-
-$$\boxed{\text{Maximum height} = 30 \text{ feet at } t = 1.25 \text{ seconds}}$$
-
-(b) The ball hits the ground when $h = 0$:
-$$-16t^2 + 40t + 5 = 0$$
-$$16t^2 - 40t - 5 = 0$$
-$$t = \frac{40 \pm \sqrt{1600 + 320}}{32} = \frac{40 \pm \sqrt{1920}}{32} = \frac{40 \pm 8\sqrt{30}}{32} = \frac{5 \pm \sqrt{30}}{4}$$
-
-Since $t > 0$: $t = \frac{5 + \sqrt{30}}{4} \approx \frac{5 + 5.48}{4} \approx 2.62$ seconds
-
-$$\boxed{t = \frac{5 + \sqrt{30}}{4} \approx 2.62 \text{ seconds}}$$
-
----
-
-## FORMULA SUMMARY SHEET
-
-### Linear Functions
-| Formula | Use |
-|---|---|
-| $m = \frac{y_2 - y_1}{x_2 - x_1}$ | Slope between two points |
-| $y = mx + b$ | Slope-intercept form |
-| $y - y_1 = m(x - x_1)$ | Point-slope form |
-| $Ax + By = C$ | Standard form |
-| $x = -\frac{b}{2a}$ | Vertex $x$-coordinate (also used for axis of symmetry) |
-| $m_1 = m_2$ | Parallel lines |
-| $m_1 \cdot m_2 = -1$ | Perpendicular lines |
-
-### Quadratic Functions
-| Formula | Use |
-|---|---|
-| $y = ax^2 + bx + c$ | Standard form; $c$ = $y$-intercept |
-| $y = a(x-h)^2 + k$ | Vertex form; vertex = $(h, k)$ |
-| $y = a(x-p)(x-q)$ | Intercept form; roots = $p$, $q$ |
-| $x = -\frac{b}{2a}$ | Vertex $x$-coordinate / axis of symmetry |
-| $x = \frac{p+q}{2}$ | Vertex $x$-coordinate from intercept form |
-| $x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$ | Quadratic formula |
-| $D = b^2 - 4ac$ | Discriminant |
-| Sum of roots $= -\frac{b}{a}$ | Relationship between coefficients and roots |
-| Product of roots $= \frac{c}{a}$ | Relationship between coefficients and roots |
-
-### Systems of Equations
-| Condition | Meaning |
-|---|---|
-| $m_1 \neq m_2$ | One unique solution |
-| $m_1 = m_2$, different intercepts | No solution (parallel) |
-| $m_1 = m_2$, same intercepts | Infinitely many solutions (same line) |
-
----
-
-*End of Chapter 1*
-
----
-
-
-# Chapter 2: Deep-Dive Explanations — Slope Theory, Equation Modeling, and Standard-form Conversions
-
-## 2.1 The Concept of Slope: A Rigorous Foundation
-
-The slope of a line is arguably the most fundamental concept in all of algebra. It is the single number that determines the "tilt" of a line, its direction, and its rate of change. Before we can model real-world scenarios or convert between equation forms, we must possess an unshakable understanding of what slope is, how to calculate it, and what every possible value of slope implies visually.
-
-### 2.1.1 Definition and Formula
-
-The slope, commonly denoted by the variable $m$, is defined as the ratio of the vertical change (the "rise") to the horizontal change (the "run") between any two distinct points on a line.
-
-Given two points, $(x_1, y_1)$ and $(x_2, y_2)$, where $x_1 \neq x_2$, the slope is calculated as:
-
-$$m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1}$$
-
-**Critical Nuance:** The order of the points does not matter, provided you are consistent. If you subtract $y_1$ from $y_2$ in the numerator, you *must* subtract $x_1$ from $x_2$ in the denominator. If you reverse the order in one but not the other, the sign of the slope will be incorrect.
-
-### 2.1.2 Interpreting the Value of Slope
-
-The numerical value of the slope tells a story about the line's behavior:
-
-*   **Positive Slope ($m > 0$):** The line rises from left to right. As $x$ increases, $y$ increases. The steeper the line, the larger the value of $m$.
-*   **Negative Slope ($m < 0$):** The line falls from left to right. As $x$ increases, $y$ decreases. The steeper the downward tilt, the more negative the value of $m$ (e.g., $-5$ is steeper than $-1$).
-*   **Zero Slope ($m = 0$):** The line is perfectly horizontal. There is no vertical change regardless of the horizontal change. The equation of such a line is $y = k$, where $k$ is the y-coordinate of any point on the line.
-*   **Undefined Slope:** The line is perfectly vertical. There is no horizontal change ($\Delta x = 0$), which makes the fraction undefined. The equation of such a line is $x = h$, where $h$ is the x-coordinate of any point on the line.
-
-### 2.1.3 Slope as a Rate of Change
-
-In applied mathematics and science, the slope is rarely just an abstract number. It represents a **rate of change**. If $x$ represents time in seconds and $y$ represents distance in meters, the slope $m$ represents velocity in meters per second. If $x$ represents the number of units produced and $y$ represents total cost in dollars, the slope represents the marginal cost per unit.
-
-The units of the slope are always the units of the dependent variable ($y$) divided by the units of the independent variable ($x$).
-
----
-
-## 2.2 The Three Forms of a Linear Equation
-
-A single straight line can be described by multiple algebraic equations. The "best" form to use depends entirely on the information you are given and the question you are trying to answer. The SAT and ACT will test your ability to fluently navigate between these three forms.
-
-### 2.2.1 Slope-Intercept Form: $y = mx + b$
-
-This is the most common and arguably the most useful form for graphing and quick analysis.
-
-*   **$m$**: The slope of the line.
-*   **$b$**: The y-intercept (the value of $y$ when $x = 0$). This is the point $(0, b)$.
-
-**When to use it:** Use this form when you are given the slope and the y-intercept, or when you need to quickly identify the slope and y-intercept of a line. It is also the most efficient form for graphing a line by hand.
-
-**Derivation Insight:** If a line passes through the origin $(0,0)$ with slope $m$, the equation is simply $y = mx$. If that line is then shifted vertically by $b$ units, every $y$-coordinate increases by $b$, resulting in $y = mx + b$.
-
-### 2.2.2 Point-Slope Form: $y - y_1 = m(x - x_1)$
-
-This form is the most powerful tool for writing the equation of a line when you are given a single point and the slope.
-
-*   **$m$**: The slope of the line.
-*   **$(x_1, y_1)$**: A specific point that lies on the line.
-
-**When to use it:** Use this form when you are given the slope and a single point (not the y-intercept), or when you are given two points and you have already calculated the slope.
-
-**Derivation Insight:** The logic behind this form is simple. The slope $m$ must be the same between *any* two points on the line. If $(x_1, y_1)$ is a fixed point and $(x, y)$ represents *any* other point on the line, then the slope formula gives us $m = \frac{y - y_1}{x - x_1}$. Multiplying both sides by $(x - x_1)$ yields the point-slope form.
-
-### 2.2.3 Standard Form: $Ax + By = C$
-
-This form is often preferred in higher mathematics and systems of equations.
-
-*   **$A$, $B$, $C$**: Integers (usually, though not strictly required). It is standard convention that $A$ should be a non-negative integer.
-*   **$A$ and $B$**: Cannot both be zero.
-
-**When to use it:** Use this form when dealing with systems of linear equations (elimination method) or when the problem specifically asks for it. It is also useful for finding intercepts quickly (set $y=0$ to find x-intercept, set $x=0$ to find y-intercept).
-
-**Finding Slope from Standard Form:** A common task is to find the slope of a line given in standard form. We can rearrange the equation to solve for $y$:
-$$By = -Ax + C$$
-$$y = -\frac{A}{B}x + \frac{C}{B}$$
-Therefore, the slope $m = -\frac{A}{B}$.
-
----
-
-## 2.3 Mastering Conversions Between Forms
-
-The ability to seamlessly convert a linear equation from one form to another is a non-negotiable skill for standardized testing. This section provides the step-by-step algorithms for every possible conversion.
-
-### 2.3.1 Standard Form to Slope-Intercept Form
-
-**Goal:** Isolate $y$ to identify $m$ and $b$.
-
-**Algorithm:**
-1.  Move the $x$-term to the right side of the equation by subtracting $Ax$ from both sides.
-2.  Divide every term by the coefficient of $y$ (which is $B$).
-
-**Example:** Convert $4x + 2y = 10$ to slope-intercept form.
-1.  $2y = -4x + 10$
-2.  $y = -2x + 5$
-*Result: Slope $m = -2$, y-intercept $b = 5$.*
-
-### 2.3.2 Slope-Intercept Form to Standard Form
-
-**Goal:** Move all variable terms to one side and ensure coefficients are integers.
-
-**Algorithm:**
-1.  Move the $mx$ term to the left side by subtracting it from both sides.
-2.  If there are any fractions, multiply the entire equation by the Least Common Denominator (LCD) to clear them.
-3.  Ensure the $x$-coefficient is positive (multiply by $-1$ if necessary).
-
-**Example:** Convert $y = \frac{2}{3}x - 4$ to standard form.
-1.  $-\frac{2}{3}x + y = -4$
-2.  Multiply by 3: $-2x + 3y = -12$
-3.  Multiply by $-1$: $2x - 3y = 12$
-*Result: $A = 2$, $B = -3$, $C = 12$.*
-
-### 2.3.3 Point-Slope Form to Slope-Intercept Form
-
-**Goal:** Distribute the slope and isolate $y$.
-
-**Algorithm:**
-1.  Distribute $m$ to the terms inside the parentheses.
-2.  Add $y_1$ to both sides to isolate $y$.
-3.  Combine constant terms on the right side.
-
-**Example:** Convert $y - 5 = 3(x - 2)$ to slope-intercept form.
-1.  $y - 5 = 3x - 6$
-2.  $y = 3x - 6 + 5$
-3.  $y = 3x - 1$
-*Result: Slope $m = 3$, y-intercept $b = -1$.*
-
-### 2.3.4 Two Points to Point-Slope Form
-
-**Goal:** Calculate slope, then plug into point-slope formula.
-
-**Algorithm:**
-1.  Calculate $m = \frac{y_2 - y_1}{x_2 - x_1}$.
-2.  Choose *one* of the two points to be $(x_1, y_1)$.
-3.  Substitute $m$, $x_1$, and $y_1$ into $y - y_1 = m(x - x_1)$.
-
-**Example:** Find the equation of the line passing through $(1, 2)$ and $(5, 10)$.
-1.  $m = \frac{10 - 2}{5 - 1} = \frac{8}{4} = 2$.
-2.  Let $(x_1, y_1) = (1, 2)$.
-3.  $y - 2 = 2(x - 1)$.
-*Result: Point-slope form is $y - 2 = 2(x - 1)$.*
-
----
-
-## 2.4 Parallel and Perpendicular Lines: The Geometric Relationships
-
-Understanding the relationship between the slopes of parallel and perpendicular lines is a staple of the SAT and ACT. These relationships allow you to determine the equation of a line based solely on its relationship to another line.
-
-### 2.4.1 Parallel Lines
-
-**Definition:** Two lines are parallel if and only if they lie in the same plane and never intersect.
-
-**Slope Relationship:** Parallel lines have the **exact same slope** ($m_1 = m_2$).
-
-**Why?** If two lines have different slopes, they will eventually cross. Only lines with identical tilts will remain equidistant forever.
-
-**Application:** If you are asked to find the equation of a line parallel to $y = 3x - 7$ that passes through the point $(2, 4)$, you immediately know the slope of your new line is $m = 3$. You can then use point-slope form: $y - 4 = 3(x - 2)$.
-
-### 2.4.2 Perpendicular Lines
-
-**Definition:** Two lines are perpendicular if they intersect at a right angle (90 degrees).
-
-**Slope Relationship:** Perpendicular lines have slopes that are **negative reciprocals** of each other ($m_1 = -\frac{1}{m_2}$ or $m_1 \cdot m_2 = -1$).
-
-**Why?** This is a geometric necessity. If one line has a steep positive slope, the line perpendicular to it must have a slope that "cancels out" the tilt to form a right angle.
-
-**Application:** If you are asked to find the equation of a line perpendicular to $y = 3x - 7$ that passes through $(2, 4)$, the slope of the new line is the negative reciprocal of $3$, which is $-\frac{1}{3}$. Using point-slope form: $y - 4 = -\frac{1}{3}(x - 2)$.
-
-**Special Cases:**
-*   A horizontal line ($m = 0$) is perpendicular to a vertical line (undefined slope).
-*   A line with slope $1$ is perpendicular to a line with slope $-1$.
-
----
-
-## 2.5 Modeling Real-World Scenarios with Linear Equations
-
-The SAT and ACT frequently present word problems that require you to translate a real-world situation into a linear equation. This section breaks down the common components of these problems.
-
-### 2.5.1 Identifying the Variables
-
-The first step is always to define what $x$ and $y$ represent.
-
-*   **$x$ (Independent Variable):** The input, the thing you control, or the thing that changes naturally (e.g., time, number of items, years since a starting point).
-*   **$y$ (Dependent Variable):** The output, the thing you are measuring, the thing that depends on $x$ (e.g., total cost, distance traveled, population).
-
-### 2.5.2 Interpreting Slope and Y-Intercept in Context
-
-This is the most critical skill for word problems. You must be able to explain what $m$ and $b$ mean *in the context of the problem*, not just mathematically.
-
-*   **The Slope ($m$):** Represents the **rate of change** or the **unit rate**. It answers the question: "How much does $y$ increase (or decrease) for every 1-unit increase in $x$?"
-    *   *Example:* If $y$ is the total cost of buying $x$ apples at $0.50 each, the slope $m = 0.50$ means "the cost increases by $0.50 for every 1 apple purchased."
-*   **The Y-Intercept ($b$):** Represents the **starting value** or **initial condition**. It is the value of $y$ when $x = 0$.
-    *   *Example:* If $y$ is the total cost of a taxi ride where $x$ is the number of miles traveled, and there is a $3.00 base fare, the y-intercept $b = 3$ means "the cost is $3.00 before traveling any miles."
-
-### 2.5.3 Common Linear Modeling Scenarios
-
-1.  **Financial Models:**
-    *   $y = \text{rate} \cdot x + \text{initial amount}$
-    *   *Example:* A gym charges a $50 membership fee plus $20 per month. $y = 20x + 50$.
-
-2.  **Distance/Rate/Time Models:**
-    *   $y = \text{speed} \cdot x + \text{starting distance}$
-    *   *Example:* A car is 100 miles away and drives towards you at 60 mph. $y = -60x + 100$ (distance decreases over time).
-
-3.  **Mixture/Combination Models:**
-    *   $y = (\text{cost}_1 \cdot \text{amount}_1) + (\text{cost}_2 \cdot \text{amount}_2)$
-    *   Often, these involve constraints that lead to systems of equations.
-
-### 2.5.4 Constructing the Equation from a Word Problem
-
-**Algorithm:**
-1.  Read the problem and identify the independent ($x$) and dependent ($y$) variables.
-2.  Find the **rate of change** (the slope, $m$). Look for keywords like "per," "each," "every," or "rate."
-3.  Find the **starting value** (the y-intercept, $b$). Look for keywords like "initial," "starting," "base fee," or "one-time charge."
-4.  Plug $m$ and $b$ into $y = mx + b$.
-
-**Advanced Scenario: Two-Point Modeling**
-Sometimes, the problem doesn't explicitly give you the slope or the y-intercept. Instead, it gives you two specific data points, e.g., "In 2020, the population was 5,000. In 2025, it was 7,000."
-
-**Algorithm:**
-1.  Convert the data points into coordinate pairs: $(2020, 5000)$ and $(2025, 7000)$.
-2.  Calculate the slope: $m = \frac{7000 - 5000}{2025 - 2020} = \frac{2000}{5} = 400$.
-3.  Interpret the slope: "The population increases by 400 people per year."
-4.  Use point-slope form to find the equation: $y - 5000 = 400(x - 2020)$.
-5.  Simplify to slope-intercept form if needed: $y = 400x - 795,000$.
-
----
-
-## 2.6 Common Pitfalls and Test-Taking Strategies
-
-### 2.6.1 The "Undefined vs. Zero" Slope Confusion
-
-This is one of the most common errors in algebra.
-
-*   **Zero Slope:** The line is horizontal. The equation is $y = \text{constant}$. (Think: A flat road has zero steepness).
-*   **Undefined Slope:** The line is vertical. The equation is $x = \text{constant}$. (Think: A cliff is infinitely steep).
-
-**Memory Trick:** "0" looks like a flat line (horizontal). "Undefined" is a word that goes straight up and down (vertical).
-
-### 2.6.2 Sign Errors in Slope Calculation
-
-When calculating slope between two points, always be vigilant with negative signs.
-
-**Example:** Find the slope between $(-2, 5)$ and $(4, -1)$.
-$$m = \frac{-1 - 5}{4 - (-2)} = \frac{-6}{4 + 2} = \frac{-6}{6} = -1$$
-Notice how subtracting a negative number becomes addition. This is where many students make mistakes.
-
-### 2.6.3 Misinterpreting the Y-Intercept
-
-The y-intercept is *not* always the answer to "what is the value at the beginning?" If the equation is written in standard form ($Ax + By = C$), the y-intercept is *not* $C$. It is $C/B$.
-
-**Example:** In the equation $2x + 3y = 6$, the y-intercept is $6/3 = 2$, not 6.
-
-### 2.6.4 Parallel vs. Perpendicular Mix-Ups
-
-Students often confuse the two rules.
-
-*   **Parallel:** Same slope. (Think: Parallel train tracks have the same direction).
-*   **Perpendicular:** Negative reciprocal. (Think: A perpendicular line "flips" the slope and changes its sign).
-
-**Memory Trick:** To find the perpendicular slope, "flip the fraction and change the sign." If $m = 2/3$, the perpendicular slope is $-3/2$.
-
-### 2.6.5 Standard Form Conventions
-
-When converting to standard form, the SAT and ACT usually expect $A$, $B$, and $C$ to be integers, and $A$ to be non-negative. If you end up with $-3x + 2y = 5$, multiply the entire equation by $-1$ to get $3x - 2y = -5$.
-
----
-
-## 2.7 Practice Problems: Deep-Dive Application
-
-### Problem Set A: Finding Equations
-
-**1.** Find the equation of the line in slope-intercept form that passes through the point $(3, -2)$ and has a slope of $4$.
-
-**2.** Find the equation of the line in point-slope form that passes through the points $(1, 5)$ and $(3, 11)$.
-
-**3.** Find the equation of the line in standard form that passes through $(-1, 4)$ and $(2, -2)$.
-
-**4.** Find the equation of the line parallel to $y = 2x - 5$ that passes through the point $(4, 1)$.
-
-**5.** Find the equation of the line perpendicular to $y = -\frac{1}{3}x + 2$ that passes through the point $(6, -2)$.
-
-### Problem Set B: Interpretation and Modeling
-
-**6.** A plumber charges a $75 service fee plus $50 per hour of work. Write a linear equation representing the total cost $y$ as a function of hours worked $x$. What does the slope represent? What does the y-intercept represent?
-
-**7.** A car rental company charges $30 per day plus a one-time insurance fee of $15. Write the equation in standard form representing the total cost $y$ for renting $x$ days.
-
-**8.** In 2010, a town's population was 12,000. In 2020, it was 18,000. Assuming a linear growth model, write the equation representing the population $y$ as a function of the number of years $x$ since 2010. Use this model to predict the population in 2030.
-
----
-
-## 2.8 Solutions and Step-by-Step Explanations
-
-**Solution 1:**
-Given $m = 4$ and point $(3, -2)$.
-Use point-slope form: $y - y_1 = m(x - x_1)$.
-$y - (-2) = 4(x - 3)$
-$y + 2 = 4x - 12$
-$y = 4x - 14$
-
-**Solution 2:**
-Given points $(1, 5)$ and $(3, 11)$.
-First, find the slope: $m = \frac{11 - 5}{3 - 1} = \frac{6}{2} = 3$.
-Use point-slope form with $(1, 5)$: $y - 5 = 3(x - 1)$.
-(Note: Using $(3, 11)$ would give $y - 11 = 3(x - 3)$, which is equivalent).
-
-**Solution 3:**
-Given points $(-1, 4)$ and $(2, -2)$.
-First, find the slope: $m = \frac{-2 - 4}{2 - (-1)} = \frac{-6}{3} = -2$.
-Use point-slope form: $y - 4 = -2(x - (-1)) \Rightarrow y - 4 = -2(x + 1)$.
-$y - 4 = -2x - 2$
-$y = -2x + 2$
-Convert to standard form: $2x + y = 2$.
-
-**Solution 4:**
-Parallel to $y = 2x - 5$ means the slope is the same: $m = 2$.
-Passing through $(4, 1)$.
-$y - 1 = 2(x - 4)$
-$y - 1 = 2x - 8$
-$y = 2x - 7$
-
-**Solution 5:**
-Perpendicular to $y = -\frac{1}{3}x + 2$ means the slope is the negative reciprocal: $m = 3$.
-Passing through $(6, -2)$.
-$y - (-2) = 3(x - 6)$
-$y + 2 = 3x - 18$
-$y = 3x - 20$
-
-**Solution 6:**
-$y = 50x + 75$.
-The slope ($m = 50$) represents the hourly rate ($50 per hour).
-The y-intercept ($b = 75$) represents the one-time service fee ($75).
-
-**Solution 7:**
-$y = 30x + 15$.
-To convert to standard form: $-30x + y = 15$.
-Multiply by $-1$ to make $A$ positive: $30x - y = -15$.
-
-**Solution 8:**
-Points: $(0, 12000)$ and $(10, 18000)$.
-Slope: $m = \frac{18000 - 12000}{10 - 0} = \frac{6000}{10} = 600$.
-Equation: $y = 600x + 12000$.
-For 2030, $x = 20$: $y = 600(20) + 12000 = 12000 + 12000 = 24000$.
-The predicted population in 2030 is 24,000.
-
----
-
-
-# Chapter 3: Advanced Strategies for Systems — No Solution, Infinite Solutions, and Real-World Modeling
-
-## 3.1 The Anatomy of a System: A Rigorous Foundation
-
-Before we can dissect the behavior of linear systems, we must establish a precise mathematical vocabulary. A **system of linear equations** consists of two or more equations involving the same set of variables. The solution to such a system is the set of all ordered pairs (or tuples, for more than two variables) that simultaneously satisfy every equation in the system.
-
-Consider the general form of a system of two linear equations in two variables:
+Given the system:
 
 $$a_1x + b_1y = c_1$$
+
 $$a_2x + b_2y = c_2$$
 
-Where $a_1, b_1, c_1, a_2, b_2, c_2$ are real number constants, and $x$ and $y$ are the variables.
+- **One solution** if and only if $\frac{a_1}{a_2} \neq \frac{b_1}{b_2}$ (the lines have different slopes).
+- **No solution** if and only if $\frac{a_1}{a_2} = \frac{b_1}{b_2} \neq \frac{c_1}{c_2}$ (same slope, different intercepts — parallel lines).
+- **Infinitely many solutions** if and only if $\frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{c_1}{c_2}$ (same slope, same intercept — identical lines).
 
-The **solution set** of this system can contain exactly one of three possibilities:
-1.  **Exactly one solution:** The lines intersect at a single, unique point.
-2.  **No solution:** The lines are parallel and distinct, never intersecting.
-3.  **Infinitely many solutions:** The lines are coincident (the exact same line), overlapping at every point.
-
-This trichotomy is absolute. For two linear equations in two variables, there is no fourth possibility. The number of solutions is an intrinsic property of the system's structure, determined solely by the relationships between the coefficients.
+This ratio comparison is extremely fast and is the preferred method for "how many solutions" questions on the SAT.
 
 ---
 
-## 3.2 The Geometric-Analytic Bridge: Slope and Intercept Relationships
+## 1.6 Translating Word Problems into Linear Equations
 
-To understand *why* these three cases occur, we must bridge the algebraic and geometric perspectives. Every linear equation in two variables can be rewritten in **slope-intercept form** ($y = mx + b$), where $m$ is the slope and $b$ is the y-intercept.
+### 1.6.1 The General Framework
 
-Let us transform our general system:
+A substantial portion of SAT Algebra questions are presented as **word problems** (also called "modeling" or "application" problems). The SAT's word problems in the Algebra domain typically involve:
 
-Equation 1: $y = -\frac{a_1}{b_1}x + \frac{c_1}{b_1}$ (assuming $b_1 \neq 0$)
-Equation 2: $y = -\frac{a_2}{b_2}x + \frac{c_2}{b_2}$ (assuming $b_2 \neq 0$)
+- **Rate problems** (speed, work rate, production rate)
+- **Mixture problems** (combining two substances at different concentrations or prices)
+- **Age problems** (relationships between people's ages now and in the future or past)
+- **Cost/revenue/profit problems** (business applications)
+- **Distance problems** (objects moving toward each other, away from each other, or in the same direction)
 
-Let $m_1 = -\frac{a_1}{b_1}$ and $m_2 = -\frac{a_2}{b_2}$ be the slopes.
-Let $b_1^* = \frac{c_1}{b_1}$ and $b_2^* = \frac{c_2}{b_2}$ be the y-intercepts.
+The general approach to any word problem is:
 
-The three cases can now be defined precisely:
+1. **Define your variables.** Let $x$ and $y$ (or whatever letters you choose) represent the unknown quantities. Be specific: "Let $x$ = the number of hours Train A travels" is better than "Let $x$ = Train A."
+2. **Identify the relationships.** Look for phrases that translate into mathematical operations:
+   - "Total" or "combined" → addition
+   - "Difference" or "more than" or "less than" → subtraction
+   - "Times" or "product" or "of" → multiplication
+   - "Per" or "for each" → multiplication (as a rate)
+   - "Is" or "was" or "will be" → equals
+3. **Write the equations.** You need as many independent equations as you have unknowns.
+4. **Solve the system.**
+5. **Check your answer** against the original problem statement (not just your equations — your equations might not accurately model the problem).
 
-*   **Case 1: Unique Solution ($m_1 \neq m_2$)**
-    If the slopes are different, the lines *must* intersect at exactly one point. The x-coordinate of this point can be found by setting the two expressions for $y$ equal to each other:
-    $$m_1x + b_1^* = m_2x + b_2^*$$
-    $$(m_1 - m_2)x = b_2^* - b_1^*$$
-    $$x = \frac{b_2^* - b_1^*}{m_1 - m_2}$$
-    Since $m_1 \neq m_2$, the denominator is non-zero, guaranteeing a unique value for $x$. Substituting this back into either equation yields the unique $y$-coordinate.
+### 1.6.2 Rate Problems
 
-*   **Case 2: No Solution ($m_1 = m_2$ and $b_1^* \neq b_2^*$)**
-    If the slopes are identical, the lines are parallel. Parallel lines never intersect. If the y-intercepts are different ($b_1^* \neq b_2^*$), the lines are distinct and separate. There is no point $(x, y)$ that lies on both lines simultaneously. The system is **inconsistent**.
+Rate problems on the SAT almost always involve the fundamental relationship:
 
-*   **Case 3: Infinitely Many Solutions ($m_1 = m_2$ and $b_1^* = b_2^*$)**
-    If the slopes are identical and the y-intercepts are identical, the two equations represent the exact same line. Every point on this line is a solution to both equations. The system is **dependent** (or consistent-dependent). The solution set can be expressed as $\{(x, y) \ | \ y = m_1x + b_1^*\}$.
+$$\text{Rate} \times \text{Time} = \text{Quantity}$$
 
----
+where "Quantity" might be distance (for speed problems), work completed (for work rate problems), or items produced (for production rate problems).
 
-## 3.3 The Determinant: A Powerful Algebraic Tool
+**Key insight for the SAT:** When two objects move **toward each other**, their **combined rate** is the sum of their individual rates. When they move in the **same direction**, the **relative rate** is the difference of their rates. These facts allow you to write a single equation for the combined distance or the catch-up time.
 
-While the slope-intercept method is conceptually clear, it fails when lines are vertical (slope is undefined). A more robust, universal method exists using the **determinant** of the coefficient matrix.
+### 1.6.3 Mixture and Combination Problems
 
-For our system:
-$$a_1x + b_1y = c_1$$
-$$a_2x + b_2y = c_2$$
+Mixture problems involve combining two or more substances with different characteristics (concentrations, prices, percentages) to create a mixture with a specific characteristic.
 
-The **coefficient matrix** is:
-$$A = \begin{pmatrix} a_1 & b_1 \\ a_2 & b_2 \end{pmatrix}$$
+The governing equation is:
 
-The **determinant** of $A$, denoted $\det(A)$ or $|A|$, is calculated as:
-$$\det(A) = a_1b_2 - a_2b_1$$
+$$(\text{Amount}_1)(\text{Value}_1) + (\text{Amount}_2)(\text{Value}_2) = (\text{Total Amount})(\text{Mixed Value})$$
 
-The determinant provides a definitive test for the nature of the solution:
+For example, if you mix $x$ liters of a 20% salt solution with 10 liters of a 50% salt solution to get a 30% salt solution:
 
-*   **If $\det(A) \neq 0$:** The system has **exactly one unique solution**. The matrix $A$ is invertible, and the solution can be found using **Cramer's Rule**:
-    $$x = \frac{\det(A_x)}{\det(A)}, \quad y = \frac{\det(A_y)}{\det(A)}$$
-    Where $A_x$ is the matrix formed by replacing the first column of $A$ with the constants vector $\begin{pmatrix} c_1 \\ c_2 \end{pmatrix}$, and $A_y$ is formed by replacing the second column.
-    $$A_x = \begin{pmatrix} c_1 & b_1 \\ c_2 & b_2 \end{pmatrix}, \quad A_y = \begin{pmatrix} a_1 & c_1 \\ a_2 & c_2 \end{pmatrix}$$
+$$0.20x + 0.50(10) = 0.30(x + 10)$$
 
-*   **If $\det(A) = 0$:** The system has either **no solution** or **infinitely many solutions**. The matrix $A$ is singular (non-invertible). To distinguish between these two sub-cases, we must examine the **augmented matrix**:
-    $$[A | \mathbf{c}] = \left(\begin{array}{cc|c} a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \end{array}\right)$$
+This is a linear equation in $x$ that can be solved directly.
 
----
+### 1.6.4 Problems Involving Fixed and Variable Costs
 
-## 3.4 Distinguishing No Solution from Infinite Solutions: The Rank Method
+Many SAT word problems involve a **fixed cost** (a one-time fee, a base price, a starting amount) plus a **variable cost** (a per-unit charge, a rate per hour, a cost per item). These naturally produce linear equations of the form:
 
-When $\det(A) = 0$, we must perform a deeper analysis. The key concept here is the **rank** of a matrix, which is the number of non-zero rows in its **row echelon form (REF)**.
+$$y = mx + b$$
 
-Let's apply **Gaussian elimination** to the augmented matrix:
+where $b$ is the fixed cost and $m$ is the variable rate.
 
-1.  Start with: $\left(\begin{array}{cc|c} a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \end{array}\right)$
-2.  Perform row operations to get a zero in the second row, first column. Multiply Row 1 by $a_2$ and Row 2 by $a_1$, then subtract:
-    $$R_2 \leftarrow a_1R_2 - a_2R_1$$
-    This yields: $\left(\begin{array}{cc|c} a_1 & b_1 & c_1 \\ 0 & a_1b_2 - a_2b_1 & a_1c_2 - a_2c_1 \end{array}\right)$
+**SAT insight:** When a problem gives you two different scenarios (e.g., "Company A charges a $50 setup fee plus $10 per hour, and Company B charges a $20 setup fee plus $15 per hour"), you are being set up to either:
 
-Since $\det(A) = a_1b_2 - a_2b_1 = 0$, the second row simplifies to:
-$$\left(\begin{array}{cc|c} a_1 & b_1 & c_1 \\ 0 & 0 & a_1c_2 - a_2c_1 \end{array}\right)$$
-
-Now we examine the value of $a_1c_2 - a_2c_1$:
-
-*   **Sub-case 2a: No Solution (Inconsistent System)**
-    If $a_1c_2 - a_2c_1 \neq 0$, the second row reads $0x + 0y = \text{non-zero}$, which is a contradiction. This means the system has **no solution**. The lines are parallel and distinct.
-    In terms of rank: $\text{rank}(A) = 1$ (only one non-zero row in the coefficient matrix), but $\text{rank}([A | \mathbf{c}]) = 2$ (the augmented matrix has two non-zero rows). Since $\text{rank}(A) \neq \text{rank}([A | \mathbf{c}])$, the system is inconsistent.
-
-*   **Sub-case 3b: Infinitely Many Solutions (Dependent System)**
-    If $a_1c_2 - a_2c_1 = 0$, the second row reads $0x + 0y = 0$, which is always true and provides no new information. The system reduces to a single equation: $a_1x + b_1y = c_1$. This means there are **infinitely many solutions**.
-    In terms of rank: $\text{rank}(A) = 1$ and $\text{rank}([A | \mathbf{c}]) = 1$. Since $\text{rank}(A) = \text{rank}([A | \mathbf{c}])$, the system is consistent. Because the rank (1) is less than the number of variables (2), there are infinitely many solutions. The solution set has one **free variable** (parameter).
+- Find when the two costs are equal (set the two expressions equal and solve for the variable), or
+- Determine which company is cheaper for a given quantity (evaluate both expressions and compare).
 
 ---
 
-## 3.5 Parametric Representation of Infinite Solutions
+## 1.7 Linear Functions and Their Properties
 
-When a system has infinitely many solutions, we express the solution set using a **parameter**. Let's continue from the dependent case where the system reduces to:
-$$a_1x + b_1y = c_1$$
+### 1.7.1 Function Notation
 
-Assuming $b_1 \neq 0$, we can solve for $y$ in terms of $x$:
-$$y = \frac{c_1 - a_1x}{b_1}$$
+The SAT uses standard function notation $f(x)$, and you must be fluent in interpreting it. When you see $f(x) = 3x - 7$, this means:
 
-Let $x = t$, where $t$ is any real number (the parameter). Then:
-$$x = t$$
-$$y = \frac{c_1 - a_1t}{b_1}$$
+- The function $f$ takes an input $x$.
+- It multiplies the input by 3.
+- It subtracts 7 from the result.
+- The output is $f(x)$.
 
-The solution set is $\{(t, \frac{c_1 - a_1t}{b_1}) \ | \ t \in \mathbb{R}\}$.
+**Evaluating a function** at a specific value means substituting that value for $x$. For example, $f(4) = 3(4) - 7 = 5$.
 
-If $b_1 = 0$ (and thus $a_1 \neq 0$), the equation becomes $a_1x = c_1$, so $x = \frac{c_1}{a_1}$. Let $y = t$:
-$$x = \frac{c_1}{a_1}$$
-$$y = t$$
+**Finding the input for a given output** means solving the equation $f(x) = \text{(given value)}$. For example, to find $x$ such that $f(x) = 11$: $3x - 7 = 11$, so $3x = 18$, so $x = 6$.
 
-The solution set is $\{(\frac{c_1}{a_1}, t) \ | \ t \in \mathbb{R}\}$.
+### 1.7.2 Domain and Range (Linear Context)
 
-This parametric form is essential for describing the entire infinite family of solutions.
+For linear functions of the form $f(x) = mx + b$ where $m \neq 0$:
 
----
+- The **domain** (all possible input values) is all real numbers: $(-\infty, \infty)$.
+- The **range** (all possible output values) is also all real numbers: $(-\infty, \infty)$.
 
-## 3.6 Real-World Modeling: Translating Word Problems into Systems
+The SAT may restrict the domain in a word problem context (e.g., "the number of items must be a positive integer"), but the underlying mathematical function has an unrestricted domain.
 
-The true power of linear systems lies in their application to real-world scenarios. The modeling process requires careful translation of verbal descriptions into mathematical equations.
+### 1.7.3 Increasing and Decreasing Functions
 
-### 3.6.1 The Mixture Problem Framework
+A linear function $f(x) = mx + b$ is:
 
-**Scenario:** A chemist needs to create 100 liters of a 30% acid solution. They have two stock solutions available: a 20% solution and a 50% solution. How many liters of each stock solution should be mixed?
+- **Increasing** if $m > 0$ (the line slopes upward from left to right).
+- **Decreasing** if $m < 0$ (the line slopes downward from left to right).
+- **Constant** if $m = 0$ (the line is horizontal; $f(x) = b$ for all $x$).
 
-**Modeling Process:**
-1.  **Define Variables:**
-    *   Let $x$ = liters of 20% solution
-    *   Let $y$ = liters of 50% solution
-2.  **Identify Constraints:**
-    *   **Total Volume Constraint:** The final mixture must be 100 liters.
-        $$x + y = 100$$
-    *   **Total Acid Constraint:** The amount of pure acid from both sources must equal the amount of pure acid in the final mixture.
-        $$0.20x + 0.50y = 0.30(100)$$
-        $$0.20x + 0.50y = 30$$
-3.  **Solve the System:**
-    From the first equation: $y = 100 - x$
-    Substitute into the second equation:
-    $$0.20x + 0.50(100 - x) = 30$$
-    $$0.20x + 50 - 0.50x = 30$$
-    $$-0.30x = -20$$
-    $$x = \frac{20}{0.30} = \frac{200}{3} \approx 66.67 \text{ liters}$$
-    $$y = 100 - \frac{200}{3} = \frac{100}{3} \approx 33.33 \text{ liters}$$
+The SAT may ask you to determine whether a function is increasing or decreasing based on its equation, its graph, or a verbal description of the relationship it models.
 
-**Verification:**
-*   Total volume: $\frac{200}{3} + \frac{100}{3} = \frac{300}{3} = 100$ liters. (Correct)
-*   Total acid: $0.20(\frac{200}{3}) + 0.50(\frac{100}{3}) = \frac{40}{3} + \frac{50}{3} = \frac{90}{3} = 30$ liters. (Correct)
+### 1.7.4 Zeros of a Linear Function
 
-### 3.6.2 The Motion Problem Framework
+The **zero** (or **root**, or **$x$-intercept**) of a linear function $f(x) = mx + b$ is the value of $x$ for which $f(x) = 0$. Solving:
 
-**Scenario:** Two cars start from the same point. Car A travels north at 60 mph. Car B travels east at 80 mph. After how many hours will they be 500 miles apart?
+$$mx + b = 0 \implies x = -\frac{b}{m}$$
 
-**Modeling Process:**
-1.  **Define Variables:**
-    *   Let $t$ = time in hours
-    *   Let $d_A$ = distance traveled by Car A = $60t$
-    *   Let $d_B$ = distance traveled by Car B = $80t$
-2.  **Identify the Relationship:**
-    The paths of the cars form a right triangle. The distance between them is the hypotenuse.
-    $$d_A^2 + d_B^2 = 500^2$$
-    $$(60t)^2 + (80t)^2 = 250,000$$
-    $$3600t^2 + 6400t^2 = 250,000$$
-    $$10,000t^2 = 250,000$$
-    $$t^2 = 25$$
-    $$t = 5 \text{ hours}$$ (We discard $t = -5$ as time cannot be negative)
+This is also the solution to the equation $mx + b = 0$ and the $x$-coordinate of the point where the graph crosses the $x$-axis.
 
-### 3.6.3 The Economic Problem Framework (Break-Even Analysis)
-
-**Scenario:** A company produces widgets. The fixed costs are $5,000 per month, and the variable cost is $4 per widget. The widgets are sold for $10 each. How many widgets must be sold to break even?
-
-**Modeling Process:**
-1.  **Define Variables:**
-    *   Let $x$ = number of widgets produced and sold
-    *   Let $C(x)$ = total cost = Fixed Cost + Variable Cost = $5000 + 4x$
-    *   Let $R(x)$ = total revenue = Price × Quantity = $10x$
-2.  **Identify the Break-Even Condition:**
-    At the break-even point, Revenue equals Cost.
-    $$R(x) = C(x)$$
-    $$10x = 5000 + 4x$$
-    $$6x = 5000$$
-    $$x = \frac{5000}{6} \approx 833.33$$
-
-Since the company cannot sell a fraction of a widget, they must sell at least **834 widgets** to break even.
+**SAT connection:** Many "solve for $x$" problems on the SAT are, in disguise, asking you to find the zero of a linear function. Recognizing this connection can help you interpret what the question is really asking and check your answer geometrically.
 
 ---
 
-## 3.7 Advanced Classification: Consistent vs. Inconsistent Systems
+## 1.8 Modeling with Linear Equations
 
-We can now formalize the classification of any linear system of two equations:
+### 1.8.1 The Concept of a Mathematical Model
 
-| Condition | Rank(A) | Rank([A|c]) | Number of Solutions | System Type | Geometric Interpretation |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| $\det(A) \neq 0$ | 2 | 2 | Exactly 1 | Consistent & Independent | Intersecting Lines |
-| $\det(A) = 0$ and $a_1c_2 - a_2c_1 \neq 0$ | 1 | 2 | 0 | Inconsistent | Parallel, Distinct Lines |
-| $\det(A) = 0$ and $a_1c_2 - a_2c_1 = 0$ | 1 | 1 | Infinitely Many | Consistent & Dependent | Coincident Lines |
+The SAT frequently uses the word "model" in the context of linear equations. A **mathematical model** is an equation (or system of equations) that describes a real-world situation. When the SAT says "the equation $y = 2.5x + 15$ models the height of a plant, in centimeters, after $x$ weeks," it means:
 
-This table is a diagnostic tool. Given any system, you can compute the determinant and the rank to immediately classify it without needing to fully solve it.
+- The plant starts at 15 cm tall (the $y$-intercept, representing the initial value when $x = 0$).
+- The plant grows 2.5 cm per week (the slope, representing the rate of change).
 
----
+### 1.8.2 Interpreting Slope and Intercept in Context
 
-## 3.8 Practice Problems: A Deep Dive
+This is one of the most heavily tested skills on the SAT Math section. You must be able to:
 
-### Problem 1: The Parameter-Dependent System
+1. **Identify the slope** in a given linear equation and explain what it means in the context of the problem.
+2. **Identify the $y$-intercept** and explain what it means in context.
+3. **Predict values** by evaluating the equation at a given input.
+4. **Find inputs** that produce a given output by solving the equation.
 
-For what value of the constant $k$ does the following system have **no solution**?
-$$2x + 3y = 7$$
-$$4x + ky = 10$$
+**Common SAT phrasing for slope interpretation:**
 
-**Solution:**
+- "The slope of 3.5 means that for every additional [unit of $x$], the [quantity $y$] increases by 3.5 [units of $y$]."
+- "The rate of change is 3.5 [units of $y$] per [unit of $x$]."
 
-We use the determinant condition. For no solution, we need $\det(A) = 0$ and the system to be inconsistent.
+**Common SAT phrasing for intercept interpretation:**
 
-1.  Compute the determinant:
-    $$\det(A) = (2)(k) - (4)(3) = 2k - 12$$
-2.  Set the determinant to zero to find the critical value of $k$:
-    $$2k - 12 = 0 \implies k = 6$$
-3.  Verify inconsistency for $k = 6$:
-    The augmented matrix becomes:
-    $$\left(\begin{array}{cc|c} 2 & 3 & 7 \\ 4 & 6 & 10 \end{array}\right)$$
-    Perform row reduction: $R_2 \leftarrow R_2 - 2R_1$
-    $$\left(\begin{array}{cc|c} 2 & 3 & 7 \\ 0 & 0 & -4 \end{array}\right)$$
-    The second row reads $0x + 0y = -4$, which is a contradiction.
+- "The $y$-intercept of 15 means that when $x = 0$ (at the start, at time zero, before any [action]), the value of $y$ is 15."
 
-**Answer:** The system has no solution when $k = 6$.
+### 1.8.3 Scatterplots and Lines of Best Fit
 
----
+The SAT may present a **scatterplot** (a graph of data points) and a **line of best fit** (a linear model for the data). You may be asked to:
 
-### Problem 2: The Infinite Solutions Case
+- **Interpret the slope** of the line of best fit as the estimated change in $y$ for each one-unit increase in $x$.
+- **Interpret the $y$-intercept** as the estimated value of $y$ when $x = 0$ (though this interpretation is only meaningful if $x = 0$ is within or near the range of the data).
+- **Use the line to make predictions** by reading values from the graph or using the equation.
+- **Estimate the equation** of the line from the graph (by identifying two points on the line and computing the slope, then reading the $y$-intercept).
 
-Find the complete solution set for the system:
-$$3x - 2y = 6$$
-$$-6x + 4y = -12$$
-
-**Solution:**
-
-1.  Compute the determinant:
-    $$\det(A) = (3)(4) - (-6)(-2) = 12 - 12 = 0$$
-    The determinant is zero, so we have either no solution or infinitely many solutions.
-2.  Check for inconsistency. The augmented matrix is:
-    $$\left(\begin{array}{cc|c} 3 & -2 & 6 \\ -6 & 4 & -12 \end{array}\right)$$
-    Perform row reduction: $R_2 \leftarrow R_2 + 2R_1$
-    $$\left(\begin{array}{cc|c} 3 & -2 & 6 \\ 0 & 0 & 0 \end{array}\right)$$
-    The second row is all zeros, indicating a dependent system with infinitely many solutions.
-3.  Express the solution set. The system reduces to $3x - 2y = 6$.
-    Solve for $y$: $2y = 3x - 6 \implies y = \frac{3}{2}x - 3$.
-    Let $x = t$ (where $t \in \mathbb{R}$). Then $y = \frac{3}{2}t - 3$.
-
-**Answer:** The solution set is $\{(t, \frac{3}{2}t - 3) \ | \ t \in \mathbb{R}\}$.
+**Important caveat the SAT may test:** A line of best fit is a **model**, not an exact representation of the data. Predictions made by the model may differ from actual data points. The SAT may ask you to compute the **residual** (the difference between the actual $y$-value and the predicted $y$-value for a given data point).
 
 ---
 
-### Problem 3: The Unique Solution via Cramer's Rule
+## 1.9 Special Equation Types and SAT Traps
 
-Solve the system using Cramer's Rule:
-$$5x - 2y = 14$$
-$$3x + 4y = 2$$
+### 1.9.1 Equations with No Solution
 
-**Solution:**
+As discussed in Section 1.3.2, an equation that simplifies to a contradiction (such as $3 = 7$ or $0 = 5$) has **no solution**. The SAT presents these in various disguises:
 
-1.  Compute the determinant of the coefficient matrix:
-    $$\det(A) = (5)(4) - (3)(-2) = 20 + 6 = 26$$
-    Since $\det(A) \neq 0$, a unique solution exists.
-2.  Compute $\det(A_x)$:
-    $$A_x = \begin{pmatrix} 14 & -2 \\ 2 & 4 \end{pmatrix}$$
-    $$\det(A_x) = (14)(4) - (2)(-2) = 56 + 4 = 60$$
-3.  Compute $\det(A_y)$:
-    $$A_y = \begin{pmatrix} 5 & 14 \\ 3 & 2 \end{pmatrix}$$
-    $$\det(A_y) = (5)(2) - (3)(14) = 10 - 42 = -32$$
-4.  Apply Cramer's Rule:
-    $$x = \frac{\det(A_x)}{\det(A)} = \frac{60}{26} = \frac{30}{13}$$
-    $$y = \frac{\det(A_y)}{\det(A)} = \frac{-32}{26} = -\frac{16}{13}$$
+- **Literal equations with parameters:** "For what value of $k$ does the equation $kx + 3 = 2x + 7$ have no solution?" (Answer: $k = 2$, because then the equation becomes $2x + 3 = 2x + 7$, which simplifies to $3 = 7$, a contradiction.)
+- **Rational equations that produce extraneous solutions:** An equation that, when solved, yields a value that makes a denominator zero.
 
-**Answer:** The unique solution is $(\frac{30}{13}, -\frac{16}{13})$.
+### 1.9.2 Equations with Infinitely Many Solutions
 
----
+An equation that simplifies to an identity (such as $x + 3 = x + 3$ or $0 = 0$) is true for **all** values of the variable. The SAT tests this by asking:
 
-### Problem 4: A Complex Real-World Model (The Blending Problem)
+- "For what value of $k$ does the equation $kx + 6 = 3x + 6$ have infinitely many solutions?" (Answer: $k = 3$, because then both sides are identical: $3x + 6 = 3x + 6$.)
+- "Which of the following equations is true for all values of $x$?" (You must check whether the two sides are algebraically identical.)
 
-A coffee merchant wants to create a blend of two types of coffee: Type A costs $8 per pound and Type B costs $12 per pound. The merchant wants to make 200 pounds of a blend that costs $10 per pound. How many pounds of each type should be used?
+### 1.9.3 Proportional Relationships (Direct Variation)
 
-**Solution:**
+A **proportional relationship** between $x$ and $y$ is a special case of a linear equation where the $y$-intercept is zero:
 
-1.  **Define Variables:**
-    *   Let $x$ = pounds of Type A coffee
-    *   Let $y$ = pounds of Type B coffee
-2.  **Set Up the System:**
-    *   Total weight: $x + y = 200$
-    *   Total cost: $8x + 12y = 10(200) = 2000$
-3.  **Solve the System:**
-    From the first equation: $y = 200 - x$
-    Substitute into the second equation:
-    $$8x + 12(200 - x) = 2000$$
-    $$8x + 2400 - 12x = 2000$$
-    $$-4x = -400$$
-    $$x = 100 \text{ pounds}$$
-    $$y = 200 - 100 = 100 \text{ pounds}$$
+$$y = kx$$
 
-**Verification:**
-*   Total weight: $100 + 100 = 200$ pounds. (Correct)
-*   Total cost: $8(100) + 12(100) = 800 + 1200 = 2000$ dollars. (Correct)
-*   Average cost: $\frac{2000}{200} = 10$ dollars per pound. (Correct)
+where $k$ is the **constant of proportionality** (which equals the slope). The graph of a proportional relationship is a straight line passing through the **origin** $(0, 0)$.
 
-**Answer:** The merchant should use 100 pounds of Type A and 100 pounds of Type B.
+The SAT tests proportional relationships by:
+
+- Asking you to find the constant of proportionality from a table of values, a graph, or a verbal description.
+- Asking you to determine whether a relationship is proportional (check: does the line pass through the origin? Is the ratio $y/x$ constant for all data points?).
+- Asking you to write the equation of a proportional relationship given one data point (other than the origin).
+
+**Key distinction:** All proportional relationships are linear, but not all linear relationships are proportional. The line $y = 2x + 3$ is linear but not proportional (it does not pass through the origin). The line $y = 2x$ is both linear and proportional.
+
+### 1.9.4 Parallel and Perpendicular Lines
+
+**Parallel lines** have the **same slope** but different $y$-intercepts. If two lines are parallel, the system of equations formed by their equations has **no solution**.
+
+**Perpendicular lines** have slopes that are **negative reciprocals** of each other. If line 1 has slope $m_1$ and line 2 has slope $m_2$, and the lines are perpendicular, then:
+
+$$m_1 \cdot m_2 = -1 \quad \text{or equivalently} \quad m_2 = -\frac{1}{m_1}$$
+
+**SAT application:** Given the equation of a line and a point not on that line, find the equation of the line through that point that is parallel (or perpendicular) to the given line. This requires:
+
+1. Finding the slope of the given line.
+2. For a parallel line: using the same slope. For a perpendicular line: using the negative reciprocal slope.
+3. Using the point-slope form with the given point to write the equation.
 
 ---
 
-### Problem 5: The Break-Even Point with Non-Linear Revenue (Advanced)
+## 1.10 Absolute Value Equations (Linear Context)
 
-A small business has fixed costs of $2,000 per month and variable costs of $15 per unit. The price-demand relationship is given by $p(x) = 50 - 0.02x$, where $p$ is the price per unit and $x$ is the number of units sold. Find the break-even points.
+### 1.10.1 Solving $|ax + b| = c$
 
-**Solution:**
+The absolute value equation $|A| = c$ (where $c \geq 0$) is equivalent to the **two** equations:
 
-1.  **Define the Cost Function:**
-    $$C(x) = 2000 + 15x$$
-2.  **Define the Revenue Function:**
-    Revenue is price times quantity: $R(x) = p(x) \cdot x = (50 - 0.02x)x = 50x - 0.02x^2$
-3.  **Set Up the Break-Even Equation:**
-    $$R(x) = C(x)$$
-    $$50x - 0.02x^2 = 2000 + 15x$$
-4.  **Rearrange into Standard Quadratic Form:**
-    $$-0.02x^2 + 50x - 15x - 2000 = 0$$
-    $$-0.02x^2 + 35x - 2000 = 0$$
-    Multiply by -50 to simplify:
-    $$x^2 - 1750x + 100,000 = 0$$
-5.  **Solve the Quadratic Equation:**
-    Use the quadratic formula: $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
-    $$x = \frac{1750 \pm \sqrt{(-1750)^2 - 4(1)(100,000)}}{2(1)}$$
-    $$x = \frac{1750 \pm \sqrt{3,062,500 - 400,000}}{2}$$
-    $$x = \frac{1750 \pm \sqrt{2,662,500}}{2}$$
-    $$x = \frac{1750 \pm 1631.72}{2}$$
-    $$x_1 = \frac{1750 - 1631.72}{2} \approx 59.14$$
-    $$x_2 = \frac{1750 + 1631.72}{2} \approx 1690.86$$
+$$A = c \quad \text{or} \quad A = -c$$
 
-**Answer:** The break-even points are approximately 59 units and 1691 units. This means the business is profitable only when producing between roughly 59 and 1691 units per month.
+For the linear case $|ax + b| = c$:
+
+$$ax + b = c \quad \text{or} \quad ax + b = -c$$
+
+Each of these is a linear equation that can be solved independently. The original absolute value equation has **two solutions** (unless $c = 0$, in which case there is exactly one solution: $x = -b/a$).
+
+**If $c < 0$:** The equation $|ax + b| = c$ has **no solution**, because an absolute value can never be negative.
+
+### 1.10.2 Absolute Value Equations with Expressions on Both Sides
+
+The SAT may present equations of the form $|A| = |B|$. This is equivalent to:
+
+$$A = B \quad \text{or} \quad A = -B$$
+
+This is a useful shortcut that avoids squaring both sides.
+
+---
+
+## 1.11 Rational Equations That Reduce to Linear
+
+### 1.11.1 Clearing Denominators
+
+Some equations that appear to be rational (fractions with variables in the denominator) actually reduce to linear equations after clearing denominators. For example:
+
+$$\frac{x+2}{3} = \frac{x-1}{2}$$
+
+Cross-multiplying: $2(x+2) = 3(x-1)$, which gives $2x + 4 = 3x - 3$, so $x = 7$.
+
+### 1.11.2 Extraneous Solutions
+
+When you multiply both sides of an equation by an expression containing a variable, you may introduce **extraneous solutions** — values that satisfy the multiplied equation but not the original equation (because they make a denominator zero).
+
+**SAT strategy:** After solving a rational equation, always check that your solution does not make any denominator in the original equation equal to zero. If it does, that solution must be discarded.
+
+---
+
+## 1.12 Systems of Linear Inequalities
+
+### 1.12.1 Graphing a Linear Inequality
+
+To graph the inequality $y > mx + b$ (or $y < mx + b$, or $\geq$, or $\leq$):
+
+1. Graph the **boundary line** $y = mx + b$.
+   - Use a **solid line** for $\geq$ or $\leq$ (the boundary is included in the solution).
+   - Use a **dashed line** for $>$ or $<$ (the boundary is not included).
+2. **Shade** the appropriate region:
+   - For $y > mx + b$ or $y \geq mx + b$: shade **above** the line.
+   - For $y < mx + b$ or $y \leq mx + b$: shade **below** the line.
+
+### 1.12.2 Systems of Inequalities
+
+The solution to a system of linear inequalities is the **overlapping shaded region** — the set of points that satisfies all inequalities simultaneously. On the SAT, you may be asked to:
+
+- Identify the graph of a system of inequalities.
+- Determine whether a given point is a solution to the system.
+- Interpret the solution region in the context of a word problem (e.g., feasible region for a budget constraint).
+
+---
+
+## 1.13 Summary of Key Formulas and Concepts
+
+For quick reference, here is a consolidated list of the essential formulas and concepts from this chapter:
+
+| Concept | Formula/Description |
+|---|---|
+| Slope between two points | $m = \frac{y_2 - y_1}{x_2 - x_1}$ |
+| Slope-intercept form | $y = mx + b$ |
+| Standard form | $Ax + By = C$ |
+| Point-slope form | $y - y_1 = m(x - x_1)$ |
+| $x$-intercept (from standard form) | $x = \frac{C}{A}$ (set $y = 0$) |
+| $y$-intercept (from standard form) | $y = \frac{C}{B}$ (set $x = 0$) |
+| Slope from standard form | $m = -\frac{A}{B}$ |
+| Parallel lines | Same slope, different intercepts |
+| Perpendicular lines | $m_1 \cdot m_2 = -1$ |
+| System: one solution | $\frac{a_1}{a_2} \neq \frac{b_1}{b_2}$ |
+| System: no solution | $\frac{a_1}{a_2} = \frac{b_1}{b_2} \neq \frac{c_1}{c_2}$ |
+| System: infinite solutions | $\frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{c_1}{c_2}$ |
+| Proportional relationship | $y = kx$ (passes through origin) |
+| Zero of $f(x) = mx + b$ | $x = -\frac{b}{m}$ |
+| $|A| = c$ (where $c \geq 0$) | $A = c$ or $A = -c$ |
+| $|A| = |B|$ | $A = B$ or $A = -B$ |
+| Inequality sign flip | Required when multiplying or dividing by a negative number |
+
+---
+
+## 1.14 Strategic Principles for SAT Algebra
+
+### 1.14.1 Always Simplify Before Solving
+
+The SAT designs many equations to look more complicated than they are. Before applying any solution method, **simplify**:
+
+- Combine like terms on each side.
+- Clear fractions by multiplying by the LCD.
+- Distribute and combine.
+- Move all terms to one side to see if the equation reduces to a simpler form.
+
+An equation that initially looks like it might be quadratic or higher-order may simplify to a linear equation after cancellation.
+
+### 1.14.2 Check for Special Cases First
+
+Before solving a system or a parameterized equation, check whether the special cases (no solution, infinitely many solutions) apply. This can save significant time, especially on "how many solutions" questions.
+
+### 1.14.3 Use the Answer Choices Strategically
+
+On multiple-choice questions, you can often **work backward** from the answer choices. If the question asks "what is the value of $x$?" and gives you five numbers, you can substitute each into the original equation and see which one works. This is particularly efficient when the equation is simple but the algebraic manipulation might be error-prone.
+
+### 1.14.4 Estimate and Eliminate
+
+On the Digital SAT, many answer choices are numbers that are spread far enough apart to allow estimation. If you can quickly estimate the answer (e.g., "it should be around 10"), you may be able to eliminate two or three choices without doing any exact computation.
+
+### 1.14.5 Watch for Units and Context
+
+When solving word problems, always check that your answer:
+
+- Has the correct **units** (if the problem involves units).
+- Makes **sense in context** (a negative number of people is not valid; a fractional number of discrete items may not be valid).
+- Answers the **question that was actually asked** (not an intermediate value). The SAT frequently includes answer choices that represent the result of a correct intermediate step but do not answer the final question.
+
+---
+
+## 1.15 Connections to Other SAT Topics
+
+The algebraic foundations covered in this chapter connect directly to several other SAT content domains:
+
+- **Geometry:** The equation of a line is fundamental to coordinate geometry. Finding intersection points of lines, computing distances from points to lines, and determining whether lines are parallel or perpendicular all require fluency with linear equations.
+- **Data Analysis:** Linear models (lines of best fit) are the primary tool for modeling bivariate data. Interpreting the slope and intercept of a regression line is an algebraic skill applied in a statistical context.
+- **Advanced Math:** Many advanced topics build on linear foundations. For example, solving a system of a linear and a quadratic equation requires the same substitution skills as solving a system of two linear equations. Understanding the linear term in a quadratic function $f(x) = ax^2 + bx + c$ requires understanding what $b$ represents.
+- **Heart of Algebra → Passport to Advanced Math:** The College Board's own content domain structure reflects this progression. Mastery of linear equations is a prerequisite for success with the more advanced topics.
+
+---
+
+## 1.16 Common Mistakes and How to Avoid Them
+
+### 1.16.1 Sign Errors
+
+The single most common algebraic mistake on the SAT is a **sign error** — forgetting to distribute a negative sign, making an error when subtracting a negative number, or forgetting to flip an inequality sign. To minimize these:
+
+- Write out every step, especially when distributing negatives.
+- When subtracting an expression, rewrite it as adding the opposite: $a - (b + c) = a + (-b) + (-c)$.
+- Circle or highlight inequality signs as soon as you write the inequality, so you remember to check whether you need to flip them.
+
+### 1.16.2 Combining Unlike Terms
+
+Students sometimes incorrectly combine terms that are not like terms: $3x + 2y = 5xy$, or $x^2 + x = x^3$. Remember: you can only combine terms that have the **exact same variable part** (same variable raised to the same power).
+
+### 1.16.3 Dividing by Zero
+
+If a solution process leads you to divide by an expression that could be zero, you must consider the case where that expression equals zero separately. The SAT occasionally tests this by including a "no solution" or "extraneous solution" scenario.
+
+### 1.16.4 Misreading the Question
+
+After solving an equation, students sometimes select the value of $x$ as their answer, when the question actually asks for $2x$, or $x + 3$, or the value of $y$ (in a system). **Always re-read the question after solving** to confirm you are reporting the quantity that was requested.
+
+---
+
+## 1.17 The Digital SAT: Adaptive Implications for Algebra
+
+The Digital SAT uses a **multistage adaptive** design. The first module of the Math section contains a mix of easy, medium, and hard questions. Your performance on this first module determines whether the second module is easier or harder.
+
+**Implications for Algebra:**
+
+- If you perform well on the first module, the second module will contain harder questions, which may include more complex algebraic manipulations, systems with parameters, or word problems with multiple steps.
+- If you perform poorly on the first module, the second module will be easier, but the scoring algorithm caps your maximum possible score lower.
+- **Therefore, accuracy on the foundational algebra questions in the first module is critical.** These are the questions that determine whether you get the harder (higher-scoring) second module. Missing easy or medium algebra questions in Module 1 not only costs you those points directly — it also reduces your ceiling for the entire section.
+
+This creates a strategic imperative: **do not rush through the early algebra questions.** These are your bread and butter, and getting them right is the single most important thing you can do to maximize your overall Math score.
+
+---
+
+## 1.18 Looking Ahead
+
+With the foundations of linear equations, inequalities, systems, and linear functions firmly established, you are prepared to tackle the more advanced algebraic topics that build on these foundations. The next chapters will cover:
+
+- **Advanced Math:** Quadratic equations, polynomial operations, rational expressions, and nonlinear functions.
+- **Problem Solving and Data Analysis:** Ratios, percentages, probability, and statistical reasoning.
+- **Geometry and Trigonometry:** Properties of shapes, coordinate geometry, and right-triangle trigonometry.
+
+Each of these topics assumes fluency with the material in this chapter. A student who can solve any linear equation, interpret any linear model, and analyze any system of linear equations with confidence has built the essential foundation for a top score on the SAT Math section.
 
 ---
 
 
-# Chapter 4: Mastering Quadratics — Factoring, Completing the Square, and the Quadratic Formula
+# Chapter 2: Advanced Math Mastery — Quadratics, Polynomials & Nonlinear Functions
 
 ---
 
-## 4.1 Introduction: Why Quadratics Matter
+## 2.1 The Architecture of Quadratic Functions
 
-A quadratic expression is any expression of the form **ax² + bx + c**, where **a ≠ 0**, and **a**, **b**, and **c** are real numbers. The word "quadratic" comes from the Latin *quadratus*, meaning "square," because the highest-degree term involves x² — a variable multiplied by itself, just as a square has sides of equal length.
+Quadratic functions represent the cornerstone of advanced algebra on the SAT. A quadratic function is any function that can be written in the standard form $f(x) = ax^2 + bx + c$, where $a \neq 0$. The graph of a quadratic function is always a **parabola** — a symmetric, U-shaped curve that opens upward when $a > 0$ and downward when $a < 0$.
 
-Quadratics appear everywhere in mathematics and its applications:
+### 2.1.1 The Three Forms of a Quadratic
 
-- **Projectile motion**: The height of a ball thrown into the air follows a quadratic function of time.
-- **Area problems**: The area of a rectangle with a fixed perimeter is a quadratic function of one side length.
-- **Optimization**: Finding maximum profit, minimum cost, or maximum area all reduce to analyzing quadratic functions.
-- **Physics**: Kinetic energy, gravitational potential energy, and many other physical quantities involve squared terms.
-- **Engineering**: Parabolic reflectors, suspension bridges, and satellite dishes all rely on the geometric properties of parabolas.
+Understanding the three primary forms of a quadratic equation is essential for rapid problem-solving on the SAT:
 
-On the SAT and ACT, quadratics are one of the most heavily tested topics. You will be asked to:
+**1. Standard Form:** $f(x) = ax^2 + bx + c$
+- The $y$-intercept is immediately visible as the point $(0, c)$.
+- The axis of symmetry is $x = -\frac{b}{2a}$.
+- The discriminant $\Delta = b^2 - 4ac$ determines the number of real roots.
 
-1. Factor quadratic expressions
-2. Solve quadratic equations
-3. Convert between different forms of a quadratic
-4. Find the vertex, axis of symmetry, and intercepts
-5. Interpret the discriminant
-6. Model real-world situations with quadratics
+**2. Vertex Form:** $f(x) = a(x - h)^2 + k$
+- The vertex is immediately visible as the point $(h, k)$.
+- The axis of symmetry is $x = h$.
+- This form is ideal for identifying maximum/minimum values and graph transformations.
 
-This chapter will give you a complete, rigorous understanding of all these skills.
+**3. Intercept (Factored) Form:** $f(x) = a(x - p)(x - q)$
+- The $x$-intercepts (roots) are immediately visible as $x = p$ and $x = q$.
+- The axis of symmetry is $x = \frac{p + q}{2}$.
+- This form is ideal for identifying zeros and understanding the product structure of roots.
 
----
+### 2.1.2 Converting Between Forms
 
-## 4.2 The Three Forms of a Quadratic
+The SAT frequently tests your ability to move fluidly between these forms. The key conversion techniques are:
 
-Every quadratic can be written in three equivalent forms, each of which reveals different information about the parabola.
+**Standard to Vertex (Completing the Square):**
 
-### 4.2.1 Standard Form: y = ax² + bx + c
+Given $f(x) = ax^2 + bx + c$:
 
-This is the most common form. The coefficients **a**, **b**, and **c** are real numbers with **a ≠ 0**.
+1. Factor $a$ from the first two terms: $f(x) = a\left(x^2 + \frac{b}{a}x\right) + c$
+2. Add and subtract $\left(\frac{b}{2a}\right)^2$ inside the parentheses
+3. Rewrite as a perfect square: $f(x) = a\left(x + \frac{b}{2a}\right)^2 + \left(c - \frac{b^2}{4a}\right)$
 
-**What it reveals:**
-- The **y-intercept** is at **(0, c)**. This is the point where the parabola crosses the y-axis.
-- The sign of **a** tells you whether the parabola opens **upward** (a > 0, a minimum exists) or **downward** (a < 0, a maximum exists).
-- The **width** of the parabola is determined by |a|. Larger |a| means a narrower parabola; smaller |a| means a wider parabola.
+**Standard to Intercept (Factoring):**
 
-**Example:** y = 2x² − 8x + 6
-- a = 2 (opens upward, relatively narrow)
-- b = −8
-- c = 6 (y-intercept at (0, 6))
+Find two numbers that multiply to $ac$ and add to $b$, then factor by grouping or use the quadratic formula to find roots $p$ and $q$.
 
-### 4.2.2 Vertex Form: y = a(x − h)² + k
+**Intercept to Standard:**
 
-This form directly reveals the **vertex** of the parabola, which is the point **(h, k)**.
+Expand $a(x - p)(x - q) = a(x^2 - (p+q)x + pq) = ax^2 - a(p+q)x + apq$
 
-**What it reveals:**
-- The **vertex** is at **(h, k)**. This is the maximum or minimum point of the parabola.
-- The **axis of symmetry** is the vertical line **x = h**.
-- The value of **a** has the same meaning as in standard form.
+### 2.1.3 The Discriminant and Root Analysis
 
-**Example:** y = 2(x − 3)² + 5
-- Vertex: (3, 5)
-- Axis of symmetry: x = 3
-- Opens upward (a = 2 > 0), so the vertex is a minimum.
+The discriminant $\Delta = b^2 - 4ac$ is a powerful diagnostic tool:
 
-**Important note on signs:** In the vertex form y = a(x − h)² + k, the x-coordinate of the vertex is **h**, which is the value that makes the squared term equal to zero. If you see y = a(x + m)² + k, rewrite it as y = a(x − (−m))² + k to see that h = −m.
+| Discriminant Value | Nature of Roots | Graph Behavior |
+|---|---|---|
+| $\Delta > 0$ | Two distinct real roots | Parabola crosses $x$-axis twice |
+| $\Delta = 0$ | One repeated real root | Parabola touches $x$-axis at vertex |
+| $\Delta < 0$ | Two complex conjugate roots | Parabola never touches $x$-axis |
 
-### 4.2.3 Intercept Form (Factored Form): y = a(x − p)(x − q)
+**SAT Strategy:** When a problem states the parabola "is tangent to the $x$-axis," this means $\Delta = 0$. When it says "does not intersect the $x$-axis," this means $\Delta < 0$.
 
-This form directly reveals the **x-intercepts** (also called **roots** or **zeros**) of the parabola.
+### 2.1.4 Vieta's Formulas (Sum and Product of Roots)
 
-**What it reveals:**
-- The **x-intercepts** are at **(p, 0)** and **(q, 0)**.
-- The axis of symmetry is halfway between the roots: **x = (p + q)/2**.
-- The value of **a** determines the direction and width of the parabola.
+For a quadratic $ax^2 + bx + c = 0$ with roots $p$ and $q$:
 
-**Example:** y = 3(x − 1)(x − 5)
-- x-intercepts: (1, 0) and (5, 0)
-- Axis of symmetry: x = (1 + 5)/2 = 3
-- Vertex is at x = 3; substitute to find y: y = 3(3 − 1)(3 − 5) = 3(2)(−2) = −12, so vertex is (3, −12)
+- **Sum of roots:** $p + q = -\frac{b}{a}$
+- **Product of roots:** $pq = \frac{c}{a}$
 
----
+These formulas are incredibly powerful for SAT problems that ask about relationships between roots without requiring you to find the actual roots.
 
-## 4.3 Converting Between Forms
+**Extended Vieta's for Higher-Degree Polynomials:**
 
-### 4.3.1 Standard Form → Vertex Form: Completing the Square
+For a cubic $ax^3 + bx^2 + cx + d = 0$ with roots $p$, $q$, and $r$:
 
-This is one of the most important algebraic techniques you will learn. It allows you to rewrite any quadratic in standard form into vertex form.
+- $p + q + r = -\frac{b}{a}$
+- $pq + pr + qr = \frac{c}{a}$
+- $pqr = -\frac{d}{a}$
 
-**The Process:**
+### 2.1.5 Quadratic Inequalities
 
-Given y = ax² + bx + c:
+Solving quadratic inequalities requires understanding the graph's behavior:
 
-**Step 1:** Factor out **a** from the first two terms (if a ≠ 1):
-y = a(x² + (b/a)x) + c
+**Method 1: Graphical Analysis**
+1. Find the roots of the corresponding equation
+2. Determine the parabola's direction (up if $a > 0$, down if $a < 0$)
+3. Identify where the graph is above or below the $x$-axis
 
-**Step 2:** Take half of the coefficient of x, square it, and add and subtract it inside the parentheses:
-- Half of (b/a) is b/(2a)
-- Squaring gives b²/(4a²)
+**Method 2: Sign Chart**
+1. Factor the quadratic
+2. Find critical points (roots)
+3. Test intervals between critical points
+4. Determine sign of each interval
 
-y = a(x² + (b/a)x + b²/(4a²) − b²/(4a²)) + c
+**Key SAT Pattern:** For $ax^2 + bx + c > 0$ with $a > 0$:
+- If two real roots $p < q$: solution is $x < p$ or $x > q$
+- If one repeated root $p$: solution is $x \neq p$
+- If no real roots: solution is all real numbers
 
-**Step 3:** Group the perfect trinomial square:
-y = a[(x + b/(2a))² − b²/(4a²)] + c
-
-**Step 4:** Distribute **a** and simplify:
-y = a(x + b/(2a))² − ab²/(4a²) + c
-y = a(x + b/(2a))² − b²/(4a) + c
-y = a(x − h)² + k
-
-where **h = −b/(2a)** and **k = c − b²/(4a)**
-
-**Worked Example:**
-
-Convert y = 2x² − 8x + 5 to vertex form.
-
-Step 1: Factor out 2 from the first two terms:
-y = 2(x² − 4x) + 5
-
-Step 2: Half of −4 is −2. Squaring gives 4. Add and subtract 4 inside the parentheses:
-y = 2(x² − 4x + 4 − 4) + 5
-y = 2((x² − 4x + 4) − 4) + 5
-
-Step 3: The trinomial is a perfect square:
-y = 2((x − 2)² − 4) + 5
-
-Step 4: Distribute the 2 and simplify:
-y = 2(x − 2)² − 8 + 5
-y = 2(x − 2)² − 3
-
-**Vertex: (2, −3)**
-
-**Verification:** Expand 2(x − 2)² − 3 = 2(x² − 4x + 4) − 3 = 2x² − 8x + 8 − 3 = 2x² − 8x + 5 ✓
-
-### 4.3.2 Vertex Form → Standard Form: Expanding
-
-This is straightforward — just expand the squared term and simplify.
-
-**Worked Example:**
-
-Convert y = −3(x + 1)² + 7 to standard form.
-
-y = −3(x + 1)² + 7
-y = −3(x² + 2x + 1) + 7
-y = −3x² − 6x − 3 + 7
-y = −3x² − 6x + 4
-
-### 4.3.3 Standard Form → Intercept Form: Factoring
-
-This requires factoring the quadratic expression. We will cover this in extensive detail in Section 4.4.
-
-### 4.3.4 Intercept Form → Standard Form: Expanding
-
-**Worked Example:**
-
-Convert y = 2(x − 3)(x + 1) to standard form.
-
-y = 2(x² + x − 3x − 3)
-y = 2(x² − 2x − 3)
-y = 2x² − 4x − 6
+For $ax^2 + bx + c < 0$ with $a > 0$:
+- If two real roots $p < q$: solution is $p < x < q$
+- If one repeated root: no solution
+- If no real roots: no solution
 
 ---
 
-## 4.4 Factoring Quadratics
+## 2.2 Polynomial Functions: Structure and Behavior
 
-Factoring is the process of writing a quadratic expression as a product of two binomials. It is the key to finding x-intercepts and solving quadratic equations.
+### 2.2.1 Polynomial Degree and End Behavior
 
-### 4.4.1 Factoring Out the GCF (Greatest Common Factor)
+A polynomial function of degree $n$ has the form:
 
-**Always check for a GCF first!** This is the single most common mistake students make — they forget to factor out the GCF before attempting other methods.
+$$f(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$$
 
-**Worked Example:**
+The **degree** and **leading coefficient** determine end behavior:
 
-Factor 6x² + 18x − 24.
-
-Step 1: Identify the GCF of 6, 18, and 24. The GCF is 6.
-
-Step 2: Factor out 6:
-6(x² + 3x − 4)
-
-Step 3: Factor the remaining trinomial:
-6(x + 4)(x − 1)
-
-**Worked Example:**
-
-Factor −2x² + 10x − 12.
-
-Step 1: The GCF is −2 (factoring out a negative makes the leading coefficient positive, which is easier to work with):
-
-−2(x² − 5x + 6)
-
-Step 2: Factor the trinomial:
-−2(x − 2)(x − 3)
-
-### 4.4.2 Factoring x² + bx + c (When a = 1)
-
-When the leading coefficient is 1, factoring is relatively straightforward. We need to find two numbers **m** and **n** such that:
-
-- m · n = c (the constant term)
-- m + n = b (the coefficient of x)
-
-Then: x² + bx + c = (x + m)(x + n)
-
-**Worked Example:**
-
-Factor x² + 7x + 12.
-
-We need two numbers that multiply to 12 and add to 7.
-
-Pairs that multiply to 12:
-- 1 and 12 → 1 + 12 = 13 ✗
-- 2 and 6 → 2 + 6 = 8 ✗
-- 3 and 4 → 3 + 4 = 7 ✓
-
-Therefore: x² + 7x + 12 = (x + 3)(x + 4)
-
-**Worked Example:**
-
-Factor x² − 5x − 14.
-
-We need two numbers that multiply to −14 and add to −5.
-
-Pairs that multiply to −14:
-- 1 and −14 → 1 + (−14) = −13 ✗
-- −1 and 14 → −1 + 14 = 13 ✗
-- 2 and −7 → 2 + (−7) = −5 ✓
-
-Therefore: x² − 5x − 14 = (x + 2)(x − 7)
-
-**Worked Example:**
-
-Factor x² − 9. (Difference of squares!)
-
-x² − 9 = x² − 3² = (x + 3)(x − 3)
-
-### 4.4.3 Factoring ax² + bx + c (When a ≠ 1): The AC Method
-
-When the leading coefficient is not 1, factoring becomes more involved. The **AC Method** (also called the "grouping method" or "split the middle term" method) is the most reliable approach.
-
-**The AC Method:**
-
-Given ax² + bx + c:
-
-**Step 1:** Multiply **a · c**.
-
-**Step 2:** Find two numbers **m** and **n** such that:
-- m · n = a · c
-- m + n = b
-
-**Step 3:** Rewrite the middle term bx as mx + nx.
-
-**Step 4:** Factor by grouping.
-
-**Worked Example:**
-
-Factor 6x² + 17x + 5.
-
-Step 1: a · c = 6 · 5 = 30
-
-Step 2: Find two numbers that multiply to 30 and add to 17.
-- 1 and 30 → 1 + 30 = 31 ✗
-- 2 and 15 → 2 + 15 = 17 ✓
-
-Step 3: Rewrite 17x as 2x + 15x:
-6x² + 2x + 15x + 5
-
-Step 4: Factor by grouping:
-(6x² + 2x) + (15x + 5)
-2x(3x + 1) + 5(3x + 1)
-(3x + 1)(2x + 5)
-
-**Verification:** (3x + 1)(2x + 5) = 6x² + 15x + 2x + 5 = 6x² + 17x + 5 ✓
-
-**Worked Example:**
-
-Factor 4x² − 4x − 15.
-
-Step 1: a · c = 4 · (−15) = −60
-
-Step 2: Find two numbers that multiply to −60 and add to −4.
-- 6 and −10 → 6 + (−10) = −4 ✓ (and 6 · (−10) = −60 ✓)
-
-Step 3: Rewrite −4x as 6x − 10x:
-4x² + 6x − 10x − 15
-
-Step 4: Factor by grouping:
-(4x² + 6x) + (−10x − 15)
-2x(2x + 3) − 5(2x + 3)
-(2x + 3)(2x − 5)
-
-**Verification:** (2x + 3)(2x − 5) = 4x² − 10x + 6x − 15 = 4x² − 4x − 15 ✓
-
-**Worked Example:**
-
-Factor 10x² + 17x + 3.
-
-Step 1: a · c = 10 · 3 = 30
-
-Step 2: Find two numbers that multiply to 30 and add to 17.
-- 2 and 15 → 2 + 15 = 17 ✓
-
-Step 3: Rewrite 17x as 2x + 15x:
-10x² + 2x + 15x + 3
-
-Step 4: Factor by grouping:
-(10x² + 2x) + (15x + 3)
-2x(5x + 1) + 3(5x + 1)
-(5x + 1)(2x + 3)
-
-### 4.4.4 Special Factoring Patterns
-
-**Difference of Squares:**
-a² − b² = (a + b)(a − b)
-
-**Worked Example:**
-25x² − 49 = (5x)² − 7² = (5x + 7)(5x − 7)
-
-**Worked Example:**
-4x² − 9y² = (2x)² − (3y)² = (2x + 3y)(2x − 3y)
-
-**Perfect Square Trinomials:**
-a² + 2ab + b² = (a + b)²
-a² − 2ab + b² = (a − b)²
-
-**Worked Example:**
-x² + 10x + 25 = x² + 2(x)(5) + 5² = (x + 5)²
-
-**Worked Example:**
-4x² − 12x + 9 = (2x)² − 2(2x)(3) + 3² = (2x − 3)²
-
-**Sum/Difference of Cubes:**
-a³ + b³ = (a + b)(a² − ab + b²)
-a³ − b³ = (a − b)(a² + ab + b²)
-
-**Worked Example:**
-8x³ − 125 = (2x)³ − 5³ = (2x − 5)(4x² + 10x + 25)
-
----
-
-## 4.5 Solving Quadratic Equations
-
-A quadratic equation is an equation of the form **ax² + bx + c = 0**. There are four main methods for solving them.
-
-### 4.5.1 Method 1: Factoring (Zero Product Property)
-
-**The Zero Product Property:** If A · B = 0, then A = 0 or B = 0 (or both).
-
-**Process:**
-1. Set the equation equal to zero.
-2. Factor the quadratic expression completely.
-3. Set each factor equal to zero.
-4. Solve each resulting linear equation.
-
-**Worked Example:**
-
-Solve 2x² − 5x − 3 = 0.
-
-Step 1: The equation is already set to zero.
-
-Step 2: Factor. a · c = 2 · (−3) = −6. We need two numbers that multiply to −6 and add to −5.
-- −6 and 1 → −6 + 1 = −5 ✓
-
-2x² − 6x + x − 3 = 0
-(2x² − 6x) + (x − 3) = 0
-2x(x − 3) + 1(x − 3) = 0
-(x − 3)(2x + 1) = 0
-
-Step 3: Set each factor to zero:
-x − 3 = 0 → x = 3
-2x + 1 = 0 → x = −1/2
-
-**Solutions: x = 3 and x = −1/2**
-
-**Worked Example:**
-
-Solve x² − 9 = 0.
-
-This is a difference of squares:
-(x + 3)(x − 3) = 0
-
-x + 3 = 0 → x = −3
-x − 3 = 0 → x = 3
-
-**Solutions: x = −3 and x = 3**
-
-### 4.5.2 Method 2: Square Root Method
-
-This method works when the equation has the form **(expression)² = k**.
-
-**Process:**
-1. Isolate the squared expression.
-2. Take the square root of both sides (remember ±).
-3. Solve for x.
-
-**Worked Example:**
-
-Solve (x − 3)² = 25.
-
-Step 1: The squared expression is already isolated.
-
-Step 2: Take the square root of both sides:
-x − 3 = ±5
-
-Step 3: Solve:
-x − 3 = 5 → x = 8
-x − 3 = −5 → x = −2
-
-**Solutions: x = 8 and x = −2**
-
-**Worked Example:**
-
-Solve 2(x + 1)² = 18.
-
-Step 1: Divide both sides by 2:
-(x + 1)² = 9
-
-Step 2: Take the square root:
-x + 1 = ±3
-
-Step 3: Solve:
-x + 1 = 3 → x = 2
-x + 1 = −3 → x = −4
-
-**Solutions: x = 2 and x = −4**
-
-### 4.5.3 Method 3: Completing the Square
-
-This method works for any quadratic equation and is the basis for deriving the quadratic formula.
-
-**Process:**
-1. Move the constant to the right side.
-2. If a ≠ 1, divide everything by a.
-3. Take half of the coefficient of x, square it, and add to both sides.
-4. Write the left side as a perfect square.
-5. Use the square root method.
-
-**Worked Example:**
-
-Solve x² − 6x + 2 = 0 by completing the square.
-
-Step 1: Move the constant:
-x² − 6x = −2
-
-Step 2: a = 1, so no division needed.
-
-Step 3: Half of −6 is −3. Squaring gives 9. Add 9 to both sides:
-x² − 6x + 9 = −2 + 9
-(x − 3)² = 7
-
-Step 4: Take the square root:
-x − 3 = ±√7
-
-Step 5: Solve:
-x = 3 ± √7
-
-**Solutions: x = 3 + √7 and x = 3 − √7**
-
-**Worked Example:**
-
-Solve 3x² + 12x − 15 = 0 by completing the square.
-
-Step 1: Move the constant:
-3x² + 12x = 15
-
-Step 2: Divide by 3:
-x² + 4x = 5
-
-Step 3: Half of 4 is 2. Squaring gives 4. Add 4 to both sides:
-x² + 4x + 4 = 5 + 4
-(x + 2)² = 9
-
-Step 4: Take the square root:
-x + 2 = ±3
-
-Step 5: Solve:
-x + 2 = 3 → x = 1
-x + 2 = −3 → x = −5
-
-**Solutions: x = 1 and x = −5**
-
-### 4.5.4 Method 4: The Quadratic Formula
-
-The quadratic formula solves **any** quadratic equation. It is derived by completing the square on the general form ax² + bx + c = 0.
-
-**Derivation:**
-
-Starting with ax² + bx + c = 0:
-
-Step 1: Divide by a:
-x² + (b/a)x + c/a = 0
-
-Step 2: Move the constant:
-x² + (b/a)x = −c/a
-
-Step 3: Complete the square. Half of b/a is b/(2a). Squaring gives b²/(4a²).
-x² + (b/a)x + b²/(4a²) = −c/a + b²/(4a²)
-
-Step 4: Write as a perfect square:
-(x + b/(2a))² = −c/a + b²/(4a²)
-
-Step 5: Combine the right side with a common denominator of 4a²:
-(x + b/(2a))² = (b² − 4ac)/(4a²)
-
-Step 6: Take the square root:
-x + b/(2a) = ±√(b² − 4ac)/(2a)
-
-Step 7: Solve for x:
-x = −b/(2a) ± √(b² − 4ac)/(2a)
-
-**The Quadratic Formula:**
-
-$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
-
-**Worked Example:**
-
-Solve 2x² − 5x − 3 = 0 using the quadratic formula.
-
-Identify: a = 2, b = −5, c = −3
-
-$$x = \frac{-(-5) \pm \sqrt{(-5)^2 - 4(2)(-3)}}{2(2)}$$
-
-$$x = \frac{5 \pm \sqrt{25 + 24}}{4}$$
-
-$$x = \frac{5 \pm \sqrt{49}}{4}$$
-
-$$x = \frac{5 \pm 7}{4}$$
-
-$$x = \frac{5 + 7}{4} = \frac{12}{4} = 3$$
-
-$$x = \frac{5 - 7}{4} = \frac{-2}{4} = -\frac{1}{2}$$
-
-**Solutions: x = 3 and x = −1/2** ✓ (matches our factoring result)
-
-**Worked Example:**
-
-Solve x² − 6x + 2 = 0 using the quadratic formula.
-
-Identify: a = 1, b = −6, c = 2
-
-$$x = \frac{-(-6) \pm \sqrt{(-6)^2 - 4(1)(2)}}{2(1)}$$
-
-$$x = \frac{6 \pm \sqrt{36 - 8}}{2}$$
-
-$$x = \frac{6 \pm \sqrt{28}}{2}$$
-
-$$x = \frac{6 \pm 2\sqrt{7}}{2}$$
-
-$$x = 3 \pm \sqrt{7}$$
-
-**Solutions: x = 3 + √7 and x = 3 − √7** ✓ (matches our completing the square result)
-
----
-
-## 4.6 The Discriminant: Predicting the Nature of Solutions
-
-The expression under the square root in the quadratic formula, **b² − 4ac**, is called the **discriminant**. It tells us the number and type of solutions without actually solving the equation.
-
-### 4.6.1 The Three Cases
-
-**Case 1: b² − 4ac > 0 (Positive Discriminant)**
-
-The square root of a positive number is a real number. Since we have ±√(positive), we get **two distinct real solutions**.
-
-If the discriminant is a **perfect square**, the solutions are **rational** numbers (and the quadratic factors over the integers).
-
-If the discriminant is **not** a perfect square, the solutions are **irrational** (involving a square root).
-
-**Worked Example:**
-
-For 2x² − 5x − 3 = 0: a = 2, b = −5, c = −3
-
-Discriminant = (−5)² − 4(2)(−3) = 25 + 24 = 49
-
-49 > 0 and 49 = 7² is a perfect square → **two distinct rational solutions**
-
-**Worked Example:**
-
-For x² − 6x + 2 = 0: a = 1, b = −6, c = 2
-
-Discriminant = (−6)² − 4(1)(2) = 36 − 8 = 28
-
-28 > 0 but 28 is not a perfect square → **two distinct irrational solutions**
-
-**Case 2: b² − 4ac = 0 (Zero Discriminant)**
-
-The square root of 0 is 0. The formula gives x = −b/(2a) only (the ±0 doesn't create a second value). We get **exactly one real solution** (called a **repeated root** or **double root**).
-
-This occurs when the quadratic is a **perfect square trinomial**.
-
-**Worked Example:**
-
-For x² − 6x + 9 = 0: a = 1, b = −6, c = 9
-
-Discriminant = (−6)² − 4(1)(9) = 36 − 36 = 0
-
-**One repeated real solution:** x = 6/2 = 3
-
-Indeed: x² − 6x + 9 = (x − 3)² = 0 → x = 3 (double root)
-
-**Case 3: b² − 4ac < 0 (Negative Discriminant)**
-
-The square root of a negative number is not a real number. We get **no real solutions** (the two solutions are complex conjugates).
-
-**Worked Example:**
-
-For x² + x + 5 = 0: a = 1, b = 1, c = 5
-
-Discriminant = (1)² − 4(1)(5) = 1 − 20 = −19
-
-−19 < 0 → **no real solutions**
-
-### 4.6.2 Summary Table
-
-| Discriminant (b² − 4ac) | Number of Real Solutions | Type of Solutions | Graph Crosses x-axis? |
+| Degree | Leading Coefficient | As $x \to \infty$ | As $x \to -\infty$ |
 |---|---|---|---|
-| Positive, perfect square | 2 | Rational | Yes, at two rational points |
-| Positive, not perfect square | 2 | Irrational | Yes, at two irrational points |
-| Zero | 1 (repeated) | Rational | Yes, at exactly one point (vertex touches x-axis) |
-| Negative | 0 | Complex (non-real) | No, parabola doesn't touch x-axis |
+| Even | Positive | $f(x) \to \infty$ | $f(x) \to \infty$ |
+| Even | Negative | $f(x) \to -\infty$ | $f(x) \to -\infty$ |
+| Odd | Positive | $f(x) \to \infty$ | $f(x) \to -\infty$ |
+| Odd | Negative | $f(x) \to -\infty$ | $f(x) \to \infty$ |
 
-### 4.6.3 SAT/ACT Tip: Using the Discriminant
+**Memory Device:** "Even degree = both ends same direction; Odd degree = ends opposite directions."
 
-On the SAT and ACT, you may be asked questions like:
+### 2.2.2 The Fundamental Theorem of Algebra
 
-*"How many real solutions does the equation 3x² − 2x + 5 = 0 have?"*
+A polynomial of degree $n$ has exactly $n$ roots in the complex number system (counting multiplicities). This means:
+- A quadratic has exactly 2 roots
+- A cubic has exactly 3 roots
+- A quartic has exactly 4 roots
 
-Simply compute the discriminant:
-b² − 4ac = (−2)² − 4(3)(5) = 4 − 60 = −56 < 0
+### 2.2.3 Multiplicity of Roots
 
-**Answer: 0 real solutions**
+The **multiplicity** of a root describes how many times a particular factor appears in the factored form:
 
----
+**Odd Multiplicity (1, 3, 5, ...):**
+- The graph **crosses** the $x$-axis at this root
+- The sign of the function changes on either side
 
-## 4.7 The Vertex and Axis of Symmetry
+**Even Multiplicity (2, 4, 6, ...):**
+- The graph **touches** (is tangent to) the $x$-axis at this root
+- The sign of the function does NOT change on either side
 
-### 4.7.1 Finding the Vertex
+**Example:** $f(x) = (x - 2)^3(x + 1)^2$
+- Root at $x = 2$ has multiplicity 3 (odd) → graph crosses
+- Root at $x = -1$ has multiplicity 2 (even) → graph touches
 
-For a quadratic in standard form y = ax² + bx + c, the **x-coordinate of the vertex** is:
+### 2.2.4 The Rational Root Theorem
 
-$$x_v = \frac{-b}{2a}$$
+For a polynomial with integer coefficients, any rational root $\frac{p}{q}$ (in lowest terms) must satisfy:
+- $p$ divides the constant term $a_0$
+- $q$ divides the leading coefficient $a_n$
 
-The **y-coordinate** is found by substituting x_v back into the original equation:
+**Application:** To find possible rational roots of $2x^3 - 5x^2 + x + 2 = 0$:
+- Factors of constant term (2): $\pm 1, \pm 2$
+- Factors of leading coefficient (2): $\pm 1, \pm 2$
+- Possible rational roots: $\pm 1, \pm 2, \pm \frac{1}{2}$
 
-$$y_v = a\left(\frac{-b}{2a}\right)^2 + b\left(\frac{-b}{2a}\right) + c$$
+### 2.2.5 Polynomial Division and the Remainder Theorem
 
-Or more simply: y_v = f(−b/(2a))
+**The Remainder Theorem:** When a polynomial $f(x)$ is divided by $(x - c)$, the remainder equals $f(c)$.
 
-**Worked Example:**
+**The Factor Theorem:** $(x - c)$ is a factor of $f(x)$ if and only if $f(c) = 0$.
 
-Find the vertex of y = 2x² − 8x + 5.
+**Synthetic Division:** A streamlined method for dividing polynomials by linear factors $(x - c)$:
 
-$$x_v = \frac{-(-8)}{2(2)} = \frac{8}{4} = 2$$
+To divide $f(x) = 2x^3 - 5x^2 + x + 2$ by $(x - 2)$:
 
-y_v = 2(2)² − 8(2) + 5 = 8 − 16 + 5 = −3
+1. Write coefficients: $2, -5, 1, 2$
+2. Bring down the 2
+3. Multiply by 2: $2 \times 2 = 4$, add to $-5$: $-1$
+4. Multiply by 2: $-1 \times 2 = -2$, add to $1$: $-1$
+5. Multiply by 2: $-1 \times 2 = -2$, add to $2$: $0$
 
-**Vertex: (2, −3)** ✓ (matches our completing the square result)
+Result: $2x^2 - x - 1$ with remainder $0$, confirming $x = 2$ is a root.
 
-### 4.7.2 The Axis of Symmetry
+### 2.2.6 Descartes' Rule of Signs
 
-The axis of symmetry is the vertical line through the vertex:
+This rule determines the possible number of positive and negative real roots:
 
-$$x = \frac{-b}{2a}$$
+**Positive Real Roots:** Count sign changes in $f(x)$. The number of positive real roots equals this count or less by an even number.
 
-This line divides the parabola into two mirror-image halves.
+**Negative Real Roots:** Count sign changes in $f(-x)$. The number of negative real roots equals this count or less by an even number.
 
-### 4.7.3 Maximum or Minimum Value
-
-- If **a > 0**: The parabola opens upward. The vertex is the **minimum point**. The minimum value of the function is **k** (the y-coordinate of the vertex).
-- If **a < 0**: The parabola opens downward. The vertex is the **maximum point**. The maximum value of the function is **k**.
-
-**Worked Example:**
-
-Find the maximum value of y = −3x² + 12x − 7.
-
-$$x_v = \frac{-12}{2(-3)} = \frac{-12}{-6} = 2$$
-
-y_v = −3(2)² + 12(2) − 7 = −12 + 24 − 7 = 5
-
-Since a = −3 < 0, the parabola opens downward, and the **maximum value is 5** (occurring at x = 2).
-
----
-
-## 4.8 Finding the x-Intercepts and y-Intercept
-
-### 4.8.1 Finding x-Intercepts (Roots/Zeros)
-
-The x-intercepts occur where y = 0. Set the quadratic equal to zero and solve:
-
-ax² + bx + c = 0
-
-Use any of the four methods: factoring, square root method, completing the square, or the quadratic formula.
-
-**Worked Example:**
-
-Find the x-intercepts of y = x² − 5x + 6.
-
-Set y = 0: x² − 5x + 6 = 0
-
-Factor: (x − 2)(x − 3) = 0
-
-x = 2 or x = 3
-
-**x-intercepts: (2, 0) and (3, 0)**
-
-### 4.8.2 Finding the y-Intercept
-
-The y-intercept occurs where x = 0. Simply substitute x = 0 into the equation:
-
-y = a(0)² + b(0) + c = c
-
-**y-intercept: (0, c)**
-
-**Worked Example:**
-
-For y = 2x² − 5x − 3, the y-intercept is (0, −3).
+**Example:** $f(x) = x^4 - 3x^3 + 2x^2 - x + 5$
+- Sign changes in $f(x)$: $+ \to - \to + \to - \to +$ = 4 changes
+- Possible positive roots: 4, 2, or 0
+- $f(-x) = x^4 + 3x^3 + 2x^2 + x + 5$ (no sign changes)
+- Possible negative roots: 0
 
 ---
 
-## 4.9 The Sum and Product of Roots
+## 2.3 Nonlinear Functions: Beyond Polynomials
 
-For the quadratic equation ax² + bx + c = 0 with roots r₁ and r₂:
+### 2.3.1 Absolute Value Functions
 
-**Sum of roots:** r₁ + r₂ = −b/a
+The absolute value function $f(x) = |x|$ creates a V-shaped graph with its vertex at the origin.
 
-**Product of roots:** r₁ · r₂ = c/a
+**General Form:** $f(x) = a|x - h| + k$
+- Vertex at $(h, k)$
+- Opens upward if $a > 0$, downward if $a < 0$
+- The "width" is affected by $|a|$: larger $|a|$ = narrower V
 
-These relationships are known as **Vieta's Formulas** and are extremely useful on the SAT and ACT.
+**Solving Absolute Value Equations:**
+$|A| = B$ means $A = B$ or $A = -B$ (where $B \geq 0$)
 
-**Worked Example:**
+**Solving Absolute Value Inequalities:**
+- $|A| < B$ means $-B < A < B$ (where $B > 0$)
+- $|A| > B$ means $A < -B$ or $A > B$
 
-For 3x² − 7x + 2 = 0:
+**SAT Pattern:** Problems involving distance on the number line often use absolute value. The expression $|x - a|$ represents the distance from $x$ to $a$.
 
-Sum of roots = −(−7)/3 = 7/3
+### 2.3.2 Radical Functions
 
-Product of roots = 2/3
+**Square Root Functions:** $f(x) = \sqrt{x}$
+- Domain: $x \geq 0$
+- Range: $y \geq 0$
+- Graph is the top half of a sideways parabola
 
-**Verification by solving:**
+**General Form:** $f(x) = a\sqrt{b(x - h)} + k$
+- Domain: $b(x - h) \geq 0$
+- The graph is stretched/compressed by $|a|$ and $|b|$
 
-Using the quadratic formula:
+**Cube Root Functions:** $f(x) = \sqrt[3]{x}$
+- Domain: all real numbers
+- Range: all real numbers
+- Graph has origin symmetry (odd function)
 
-$$x = \frac{7 \pm \sqrt{49 - 24}}{6} = \frac{7 \pm \sqrt{25}}{6} = \frac{7 \pm 5}{6}$$
+**Solving Radical Equations:**
+1. Isolate the radical
+2. Raise both sides to the appropriate power
+3. Check for extraneous solutions (always required!)
 
-x = 12/6 = 2 or x = 2/6 = 1/3
+**Critical Warning:** When solving $\sqrt{A} = B$, you must verify that $B \geq 0$ and that $A = B^2$ produces valid solutions.
 
-Sum: 2 + 1/3 = 7/3 ✓
+### 2.3.3 Rational Functions and Asymptotes
 
-Product: 2 · 1/3 = 2/3 ✓
+A rational function has the form $f(x) = \frac{P(x)}{Q(x)}$ where $P$ and $Q$ are polynomials.
 
-### 4.9.1 Writing a Quadratic Given Its Roots
+**Vertical Asymptotes:** Occur where $Q(x) = 0$ (and $P(x) \neq 0$ at those points)
+- The function approaches $\pm\infty$ near these lines
+- The graph never crosses a vertical asymptote
 
-If you know the roots r₁ and r₂, you can write the quadratic as:
+**Horizontal Asymptotes:** Determined by comparing degrees of $P$ and $Q$:
+- If degree of $P$ < degree of $Q$: $y = 0$
+- If degree of $P$ = degree of $Q$: $y = \frac{\text{leading coefficient of } P}{\text{leading coefficient of } Q}$
+- If degree of $P$ > degree of $Q$: No horizontal asymptote (may have oblique asymptote)
 
-y = a(x − r₁)(x − r₂)
+**Oblique (Slant) Asymptotes:** Occur when degree of $P$ is exactly one more than degree of $Q$. Found by polynomial long division; the quotient (ignoring remainder) gives the asymptote equation.
 
-where a is any nonzero constant. If a = 1, you get the **monic** quadratic (leading coefficient 1).
+**Holes:** Occur when a factor cancels from both numerator and denominator. The $x$-value of the hole is the zero of the canceled factor; the $y$-value is found by substituting into the simplified function.
 
-**Worked Example:**
+### 2.3.4 Exponential Functions
 
-Write a quadratic with roots 3 and −2.
+**General Form:** $f(x) = ab^{x - h} + k$
+- $a$: vertical stretch/compression and reflection
+- $b$: base ($b > 0$, $b \neq 1$)
+- $h$: horizontal shift
+- $k$: vertical shift (also the horizontal asymptote)
 
-y = (x − 3)(x + 2)
-y = x² + 2x − 3x − 6
-y = x² − x − 6
+**Growth vs. Decay:**
+- If $b > 1$: exponential growth
+- If $0 < b < 1$: exponential decay
 
-**Worked Example:**
+**The Natural Base $e$:** Many SAT problems use $f(x) = ae^{kx}$ where $e \approx 2.718$. This is especially common in continuous growth/decay models.
 
-Write a quadratic with roots 1/2 and −4.
+**Properties of Exponents (Critical for SAT):**
+- $a^m \cdot a^n = a^{m+n}$
+- $\frac{a^m}{a^n} = a^{m-n}$
+- $(a^m)^n = a^{mn}$
+- $a^{-n} = \frac{1}{a^n}$
+- $a^{\frac{m}{n}} = \sqrt[n]{a^m}$
 
-y = (x − 1/2)(x + 4)
-y = x² + 4x − (1/2)x − 2
-y = x² + (7/2)x − 2
+### 2.3.5 Logarithmic Functions
 
-To eliminate fractions, multiply by 2:
-2y = 2x² + 7x − 4
+Logarithms are the inverse of exponential functions:
 
-Or equivalently: y = x² + (7/2)x − 2 (with a = 1) or 2x² + 7x − 4 = 0 (with integer coefficients).
+$$y = \log_b x \iff b^y = x$$
 
----
+**Common Logarithm:** $\log x = \log_{10} x$
+**Natural Logarithm:** $\ln x = \log_e x$
 
-## 4.10 Graphing Quadratics: A Complete Guide
+**Properties of Logarithms:**
+- $\log_b(mn) = \log_b m + \log_b n$
+- $\log_b\left(\frac{m}{n}\right) = \log_b m - \log_b n$
+- $\log_b(m^n) = n \log_b m$
+- $\log_b b = 1$
+- $\log_b 1 = 0$
 
-### 4.10.1 Key Features of a Parabola
+**Change of Base Formula:** $\log_b a = \frac{\log_c a}{\log_c b}$
 
-To graph a quadratic, identify these features:
-
-1. **Direction of opening**: Up if a > 0, down if a < 0
-2. **Vertex**: (h, k) — the maximum or minimum point
-3. **Axis of symmetry**: x = h
-4. **y-intercept**: (0, c)
-5. **x-intercepts**: Found by solving ax² + bx + c = 0
-
-### 4.10.2 Step-by-Step Graphing Process
-
-**Worked Example:**
-
-Graph y = −x² + 4x + 5.
-
-**Step 1:** Direction. a = −1 < 0, so the parabola opens **downward**.
-
-**Step 2:** Vertex.
-$$x_v = \frac{-4}{2(-1)} = \frac{-4}{-2} = 2$$
-y_v = −(2)² + 4(2) + 5 = −4 + 8 + 5 = 9
-**Vertex: (2, 9)**
-
-**Step 3:** Axis of symmetry: x = 2
-
-**Step 4:** y-intercept. Set x = 0: y = 5. Point: **(0, 5)**
-
-**Step 5:** x-intercepts. Set y = 0:
-−x² + 4x + 5 = 0
-x² − 4x − 5 = 0 (multiply both sides by −1)
-(x − 5)(x + 1) = 0
-x = 5 or x = −1
-**x-intercepts: (5, 0) and (−1, 0)**
-
-**Step 6:** Plot the vertex, intercepts, and use symmetry to find additional points. The axis of symmetry x = 2 means that for every point on one side, there's a mirror point on the other side. For example, the y-intercept (0, 5) is 2 units left of the axis, so there's a corresponding point 2 units right: (4, 5).
-
-**Step 7:** Draw a smooth curve through all the points.
-
-### 4.10.3 Domain and Range
-
-For any quadratic function:
-
-- **Domain:** All real numbers (−∞, +∞). You can substitute any real number for x.
-- **Range:** Depends on the vertex and direction of opening.
-  - If a > 0: Range is [k, +∞) where k is the y-coordinate of the vertex.
-  - If a < 0: Range is (−∞, k] where k is the y-coordinate of the vertex.
-
-**Worked Example:**
-
-For y = −x² + 4x + 5, the vertex is (2, 9) and a < 0.
-
-**Range: (−∞, 9]**
+**SAT Strategy:** When solving exponential equations, take the logarithm of both sides. When solving logarithmic equations, exponentiate both sides.
 
 ---
 
-## 4.11 Quadratic Inequalities
+## 2.4 Function Transformations: The Universal Language
 
-### 4.11.1 Solving Quadratic Inequalities
+### 2.4.1 The Transformation Framework
 
-**Process:**
-1. Move all terms to one side: ax² + bx + c < 0 (or > 0, ≤ 0, ≥ 0)
-2. Find the roots of the corresponding equation ax² + bx + c = 0
-3. The roots divide the number line into intervals
-4. Test a point in each interval to determine where the inequality is satisfied
+All function transformations can be understood through the template:
 
-**Worked Example:**
+$$y = a \cdot f(b(x - h)) + k$$
 
-Solve x² − 5x + 6 > 0.
+| Parameter | Effect | Description |
+|---|---|---|
+| $a$ | Vertical stretch/compression | $\|a\| > 1$ stretches; $0 < \|a\| < 1$ compresses; negative reflects over $x$-axis |
+| $b$ | Horizontal stretch/compression | $\|b\| > 1$ compresses; $0 < \|b\| < 1$ stretches; negative reflects over $y$-axis |
+| $h$ | Horizontal shift | Positive shifts right; negative shifts left |
+| $k$ | Vertical shift | Positive shifts up; negative shifts down |
 
-Step 1: Find the roots of x² − 5x + 6 = 0:
-(x − 2)(x − 3) = 0
-x = 2 or x = 3
+**Critical Order of Operations for Transformations:**
+1. Horizontal shift ($h$)
+2. Horizontal stretch/compression and reflection ($b$)
+3. Vertical stretch/compression and reflection ($a$)
+4. Vertical shift ($k$)
 
-Step 2: The roots divide the number line into three intervals:
-(−∞, 2), (2, 3), (3, +∞)
+### 2.4.2 Combining Functions
 
-Step 3: Test each interval:
-- For x = 0 (in (−∞, 2)): 0² − 5(0) + 6 = 6 > 0 ✓
-- For x = 2.5 (in (2, 3)): 6.25 − 12.5 + 6 = −0.25 < 0 ✗
-- For x = 4 (in (3, +∞)): 16 − 20 + 6 = 2 > 0 ✓
+**Arithmetic Combinations:**
+- $(f + g)(x) = f(x) + g(x)$
+- $(f - g)(x) = f(x) - g(x)$
+- $(fg)(x) = f(x) \cdot g(x)$
+- $\left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)}$ where $g(x) \neq 0$
 
-**Solution: x < 2 or x > 3**, i.e., (−∞, 2) ∪ (3, +∞)
+**Composition:** $(f \circ g)(x) = f(g(x))$
+- Apply $g$ first, then apply $f$ to the result
+- Domain of $f \circ g$ consists of $x$ in domain of $g$ where $g(x)$ is in domain of $f$
 
-**Graphical interpretation:** The parabola y = x² − 5x + 6 opens upward and crosses the x-axis at x = 2 and x = 3. The function is positive (above the x-axis) when x < 2 or x > 3.
+**SAT Pattern:** Problems asking for $f(g(2))$ require you to first find $g(2)$, then use that result as the input for $f$.
 
----
+### 2.4.3 Inverse Functions
 
-## 4.12 Advanced Topics
+A function $f$ has an inverse $f^{-1}$ if and only if $f$ is one-to-one (passes the horizontal line test).
 
-### 4.12.1 The Factor Theorem
+**Finding an Inverse:**
+1. Replace $f(x)$ with $y$
+2. Swap $x$ and $y$
+3. Solve for $y$
+4. Replace $y$ with $f^{-1}(x)$
 
-**Factor Theorem:** (x − r) is a factor of a polynomial f(x) if and only if f(r) = 0.
+**Property of Inverses:** $f(f^{-1}(x)) = x$ and $f^{-1}(f(x)) = x$
 
-This is useful for factoring higher-degree polynomials, but it also applies to quadratics.
-
-**Worked Example:**
-
-Show that (x − 3) is a factor of f(x) = x² − 5x + 6.
-
-f(3) = 9 − 15 + 6 = 0 ✓
-
-Therefore, (x − 3) is a factor. Dividing: x² − 5x + 6 = (x − 3)(x − 2).
-
-### 4.12.2 Quadratic Systems
-
-Sometimes you need to find the intersection points of a quadratic and a line (or two quadratics). This requires solving a system of equations.
-
-**Worked Example:**
-
-Find the points of intersection of y = x² − 4x + 3 and y = x − 1.
-
-Set the right sides equal:
-x² − 4x + 3 = x − 1
-x² − 5x + 4 = 0
-(x − 1)(x − 4) = 0
-x = 1 or x = 4
-
-Find the corresponding y-values:
-- When x = 1: y = 1 − 1 = 0
-- When x = 4: y = 4 − 1 = 3
-
-**Points of intersection: (1, 0) and (4, 3)**
-
-### 4.12.3 Transformations of Quadratics
-
-Starting from the parent function y = x², we can obtain any quadratic through transformations:
-
-- **y = x² + k**: Vertical shift by k units (up if k > 0, down if k < 0)
-- **y = (x − h)²**: Horizontal shift by h units (right if h > 0, left if h < 0)
-- **y = a(x − h)² + k**: Combined transformations
-  - |a| > 1: Vertical stretch (narrower)
-  - 0 < |a| < 1: Vertical compression (wider)
-  - a < 0: Reflection across x-axis
-
-**Worked Example:**
-
-Describe the transformations from y = x² to y = −2(x + 3)² + 4.
-
-1. Horizontal shift left 3 units: y = (x + 3)²
-2. Vertical stretch by factor of 2: y = 2(x + 3)²
-3. Reflection across x-axis: y = −2(x + 3)²
-4. Vertical shift up 4 units: y = −2(x + 3)² + 4
-
-**Vertex moved from (0, 0) to (−3, 4).**
+**Graphical Relationship:** The graph of $f^{-1}$ is the reflection of $f$ across the line $y = x$.
 
 ---
 
-## 4.13 Challenging Practice Problems
+## 2.5 Systems of Nonlinear Equations
 
-### Problem Set 1: Factoring
+### 2.5.1 Linear-Quadratic Systems
 
-**Problem 1:** Factor 12x² − 34x + 10 completely.
+**Substitution Method (Primary Approach):**
+1. Solve the linear equation for one variable
+2. Substitute into the quadratic equation
+3. Solve the resulting quadratic
+4. Find the other variable(s)
+5. Check solutions in both original equations
 
-*Solution:*
-GCF = 2: 2(6x² − 17x + 5)
-a · c = 6 · 5 = 30. Need two numbers that multiply to 30 and add to −17.
-- −2 and −15 → −2 + (−15) = −17 ✓
+**Graphical Interpretation:**
+- Two intersection points: two solutions
+- One intersection point (tangent): one solution
+- No intersection points: no real solutions
 
-6x² − 2x − 15x + 5
-(6x² − 2x) + (−15x + 5)
-2x(3x − 1) − 5(3x − 1)
-(3x − 1)(2x − 5)
+### 2.5.2 Quadratic-Quadratic Systems
 
-**Answer: 2(3x − 1)(2x − 5)**
+**Elimination Method:**
+1. Align equations
+2. Multiply one or both equations to eliminate a variable
+3. Solve the resulting equation
+4. Back-substitute to find other variable(s)
 
-**Problem 2:** Factor 18x² + 27x − 35.
+**Special Case:** When both equations are quadratics in standard form, subtracting them often eliminates the $x^2$ and $y^2$ terms, yielding a linear equation.
 
-*Solution:*
-a · c = 18 · (−35) = −630. Need two numbers that multiply to −630 and add to 27.
-- 45 and −14 → 45 + (−14) = 31 ✗
-- 42 and −15 → 42 + (−15) = 27 ✓
+### 2.5.3 Systems Involving Nonlinear Functions
 
-18x² + 42x − 15x − 35
-(18x² + 42x) + (−15x − 35)
-6x(3x + 7) − 5(3x + 7)
-(3x + 7)(6x − 5)
-
-**Answer: (3x + 7)(6x − 5)**
-
-**Problem 3:** Factor 25x² − 49.
-
-*Solution:*
-This is a difference of squares: (5x)² − 7²
-
-**Answer: (5x + 7)(5x − 7)**
-
-### Problem Set 2: Solving
-
-**Problem 4:** Solve 5x² + 11x − 12 = 0.
-
-*Solution:*
-a · c = 5 · (−12) = −60. Need two numbers that multiply to −60 and add to 11.
-- 15 and −4 → 15 + (−4) = 11 ✓
-
-5x² + 15x − 4x − 12 = 0
-(5x² + 15x) + (−4x − 12) = 0
-5x(x + 3) − 4(x + 3) = 0
-(x + 3)(5x − 4) = 0
-
-x + 3 = 0 → x = −3
-5x − 4 = 0 → x = 4/5
-
-**Answer: x = −3 and x = 4/5**
-
-**Problem 5:** Solve (2x − 1)² = 49.
-
-*Solution:*
-2x − 1 = ±7
-
-2x − 1 = 7 → 2x = 8 → x = 4
-2x − 1 = −7 → 2x = −6 → x = −3
-
-**Answer: x = 4 and x = −3**
-
-**Problem 6:** Solve 4x² + 12x + 9 = 0.
-
-*Solution:*
-Discriminant = 144 − 4(4)(9) = 144 − 144 = 0
-
-One repeated root: x = −12/(2 · 4) = −12/8 = −3/2
-
-Alternatively, recognize the perfect square trinomial:
-4x² + 12x + 9 = (2x + 3)² = 0
-
-**Answer: x = −3/2 (double root)**
-
-### Problem Set 3: Applications
-
-**Problem 7:** A ball is thrown upward from a height of 5 feet with an initial velocity of 48 feet per second. The height h (in feet) after t seconds is given by h = −16t² + 48t + 5. What is the maximum height reached by the ball, and when does it occur?
-
-*Solution:*
-The maximum height occurs at the vertex.
-
-$$t_v = \frac{-48}{2(-16)} = \frac{-48}{-32} = 1.5 \text{ seconds}$$
-
-h(1.5) = −16(1.5)² + 48(1.5) + 5 = −16(2.25) + 72 + 5 = −36 + 72 + 5 = 41
-
-**Answer: Maximum height is 41 feet, occurring at t = 1.5 seconds.**
-
-**Problem 8:** The product of two consecutive positive integers is 132. Find the integers.
-
-*Solution:*
-Let the smaller integer be n. Then the next consecutive integer is n + 1.
-
-n(n + 1) = 132
-n² + n − 132 = 0
-
-a · c = 1 · (−132) = −132. Need two numbers that multiply to −132 and add to 1.
-- 12 and −11 → 12 + (−11) = 1 ✓
-
-(n + 12)(n − 11) = 0
-n = −12 or n = 11
-
-Since we need positive integers: n = 11.
-
-**Answer: The integers are 11 and 12.**
-
-**Verification:** 11 · 12 = 132 ✓
-
-**Problem 9:** For what value of k does the equation x² + kx + 9 = 0 have exactly one real solution?
-
-*Solution:*
-For exactly one real solution, the discriminant must equal zero.
-
-b² − 4ac = 0
-k² − 4(1)(9) = 0
-k² = 36
-k = ±6
-
-**Answer: k = 6 or k = −6**
-
-**Problem 10:** If one root of 2x² − 5x + k = 0 is 3, find the value of k and the other root.
-
-*Solution:*
-Substitute x = 3 into the equation:
-2(9) − 5(3) + k = 0
-18 − 15 + k = 0
-k = −3
-
-Now the equation is 2x² − 5x − 3 = 0.
-
-Using the product of roots: r₁ · r₂ = c/a = −3/2
-3 · r₂ = −3/2
-r₂ = −1/2
-
-**Answer: k = −3, other root = −1/2**
-
-**Verification:** 2x² − 5x − 3 = (x − 3)(2x + 1) = 0 → x = 3 or x = −1/2 ✓
+For systems involving absolute value, radical, or rational functions:
+1. Use substitution or elimination as appropriate
+2. Check for extraneous solutions
+3. Verify domain restrictions
 
 ---
 
-## 4.14 Summary of Key Formulas
+## 2.6 Advanced SAT Strategies for Nonlinear Functions
 
-| Formula | Expression |
-|---|---|
-| Standard form | y = ax² + bx + c |
-| Vertex form | y = a(x − h)² + k |
-| Intercept form | y = a(x − p)(x − q) |
-| x-coordinate of vertex | x = −b/(2a) |
-| Axis of symmetry | x = −b/(2a) |
-| Quadratic formula | x = (−b ± √(b² − 4ac))/(2a) |
-| Discriminant | D = b² − 4ac |
-| Sum of roots | r₁ + r₂ = −b/a |
-| Product of roots | r₁ · r₂ = c/a |
-| Difference of squares | a² − b² = (a + b)(a − b) |
-| Perfect square (plus) | a² + 2ab + b² = (a + b)² |
-| Perfect square (minus) | a² − 2ab + b² = (a − b)² |
+### 2.6.1 The Graphical-Numerical-Algebraic Triad
+
+The SAT tests your ability to move between three representations:
+
+**Given a graph, find the equation:**
+- Identify key features: vertex, intercepts, asymptotes
+- Use these to determine parameters in the equation form
+- Verify with additional points
+
+**Given an equation, sketch the graph:**
+- Find intercepts
+- Determine asymptotes (for rational functions)
+- Identify symmetry
+- Plot additional points as needed
+
+**Given a table of values, identify the function type:**
+- Linear: constant first differences
+- Quadratic: constant second differences
+- Exponential: constant ratio between consecutive $y$-values
+
+### 2.6.2 Symmetry and Even/Odd Functions
+
+**Even Functions:** $f(-x) = f(x)$
+- Symmetric about the $y$-axis
+- Examples: $x^2$, $x^4$, $\cos(x)$, $|x|$
+
+**Odd Functions:** $f(-x) = -f(x)$
+- Symmetric about the origin
+- Examples: $x^3$, $x^5$, $\sin(x)$
+
+**SAT Application:** If a function is even, you only need to analyze $x \geq 0$ and reflect. If odd, you can use origin symmetry.
+
+### 2.6.3 Maximum and Minimum Values
+
+**For Quadratics $f(x) = ax^2 + bx + c$:**
+- If $a > 0$: minimum at vertex, $f\left(-\frac{b}{2a}\right)$
+- If $a < 0$: maximum at vertex, $f\left(-\frac{b}{2a}\right)$
+
+**For Other Functions:**
+- Use calculus concepts (if available) or analyze the function's behavior
+- Consider domain restrictions
+- Check endpoints of closed intervals
+
+### 2.6.4 Asymptotic Behavior
+
+Understanding how functions behave as $x \to \pm\infty$ is crucial:
+
+**Polynomials:** End behavior determined by leading term
+**Rational Functions:** Approach horizontal or oblique asymptotes
+**Exponential Functions:** Approach horizontal asymptote
+**Logarithmic Functions:** Grow without bound (slowly)
 
 ---
 
-## 4.15 Final Tips for the SAT and ACT
+## 2.7 Connecting Concepts: The Big Picture
 
-1. **Always check for a GCF first** before attempting to factor.
+### 2.7.1 The Hierarchy of Functions
 
-2. **Memorize the quadratic formula.** It solves every quadratic equation, even when factoring is difficult or impossible.
+Understanding how function types relate helps in problem-solving:
 
-3. **Know the discriminant cold.** Questions about the number of solutions appear frequently.
+1. **Linear** → constant rate of change
+2. **Quadratic** → linear rate of change
+3. **Polynomial** → generalization of quadratic
+4. **Rational** → ratio of polynomials
+5. **Exponential** → constant multiplicative growth
+6. **Logarithmic** → inverse of exponential
 
-4. **Use Vieta's formulas** (sum and product of roots) to save time on problems that ask about relationships between roots.
+### 2.7.2 The Interplay of Algebra and Geometry
 
-5. **When in doubt, use the quadratic formula.** It always works, even if factoring would be faster.
+Every algebraic concept has a geometric interpretation:
+- Equations → curves in the coordinate plane
+- Inequalities → regions in the coordinate plane
+- Systems → intersection points
+- Transformations → movements of graphs
 
-6. **For "find the vertex" problems**, use x = −b/(2a) and then substitute. Don't waste time completing the square unless specifically asked.
+### 2.7.3 Common SAT Traps and How to Avoid Them
 
-7. **Check your answers** by substituting back into the original equation.
+**Trap 1: Forgetting to check for extraneous solutions**
+- Always verify solutions when squaring both sides or working with rational equations
+- Check domain restrictions
 
-8. **On multiple choice**, you can often eliminate wrong answers by checking the discriminant or testing values.
+**Trap 2: Confusing horizontal and vertical transformations**
+- Remember: $f(x - h)$ shifts RIGHT by $h$ (counterintuitive)
+- $f(x) + k$ shifts UP by $k$ (intuitive)
 
-9. **For word problems**, define your variables clearly, set up the equation, and remember that the solution must make sense in context (e.g., negative time or negative length is usually not valid).
+**Trap 3: Misidentifying the vertex**
+- In $f(x) = a(x - h)^2 + k$, the vertex is $(h, k)$, not $(-h, k)$
 
-10. **Practice converting between forms.** The SAT and ACT frequently ask you to identify the vertex from standard form, or to find intercepts from vertex form.
+**Trap 4: Incorrectly applying the discriminant**
+- The discriminant is $b^2 - 4ac$, not $\sqrt{b^2 - 4ac}$
+
+**Trap 5: Forgetting about complex roots**
+- When $\Delta < 0$, there are still two complex roots (conjugates)
+
+**Trap 6: Mishandling function composition**
+- $f(g(x))$ means apply $g$ first, then $f$
+- Order matters: $f(g(x)) \neq g(f(x))$ in general
+
+---
+
+## 2.8 Mastery Checklist
+
+Before moving to practice problems, ensure you can:
+
+- [ ] Convert between all three forms of a quadratic
+- [ ] Apply the discriminant to determine root nature
+- [ ] Use Vieta's formulas for sum and product of roots
+- [ ] Factor polynomials using various techniques
+- [ ] Identify and graph all types of nonlinear functions
+- [ ] Apply transformations to any function
+- [ ] Solve systems of nonlinear equations
+- [ ] Analyze end behavior and asymptotes
+- [ ] Find and verify inverse functions
+- [ ] Recognize and avoid common SAT traps
+
+This comprehensive foundation in quadratics, polynomials, and nonlinear functions prepares you for the most challenging Advanced Math questions on the SAT. The key is not just memorizing formulas, but understanding the deep connections between algebraic and geometric representations, and developing the flexibility to move between different problem-solving approaches.
 
 ---
 
 
-# Chapter 5: Proportions, Rates, and Factor-of-Change Applications
+# Chapter 3: Problem Solving & Data Analysis — Ratios, Percentages & Statistical Reasoning
 
 ---
 
-## 5.1 Ratios: The Foundation of Proportional Reasoning
+## Introduction to the Domain
 
-A **ratio** is a comparison of two or more quantities by division. It expresses how much of one thing exists relative to another. Ratios can be written in three equivalent forms:
+Problem Solving and Data Analysis is one of the four major content domains on the SAT Math section, alongside Algebra, Advanced Math, and Geometry & Trigonometry. This domain tests your ability to apply mathematical reasoning to real-world scenarios, interpret data presented in various formats (tables, graphs, charts, and verbal descriptions), and use quantitative concepts such as ratios, rates, percentages, probability, and statistical measures to draw conclusions and make predictions.
 
-- **Colon notation:** $a:b$
-- **Fraction notation:** $\dfrac{a}{b}$
-- **Word notation:** $a \text{ to } b$
+On the Digital SAT, Problem Solving and Data Analysis questions account for approximately **15% of the Math section**, which translates to roughly **5 to 7 questions** out of the 44 total math questions. While this may seem like a small fraction, these questions are often among the most time-consuming and conceptually demanding on the test, requiring you to synthesize information from multiple sources and apply several mathematical concepts in tandem.
 
-### Simplification of Ratios
+The College Board organizes this domain around three primary skill areas:
 
-Every ratio must be expressed in **simplest form** (lowest terms). This means dividing both terms by their greatest common divisor (GCD).
+1. **Ratios, Rates, and Proportional Relationships** — Understanding and applying ratios, rates, unit rates, and proportional reasoning to solve problems.
+2. **Percentages** — Calculating percentages, percentage change, and applying percentage concepts to real-world contexts.
+3. **Probability and Statistics** — Interpreting data, calculating measures of center and spread, understanding probability concepts, and making inferences from data.
 
-**Example 5.1:** Simplify the ratio $24:36$.
-
-The GCD of 24 and 36 is 12. Dividing both terms:
-$$24:36 = \frac{24}{12} : \frac{36}{12} = 2:3$$
-
-### The Hidden Problem With Ratios
-
-A critical insight students must internalize: **ratios do NOT give you exact values.** If the ratio of boys to girls is $2:3$, you know there are $2m$ boys and $3g$ girls for some positive multiplier $m$, but you cannot determine the actual number of boys or girls without additional information.
-
-**Using the Unknown Multiplier ($m$):**
-
-When a ratio $a:b$ is given, assign:
-- First quantity $= am$
-- Second quantity $= bm$
-- Total $= (a + b)m$
-
-The unknown multiplier $m$ can be resolved when the total, the difference, or one specific quantity is provided.
-
-**Example 5.2:** The ratio of boys to girls in a class is $2:3$. If there are 35 students total, how many boys are there?
-
-Let the number of boys $= 2m$ and the number of girls $= 3m$.
-$$2m + 3m = 35$$
-$$5m = 35$$
-$$m = 7$$
-
-Therefore, the number of boys is $2m = 2(7) = \boxed{14}$.
-
-### Extended Ratios (Three or More Parts)
-
-Ratios can compare three or more quantities simultaneously, written as $a:b:c$.
-
-**Example 5.3:** The sides of a triangle are in the ratio $3:4:5$. If the perimeter is 72 cm, find each side.
-
-Let the sides be $3m$, $4m$, and $5m$.
-$$3m + 4m + 5m = 72$$
-$$12m = 72$$
-$$m = 6$$
-
-The sides are $3(6) = 18$ cm, $4(6) = 24$ cm, and $5(6) = 30$ cm.
-
-### SAT/ACT Trap: Part-to-Part vs. Part-to-Whole
-
-One of the most common errors on standardized tests involves confusing a **part-to-part** ratio with a **part-to-whole** ratio.
-
-**Example 5.4:** The ratio of red marbles to blue marbles in a bag is $3:5$. What fraction of all marbles are blue?
-
-The ratio given is **part-to-part** (red to blue). To find the fraction that are blue, we need **part-to-whole**.
-
-If red:blue $= 3:5$, then:
-- Red $= 3$ parts
-- Blue $= 5$ parts
-- Whole $= 3 + 5 = 8$ parts
-
-Fraction that are blue $= \dfrac{5}{8}$.
+Each of these areas requires not only computational fluency but also the ability to reason abstractly and quantitatively, identify the appropriate mathematical tool for a given situation, and interpret your results in context.
 
 ---
 
-## 5.2 Rates: Quantities With Units
+## Part I: Ratios, Rates, and Proportional Relationships
 
-A **rate** is a special type of ratio that compares two quantities with **different units**. The word "per" is the key indicator.
+### Understanding Ratios
 
-### Definition and Formula
+A **ratio** is a comparison of two quantities by division. It expresses how much of one thing exists relative to another. Ratios can be written in several equivalent forms:
 
-$$\text{Rate} = \frac{\text{Quantity}_1}{\text{Quantity}_2} = \frac{\text{Quantity}_1 \text{ unit}_1}{\text{Quantity}_2 \text{ unit}_2}$$
+- **Fraction form:** $\frac{a}{b}$
+- **Colon form:** $a:b$
+- **Verbal form:** "$a$ to $b$"
 
-Common rates include:
-| Rate Type | Formula | Units |
-|-----------|---------|-------|
-| Speed | $\dfrac{\text{Distance}}{\text{Time}}$ | mph, m/s |
-| Density | $\dfrac{\text{Mass}}{\text{Volume}}$ | g/cm³ |
-| Unit Price | $\dfrac{\text{Total Cost}}{\text{Number of Items}}$ | $/item |
-| Rate of Change | $\dfrac{\text{Change in } y}{\text{Change in } x}$ | various |
+For example, if a recipe calls for 2 cups of flour for every 3 cups of sugar, the ratio of flour to sugar can be written as $\frac{2}{3}$, $2:3$, or "2 to 3."
 
-### Speed: The Fundamental Rate
+**Key Principle:** Ratios are always expressed in **simplified form** (also called lowest terms). To simplify a ratio, divide both terms by their greatest common divisor (GCD).
 
-**Average Speed** is defined as:
+**Example:** The ratio $12:18$ simplifies to $2:3$ because the GCD of 12 and 18 is 6, and $12 \div 6 = 2$ while $18 \div 6 = 3$.
 
-$$\text{Average Speed} = \frac{\text{Total Distance}}{\text{Total Time}}$$
+**Part-to-Part vs. Part-to-Whole Ratios:**
 
-**Critical Warning:** The average of two speeds is NOT the average speed. If you travel 60 mph for the first half of a trip and 40 mph for the second half, your average speed is **not** 50 mph.
+- A **part-to-part ratio** compares two distinct components of a whole (e.g., the ratio of boys to girls in a class).
+- A **part-to-whole ratio** compares one component to the entire group (e.g., the ratio of boys to total students).
 
-**Example 5.5:** A car travels from City A to City B at 60 mph and returns from City B to City A at 40 mph. What is the average speed for the entire round trip?
+If the ratio of boys to girls in a class is $3:5$, then:
+- The ratio of boys to total students is $3:(3+5) = 3:8$.
+- The ratio of girls to total students is $5:8$.
 
-Let the one-way distance be $d$ miles. Total distance $= 2d$.
+This distinction is critical on the SAT, as questions frequently ask you to convert between part-to-part and part-to-whole rates.
 
-Time going $= \dfrac{d}{60}$ hours.
+### Understanding Rates
 
-Time returning $= \dfrac{d}{40}$ hours.
+A **rate** is a special type of ratio that compares two quantities measured in **different units**. Common examples include:
 
-Total time $= \dfrac{d}{60} + \dfrac{d}{40} = d\left(\dfrac{1}{60} + \dfrac{1}{40}\right) = d\left(\dfrac{2+3}{120}\right) = \dfrac{5d}{120} = \dfrac{d}{24}$
+- Speed: miles per hour (mph), meters per second (m/s)
+- Price: dollars per pound, cents per ounce
+- Density: grams per cubic centimeter (g/cm³)
+- Flow rate: liters per minute (L/min)
+- Work rate: tasks per hour
 
-$$\text{Average Speed} = \frac{2d}{\frac{d}{24}} = 2d \times \frac{24}{d} = 48 \text{ mph}$$
+The general formula for a rate is:
 
-This result illustrates the **harmonic mean** principle: when equal distances are traveled at two different speeds $r_1$ and $r_2$, the average speed is:
+$$\text{Rate} = \frac{\text{Quantity 1 (in units A)}}{\text{Quantity 2 (in units B)}}$$
 
-$$\text{Average Speed} = \frac{2r_1 r_2}{r_1 + r_2}$$
+**Unit Rate:** A unit rate is a rate where the denominator is exactly 1 unit. For example, if a car travels 120 miles in 3 hours, the unit rate (speed) is:
 
-### The Chart Method for Rate Problems
+$$\frac{120 \text{ miles}}{3 \text{ hours}} = 40 \text{ miles per hour}$$
 
-When problems involve two or more different rates, organize information in a chart:
+Unit rates are particularly useful for comparison. If you need to compare the speed of two objects, converting both to unit rates (same denominator of 1) makes the comparison straightforward.
 
-| | Quantity | Rate | Consumption |
-|---|----------|------|-------------|
-| Trip 1 | $d_1$ | $r_1$ | $c_1$ |
-| Trip 2 | $d_2$ | $r_2$ | $c_2$ |
+### Proportional Relationships
 
-**Example 5.6:** Ashish drives to AHA Academy at 40 mph and returns home along the same route at 60 mph. What is his average speed for the entire round trip?
-
-This is identical to Example 5.5:
-
-$$\text{Average Speed} = \frac{2(40)(60)}{40 + 60} = \frac{4800}{100} = 48 \text{ mph}$$
-
-Note that the answer is always closer to the slower speed. This is because more time is spent at the slower speed.
-
----
-
-## 5.3 Proportions: Setting Up and Solving Equations
-
-A **proportion** is an equation stating that two ratios are equal.
-
-$$\frac{a}{b} = \frac{c}{d}$$
-
-### Cross-Multiplication
-
-The fundamental technique for solving proportions:
-
-$$\frac{a}{b} = \frac{c}{d} \quad \Longrightarrow \quad ad = bc$$
-
-This works because multiplying both sides by $bd$ gives $ad = bc$.
-
-**Example 5.7:** Solve for $x$: $\dfrac{3}{7} = \dfrac{x}{35}$
-
-Cross-multiplying:
-$$3 \times 35 = 7 \times x$$
-$$105 = 7x$$
-$$x = 15$$
-
-### Direct Proportionality
-
-Two quantities $y$ and $x$ are **directly proportional** if their ratio is constant:
+Two quantities are **proportional** if they maintain a constant ratio. That is, as one quantity changes, the other changes by the same multiplicative factor. Proportional relationships can be expressed as:
 
 $$\frac{y}{x} = k \quad \text{or equivalently} \quad y = kx$$
 
-where $k$ is the **constant of proportionality**.
+where $k$ is the **constant of proportionality** (also called the unit rate or scale factor).
 
-When two quantities are directly proportional, increasing one by a certain factor causes the other to increase by the same factor.
+**Identifying Proportional Relationships:**
 
-**Example 5.8:** If 8 apples cost $12, how many apples can be bought for $30?
+- **In a table:** Check if the ratio $\frac{y}{x}$ is constant for all data points.
+- **In a graph:** Proportional relationships produce a straight line that passes through the origin $(0,0)$.
+- **In an equation:** The relationship must be of the form $y = kx$ (no added or subtracted constants).
+- **In a verbal description:** Look for phrases like "directly proportional," "varies directly," or "for every."
 
-Setting up a proportion (maintaining consistent order):
-$$\frac{8 \text{ apples}}{12 \text{ dollars}} = \frac{n \text{ apples}}{30 \text{ dollars}}$$
+**Example:** A table shows the cost of apples:
 
-$$8 \times 30 = 12 \times n$$
-$$240 = 12n$$
-$$n = 20 \text{ apples}$$
+| Pounds of Apples | Cost ($) |
+|:---:|:---:|
+| 2 | 5 |
+| 4 | 10 |
+| 6 | 15 |
+| 8 | 20 |
 
-**Alternative (Unit Rate) Method:**
-Cost per apple $= \dfrac{12}{8} = \$1.50$ per apple.
-Number of apples for $\$30 = \dfrac{30}{1.50} = 20$ apples.
+To check if this is proportional, compute $\frac{\text{Cost}}{\text{Pounds}}$ for each row:
+- $\frac{5}{2} = 2.5$
+- $\frac{10}{4} = 2.5$
+- $\frac{15}{6} = 2.5$
+- $\frac{20}{8} = 2.5$
 
-### Inverse Proportionality
+Since the ratio is constant, the relationship is proportional, and the constant of proportionality is $k = 2.5$ (dollars per pound).
 
-Two quantities $y$ and $x$ are **inversely proportional** if their product is constant:
+**Non-Proportional Relationships:** If adding a fixed amount is involved (e.g., a base fee plus a per-unit charge), the relationship is **not** proportional. For example, a taxi ride that charges a $3 base fare plus $2 per mile follows the equation $y = 2x + 3$, which is not proportional because the ratio $\frac{y}{x}$ is not constant.
 
-$$xy = k \quad \text{or equivalently} \quad y = \frac{k}{x}$$
+### Solving Proportion Problems
 
-When two quantities are inversely proportional, increasing one by a certain factor causes the other to decrease by the same factor.
+Many SAT questions require you to set up and solve a **proportion** — an equation stating that two ratios are equal. The general approach is:
 
-**Example 5.9:** If 5 workers can complete a job in 12 days, how many days will it take 8 workers?
+1. Identify the two quantities being compared.
+2. Set up the proportion with corresponding quantities in the same positions.
+3. Cross-multiply to solve for the unknown.
+4. Check that your answer makes sense in context.
 
-The total work is constant: $5 \times 12 = 60$ worker-days.
+**Cross-Multiplication Theorem:** If $\frac{a}{b} = \frac{c}{d}$ (where $b \neq 0$ and $d \neq 0$), then $ad = bc$.
 
-With 8 workers: $8 \times d = 60$, so $d = 7.5$ days.
+**Example:** If 5 pounds of apples cost $4, how much do 8 pounds cost?
 
----
+Set up the proportion:
 
-## 5.4 Factor-of-Change (Scaling) Approach
+$$\frac{5 \text{ lbs}}{4 \text{ dollars}} = \frac{8 \text{ lbs}}{x \text{ dollars}}$$
 
-When a problem tells you how certain quantities change (by a given percent or factor) and asks how a related quantity changes, the **factor-of-change** method is often the most powerful approach.
+Cross-multiply:
 
-### The General Framework
+$$5x = 32$$
 
-Start with a known formula. Eliminate constants. Replace each variable with its **factor of change** (how much it scales by). Solve for the unknown factor of change.
+Solve:
 
-### Area Scaling
+$$x = 6.4$$
 
-If a linear dimension (radius, side length, height) is scaled by a factor of $r$, then:
+So 8 pounds cost $6.40.
 
-- **Perimeter** scales by factor $r$
-- **Area** scales by factor $r^2$
-- **Volume** scales by factor $r^3$
+**Important:** Always make sure the units correspond correctly in your proportion. Pounds should be in the same position (numerator or denominator) on both sides, and dollars should be in the same position.
 
-**Example 5.10:** If the radius of a circle is increased by 25%, by what percent does the area change?
+### Scaling and Scale Factor
 
-Area formula: $A = \pi r^2$
+A **scale factor** is the ratio of corresponding lengths in two similar geometric figures, or the ratio by which a quantity is multiplied to produce a scaled version. Scale factors are used in:
 
-The factor of change for $r$: $1 + 0.25 = 1.25$
+- **Maps and models:** A map scale of 1:50,000 means 1 cm on the map represents 50,000 cm in reality.
+- **Similar triangles:** If two triangles are similar, the ratio of any two corresponding sides is the same scale factor.
+- **Photocopying and resizing:** Enlarging or reducing an image by a certain percentage.
 
-The factor of change for $A$: $(1.25)^2 = 1.5625$
+**Example:** A map has a scale of 1 inch : 10 miles. If two cities are 3.5 inches apart on the map, what is the actual distance?
 
-Percent change: $(1.5625 - 1) \times 100\% = \boxed{56.25\%}$ increase.
+$$\frac{1 \text{ in}}{10 \text{ mi}} = \frac{3.5 \text{ in}}{x \text{ mi}}$$
 
-### Volume and Density Applications
+$$x = 35 \text{ miles}$$
 
-**Example 5.11:** An object's mass is decreased by 20% and its speed is increased by 20%. By what factor does its kinetic energy change?
+### Rate Problems: Work, Speed, and Combined Rates
 
-Kinetic energy formula: $KE = \dfrac{1}{2}mv^2$
+**Distance-Rate-Time Problems:**
 
-Eliminate the constant $\dfrac{1}{2}$: $KE \sim mv^2$
+The fundamental relationship is:
 
-Factor of change for $m$: $1 - 0.20 = 0.80$
-Factor of change for $v^2$: $(1.20)^2 = 1.44$
+$$\text{Distance} = \text{Rate} \times \text{Time} \quad \text{or} \quad D = rt$$
 
-Factor of change for $KE$: $0.80 \times 1.44 = 1.152$
+This can be rearranged as:
+- $r = \frac{D}{t}$ (rate = distance ÷ time)
+- $t = \frac{D}{r}$ (time = distance ÷ rate)
 
-$$\boxed{KE \text{ increases by } 15.2\%}$$
+**Example:** A car travels at 60 mph for 2.5 hours. How far does it travel?
 
-**Critical Insight:** Notice that this answer is **not** "no change at all." A 20% decrease in mass and a 20% increase in speed do NOT cancel out because speed is **squared** in the kinetic energy formula. This is a classic SAT trap answer.
+$$D = 60 \times 2.5 = 150 \text{ miles}$$
 
-### General Formula for Percent Change Using Factors
-
-If a quantity $Q$ depends on variables as $Q = k \cdot x^a \cdot y^b \cdot z^c$, and:
-- $x$ changes by $p\%$,
-- $y$ changes by $q\%$,
-- $z$ changes by $r\%$,
-
-then $Q$ changes by a factor of:
-$$(1 + \tfrac{p}{100})^a \cdot (1 + \tfrac{q}{100})^b \cdot (1 + \tfrac{r}{100})^c$$
-
-The percent change in $Q$ is:
-$$\left[(1 + \tfrac{p}{100})^a \cdot (1 + \tfrac{q}{100})^b \cdot (1 + \tfrac{r}{100})^c - 1\right] \times 100\%$$
-
-**Example 5.12:** The area of a rectangle is given by $A = lw$. If the length is increased by 30% and the width is decreased by 10%, what is the percent change in area?
-
-Factor: $(1.30)(0.90) = 1.17$
-
-Percent change: $(1.17 - 1) \times 100\% = \boxed{17\% \text{ increase}}$
-
----
-
-## 5.5 Advanced Proportion Problems
-
-### Shadow Problems (Similar Triangles)
-
-When two objects cast shadows at the same time and place, the triangles formed are similar, so corresponding sides are proportional.
-
-**Example 5.13:** A 6-foot-tall man casts a 4-foot shadow. At the same time, a tree casts a 30-foot shadow. How tall is the tree?
-
-$$\frac{\text{man's height}}{\text{man's shadow}} = \frac{\text{tree's height}}{\text{tree's shadow}}$$
-
-$$\frac{6}{4} = \frac{h}{30}$$
-
-$$4h = 180$$
-
-$$h = 45 \text{ feet}$$
-
-### Mixture Problems
-
-**Example 5.14:** How many liters of a 25% acidic solution must be added to 40 liters of a 40% acidic solution to make a solution that is 30% acidic?
-
-Let $x$ = liters of 25% solution.
-
-Using the equation: (acid from mix 1) + (acid from mix 2) = (acid from final mix)
-
-$$0.25x + 0.40(40) = 0.30(x + 40)$$
-$$0.25x + 16 = 0.30x + 12$$
-$$16 - 12 = 0.30x - 0.25x$$
-$$4 = 0.05x$$
-$$x = \boxed{80 \text{ liters}}$$
-
-### "Old" vs. "New" Problems Using Factors
-
-**Example 5.15:** If Ashish is 250% older than Bob, then Bob is what percent younger than Ashish?
-
-Let Bob's age $= x$.
-
-"Ashish is 250% older than Bob" means Ashish's age equals Bob's age **plus** 250% of Bob's age:
-$$\text{Ashish} = x + 2.5x = 3.5x$$
-
-Now, how much younger is Bob than Ashish?
-$$\text{Difference} = 3.5x - x = 2.5x$$
-
-Bob's age as a percentage **less than** Ashish's age:
-$$\frac{2.5x}{3.5x} \times 100\% = \frac{2.5}{3.5} \times 100\% = \frac{5}{7} \times 100\% = 71\frac{3}{7}\%$$
-
-**Critical Distinction:** "250% older" does NOT mean "250% as old." The word "older" signals addition to the original 100%. This is one of the most commonly tested misconceptions on the SAT.
-
-To further clarify: If A is $p\%$ older than B, then:
-$$A = B + \frac{p}{100} \cdot B = B\left(1 + \frac{p}{100}\right)$$
-
-To find what percent younger B is than A:
-$$\frac{A - B}{A} \times 100\% = \frac{\frac{p}{100}}{1 + \frac{p}{100}} \times 100\% = \frac{p}{100 + p} \times 100\%$$
-
----
-
-## 5.6 Rates in Context: Work Problems
-
-### The Work-Rate Formula
-
-For any job, define the **rate of work** as:
-$$\text{Rate} = \frac{1 \text{ job}}{t \text{ time units}} = \frac{1}{t}$$
-
-When multiple workers collaborate:
-$$\text{Combined Rate} = \text{Rate}_1 + \text{Rate}_2 + \cdots$$
-
-The time to complete one job working together:
-$$\text{Time Together} = \frac{1}{\text{Combined Rate}}$$
-
-**Example 5.16:** Pipe A can fill a tank in 6 hours. Pipe B can fill the same tank in 4 hours. How long will it take to fill the tank if both pipes are opened simultaneously?
-
-Rate of Pipe A $= \dfrac{1}{6}$ tank per hour
-Rate of Pipe B $= \dfrac{1}{4}$ tank per hour
-
-Combined rate $= \dfrac{1}{6} + \dfrac{1}{4} = \dfrac{5}{12}$ tank per hour
-
-Time $= \dfrac{1}{\frac{5}{12}} = \dfrac{12}{5} = \boxed{2.4 \text{ hours} = 2 \text{ hours } 24 \text{ minutes}}$
-
-**Example 5.17:** A cold water faucet can fill a sink in 8 minutes. A hot water faucet can fill the same sink in 12 minutes. A drain can empty the full sink in 24 minutes. If all three are open simultaneously, how long does it take to fill the sink?
-
-Rate of cold tap $= \dfrac{1}{8}$
-Rate of hot tap $= \dfrac{1}{12}$
-Rate of drain $= -\dfrac{1}{24}$ (negative because it empties)
-
-Net rate $= \dfrac{1}{8} + \dfrac{1}{12} - \dfrac{1}{24} = \dfrac{3+2-1}{24} = \dfrac{4}{24} = \dfrac{1}{6}$
-
-Time $= \boxed{6 \text{ minutes}}$
-
----
-
-## 5.7 Challenging Practice Problems with Solutions
-
-### Problem 1 (Ratios with Change)
-
-The ratio of Alice's money to Bob's money is $5:3$. After Alice gives Bob $\$10$, their money is in the ratio $7:5$. How much money did Alice originally have?
-
-**Solution:** Let Alice have $5m$ and Bob have $3m$. After the transfer:
-$$\frac{5m - 10}{3m + 10} = \frac{7}{5}$$
-$$5(5m - 10) = 7(3m + 10)$$
-$$25m - 50 = 21m + 70$$
-$$4m = 120$$
-$$m = 30$$
-
-Alice originally had $5m = 5(30) = \boxed{\$150}$.
-
-### Problem 2 (Rates with Relative Motion)
-
-Two runners start from the same point on a circular track. Runner A runs at 8 mph and Runner B runs at 6 mph, both in the same direction. How long will it take A to first lap B if the track is 1 mile around?
-
-**Solution:** The relative speed of A with respect to B $= 8 - 6 = 2$ mph.
-
-To gain a full lap (1 mile) on B:
-$$\text{Time} = \frac{1 \text{ mile}}{2 \text{ mph}} = \boxed{0.5 \text{ hours} = 30 \text{ minutes}}$$
-
-### Problem 3 (Scaling with Isosceles Triangles)
-
-The ratio of the equal sides to the base of an isosceles triangle is $5:2$. If the perimeter is 60, find the area of the triangle.
-
-**Solution:** Let the equal sides be $5m$ each and the base be $2m$.
-$$5m + 5m + 2m = 60$$
-$$12m = 60$$
-$$m = 5$$
-
-So the equal sides are 25 each, and the base is 10.
-
-To find the area, drop an altitude from the vertex angle to the base. This bisects the base (Property 3 from the notes: the altitude to the base of an isosceles triangle bisects the base). Half the base $= 5$.
-
-Using the Pythagorean theorem:
-$$h^2 + 5^2 = 25^2$$
-$$h^2 = 625 - 25 = 600$$
-$$h = \sqrt{600} = 10\sqrt{6}$$
-
-$$\text{Area} = \frac{1}{2} \times 10 \times 10\sqrt{6} = \boxed{50\sqrt{6} \text{ square units}}$$
-
-### Problem 4 (Percent Change with Variables)
-
-If $x$ is increased by 40% and $y$ is decreased by 30%, by what percent does the value of $\dfrac{x^2}{y}$ change?
-
-**Solution:** Let $Q = \dfrac{x^2}{y}$.
-
-Factor of change for $x^2$: $(1.40)^2 = 1.96$
-Factor of change for $\dfrac{1}{y}$: $\dfrac{1}{0.70} = \dfrac{10}{7} \approx 1.4286$
-
-Factor of change for $Q$: $1.96 \times \dfrac{10}{7} = \dfrac{19.6}{7} = 2.80$
-
-Percent change: $(2.80 - 1) \times 100\% = \boxed{180\% \text{ increase}}$
-
-### Problem 5 (Three-Part Ratio with Combined Information)
-
-The ratio of three numbers is $2:3:5$. The sum of the largest and smallest is 84 more than the middle number. Find all three numbers.
-
-**Solution:** Let the numbers be $2m$, $3m$, and $5m$.
-
-Given: (largest + smallest) - middle $= 84$
-$$(5m + 2m) - 3m = 84$$
-$$4m = 84$$
-$$m = 21$$
-
-The three numbers are $2(21) = 42$, $3(21) = 63$, and $5(21) = \boxed{105}$.
-
-### Problem 6 (Rate with Head Start)
-
-A cargo ship leaves a port traveling at 18 knots. Three hours later, a faster ship leaves the same port traveling at 30 knots along the same route. How many hours after the faster ship departs will it overtake the cargo ship?
-
-**Solution:** When the faster ship departs, the cargo ship has already traveled $18 \times 3 = 54$ nautical miles.
-
-Let $t$ = hours after the faster ship departs when overtaking occurs.
-
-At the overtaking point:
-$$30t = 18t + 54$$
-$$12t = 54$$
-$$t = 4.5 \text{ hours}$$
-
-The faster ship overtakes the cargo ship $\boxed{4.5 \text{ hours}}$ after its departure.
-
----
-
-## 5.8 Summary of Key Formulas and Relationships
-
-| Concept | Formula/Relationship |
-|---------|---------------------|
-| Ratio-to-Parts | If $a:b$, then quantities are $am$ and $bm$ |
-| Average Speed | $\dfrac{\text{Total Distance}}{\text{Total Time}}$ |
-| Average Speed (equal distances) | $\dfrac{2r_1r_2}{r_1+r_2}$ |
-| Cross-multiplication | $\dfrac{a}{b} = \dfrac{c}{d} \Rightarrow ad = bc$ |
-| Direct proportion | $y = kx$ (ratio constant) |
-| Inverse proportion | $xy = k$ (product constant) |
-| Area scale factor | $r^2$ when linear dimensions scale by $r$ |
-| Volume scale factor | $r^3$ when linear dimensions scale by $r$ |
-| Work rate | $\dfrac{1}{t}$ jobs per unit time |
-| Combined work rate | $\text{Rate}_1 + \text{Rate}_2 + \cdots$ |
-| Percent older (part-to-part) | $A = B\left(1+\frac{p}{100}\right)$ makes A $p\%$ older than B |
-| Percent younger | If A is $p\%$ older than B, then B is $\frac{p}{100+p}\times 100\%$ younger than A |
-
----
-
-*This chapter provides the essential toolkit for solving proportion, rate, and scaling problems on the SAT and ACT. Mastery of these techniques—particularly the factor-of-change method and the distinction between different types of proportionality—will serve as a foundation for the more advanced topics in quadratics and linear functions that follow.*
-
----
-
-
-# Chapter 6: Inequalities, Absolute Value, and Graphical Analysis
-
----
-
-## 6.1 Foundations of Inequalities
-
-### 6.1.1 What Is an Inequality?
-
-An inequality is a mathematical statement that compares two expressions using one of the following symbols:
-
-- **<** (less than)
-- **>** (greater than)
-- **≤** (less than or equal to)
-- **≥** (greater than or equal to)
-- **≠** (not equal to)
-
-Unlike an equation, which asserts that two quantities are exactly equal, an inequality asserts a relationship of relative magnitude. The solution to an inequality is typically a **set of values** (often an interval or union of intervals) rather than a single value.
-
-**Example 6.1:** The inequality $x > 3$ means that $x$ can be any real number strictly greater than 3. The solution set is $(3, \infty)$.
-
-**Example 6.2:** The inequality $-2 \leq y \leq 5$ means that $y$ can be any real number between $-2$ and $5$, inclusive. The solution set is $[-2, 5]$.
-
-### 6.1.2 Properties of Inequalities
-
-The properties of inequalities are similar to those of equations, with one critical exception involving multiplication and division by negative numbers.
-
-**Property 1: Addition and Subtraction**
-If $a < b$, then $a + c < b + c$ and $a - c < b - c$ for any real number $c$.
-
-*Reasoning:* Adding or subtracting the same quantity from both sides preserves the inequality relationship.
-
-**Property 2: Multiplication and Division by a Positive Number**
-If $a < b$ and $c > 0$, then $ac < bc$ and $\frac{a}{c} < \frac{b}{c}$.
-
-*Reasoning:* Multiplying or dividing both sides by a positive number preserves the direction of the inequality.
-
-**Property 3: Multiplication and Division by a Negative Number (CRITICAL)**
-If $a < b$ and $c < 0$, then $ac > bc$ and $\frac{a}{c} > \frac{b}{c}$.
-
-*Reasoning:* Multiplying or dividing both sides by a negative number **reverses** the direction of the inequality. This is the single most important rule to remember when working with inequalities.
-
-**Example 6.3:** Solve $-3x < 12$.
-
-Dividing both sides by $-3$ (a negative number), we must reverse the inequality:
-
-$$x > -4$$
-
-**Property 4: Transitivity**
-If $a < b$ and $b < c$, then $a < c$.
-
-**Property 5: The Trichotomy Property**
-For any two real numbers $a$ and $b$, exactly one of the following is true:
-- $a < b$
-- $a = b$
-- $a > b$
-
-### 6.1.3 Interval Notation
-
-Interval notation provides a compact way to express solution sets of inequalities.
-
-| Inequality | Interval Notation | Description |
-|---|---|---|
-| $x > a$ | $(a, \infty)$ | All numbers greater than $a$ |
-| $x \geq a$ | $[a, \infty)$ | All numbers greater than or equal to $a$ |
-| $x < b$ | $(-\infty, b)$ | All numbers less than $b$ |
-| $x \leq b$ | $(-\infty, b]$ | All numbers less than or equal to $b$ |
-| $a < x < b$ | $(a, b)$ | All numbers between $a$ and $b$ (exclusive) |
-| $a \leq x \leq b$ | $[a, b]$ | All numbers between $a$ and $b$ (inclusive) |
-| $a < x \leq b$ | $(a, b]$ | Greater than $a$, less than or equal to $b$ |
-| $a \leq x < b$ | $[a, b)$ | Greater than or equal to $a$, less than $b$ |
-
-**Key conventions:**
-- Parentheses $(~)$ indicate that the endpoint is **not** included.
-- Square brackets $[~]$ indicate that the endpoint **is** included.
-- The symbol $\infty$ (infinity) always gets a parenthesis, never a bracket, because infinity is not a real number.
-
-### 6.1.4 Graphing Inequalities on the Number Line
-
-To graph an inequality on a number line:
-
-1. Draw a number line with the critical value marked.
-2. Use an **open circle** (○) for strict inequalities ($<$ or $>$).
-3. Use a **closed circle** (●) for inclusive inequalities ($\leq$ or $\geq$).
-4. Shade the region that satisfies the inequality.
-
-**Example 6.4:** Graph $x \leq 3$ on the number line.
-
-Draw a closed circle at 3 and shade everything to the left.
-
-**Example 6.5:** Graph $-1 < x \leq 4$ on the number line.
-
-Draw an open circle at $-1$, a closed circle at $4$, and shade the region between them.
-
----
-
-## 6.2 Solving Linear Inequalities
-
-### 6.2.1 One-Step Inequalities
-
-**Example 6.6:** Solve $x + 7 > 12$.
-
-$$x + 7 > 12$$
-$$x > 5$$
-
-**Example 6.7:** Solve $-4x \leq 20$.
-
-Dividing by $-4$ (negative), reverse the inequality:
-
-$$x \geq -5$$
-
-### 6.2.2 Two-Step Inequalities
-
-**Example 6.8:** Solve $5x - 3 \geq 22$.
-
-$$5x - 3 \geq 22$$
-$$5x \geq 25$$
-$$x \geq 5$$
-
-### 6.2.3 Multi-Step Inequalities
-
-**Example 6.9:** Solve $3(2x + 1) - 4(x - 2) < 15$.
-
-$$6x + 3 - 4x + 8 < 15$$
-$$2x + 11 < 15$$
-$$2x < 4$$
-$$x < 2$$
-
-### 6.2.4 Compound Inequalities
-
-A compound inequality combines two inequalities using "and" or "or."
-
-**And (Intersection):** Both conditions must be true simultaneously.
-
-**Example 6.10:** Solve $-3 < 2x + 1 \leq 7$.
-
-Split into two inequalities:
-$$-3 < 2x + 1 \quad \text{and} \quad 2x + 1 \leq 7$$
-
-First: $-3 < 2x + 1 \Rightarrow -4 < 2x \Rightarrow -2 < x$
-
-Second: $2x + 1 \leq 7 \Rightarrow 2x \leq 6 \Rightarrow x \leq 3$
-
-Combined: $-2 < x \leq 3$, or in interval notation: $(-2, 3]$.
-
-**Or (Union):** At least one condition must be true.
-
-**Example 6.11:** Solve $x < -1$ or $x \geq 4$.
-
-Solution: $(-\infty, -1) \cup [4, \infty)$.
-
-### 6.2.5 Special Cases
-
-**Case 1: No Solution**
-
-**Example 6.12:** Solve $x + 3 < x + 1$.
-
-$$x + 3 < x + 1$$
-$$3 < 1$$
-
-This is a contradiction. There is **no solution**.
-
-**Case 2: All Real Numbers**
-
-**Example 6.13:** Solve $x + 3 > x + 1$.
-
-$$x + 3 > x + 1$$
-$$3 > 1$$
-
-This is always true. The solution is **all real numbers**, $(-\infty, \infty)$.
-
----
-
-## 6.3 Absolute Value
-
-### 6.3.1 Definition of Absolute Value
-
-The absolute value of a real number $x$, denoted $|x|$, represents the distance from $x$ to 0 on the number line. Distance is always non-negative.
-
-$$|x| = \begin{cases} x & \text{if } x \geq 0 \\ -x & \text{if } x < 0 \end{cases}$$
-
-**Key properties:**
-- $|x| \geq 0$ for all real $x$
-- $|-x| = |x|$
-- $|x|^2 = x^2$
-- $|xy| = |x||y|$
-- $\left|\frac{x}{y}\right| = \frac{|x|}{|y|}$ for $y \neq 0$
-
-### 6.3.2 Solving Absolute Value Equations
-
-**Theorem:** For $a \geq 0$, $|x| = a$ if and only if $x = a$ or $x = -a$.
-
-**Example 6.14:** Solve $|2x - 3| = 7$.
-
-$$2x - 3 = 7 \quad \text{or} \quad 2x - 3 = -7$$
-$$2x = 10 \quad \text{or} \quad 2x = -4$$
-$$x = 5 \quad \text{or} \quad x = -2$$
-
-**Example 6.15:** Solve $|x + 4| = -3$.
-
-Since absolute value is always non-negative, there is **no solution**.
-
-### 6.3.3 Solving Absolute Value Inequalities
-
-**Case 1: $|x| < a$ (or $|x| \leq a$) where $a > 0$**
-
-This means the distance from $x$ to 0 is less than $a$.
-
-$$|x| < a \iff -a < x < a$$
-
-$$|x| \leq a \iff -a \leq x \leq a$$
-
-**Example 6.16:** Solve $|3x - 6| \leq 12$.
-
-$$-12 \leq 3x - 6 \leq 12$$
-$$-6 \leq 3x \leq 18$$
-$$-2 \leq x \leq 6$$
-
-Solution: $[-2, 6]$.
-
-**Case 2: $|x| > a$ (or $|x| \geq a$) where $a > 0$**
-
-This means the distance from $x$ to 0 is greater than $a$.
-
-$$|x| > a \iff x < -a \quad \text{or} \quad x > a$$
-
-$$|x| \geq a \iff x \leq -a \quad \text{or} \quad x \geq a$$
-
-**Example 6.17:** Solve $|2x + 1| > 5$.
-
-$$2x + 1 < -5 \quad \text{or} \quad 2x + 1 > 5$$
-$$2x < -6 \quad \text{or} \quad 2x > 4$$
-$$x < -3 \quad \text{or} \quad x > 2$$
-
-Solution: $(-\infty, -3) \cup (2, \infty)$.
-
-**Case 3: When $a \leq 0$**
-
-- $|x| < 0$: **No solution** (absolute value can never be negative).
-- $|x| \leq 0$: Only solution is $x = 0$.
-- $|x| > 0$: All real numbers except $x = 0$, i.e., $(-\infty, 0) \cup (0, \infty)$.
-- $|x| \geq 0$: **All real numbers**, $(-\infty, \infty)$.
-
-### 6.3.4 Absolute Value with Quadratic Expressions
-
-**Example 6.18:** Solve $|x^2 - 4| < 3$.
-
-$$-3 < x^2 - 4 < 3$$
-$$1 < x^2 < 7$$
-
-For $x^2 > 1$: $x < -1$ or $x > 1$.
-
-For $x^2 < 7$: $-\sqrt{7} < x < \sqrt{7}$.
-
-Combining: $(-\sqrt{7}, -1) \cup (1, \sqrt{7})$.
-
----
-
-## 6.4 Graphical Analysis of Inequalities
-
-### 6.4.1 The Cartesian Coordinate System
-
-The Cartesian plane consists of two perpendicular number lines:
-- The **x-axis** (horizontal)
-- The **y-axis** (vertical)
-
-Any point in the plane is represented by an ordered pair $(x, y)$.
-
-The axes divide the plane into four **quadrants**:
-
-| Quadrant | x-coordinate | y-coordinate |
-|---|---|---|
-| I | Positive | Positive |
-| II | Negative | Positive |
-| III | Negative | Negative |
-| IV | Positive | Negative |
-
-Points on the axes themselves do not belong to any quadrant.
-
-### 6.4.2 Graphing Linear Inequalities in Two Variables
-
-To graph a linear inequality of the form $Ax + By < C$ (or $>$, $\leq$, $\geq$):
-
-1. **Graph the boundary line** $Ax + By = C$.
-   - Use a **solid line** for $\leq$ or $\geq$ (points on the line are included).
-   - Use a **dashed line** for $<$ or $>$ (points on the line are not included).
-
-2. **Choose a test point** not on the boundary line. The origin $(0,0)$ is the most convenient choice (as long as the line does not pass through the origin).
-
-3. **Shade the appropriate region.**
-   - If the test point satisfies the inequality, shade the half-plane containing the test point.
-   - If the test point does not satisfy the inequality, shade the opposite half-plane.
-
-**Example 6.19:** Graph $2x + 3y \leq 6$.
-
-**Step 1:** Graph the line $2x + 3y = 6$.
-
-Find intercepts:
-- x-intercept: set $y = 0$: $2x = 6 \Rightarrow x = 3$. Point: $(3, 0)$.
-- y-intercept: set $x = 0$: $3y = 6 \Rightarrow y = 2$. Point: $(0, 2)$.
-
-Draw a **solid line** through $(3, 0)$ and $(0, 2)$.
-
-**Step 2:** Test point $(0, 0)$:
-
-$$2(0) + 3(0) = 0 \leq 6 \quad \checkmark$$
-
-**Step 3:** Shade the region containing $(0, 0)$, which is the region **below** the line.
-
-**Example 6.20:** Graph $y > 2x - 1$.
-
-**Step 1:** Graph $y = 2x - 1$ as a **dashed line**.
-
-Slope = 2, y-intercept = $-1$.
-
-**Step 2:** Test point $(0, 0)$:
-
-$$0 > 2(0) - 1$$
-$$0 > -1 \quad \checkmark$$
-
-**Step 3:** Shade the region containing $(0, 0)$, which is the region **above** the line.
-
-### 6.4.3 Graphing Absolute Value Inequalities in Two Variables
-
-**Example 6.21:** Graph $|y| < 2$.
-
-This means $-2 < y < 2$. The solution is the horizontal strip between $y = -2$ and $y = 2$, with dashed boundary lines.
-
-**Example 6.22:** Graph $|x| \geq 3$.
-
-This means $x \leq -3$ or $x \geq 3$. The solution is the region to the left of $x = -3$ and to the right of $x = 3$, with solid boundary lines.
-
-### 6.4.4 Systems of Linear Inequalities
-
-A system of linear inequalities is a set of two or more linear inequalities considered simultaneously. The solution set is the **intersection** (overlap) of the individual solution sets.
-
-**Example 6.23:** Graph the system:
-$$x + y \leq 4$$
-$$x - y \geq 0$$
-$$x \geq 0$$
-
-**Step 1:** Graph $x + y = 4$ as a solid line. Test $(0,0)$: $0 \leq 4$ ✓. Shade below.
-
-**Step 2:** Graph $x - y = 0$ (i.e., $y = x$) as a solid line. Test $(1, 0)$: $1 - 0 = 1 \geq 0$ ✓. Shade below the line $y = x$.
-
-**Step 3:** Graph $x = 0$ (the y-axis) as a solid line. Shade to the right.
-
-**Step 4:** The solution is the overlapping (shaded) region common to all three inequalities.
-
-### 6.4.5 Finding Vertices of the Feasible Region
-
-The vertices (corner points) of the feasible region are found by solving the systems of equations formed by the boundary lines that intersect at each vertex.
-
-**Example 6.24:** For the system in Example 6.23, find the vertices.
-
-**Vertex A:** Intersection of $x + y = 4$ and $x - y = 0$.
-
-Adding: $2x = 4 \Rightarrow x = 2$, so $y = 2$. Vertex: $(2, 2)$.
-
-**Vertex B:** Intersection of $x + y = 4$ and $x = 0$.
-
-$y = 4$. Vertex: $(0, 4)$.
-
-**Vertex C:** Intersection of $x - y = 0$ and $x = 0$.
-
-$y = 0$. Vertex: $(0, 0)$.
-
-The feasible region is the triangle with vertices $(0, 0)$, $(0, 4)$, and $(2, 2)$.
-
----
-
-## 6.5 Inequalities and the SAT/ACT
-
-### 6.5.1 Common SAT/ACT Inequality Question Types
-
-**Type 1: Direct Solving**
-
-Solve the inequality and select the correct solution set.
-
-**Example 6.25:** If $5 - 3x \geq 11$, which of the following is the solution?
-
-$$5 - 3x \geq 11$$
-$$-3x \geq 6$$
-$$x \leq 2$$
-
-**Type 2: Graphical Interpretation**
-
-Identify the graph that represents the solution set.
-
-**Example 6.26:** Which number line represents the solution to $-4 < 2x \leq 6$?
-
-Divide all parts by 2: $-2 < x \leq 3$.
-
-This is an open circle at $-2$, a closed circle at $3$, with shading between.
-
-**Type 3: Word Problems**
-
-Translate a word problem into an inequality and solve.
-
-**Example 6.27:** A company charges a flat fee of $\$50$ plus $\$25$ per hour for a service. If a customer wants to spend at most $\$200$, what is the maximum number of hours they can purchase?
-
-Let $h$ = number of hours.
-
-$$50 + 25h \leq 200$$
-$$25h \leq 150$$
-$$h \leq 6$$
-
-The maximum number of hours is **6**.
-
-**Type 4: Systems of Inequalities in Context**
-
-**Example 6.28:** A farmer has at most 100 acres to plant with corn and soybeans. Corn requires 2 hours of labor per acre and soybeans require 1 hour per acre. The farmer has at most 160 hours of labor available. If $x$ represents acres of corn and $y$ represents acres of soybeans, which system represents the constraints?
-
-$$x + y \leq 100$$
-$$2x + y \leq 160$$
-$$x \geq 0, \quad y \geq 0$$
-
-### 6.5.2 Absolute Value on the SAT/ACT
-
-**Example 6.29:** If $|x - 3| < 5$, which of the following represents all possible values of $x$?
-
-$$-5 < x - 3 < 5$$
-$$-2 < x < 8$$
-
-**Example 6.30:** If $|2x + 1| \geq 7$, what is the solution set?
-
-$$2x + 1 \leq -7 \quad \text{or} \quad 2x + 1 \geq 7$$
-$$2x \leq -8 \quad \text{or} \quad 2x \geq 6$$
-$$x \leq -4 \quad \text{or} \quad x \geq 3$$
-
-Solution: $(-\infty, -4] \cup [3, \infty)$.
-
-### 6.5.3 Key Strategies for Inequality Problems
-
-1. **Always check whether you're multiplying or dividing by a negative number.** If so, reverse the inequality sign.
-
-2. **When dealing with fractions**, multiply both sides by the LCD to eliminate denominators, but be careful about the sign of the LCD.
-
-3. **For compound inequalities**, solve each part separately and find the intersection (for "and") or union (for "or").
-
-4. **For absolute value inequalities**, remember:
-   - $|x| < a$ → "and" type → $-a < x < a$
-   - $|x| > a$ → "or" type → $x < -a$ or $x > a$
-
-5. **Always verify your answer** by testing a value from your solution set in the original inequality.
-
-6. **On the number line**, remember: open circle for strict inequality, closed circle for inclusive.
-
----
-
-## 6.6 Advanced Inequality Topics
-
-### 6.6.1 Rational Inequalities
-
-Rational inequalities involve fractions with variables in the denominator. The key technique is the **sign chart** (or **test interval**) method.
-
-**Example 6.31:** Solve $\frac{x - 2}{x + 3} \geq 0$.
-
-**Step 1:** Find critical values.
-- Numerator zero: $x = 2$
-- Denominator zero: $x = -3$ (excluded from domain)
-
-**Step 2:** Divide the number line into intervals using critical values: $(-\infty, -3)$, $(-3, 2)$, $(2, \infty)$.
-
-**Step 3:** Test the sign of the expression in each interval.
-
-| Interval | Test Point | $\frac{x-2}{x+3}$ | Sign |
-|---|---|---|---|
-| $(-\infty, -3)$ | $x = -4$ | $\frac{-6}{-1} = 6$ | Positive |
-| $(-3, 2)$ | $x = 0$ | $\frac{-2}{3}$ | Negative |
-| $(2, \infty)$ | $x = 3$ | $\frac{1}{6}$ | Positive |
-
-**Step 4:** We want $\geq 0$, so we need positive or zero.
-
-- Positive on $(-\infty, -3)$ and $(2, \infty)$
-- Zero at $x = 2$ (numerator is zero, denominator is not)
-- Undefined at $x = -3$
-
-Solution: $(-\infty, -3) \cup [2, \infty)$.
-
-### 6.6.2 Quadratic Inequalities
-
-**Example 6.32:** Solve $x^2 - 5x + 6 < 0$.
-
-**Step 1:** Factor: $(x - 2)(x - 3) < 0$.
-
-**Step 2:** Critical values: $x = 2$ and $x = 3$.
-
-**Step 3:** Sign chart:
-
-| Interval | $(x-2)$ | $(x-3)$ | Product |
-|---|---|---|---|
-| $(-\infty, 2)$ | $-$ | $-$ | $+$ |
-| $(2, 3)$ | $+$ | $-$ | $-$ |
-| $(3, \infty)$ | $+$ | $+$ | $+$ |
-
-**Step 4:** We want $< 0$ (negative), so the solution is $(2, 3)$.
-
-### 6.6.3 Inequalities Involving Multiple Absolute Values
-
-**Example 6.33:** Solve $|x - 1| + |x + 2| < 7$.
-
-**Step 1:** Find critical points where each absolute value expression equals zero: $x = 1$ and $x = -2$.
-
-**Step 2:** Consider three cases.
-
-**Case 1:** $x < -2$
-
-Both expressions are negative:
-$$-(x - 1) - (x + 2) < 7$$
-$$-x + 1 - x - 2 < 7$$
-$$-2x - 1 < 7$$
-$$-2x < 8$$
-$$x > -4$$
-
-Combined with $x < -2$: $-4 < x < -2$.
-
-**Case 2:** $-2 \leq x < 1$
-
-$$-(x - 1) + (x + 2) < 7$$
-$$-x + 1 + x + 2 < 7$$
-$$3 < 7$$
-
-This is always true. So all $x$ in $[-2, 1)$ satisfy the inequality.
-
-**Case 3:** $x \geq 1$
-
-$$(x - 1) + (x + 2) < 7$$
-$$2x + 1 < 7$$
-$$2x < 6$$
-$$x < 3$$
-
-Combined with $x \geq 1$: $1 \leq x < 3$.
-
-**Final Solution:** $(-4, -2) \cup [-2, 1) \cup [1, 3) = (-4, 3)$.
-
----
-
-## 6.7 Practice Problems
-
-### Set A: Basic Inequalities
-
-**Problem 1:** Solve $7 - 3x > 2x + 22$.
-
-$$7 - 3x > 2x + 22$$
-$$-5x > 15$$
-$$x < -3$$
-
-Solution: $(-\infty, -3)$.
-
-**Problem 2:** Solve $\frac{2x - 1}{3} \leq x + 2$.
-
-$$2x - 1 \leq 3x + 6$$
-$$-1 - 6 \leq 3x - 2x$$
-$$-7 \leq x$$
-$$x \geq -7$$
-
-Solution: $[-7, \infty)$.
-
-**Problem 3:** Solve $-5 \leq 3x + 4 < 13$.
-
-$$-9 \leq 3x < 9$$
-$$-3 \leq x < 3$$
-
-Solution: $[-3, 3)$.
-
-### Set B: Absolute Value
-
-**Problem 4:** Solve $|4x - 8| = 20$.
-
-$$4x - 8 = 20 \quad \text{or} \quad 4x - 8 = -20$$
-$$4x = 28 \quad \text{or} \quad 4x = -12$$
-$$x = 7 \quad \text{or} \quad x = -3$$
-
-**Problem 5:** Solve $|3x + 6| \leq 15$.
-
-$$-15 \leq 3x + 6 \leq 15$$
-$$-21 \leq 3x \leq 9$$
-$$-7 \leq x \leq 3$$
-
-Solution: $[-7, 3]$.
-
-**Problem 6:** Solve $|5 - 2x| > 9$.
-
-$$5 - 2x < -9 \quad \text{or} \quad 5 - 2x > 9$$
-$$-2x < -14 \quad \text{or} \quad 5 - 2x > 9$$
-$$x > 7 \quad \text{or} \quad -2x > 4$$
-$$x > 7 \quad \text{or} \quad x < -2$$
-
-Solution: $(-\infty, -2) \cup (7, \infty)$.
-
-### Set C: Graphical Analysis
-
-**Problem 7:** Which inequality is represented by the shaded region below the line $y = -2x + 4$?
-
-Since the region is **below** the line and the boundary is included (solid line):
-
-$$y \leq -2x + 4$$
-
-**Problem 8:** Graph the system $y \geq x - 1$ and $y < 2x + 3$. Find the intersection point of the boundary lines.
-
-Set $x - 1 = 2x + 3$:
-
-$$-1 - 3 = 2x - x$$
-$$x = -4, \quad y = -5$$
-
-Intersection point: $(-4, -5)$.
-
-### Set D: Challenging Problems
-
-**Problem 9:** Solve $\frac{x + 1}{x - 2} \leq \frac{x - 3}{x + 4}$.
-
-Bring all terms to one side:
-
-$$\frac{x + 1}{x - 2} - \frac{x - 3}{x + 4} \leq 0$$
-
-$$\frac{(x+1)(x+4) - (x-3)(x-2)}{(x-2)(x+4)} \leq 0$$
-
-Numerator: $(x^2 + 5x + 4) - (x^2 - 5x + 6) = 10x - 2$
-
-$$\frac{10x - 2}{(x - 2)(x + 4)} \leq 0$$
-
-Critical values: $x = \frac{1}{5}$, $x = 2$, $x = -4$.
-
-Sign chart:
-
-| Interval | $10x-2$ | $x-2$ | $x+4$ | Overall Sign |
-|---|---|---|---|---|
-| $(-\infty, -4)$ | $-$ | $-$ | $-$ | $-$ |
-| $(-4, \frac{1}{5})$ | $-$ | $-$ | $+$ | $+$ |
-| $(\frac{1}{5}, 2)$ | $+$ | $-$ | $+$ | $-$ |
-| $(2, \infty)$ | $+$ | $+$ | $+$ | $+$ |
-
-We want $\leq 0$ (negative or zero): $(-\infty, -4) \cup [\frac{1}{5}, 2)$.
-
-Note: $x = -4$ and $x = 2$ are excluded (denominator zero), but $x = \frac{1}{5}$ is included (numerator zero).
-
-**Problem 10:** Find all values of $x$ such that $|x^2 - 9| < 7$.
-
-$$-7 < x^2 - 9 < 7$$
-$$2 < x^2 < 16$$
-
-For $x^2 > 2$: $x < -\sqrt{2}$ or $x > \sqrt{2}$.
-
-For $x^2 < 16$: $-4 < x < 4$.
-
-Combining: $(-4, -\sqrt{2}) \cup (\sqrt{2}, 4)$.
-
----
-
-## 6.8 Chapter Summary
-
-| Topic | Key Formula/Rule |
-|---|---|
-| Reversing inequality | When multiplying/dividing by a negative, flip the sign |
-| $|x| < a$ | $-a < x < a$ (and) |
-| $|x| > a$ | $x < -a$ or $x > a$ (or) |
-| $|x| = a$ | $x = a$ or $x = -a$ |
-| Graphing $Ax + By < C$ | Dashed line, shade below/above based on test point |
-| Rational inequalities | Sign chart method with critical values |
-| Quadratic inequalities | Factor, find zeros, sign chart |
-
-**Key Takeaways:**
-1. Inequalities describe ranges of values, not single values.
-2. The most common error is forgetting to reverse the inequality when multiplying or dividing by a negative number.
-3. Absolute value inequalities split into two cases: "and" for less-than, "or" for greater-than.
-4. Graphical analysis provides visual confirmation of algebraic solutions.
-5. Always check endpoints carefully—determine whether they should be included or excluded.
-
----
-
-
-# Chapter 7: Percents, Ratios, and Mixture Problems
-
----
-
-## 7.1 — Percents: The Complete Framework
-
-### 7.1.1 — What Is a Percent?
-
-A **percent** is a ratio expressed as a fraction of 100. The word itself comes from the Latin *per centum*, meaning "by the hundred." The symbol **%** is a stylized form of the fraction $\frac{1}{100}$.
-
-**Fundamental identity:**
-
-$$x\% = \frac{x}{100}$$
-
-This identity is the single most important fact about percents. Every percent problem, no matter how complex, ultimately reduces to this conversion.
-
-**Examples:**
-- $25\% = \frac{25}{100} = \frac{1}{4} = 0.25$
-- $150\% = \frac{150}{100} = \frac{3}{2} = 1.5$
-- $0.3\% = \frac{0.3}{100} = 0.003$
-- $x\% = \frac{x}{100}$ (the algebraic form you will use constantly)
-
----
-
-### 7.1.2 — The Three Core Percent Problems
-
-Every percent problem on the SAT/ACT fits one of three templates. Mastering these three templates means you can solve any percent problem.
-
-**Template 1: Finding the Part (the "is" problem)**
-
-> $x\%$ of $y$ is what number?
-
-$$\text{Part} = \left(\frac{x}{100}\right) \cdot y$$
-
-**Example:** What is $30\%$ of $250$?
-
-$$\text{Part} = \frac{30}{100} \times 250 = 0.3 \times 250 = 75$$
-
----
-
-**Template 2: Finding the Whole (the "of" problem)**
-
-> $x$ is $y\%$ of what number?
-
-$$\text{Whole} = \frac{x}{\left(\frac{y}{100}\right)} = \frac{100x}{y}$$
-
-**Example:** $45$ is $15\%$ of what number?
-
-$$\text{Whole} = \frac{45}{0.15} = \frac{4500}{15} = 300$$
-
----
-
-**Template 3: Finding the Percent (the "%" problem)**
-
-> $x$ is what percent of $y$?
-
-$$\text{Percent} = \frac{x}{y} \times 100$$
-
-**Example:** $18$ is what percent of $90$?
-
-$$\text{Percent} = \frac{18}{90} \times 100 = 0.2 \times 100 = 20\%$$
-
----
-
-### 7.1.3 — The Percent Equation (Universal Form)
-
-All three templates can be unified into a single equation:
-
-$$\text{Part} = \text{Percent (as decimal)} \times \text{Whole}$$
-
-Or, using the letter $P$ for percent (as a decimal), $W$ for whole, and $A$ for the amount (part):
-
-$$A = P \cdot W$$
-
-This is sometimes called the **"is-over-of"** formula:
-
-$$\frac{\text{is}}{\text{of}} = \frac{\%}{100}$$
-
-**Example:** $27$ is $45\%$ of what number?
-
-$$\frac{27}{W} = \frac{45}{100}$$
-$$45W = 2700$$
-$$W = 60$$
-
----
-
-### 7.1.4 — Percent Increase and Decrease
-
-**Percent Increase:**
-
-$$\text{Percent Increase} = \frac{\text{New} - \text{Old}}{\text{Old}} \times 100 = \left(\frac{\text{New}}{\text{Old}} - 1\right) \times 100$$
-
-**Percent Decrease:**
-
-$$\text{Percent Decrease} = \frac{\text{Old} - \text{New}}{\text{Old}} \times 100 = \left(1 - \frac{\text{New}}{\text{Old}}\right) \times 100$$
-
-**Key insight:** The denominator is ALWAYS the **original** (the "standard" or "before" value). This is the most common source of errors on standardized tests.
-
-**Example:** A shirt originally priced at $\$40$ is on sale for $\$32$. What is the percent decrease?
-
-$$\text{Percent Decrease} = \frac{40 - 32}{40} \times 100 = \frac{8}{40} \times 100 = 20\%$$
-
----
-
-### 7.1.5 — The "Standard" — A Critical Concept
-
-In any comparison, the **standard** is the value you are comparing *to* — it is the reference point, the baseline, the denominator.
-
-**Rule:** The standard is always the second item in a comparison phrase:
-
-- "A is what percent **of** B?" → B is the standard
-- "A is what percent **greater than** B?" → B is the standard
-- "A is what percent **less than** B?" → B is the standard
-
-**Example:** If Ashish is $250\%$ older than Bob, then Bob is what percent younger than Ashish?
-
-Let Bob's age = $x$. Then Ashish's age = $x + 2.5x = 3.5x$.
-
-Bob is younger than Ashish by:
-
-$$\frac{3.5x - x}{3.5x} \times 100 = \frac{2.5}{3.5} \times 100 = \frac{5}{7} \times 100 \approx 71.43\%$$
-
-**Critical lesson:** If A is $250\%$ *older* than B, B is NOT $250\%$ *younger* than A. The standard changes, so the percentage changes. This asymmetry is tested frequently.
-
----
-
-### 7.1.6 — Converting Percents to Factors
-
-For quick mental math and the "factor of change" approach, convert percent changes to multiplication factors:
-
-| Percent Change | Factor |
-|---|---|
-| Increase by $20\%$ | $\times 1.20$ |
-| Increase by $150\%$ | $\times 2.50$ |
-| Decrease by $20\%$ | $\times 0.80$ |
-| Decrease by $75\%$ | $\times 0.25$ |
-
-**General rule:**
-- Increase by $p\%$: multiply by $\left(1 + \frac{p}{100}\right)$
-- Decrease by $p\%$: multiply by $\left(1 - \frac{p}{100}\right)$
-
-**Example:** After a $20\%$ discount and then a $10\%$ tax, what is the final price of a $\$100$ item?
-
-$$\$100 \times 0.80 \times 1.10 = \$100 \times 0.88 = \$88$$
-
-**Important:** Discounts and taxes are applied sequentially, NOT added together. A $20\%$ discount followed by a $10\%$ tax is NOT the same as a $10\%$ decrease.
-
----
-
-### 7.1.7 — Successive Percent Changes
-
-When two or more percent changes are applied in sequence, multiply the factors:
-
-$$\text{Final} = \text{Original} \times (\text{factor}_1) \times (\text{factor}_2) \times \cdots$$
-
-**Example:** A population increases by $10\%$ one year and then decreases by $10\%$ the next year. What is the net change?
-
-$$\text{Factor} = 1.10 \times 0.90 = 0.99$$
-
-The population ends at $99\%$ of its original value — a net decrease of $1\%$.
-
-**Key insight:** A $p\%$ increase followed by a $p\%$ decrease always results in a net loss. The net change is $-\left(\frac{p}{100}\right)^2 \times 100\%$.
-
----
-
-### 7.1.8 — Finding the Original Value After a Percent Change
-
-This is one of the most commonly tested percent scenarios.
-
-**If a value increased by $p\%$ to become $N$:**
-
-$$\text{Original} = \frac{N}{1 + \frac{p}{100}}$$
-
-**If a value decreased by $p\%$ to become $N$:**
-
-$$\text{Original} = \frac{N}{1 - \frac{p}{100}}$$
-
-**Example:** After a $15\%$ discount, a jacket costs $\$85$. What was the original price?
-
-$$\text{Original} = \frac{85}{1 - 0.15} = \frac{85}{0.85} = \$100$$
-
----
-
-### 7.1.9 — Percent of a Percent
-
-**Example:** A store offers a $20\%$ discount, and then an additional $10\%$ off the already-discounted price. What is the total percent discount?
-
-$$\text{Total factor} = 0.80 \times 0.90 = 0.72$$
-
-This means the customer pays $72\%$ of the original price, so the total discount is $28\%$.
-
-**Common mistake:** Students often add $20\% + 10\% = 30\%$. This is wrong because the second $10\%$ is applied to a smaller base.
-
----
-
-### 7.1.10 — Practice Problems: Percents
-
-**Problem 1:** If $40\%$ of $x$ is equal to $60\%$ of $y$, what is the ratio of $x$ to $y$?
-
-$$0.4x = 0.6y$$
-$$\frac{x}{y} = \frac{0.6}{0.4} = \frac{3}{2}$$
-
-**Answer:** $x:y = 3:2$
-
----
-
-**Problem 2:** A number is increased by $25\%$, then decreased by $x\%$, returning to the original number. What is $x$?
-
-Let the original number be $N$.
-
-After $25\%$ increase: $1.25N$
-
-After $x\%$ decrease: $1.25N \times \left(1 - \frac{x}{100}\right) = N$
-
-$$1.25\left(1 - \frac{x}{100}\right) = 1$$
-$$1 - \frac{x}{100} = \frac{1}{1.25} = 0.8$$
-$$\frac{x}{100} = 0.2$$
-$$x = 20$$
-
-**Answer:** $x = 20\%$
-
----
-
-**Problem 3:** In a class, $60\%$ of the students are girls. If $25\%$ of the girls and $40\%$ of the boys wear glasses, what percent of the entire class wears glasses?
-
-Assume $100$ students total.
-- Girls: $60$, Boys: $40$
-- Girls with glasses: $0.25 \times 60 = 15$
-- Boys with glasses: $0.40 \times 40 = 16$
-- Total with glasses: $15 + 16 = 31$
-
-**Answer:** $31\%$
-
----
-
-**Problem 4:** A store marks up a product by $40\%$ above cost, then puts it on sale at $25\%$ off the marked price. If the final selling price is $\$126$, what was the original cost?
-
-Let cost = $C$.
-
-Marked price: $1.40C$
-
-Sale price: $1.40C \times 0.75 = 1.05C$
-
-$$1.05C = 126$$
-$$C = \frac{126}{1.05} = \$120$$
-
-**Answer:** $\$120$
-
----
-
-**Problem 5:** The price of a stock increases by $50\%$ on Monday and decreases by $50\%$ on Tuesday. What is the net percent change?
-
-$$\text{Factor} = 1.50 \times 0.50 = 0.75$$
-
-The stock ends at $75\%$ of its original value.
-
-**Answer:** $25\%$ decrease
-
----
-
-## 7.2 — Ratios: The Complete Framework
-
-### 7.2.1 — What Is a Ratio?
-
-A **ratio** is a comparison of two or more quantities by division. A ratio $a:b$ can be written as $\frac{a}{b}$.
-
-**Key property:** Ratios do not have units. They represent a *relative* comparison, not an absolute one.
-
-**Example:** If the ratio of boys to girls is $3:5$, this does NOT mean there are exactly $3$ boys and $5$ girls. It means for every $3$ boys, there are $5$ girls. The actual numbers could be $3$ and $5$, or $6$ and $10$, or $30$ and $50$, etc.
-
----
-
-### 7.2.2 — The Parts Model
-
-When a ratio $a:b$ is given, we introduce a **multiplier** $m$ (sometimes called the "scale factor"):
-
-- First quantity = $am$
-- Second quantity = $bm$
-- Total = $(a + b)m$
-
-This is the single most important technique for solving ratio problems.
-
-**Example:** The ratio of boys to girls in a class is $3:5$. If there are $40$ students total, how many boys are there?
-
-$$3m + 5m = 40$$
-$$8m = 40$$
-$$m = 5$$
-
-Boys: $3 \times 5 = 15$
-
----
-
-### 7.2.3 — Three-Part Ratios
-
-For a ratio $a:b:c$:
-
-- First quantity = $am$
-- Second quantity = $bm$
-- Third quantity = $cm$
-- Total = $(a + b + c)m$
-
-**Example:** The ratio of three angles in a triangle is $2:3:5$. What is the measure of the largest angle?
-
-$$2m + 3m + 5m = 180°$$
-$$10m = 180°$$
-$$m = 18°$$
-
-Largest angle: $5 \times 18° = 90°$
-
----
-
-### 7.2.4 — Ratios and Fractions
-
-If the ratio of $A$ to $B$ is $a:b$, then:
-
-- $A$ is $\frac{a}{a+b}$ of the total
-- $B$ is $\frac{b}{a+b}$ of the total
-
-**Example:** The ratio of salt to water in a solution is $2:13$. What fraction of the solution is salt?
-
-$$\frac{2}{2 + 13} = \frac{2}{15}$$
-
----
-
-### 7.2.5 — Changing Ratios
-
-When quantities are added or removed, ratios change. The key is to track what stays constant.
-
-**Example:** A bag contains red and blue marbles in the ratio $3:7$. If $10$ red marbles are added, the ratio becomes $2:3$. How many blue marbles are there?
-
-Let the original number of red marbles be $3m$ and blue marbles be $7m$.
-
-After adding $10$ red marbles:
-
-$$\frac{3m + 10}{7m} = \frac{2}{3}$$
-$$3(3m + 10) = 2(7m)$$
-$$9m + 30 = 14m$$
-$$30 = 5m$$
-$$m = 6$$
-
-Blue marbles: $7 \times 6 = 42$
-
----
-
-### 7.2.6 — Ratios with Variables
-
-**Example:** If $\frac{a}{b} = \frac{3}{4}$ and $\frac{b}{c} = \frac{5}{6}$, what is $\frac{a}{c}$?
-
-$$\frac{a}{c} = \frac{a}{b} \times \frac{b}{c} = \frac{3}{4} \times \frac{5}{6} = \frac{15}{24} = \frac{5}{8}$$
-
----
-
-### 7.2.7 — Practice Problems: Ratios
-
-**Problem 1:** The ratio of the ages of Alice, Bob, and Charlie is $2:3:5$. If the sum of their ages is $60$, how old is Charlie?
-
-$$2m + 3m + 5m = 60$$
-$$10m = 60$$
-$$m = 6$$
-
-Charlie: $5 \times 6 = 30$
-
-**Answer:** $30$ years old
-
----
-
-**Problem 2:** A mixture contains alcohol and water in the ratio $7:3$. If $20$ liters of water are added, the ratio becomes $7:5$. Find the original quantity of the mixture.
-
-Let original alcohol = $7m$, original water = $3m$.
-
-$$\frac{7m}{3m + 20} = \frac{7}{5}$$
-$$5(7m) = 7(3m + 20)$$
-$$35m = 21m + 140$$
-$$14m = 140$$
-$$m = 10$$
-
-Original mixture: $7m + 3m = 10m = 100$ liters
-
-**Answer:** $100$ liters
-
----
-
-**Problem 3:** Two numbers are in the ratio $5:8$. If each number is increased by $12$, the ratio becomes $7:10$. Find the original numbers.
-
-Let the numbers be $5m$ and $8m$.
-
-$$\frac{5m + 12}{8m + 12} = \frac{7}{10}$$
-$$10(5m + 12) = 7(8m + 12)$$
-$$50m + 120 = 56m + 84$$
-$$36 = 6m$$
-$$m = 6$$
-
-Original numbers: $5 \times 6 = 30$ and $8 \times 6 = 48$
-
-**Answer:** $30$ and $48$
-
----
-
-**Problem 4:** The ratio of the perimeter of square A to the perimeter of square B is $3:5$. What is the ratio of the area of square A to the area of square B?
-
-Perimeter ratio = side length ratio = $3:5$
-
-Area ratio = $(3)^2:(5)^2 = 9:25$
-
-**Answer:** $9:25$
-
----
-
-## 7.3 — Rates and Proportions
-
-### 7.3.1 — What Is a Rate?
-
-A **rate** is a special type of ratio that compares two quantities with different units.
-
-**Common rates:**
-- Speed: $\frac{\text{distance}}{\text{time}}$ (miles per hour, meters per second)
-- Density: $\frac{\text{mass}}{\text{volume}}$ (grams per cubic centimeter)
-- Unit price: $\frac{\text{cost}}{\text{quantity}}$ (dollars per pound)
-- Work rate: $\frac{\text{work done}}{\text{time}}$ (jobs per hour)
-
----
-
-### 7.3.2 — The Rate Formula
-
-$$\text{Quantity} = \text{Rate} \times \text{Time}$$
-
-This is the fundamental relationship. Depending on what you're solving for:
-
-$$Q = R \times T, \quad R = \frac{Q}{T}, \quad T = \frac{Q}{R}$$
-
-**Example:** A machine produces $120$ widgets in $3$ hours. At this rate, how many widgets does it produce in $7$ hours?
-
-$$R = \frac{120}{3} = 40 \text{ widgets/hour}$$
-$$Q = 40 \times 7 = 280 \text{ widgets}$$
-
----
-
-### 7.3.3 — Average Speed
-
-**Critical formula:**
+**Average Speed:** When a journey involves different speeds over different distances or time periods, the average speed is **not** simply the arithmetic mean of the speeds. Instead:
 
 $$\text{Average Speed} = \frac{\text{Total Distance}}{\text{Total Time}}$$
 
-**Common mistake:** The average speed is NOT the average of the speeds (unless the times are equal).
+**Example:** A car travels 60 miles at 30 mph and then 60 miles at 60 mph. What is the average speed for the entire trip?
 
-**Example:** A car travels from A to B at $60$ mph and returns from B to A at $40$ mph. What is the average speed for the round trip?
+- First leg: $t_1 = \frac{60}{30} = 2$ hours
+- Second leg: $t_2 = \frac{60}{60} = 1$ hour
+- Total distance: $60 + 60 = 120$ miles
+- Total time: $2 + 1 = 3$ hours
+- Average speed: $\frac{120}{3} = 40$ mph
 
-Let the distance from A to B be $d$.
+Note that the average speed (40 mph) is **not** the same as the arithmetic mean of 30 and 60 (which would be 45 mph). This is a common trap on the SAT.
 
-- Time A→B: $\frac{d}{60}$
-- Time B→A: $\frac{d}{40}$
-- Total distance: $2d$
-- Total time: $\frac{d}{60} + \frac{d}{40} = \frac{2d + 3d}{120} = \frac{5d}{120} = \frac{d}{24}$
+**Combined Work Rate Problems:**
 
-$$\text{Average Speed} = \frac{2d}{\frac{d}{24}} = 48 \text{ mph}$$
+When two or more people (or machines) work together on a task, their individual rates add up:
 
-**General formula for round trip with speeds $v_1$ and $v_2$:**
+$$\text{Combined Rate} = \text{Rate}_1 + \text{Rate}_2$$
 
-$$\text{Average Speed} = \frac{2v_1 v_2}{v_1 + v_2}$$
+**Example:** Worker A can complete a job in 4 hours, and Worker B can complete the same job in 6 hours. How long will it take them to complete the job working together?
 
-This is the **harmonic mean** of the two speeds.
+- Worker A's rate: $\frac{1}{4}$ of the job per hour
+- Worker B's rate: $\frac{1}{6}$ of the job per hour
+- Combined rate: $\frac{1}{4} + \frac{1}{6} = \frac{3}{12} + \frac{2}{12} = \frac{5}{12}$ of the job per hour
+- Time to complete 1 job: $\frac{1}{\frac{5}{12}} = \frac{12}{5} = 2.4$ hours
 
----
+**Relative Speed Problems:**
 
-### 7.3.4 — Direct and Inverse Proportion
+When two objects move toward each other (closing the distance), their relative speed is the **sum** of their individual speeds. When they move in the same direction, their relative speed is the **difference** of their speeds.
 
-**Direct Proportion:** If $y = kx$ (where $k$ is constant), then $y$ is directly proportional to $x$. When $x$ increases, $y$ increases by the same factor.
+**Example:** Two trains start 300 miles apart and travel toward each other. Train A travels at 70 mph and Train B travels at 80 mph. How long until they meet?
 
-**Inverse Proportion:** If $y = \frac{k}{x}$ (where $k$ is constant), then $y$ is inversely proportional to $x$. When $x$ increases, $y$ decreases by the same factor.
-
-**Example (Inverse):** If $6$ workers can complete a job in $8$ days, how many days will it take $12$ workers?
-
-$$6 \times 8 = 12 \times d$$
-$$d = \frac{48}{12} = 4 \text{ days}$$
-
----
-
-### 7.3.5 — Practice Problems: Rates
-
-**Problem 1:** Two trains start from stations $300$ miles apart and travel toward each other. One travels at $60$ mph and the other at $40$ mph. How long until they meet?
-
-Combined speed: $60 + 40 = 100$ mph
-
-$$T = \frac{300}{100} = 3 \text{ hours}$$
-
-**Answer:** $3$ hours
+- Combined speed: $70 + 80 = 150$ mph
+- Time to meet: $\frac{300}{150} = 2$ hours
 
 ---
 
-**Problem 2:** A pool can be filled by Pipe A in $6$ hours and by Pipe B in $4$ hours. How long will it take to fill the pool if both pipes are open?
+## Part II: Percentages
 
-Rate of A: $\frac{1}{6}$ pool/hour
-Rate of B: $\frac{1}{4}$ pool/hour
-Combined rate: $\frac{1}{6} + \frac{1}{4} = \frac{2 + 3}{12} = \frac{5}{12}$ pool/hour
+### Understanding Percentages
 
-$$T = \frac{1}{\frac{5}{12}} = \frac{12}{5} = 2.4 \text{ hours} = 2 \text{ hours } 24 \text{ minutes}$$
+The word "percent" means "per hundred." A percentage is a ratio where the denominator is 100:
 
-**Answer:** $2.4$ hours (or $2$ hours $24$ minutes)
+$$x\% = \frac{x}{100}$$
 
----
+**Converting Between Percentages, Fractions, and Decimals:**
 
-**Problem 3:** A car travels the first half of a trip at $30$ mph and the second half at $60$ mph. What is the average speed?
+- **Percent to decimal:** Divide by 100 (move the decimal point two places left).
+  - $25\% = 0.25$
+  - $3.5\% = 0.035$
+  - $150\% = 1.5$
 
-Let the total distance be $2d$.
+- **Decimal to percent:** Multiply by 100 (move the decimal point two places right).
+  - $0.45 = 45\%$
+  - $0.008 = 0.8\%$
+  - $2.3 = 230\%$
 
-- Time for first half: $\frac{d}{30}$
-- Time for second half: $\frac{d}{60}$
-- Total time: $\frac{d}{30} + \frac{d}{60} = \frac{2d + d}{60} = \frac{3d}{60} = \frac{d}{20}$
+- **Percent to fraction:** Write over 100 and simplify.
+  - $40\% = \frac{40}{100} = \frac{2}{5}$
+  - $6.25\% = \frac{6.25}{100} = \frac{625}{10000} = \frac{1}{16}$
 
-$$\text{Average Speed} = \frac{2d}{\frac{d}{20}} = 40 \text{ mph}$$
+- **Fraction to percent:** Divide numerator by denominator, then multiply by 100.
+  - $\frac{3}{8} = 0.375 = 37.5\%$
 
-**Answer:** $40$ mph
+### The Percentage Formula
 
----
+The fundamental percentage relationship is:
 
-## 7.4 — Mixture Problems
+$$\text{Part} = \text{Percent} \times \text{Whole}$$
 
-### 7.4.1 — The Mixture Framework
+Or equivalently:
 
-Mixture problems involve combining two or more substances with different concentrations to produce a mixture with a specific concentration.
+$$\text{Percentage} = \frac{\text{Part}}{\text{Whole}} \times 100\%$$
 
-**The fundamental equation:**
+This formula can be rearranged to solve for any of the three quantities:
 
-$$\text{Amount of substance in mixture} = \text{Concentration} \times \text{Volume}$$
+- **Finding the part:** $\text{Part} = \frac{\text{Percent}}{100} \times \text{Whole}$
+- **Finding the whole:** $\text{Whole} = \frac{\text{Part}}{\text{Percent}} \times 100$
+- **Finding the percent:** $\text{Percent} = \frac{\text{Part}}{\text{Whole}} \times 100\%$
 
-For a mixture of two solutions:
+**Example:** What is 15% of 240?
 
-$$C_1 V_1 + C_2 V_2 = C_f (V_1 + V_2)$$
+$$\text{Part} = 0.15 \times 240 = 36$$
 
-where $C_1, C_2$ are the concentrations of the two solutions, $V_1, V_2$ are their volumes, and $C_f$ is the final concentration.
+**Example:** 45 is what percent of 60?
 
----
+$$\text{Percent} = \frac{45}{60} \times 100\% = 0.75 \times 100\% = 75\%$$
 
-### 7.4.2 — The Table Method
+**Example:** 12 is 8% of what number?
 
-For mixture problems, organize information in a table:
+$$\text{Whole} = \frac{12}{0.08} = 150$$
 
-| | Solution 1 | Solution 2 | Mixture |
-|---|---|---|---|
-| Volume | $V_1$ | $V_2$ | $V_1 + V_2$ |
-| Concentration | $C_1$ | $C_2$ | $C_f$ |
-| Amount of substance | $C_1 V_1$ | $C_2 V_2$ | $C_f(V_1 + V_2)$ |
+### Percentage Change
 
-**Equation:** Amount from 1 + Amount from 2 = Amount in mixture
+Percentage change measures how much a quantity has increased or decreased relative to its original value:
 
----
+$$\text{Percentage Change} = \frac{\text{New Value} - \text{Original Value}}{\text{Original Value}} \times 100\%$$
 
-### 7.4.3 — Acid/Salt/Sugar Solution Problems
+- If the result is **positive**, it's a **percent increase**.
+- If the result is **negative**, it's a **percent decrease**.
 
-**Example:** How many liters of a $25\%$ acid solution must be added to $40$ liters of a $40\%$ acid solution to obtain a $30\%$ acid solution?
+**Example:** A stock price rises from $50 to $65. What is the percent increase?
 
-Let $x$ = liters of $25\%$ solution.
+$$\text{Percent Increase} = \frac{65 - 50}{50} \times 100\% = \frac{15}{50} \times 100\% = 30\%$$
 
-| | 25% Solution | 40% Solution | Mixture |
-|---|---|---|---|
-| Volume | $x$ | $40$ | $x + 40$ |
-| Concentration | $0.25$ | $0.40$ | $0.30$ |
-| Amount of acid | $0.25x$ | $16$ | $0.30(x + 40)$ |
+**Example:** A population decreases from 10,000 to 8,500. What is the percent decrease?
 
-$$0.25x + 16 = 0.30(x + 40)$$
-$$0.25x + 16 = 0.30x + 12$$
-$$4 = 0.05x$$
-$$x = 80$$
+$$\text{Percent Decrease} = \frac{8500 - 10000}{10000} \times 100\% = \frac{-1500}{10000} \times 100\% = -15\%$$
 
-**Answer:** $80$ liters
+**Critical SAT Trap:** The base (denominator) for percentage change is **always the original value**, not the new value. A common error is to use the new value as the base.
 
----
+**Finding the New Value Directly:**
 
-### 7.4.4 — Alloy Problems
+Instead of calculating the change and then adding/subtracting, you can find the new value directly:
 
-**Example:** A jeweler has two alloys of gold. One is $60\%$ gold and the other is $80\%$ gold. How many grams of each should be mixed to obtain $100$ grams of an alloy that is $75\%$ gold?
+- **Percent Increase:** $\text{New Value} = \text{Original Value} \times (1 + \text{Percent Increase as a decimal})$
+- **Percent Decrease:** $\text{New Value} = \text{Original Value} \times (1 - \text{Percent Decrease as a decimal})$
 
-Let $x$ = grams of $60\%$ alloy. Then $(100 - x)$ = grams of $80\%$ alloy.
+**Example:** A $200 jacket is on sale for 30% off. What is the sale price?
 
-$$0.60x + 0.80(100 - x) = 0.75(100)$$
-$$0.60x + 80 - 0.80x = 75$$
-$$-0.20x = -5$$
-$$x = 25$$
+$$\text{Sale Price} = 200 \times (1 - 0.30) = 200 \times 0.70 = 140$$
 
-**Answer:** $25$ grams of $60\%$ alloy and $75$ grams of $80\%$ alloy
+**Example:** A town's population of 5,000 grows by 8% per year. What is the population after one year?
 
----
+$$\text{New Population} = 5000 \times (1 + 0.08) = 5000 \times 1.08 = 5400$$
 
-### 7.4.5 — Replacement Problems
+### Successive Percentage Changes
 
-**Example:** A container has $50$ liters of a $40\%$ alcohol solution. How much of the solution should be replaced with pure alcohol to obtain a $50\%$ alcohol solution?
+When a quantity undergoes multiple percentage changes in sequence, you **cannot** simply add the percentages together. Instead, you must apply each change sequentially, using the result of the previous change as the new base.
 
-Let $x$ = liters removed and replaced.
+**Example:** A $100 item is marked up by 20%, and then the new price is discounted by 20%. What is the final price?
 
-When $x$ liters of the $40\%$ solution is removed, the amount of alcohol removed is $0.40x$.
+- After markup: $100 \times 1.20 = 120$
+- After discount: $120 \times 0.80 = 96$
 
-The amount of alcohol remaining: $0.40(50) - 0.40x = 20 - 0.40x$
+The final price is $96, **not** $100. The net effect is a 4% decrease because $1.20 \times 0.80 = 0.96$.
 
-After adding $x$ liters of pure alcohol: $20 - 0.40x + x = 20 + 0.60x$
+**General Formula for Successive Changes:**
 
-Final concentration:
+If a quantity undergoes a percent increase of $a\%$ followed by a percent increase of $b\%$, the overall multiplier is:
 
-$$\frac{20 + 0.60x}{50} = 0.50$$
-$$20 + 0.60x = 25$$
-$$0.60x = 5$$
-$$x = \frac{25}{3} \approx 8.33 \text{ liters}$$
+$$\left(1 + \frac{a}{100}\right) \times \left(1 + \frac{b}{100}\right)$$
 
-**Answer:** $\frac{25}{3}$ liters (or approximately $8.33$ liters)
+If one is a decrease, use a negative value for that percentage.
 
----
+**Example:** A population increases by 10% in the first year and then decreases by 10% in the second year. What is the net percentage change?
 
-### 7.4.6 — Practice Problems: Mixtures
+$$\text{Overall multiplier} = 1.10 \times 0.90 = 0.99$$
 
-**Problem 1:** How many liters of a $15\%$ saline solution must be mixed with $5$ liters of a $40\%$ saline solution to obtain a $25\%$ saline solution?
+This corresponds to a **1% decrease** overall.
 
-Let $x$ = liters of $15\%$ solution.
+### Percentage Points vs. Percentages
 
-$$0.15x + 0.40(5) = 0.25(x + 5)$$
-$$0.15x + 2 = 0.25x + 1.25$$
-$$0.75 = 0.10x$$
-$$x = 7.5$$
+This is a subtle but important distinction that the SAT may test:
 
-**Answer:** $7.5$ liters
+- **Percentage points** refer to the **arithmetic difference** between two percentages.
+- **Percent change** refers to the **relative difference**.
 
----
+**Example:** If a candidate's approval rating rises from 40% to 50%, the increase is:
+- **10 percentage points** (arithmetic difference: $50 - 40 = 10$)
+- **25% increase** (relative change: $\frac{50-40}{40} \times 100\% = 25\%$)
 
-**Problem 2:** A candy store sells chocolates at $\$8$ per pound and nuts at $\$3$ per pound. How many pounds of chocolates should be mixed with $10$ pounds of nuts to obtain a mixture worth $\$5$ per pound?
+### Tax, Tips, Markups, and Discounts
 
-Let $x$ = pounds of chocolates.
+These are all applications of percentage change:
 
-$$8x + 3(10) = 5(x + 10)$$
-$$8x + 30 = 5x + 50$$
-$$3x = 20$$
-$$x = \frac{20}{3} \approx 6.67$$
+- **Sales Tax:** $\text{Total Cost} = \text{Price} \times (1 + \text{Tax Rate})$
+- **Tip:** $\text{Total Cost} = \text{Bill} \times (1 + \text{Tip Rate})$
+- **Markup:** $\text{Selling Price} = \text{Cost} \times (1 + \text{Markup Rate})$
+- **Discount:** $\text{Sale Price} = \text{Original Price} \times (1 - \text{Discount Rate})$
 
-**Answer:** $\frac{20}{3}$ pounds (or approximately $6.67$ pounds)
+**Example (Multiple Percentages):** A restaurant bill is $80. A 7% sales tax is applied, and you want to leave a 20% tip on the pre-tax amount. What is the total?
 
----
+- Tax: $80 \times 0.07 = 5.60$
+- Tip: $80 \times 0.20 = 16.00$
+- Total: $80 + 5.60 + 16.00 = 101.60$
 
-**Problem 3:** A $20\%$ acid solution is mixed with a $50\%$ acid solution to produce $12$ liters of a $35\%$ acid solution. How many liters of each solution are used?
+**Important SAT Note:** The tip is typically calculated on the **pre-tax** amount, not the post-tax amount. However, always read the question carefully, as some problems may specify otherwise.
 
-Let $x$ = liters of $20\%$ solution. Then $(12 - x)$ = liters of $50\%$ solution.
+### Simple and Compound Interest
 
-$$0.20x + 0.50(12 - x) = 0.35(12)$$
-$$0.20x + 6 - 0.50x = 4.2$$
-$$-0.30x = -1.8$$
-$$x = 6$$
+**Simple Interest:**
 
-**Answer:** $6$ liters of $20\%$ solution and $6$ liters of $50\%$ solution
-
----
-
-**Problem 4:** A tank contains $100$ liters of a $10\%$ salt solution. Water is added to dilute the solution to $8\%$. How much water was added?
-
-The amount of salt stays the same: $0.10 \times 100 = 10$ liters.
-
-Let $x$ = liters of water added.
-
-$$\frac{10}{100 + x} = 0.08$$
-$$10 = 0.08(100 + x)$$
-$$10 = 8 + 0.08x$$
-$$2 = 0.08x$$
-$$x = 25$$
-
-**Answer:** $25$ liters of water
-
----
-
-## 7.5 — The Factor of Change Approach
-
-### 7.5.1 — Concept
-
-When a problem describes how certain quantities change by specific percentages or factors, and asks how a related quantity changes, you can use the **factor of change** method.
-
-**Steps:**
-1. Start with the formula relating the quantities
-2. Eliminate constants
-3. Replace each variable with its factor of change
-4. Solve for the unknown factor of change
-5. Convert the factor to a percent change
-
----
-
-### 7.5.2 — Kinetic Energy Example
-
-**Example:** The kinetic energy of an object is $KE = \frac{1}{2}mv^2$. If the mass is decreased by $20\%$ and the speed is increased by $20\%$, by what percent does the kinetic energy change?
-
-$$KE \sim mv^2$$
-
-Factor of change:
-
-$$KE_{\text{new}} \sim (0.80)(1.20)^2 = 0.80 \times 1.44 = 1.152$$
-
-The kinetic energy increases by $15.2\%$.
-
----
-
-### 7.5.3 — Area and Volume Scaling
-
-**Example:** If the radius of a circle is increased by $25\%$, by what percent does the area increase?
-
-$$A = \pi r^2$$
-
-Factor of change: $(1.25)^2 = 1.5625$
-
-Area increases by $56.25\%$.
-
----
-
-**Example:** If each dimension of a rectangular prism is doubled, by what percent does the volume increase?
-
-$$V = lwh$$
-
-Factor of change: $2 \times 2 \times 2 = 8$
-
-Volume increases by $700\%$ (it becomes $8$ times the original, which is a $700\%$ increase).
-
----
-
-### 7.5.4 — Practice Problems: Factor of Change
-
-**Problem 1:** The area of a rectangle is $A = lw$. If the length is increased by $30\%$ and the width is decreased by $30\%$, what is the percent change in area?
-
-$$\text{Factor} = 1.30 \times 0.70 = 0.91$$
-
-Area decreases by $9\%$.
-
-**Answer:** $9\%$ decrease
-
----
-
-**Problem 2:** The volume of a sphere is $V = \frac{4}{3}\pi r^3$. If the radius is tripled, what is the percent change in volume?
-
-$$\text{Factor} = 3^3 = 27$$
-
-Volume increases by $2600\%$.
-
-**Answer:** $2600\%$ increase
-
----
-
-**Problem 3:** The power dissipated by a resistor is $P = I^2R$. If the current is halved and the resistance is doubled, what is the percent change in power?
-
-$$\text{Factor} = \left(\frac{1}{2}\right)^2 \times 2 = \frac{1}{4} \times 2 = \frac{1}{2}$$
-
-Power decreases by $50\%$.
-
-**Answer:** $50\%$ decrease
-
----
-
-## 7.6 — Advanced Percent Applications
-
-### 7.6.1 — Percentile
-
-A **percentile** indicates the value below which a given percentage of observations fall. If you score in the $85$th percentile, you scored higher than $85\%$ of test-takers.
-
-**Note:** Percentile is NOT the same as percent correct. A percentile rank is a comparison to other test-takers, not a measure of how many questions you answered correctly.
-
----
-
-### 7.6.2 — Simple Interest
+Simple interest is calculated only on the **principal** (original amount):
 
 $$I = Prt$$
 
-where $I$ = interest, $P$ = principal, $r$ = annual interest rate (as a decimal), $t$ = time in years.
+where:
+- $I$ = interest earned
+- $P$ = principal (initial amount)
+- $r$ = annual interest rate (as a decimal)
+- $t$ = time in years
 
-**Example:** $\$5000$ is invested at $4\%$ simple annual interest for $3$ years. What is the total amount?
+The total amount after $t$ years is:
 
-$$I = 5000 \times 0.04 \times 3 = \$600$$
-$$\text{Total} = 5000 + 600 = \$5600$$
+$$A = P + I = P(1 + rt)$$
 
----
+**Example:** $1,000 is invested at 5% simple interest for 3 years. What is the total amount?
 
-### 7.6.3 — Compound Interest
+$$A = 1000(1 + 0.05 \times 3) = 1000(1.15) = 1150$$
+
+**Compound Interest:**
+
+Compound interest is calculated on both the principal and previously earned interest:
 
 $$A = P\left(1 + \frac{r}{n}\right)^{nt}$$
 
-where $A$ = final amount, $P$ = principal, $r$ = annual rate, $n$ = number of times compounded per year, $t$ = time in years.
+where:
+- $A$ = total amount after $t$ years
+- $P$ = principal
+- $r$ = annual interest rate (as a decimal)
+- $n$ = number of times interest is compounded per year
+- $t$ = time in years
 
-**Example:** $\$1000$ is invested at $5\%$ annual interest compounded quarterly for $2$ years.
+**Compounding Frequencies:**
+- Annually: $n = 1$
+- Semi-annually: $n = 2$
+- Quarterly: $n = 4$
+- Monthly: $n = 12$
+- Daily: $n = 365$
 
-$$A = 1000\left(1 + \frac{0.05}{4}\right)^{4 \times 2} = 1000(1.0125)^8 \approx 1000 \times 1.1045 = \$1104.49$$
+**Example:** $1,000 is invested at 5% annual interest, compounded annually for 3 years. What is the total amount?
 
----
-
-### 7.6.4 — Markup and Markdown
-
-**Markup:** The increase from cost to selling price.
-
-$$\text{Markup \%} = \frac{\text{Selling Price} - \text{Cost}}{\text{Cost}} \times 100$$
-
-**Markdown (Discount):** The decrease from original price to sale price.
-
-$$\text{Markdown \%} = \frac{\text{Original Price} - \text{Sale Price}}{\text{Original Price}} \times 100$$
-
-**Example:** A store buys a shirt for $\$20$ and sells it for $\$35$. What is the markup percent?
-
-$$\text{Markup \%} = \frac{35 - 20}{20} \times 100 = 75\%$$
-
-**Example:** The same shirt goes on sale for $\$28$. What is the markdown percent from the original selling price?
-
-$$\text{Markdown \%} = \frac{35 - 28}{35} \times 100 = 20\%$$
-
----
-
-### 7.6.5 — Practice Problems: Advanced Percents
-
-**Problem 1:** A store marks up all items by $40\%$. During a sale, everything is marked down by $25\%$. What is the net percent profit or loss on an item that cost the store $\$100$?
-
-Cost: $\$100$
-After markup: $\$100 \times 1.40 = \$140$
-After markdown: $\$140 \times 0.75 = \$105$
-
-Net profit: $\$5$ on $\$100$ cost = $5\%$ profit
-
-**Answer:** $5\%$ profit
-
----
-
-**Problem 2:** $\$2000$ is invested at $6\%$ annual interest compounded semi-annually. What is the value after $1$ year?
-
-$$A = 2000\left(1 + \frac{0.06}{2}\right)^2 = 2000(1.03)^2 = 2000 \times 1.0609 = \$2121.80$$
-
-**Answer:** $\$2121.80$
-
----
-
-**Problem 3:** A product's price is first increased by $20\%$, then decreased by $20\%$. What is the net percent change?
-
-$$\text{Factor} = 1.20 \times 0.80 = 0.96$$
-
-Net change: $4\%$ decrease
-
-**Answer:** $4\%$ decrease
-
----
-
-## 7.7 — Summary of Key Formulas
-
-| Concept | Formula |
-|---|---|
-| Percent to decimal | $x\% = \frac{x}{100}$ |
-| Percent of a number | $\text{Part} = \frac{x}{100} \times \text{Whole}$ |
-| Percent increase | $\frac{\text{New} - \text{Old}}{\text{Old}} \times 100$ |
-| Percent decrease | $\frac{\text{Old} - \text{New}}{\text{Old}} \times 100$ |
-| Original after increase | $\frac{N}{1 + \frac{p}{100}}$ |
-| Original after decrease | $\frac{N}{1 - \frac{p}{100}}$ |
-| Ratio parts model | $am + bm + cm = \text{Total}$ |
-| Average speed | $\frac{\text{Total Distance}}{\text{Total Time}}$ |
-| Round trip average | $\frac{2v_1 v_2}{v_1 + v_2}$ |
-| Mixture equation | $C_1 V_1 + C_2 V_2 = C_f(V_1 + V_2)$ |
-| Simple interest | $I = Prt$ |
-| Compound interest | $A = P\left(1 + \frac{r}{n}\right)^{nt}$ |
-| Factor of change | Replace each variable with its multiplicative factor |
-
----
-
-## 7.8 — Comprehensive Practice Test
-
-**1.** If $25\%$ of $x$ equals $40\%$ of $y$, and $y = 50$, what is $x$?
-
-$$0.25x = 0.40 \times 50 = 20$$
-$$x = 80$$
-
-**Answer:** $80$
-
----
-
-**2.** A rectangle's length is increased by $20\%$ and its width is decreased by $10\%$. What is the percent change in area?
-
-$$\text{Factor} = 1.20 \times 0.90 = 1.08$$
-
-**Answer:** $8\%$ increase
-
----
-
-**3.** How many liters of a $30\%$ alcohol solution must be mixed with $10$ liters of a $50\%$ alcohol solution to obtain a $40\%$ alcohol solution?
-
-$$0.30x + 0.50(10) = 0.40(x + 10)$$
-$$0.30x + 5 = 0.40x + 4$$
-$$1 = 0.10x$$
-$$x = 10$$
-
-**Answer:** $10$ liters
-
----
-
-**4.** The ratio of the areas of two similar triangles is $9:16$. What is the ratio of their corresponding sides?
-
-$$\text{Side ratio} = \sqrt{9}:\sqrt{16} = 3:4$$
-
-**Answer:** $3:4$
-
----
-
-**5.** A car travels at $50$ mph for the first $3$ hours and at $70$ mph for the next $2$ hours. What is the average speed for the entire trip?
-
-$$\text{Total distance} = 50(3) + 70(2) = 150 + 140 = 290 \text{ miles}$$
-$$\text{Total time} = 5 \text{ hours}$$
-$$\text{Average speed} = \frac{290}{5} = 58 \text{ mph}$$
-
-**Answer:** $58$ mph
-
----
-
-**6.** A number is first increased by $10\%$, then increased by $20\%$, then decreased by $x\%$, returning to the original number. What is $x$?
-
-$$1.10 \times 1.20 \times \left(1 - \frac{x}{100}\right) = 1$$
-$$1.32 \times \left(1 - \frac{x}{100}\right) = 1$$
-$$1 - \frac{x}{100} = \frac{1}{1.32} = \frac{25}{33}$$
-$$\frac{x}{100} = \frac{8}{33}$$
-$$x = \frac{800}{33} \approx 24.24$$
-
-**Answer:** $\frac{800}{33}\%$ or approximately $24.24\%$
-
----
-
-**7.** In a school, the ratio of students who play soccer to those who play basketball is $5:3$. If $40$ students play both sports and the total number of students who play at least one sport is $200$, how many play only soccer?
-
-Let $5m$ = total soccer players, $3m$ = total basketball players.
-
-$$5m + 3m - 40 = 200$$
-$$8m = 240$$
-$$m = 30$$
-
-Total soccer players: $5 \times 30 = 150$
-
-Only soccer: $150 - 40 = 110$
-
-**Answer:** $110$
-
----
-
-**8.** A shopkeeper buys two articles for $\$500$ each. He sells one at a profit of $20\%$ and the other at a loss of $20\%$. What is the net profit or loss percent?
-
-Selling price of first: $500 \times 1.20 = \$600$
-Selling price of second: $500 \times 0.80 = \$400$
-Total cost: $\$1000$
-Total selling price: $\$1000$
-
-**Answer:** No profit, no loss ($0\%$)
-
----
-
-**9.** A container has $20$ liters of milk. If $4$ liters are removed and replaced with water, and this process is repeated once more, how much milk remains?
-
-After each replacement, the fraction of milk remaining is $\frac{16}{20} = \frac{4}{5}$.
-
-After two replacements: $20 \times \left(\frac{4}{5}\right)^2 = 20 \times \frac{16}{25} = 12.8$ liters
-
-**Answer:** $12.8$ liters
-
----
-
-**10.** The population of a town increases by $10\%$ each year. If the population is $10,000$ now, what will it be after $3$ years?
-
-$$P = 10000 \times (1.10)^3 = 10000 \times 1.331 = 13310$$
-
-**Answer:** $13,310$
-
----
-
-*End of Chapter 7*
-
----
-
-
-# Chapter 8: Triangles, Trigonometry, and Geometry Essentials
-
-## 1. Fundamental Properties of Triangles
-
-### 1.1 Angle Relationships
-The most fundamental property of any triangle is that the sum of its three internal angles is always 180°.
-$$\angle A + \angle B + \angle C = 180^\circ$$
-
-**Exterior Angle Theorem**: The measure of an exterior angle of a triangle is equal to the sum of the measures of the two non-adjacent (remote) interior angles.
-$$\text{Exterior Angle} = \text{Sum of Remote Interior Angles}$$
-
-### 1.2 The Triangle Inequality Theorem
-The sum of the lengths of any two sides of a triangle must be greater than the length of the third side. If $a$, $b$, and $c$ are the sides:
-$$a + b > c$$
-$$a + c > b$$
-$$b + c > a$$
-Furthermore, the length of any side must be less than the semi-perimeter and greater than the positive difference of the other two sides.
-
-### 1.3 Side-Angue Relationships
-In any triangle:
-*   The **longest side** is opposite the **largest angle**.
-*   The **shortest side** is opposite the **smallest angle**.
-*   If two angles are congruent, the sides opposite them are congruent (Isosceles Triangle Theorem).
-
----
-
-## 2. Special Triangles
-
-### 2.1 Isosceles Triangles
-A triangle with at least two congruent sides.
-*   **Legs**: The congruent sides.
-*   **Base**: The non-congruent side.
-*   **Base Angles**: The angles opposite the legs; they are always congruent.
-*   **Vertex Angle**: The angle formed by the two legs.
-
-### 2.2 Equilateral Triangles
-A triangle where all three sides are congruent.
-*   All three angles are congruent and measure **60°**.
-*   It is a special case of an isosceles triangle.
-
-### 2.3 Right Triangles
-A triangle containing exactly one 90° angle.
-*   The side opposite the right angle is the **hypotenuse** (always the longest side).
-*   The other two sides are called **legs**.
-*   The two acute angles are **complementary** (sum to 90°).
-
-#### The Pythagorean Theorem
-In any right triangle with legs $a$ and $b$ and hypotenuse $c$:
-$$a^2 + b^2 = c^2$$
-
-**Common Pythagorean Triples** (Memorize these!):
-*   **3, 4, 5** (and multiples like 6, 8, 10)
-*   **5, 12, 13** (and multiples like 10, 24, 26)
-*   **8, 15, 17**
-*   **7, 24, 25**
-
-#### Special Right Triangles
-**1. The 45°-45°-90° Triangle (Isosceles Right Triangle)**
-The ratio of the sides is $x : x : x\sqrt{2}$.
-*   If a leg is $7$, the hypotenuse is $7\sqrt{2}$.
-*   If the hypotenuse is $10$, each leg is $\frac{10}{\sqrt{2}} = 5\sqrt{2}$.
-
-**2. The 30°-60°-90° Triangle**
-The ratio of the sides (opposite 30° : opposite 60° : hypotenuse) is $x : x\sqrt{3} : 2x$.
-*   If the short leg (opposite 30°) is $5$, the long leg is $5\sqrt{3}$ and the hypotenuse is $10$.
-*   If the hypotenuse is $14$, the short leg is $7$ and the long leg is $7\sqrt{3}$.
-
----
-
-## 3. Similar Triangles
-
-Two triangles are **similar** if their corresponding angles are congruent and their corresponding sides are proportional.
-
-### 3.1 Methods for Proving Similarity
-1.  **AA (Angle-Angle)**: If two angles of one triangle are congruent to two angles of another triangle, the triangles are similar. (Since the sum of angles is 180°, the third angle must also be congruent).
-2.  **SSS (Side-Side-Side)**: If the corresponding sides of two triangles are proportional, the triangles are similar.
-3.  **SAS (Side-Angle-Side)**: If two sides are proportional and the included angle is congruent, the triangles are similar.
-
-### 3.2 Solving for Missing Sides
-If $\triangle ABC \sim \triangle DEF$, then:
-$$\frac{AB}{DE} = \frac{BC}{EF} = \frac{AC}{DF}$$
-Set up a proportion using the known sides and solve for the unknown variable using cross-multiplication.
-
----
-
-## 4. Trigonometry (Right Triangle Trig)
-
-Trigonometry is the study of the ratios of the sides of a right triangle as a function of one of the acute angles.
-
-### 4.1 The Core Ratios (SOH CAH TOA)
-Let $\theta$ be an acute angle in a right triangle.
-*   **Sine ($\sin$)**: Opposite / Hypotenuse
-*   **Cosine ($\cos$)**: Adjacent / Hypotenuse
-*   **Tangent ($\tan$)**: Opposite / Adjacent
-
-### 4.2 Reciprocal Functions
-*   **Cosecant ($\csc \theta$)**: $1 / \sin \theta$ = Hypotenuse / Opposite
-*   **Secant ($\sec \theta$)**: $1 / \cos \theta$ = Hypotenuse / Adjacent
-*   **Cotangent ($\cot \theta$)**: $1 / \tan \theta$ = Adjacent / Opposite
-
-### 4.3 Cofunction Identities
-Sine and cosine are "cofunctions," meaning they produce equivalent ratios when evaluated at complementary angles.
-$$\sin(x) = \cos(90^\circ - x)$$
-$$\cos(x) = \sin(90^\circ - x)$$
-
-### 4.4 Using Trig to Find Missing Sides/Anges
-**To find a side**: Label the sides relative to the given angle. Choose the trig function that relates the given side and the unknown side. Set up the equation and solve.
-**To find an angle**: Use the inverse trig functions ($\sin^{-1}, \cos^{-1}, \tan^{-1}$) on your calculator.
-
----
-
-## 5. Area of Triangles
-
-### 5.1 Standard Formula
-$$A = \frac{1}{2} \times \text{base} \times \text{height}$$
-*Note: The height must be perpendicular to the base.*
-
-### 5.2 Area Using Trigonometry
-If you know two sides and the included angle (SAS):
-$$A = \frac{1}{2}ab \sin(C)$$
-Where $a$ and $b$ are two sides and $C$ is the angle between them.
-
-### 5.3 Heron's Formula
-Used when you know all three sides ($a, b, c$) but not the height.
-1.  Calculate the **semi-perimeter** ($s$): $s = \frac{a+b+c}{2}$
-2.  Calculate Area ($A$): $A = \sqrt{s(s-a)(s-b)(s-c)}$
-
----
-
-## 6. Lines and Angles
-
-### 6.1 Angle Pairs
-*   **Complementary Angles**: Two angles whose sum is 90°.
-*   **Supplementary Angles**: Two angles whose sum is 180°.
-*   **Vertical Angles**: Angles opposite each other when two lines intersect. They are always **congruent**.
-*   **Linear Pair**: Two adjacent angles whose non-common sides form a straight line. They are always **supplementary**.
-
-### 6.2 Parallel Lines and Transversals
-When two parallel lines are cut by a transversal (a third line):
-*   **Corresponding Angles**: Congruent (e.g., top-left to top-left).
-*   **Alternate Interior Angles**: Congruent (inside the parallels, on opposite sides of the transversal).
-*   **Alternate Exterior Angles**: Congruent (outside the parallels, on opposite sides of the transversal).
-*   **Same-Side Interior Angles**: Supplementary (inside the parallels, on the same side of the transversal).
-
----
-
-## 7. Polygons
-
-### 7.1 Sum of Interior Angles
-For any $n$-sided polygon:
-$$\text{Sum} = (n - 2) \times 180^\circ$$
-*   Triangle (3): $180^\circ$
-*   Quadrilateral (4): $360^\circ$
-*   Pentagon (5): $540^\circ$
-*   Hexagon (6): $720^\circ$
-
-### 7.2 Sum of Exterior Angles
-For **any** convex polygon, the sum of the exterior angles (one at each vertex) is always **360°**.
-
----
-
-## 8. Practice Problems
-
-**Problem 1 (Triangle Inequality)**
-A triangle has sides of length 9 and 6. What are all possible integer values for the perimeter of the triangle?
-
-**Problem 2 (Special Right Triangles)**
-In a 30-60-90 triangle, the hypotenuse is 20. What is the area of the triangle?
-
-**Problem 3 (Similar Triangles)**
-$\triangle ABC \sim \triangle DEF$. If $AB = 8$, $BC = 12$, and $DE = 6$, what is the length of $EF$?
-
-**Problem 4 (Trigonometry)**
-In right triangle $PQR$, with right angle at $Q$, $\sin(P) = \frac{3}{5}$ and $PQ = 9$. Find the length of $QR$.
-
-**Problem 5 (Angles)**
-Two angles are supplementary. One angle is 25% larger than the other. Find the measure of both angles.
-
----
-
-## 9. Solutions
-
-**Solution 1:**
-Let the third side be $x$.
-Using the Triangle Inequality:
-1.  $9 + 6 > x \Rightarrow x < 15$
-2.  $9 + x > 6 \Rightarrow x > -3$ (always true for positive lengths)
-3.  $6 + x > 9 \Rightarrow x > 3$
-So, $3 < x < 15$. Since $x$ must be an integer, $x$ can be $4, 5, 6, \dots, 14$.
-Perimeter $P = 9 + 6 + x = 15 + x$.
-Minimum $P = 15 + 4 = 19$.
-Maximum $P = 15 + 14 = 29$.
-Possible integer perimeters: $19, 20, 21, \dots, 29$.
-
-**Solution 2:**
-In a 30-60-90 triangle, the ratio of sides is $x : x\sqrt{3} : 2x$.
-Hypotenuse $= 2x = 20 \Rightarrow x = 10$.
-The legs are $10$ (short leg) and $10\sqrt{3}$ (long leg).
-Area $= \frac{1}{2} \times \text{leg}_1 \times \text{leg}_2 = \frac{1}{2} \times 10 \times 10\sqrt{3} = 50\sqrt{3}$.
-
-**Solution 3:**
-Set up the proportion based on corresponding sides:
-$\frac{AB}{DE} = \frac{BC}{EF}$
-$\frac{8}{6} = \frac{12}{EF}$
-$8 \times EF = 72$
-$EF = 9$.
-
-**Solution 4:**
-$\sin(P) = \frac{\text{Opposite}}{\text{Hypotenuse}} = \frac{QR}{PR} = \frac{3}{5}$.
-We are given $PQ = 9$. Note that $PQ$ is the side adjacent to angle $P$.
-We can find $PR$ (hypotenuse) using $\cos(P)$ or Pythagorean theorem logic.
-If $\sin(P) = 3/5$, the sides of the reference triangle are 3, 4, 5.
-So $\cos(P) = 4/5$.
-$\cos(P) = \frac{PQ}{PR} = \frac{9}{PR} = \frac{4}{5}$.
-$4 \times PR = 45 \Rightarrow PR = 11.25$.
-Now use $\sin(P)$ to find $QR$:
-$\frac{QR}{11.25} = \frac{3}{5} \Rightarrow 5 \times QR = 33.75 \Rightarrow QR = 6.75$.
-
-**Solution 5:**
-Let the smaller angle be $x$. The larger angle is $1.25x$.
-$x + 1.25x = 180$
-$2.25x = 180$
-$x = 80^\circ$.
-The angles are $80^\circ$ and $100^\circ$.
-
----
-
-
-# Chapter 9: ELA Mastery — Grammar, Punctuation, Transitions, and Reading Comprehension Strategies
-
----
-
-## PART I: GRAMMAR FUNDAMENTALS
-
----
-
-### Section 1: The Three Useless Clauses
-
-A complete sentence requires only two elements: a **subject** and a **verb**. Everything else—no matter how long or elaborate—can be stripped away, and the sentence will still stand. The three "useless" clauses are structures that, while adding detail, color, and nuance, are grammatically expendable. Learning to identify them is essential for SAT/ACT grammar questions because the tests frequently ask you to determine whether a sentence remains complete after their removal.
-
----
-
-#### 1.1 Relative Clauses
-
-A **relative clause** is a dependent clause that begins with a **relative pronoun** and modifies a noun in the main clause. The five relative pronouns are:
-
-- **who** — used for people (subject)
-- **whom** — used for people (object)
-- **whose** — used for possession (people or things)
-- **which** — used for things
-- **that** — used for people or things (restrictive clauses only)
-
-**Key Rule:** A relative clause is NEVER set off by commas when it is **restrictive** (i.e., essential to the meaning of the noun it modifies). It IS set off by commas when it is **nonrestrictive** (i.e., adds extra, nonessential information).
-
-**Examples:**
-
-- *Restrictive (no commas):* "The student **who scored a 1600 on the SAT** is my friend."
-  - Here, "who scored a 1600 on the SAT" identifies WHICH student. Remove it, and you lose critical information about which student is being discussed.
-
-- *Nonrestrictive (commas required):* "My sister, **who lives in Chicago**, is visiting next week."
-  - Here, "who lives in Chicago" adds extra information about the sister, but we already know which sister is meant. The clause can be removed without destroying the core meaning.
-
-**SAT/ACT Trap:** The tests often place a nonrestrictive relative clause next to a noun and omit the commas, creating a punctuation error. Always ask: "Is this clause essential to identifying the noun, or is it just adding bonus information?"
-
-**Crossing Out Exercise:**
-
-> "The novel, which was written by Toni Morrison, explores themes of identity and belonging."
-
-Cross out the relative clause: "The novel explores themes of identity and belonging." ✓ Still a complete sentence.
-
-> "The car that was parked in the driveway belongs to my neighbor."
-
-Cross out the relative clause: "The car belongs to my neighbor." ✓ Still a complete sentence (though less specific).
-
----
-
-#### 1.2 Comma Clauses (Three Types)
-
-"Comma clause" is an umbrella term for three types of dependent clauses that are set off by commas and can be removed without destroying the sentence's grammatical completeness.
-
-**Type 1: Introductory Comma Clause (ICC)**
-
-An introductory comma clause begins a sentence and is followed by a comma. It typically starts with a **subordinating conjunction**, a **preposition**, or an **-ing adverb**.
-
-Common subordinating conjunctions: *although, because, while, when, if, since, after, before, unless, whereas, even though, as, once, until*
-
-**Structure:** ICC + comma + MAIN SENTENCE
-
-**Examples:**
-
-- "**Although the rain was heavy**, the game continued."
-- "**After finishing her homework**, Maria went to the library."
-- "**Running late for class**, Tom forgot his textbook."
-
-**Critical Rule — Subject Modification:** When an introductory clause contains an action (especially one starting with an -ing word), the subject of the main clause MUST be the person or thing that can logically perform that action. This is the **introductory comma clause modification rule**.
-
-**Correct:** "**Driving to school**, **Sarah** noticed a rainbow." (Sarah was driving.)
-
-**Incorrect (Dangling Modifier):** "**Driving to school**, **the rainbow** was beautiful." (The rainbow was not driving.)
-
-**How to fix a dangling modifier:** Change the subject of the main clause to the person/thing that can logically perform the action in the ICC.
-
-**Corrected:** "**Driving to school**, **Sarah** saw a beautiful rainbow."
-
-**SAT/ACT Trap:** The tests love dangling modifiers. If an introductory clause begins with an -ing word or a subordinating conjunction implying an action, check whether the subject immediately following the comma can logically perform that action.
-
----
-
-**Type 2: Ending Comma Clause (ECC)**
-
-An ending comma clause comes at the end of a sentence and is usually preceded by a comma. It often begins with an **-ing adverb** or a **prepositional phrase** that defines or clarifies something in the main clause.
-
-**Examples:**
-
-- "The students studied all night, **hoping to ace the exam**."
-- "She walked out of the building, **surprised by the results**."
-- "The team celebrated their victory, **exhausted but elated**."
-
-**Note:** Ending comma clauses often function as adverbial or adjectival phrases that describe the manner, result, or state of the subject.
-
----
-
-**Type 3: Middle Comma Clause (MCC) / Appositive / Nonessential Clause**
-
-A middle comma clause interrupts the main sentence and is set off by commas on BOTH sides. It is also called an **appositive** or **nonessential clause**. Removing it should leave a grammatically complete sentence.
-
-**Structure:** SUBJECT + comma + MCC + comma + VERB (and the rest of the sentence)
-
-**Examples:**
-
-- "My brother, **a talented musician**, plays three instruments."
-- "The Eiffel Tower, **which is located in Paris**, attracts millions of visitors."
-- "Dr. Johnson, **the principal of the school**, announced the new policy."
-
-**SAT/ACT Trap:** The tests will sometimes place a middle comma clause between the subject and the verb without proper commas, or with only one comma. Both commas are required for a nonessential MCC.
-
-**Tricky Case — MCC inside an ICC:**
-
-> "**During the hailstorm**, the first ever recorded in the city, **Maria** hit her head."
-
-Here, "the first ever recorded in the city" is an MCC embedded within the introductory clause. The subject "Maria" still correctly modifies the action of the main clause ("hit her head").
-
----
-
-#### 1.3 Prepositional Phrases
-
-A **prepositional phrase** begins with a **preposition** and ends with a **noun** (called the object of the preposition). It functions as an adjective or adverb, modifying a noun or verb.
-
-Common prepositions: *in, on, at, by, for, with, from, to, of, about, between, through, during, before, after, under, over, above, below, near, beside, among, within, without, along, across, behind, beyond*
-
-**Examples:**
-
-- "The book **on the table** is mine." (modifies "book")
-- "She walked **through the park**." (modified "walked")
-- "**After the game**, we went **to the restaurant**." (modifies "went")
-
-**Key Point:** Prepositional phrases are NEVER essential to a sentence's grammatical completeness. You can cross them all out and still have a subject and verb remaining.
-
-**Crossing Out Exercise:**
-
-> "The students in the classroom with the new desks from the fundraiser after the assembly were excited."
-
-Cross out all prepositional phrases: "The students were excited." ✓ Complete sentence.
-
----
-
-### Section 2: Subject-Verb Agreement (SVA)
-
-Subject-verb agreement is one of the most frequently tested grammar concepts on the SAT and ACT. The rule is simple in principle but complex in application.
-
-**Core Rule:** A singular subject takes a singular verb. A plural subject takes a plural verb.
-
-In English, **singular verbs** typically end in **-s** (e.g., *runs, plays, is, has, does*), while **plural verbs** do NOT end in -s (e.g., *run, play, are, have, do*). This is the opposite of nouns, where -s usually indicates plural.
-
----
-
-#### 2.1 Finding the Subject
-
-The subject can NEVER be found within:
-- A **relative clause**
-- A **prepositional phrase**
-- A **comma clause** (introductory, middle, or ending)
-
-**Process for Identifying the Subject:**
-
-1. Cross out all relative clauses.
-2. Cross out all prepositional phrases.
-3. Cross out all comma clauses.
-4. What remains is the core sentence: subject + verb.
-5. Determine if the subject is singular or plural.
-6. Ensure the verb agrees.
-
-**Example:**
-
-> "Each of the students in the advanced classes **has** completed the assignment."
-
-- Cross out: "of the students" (prepositional phrase), "in the advanced classes" (prepositional phrase)
-- Remaining: "Each has completed the assignment."
-- "Each" is singular → verb must be singular: "has" ✓
-
----
-
-#### 2.2 Tricky Subject-Verb Agreement Cases
-
-**Case 1: Indefinite Pronouns**
-
-Some indefinite pronouns are ALWAYS singular:
-- *each, every, everyone, everybody, anyone, anybody, someone, somebody, no one, nobody, either, neither, one, another*
-
-Some are ALWAYS plural:
-- *both, few, many, several, others*
-
-Some can be singular or plural depending on context:
-- *all, any, more, most, none, some* (look at the object of the preposition that follows)
-
-**Examples:**
-
-- "Everyone **is** here." (singular)
-- "Both **are** ready." (plural)
-- "Some of the cake **is** gone." (cake = singular → "is")
-- "Some of the cookies **are** gone." (cookies = plural → "are")
-
-**Case 2: Compound Subjects**
-
-Subjects joined by "and" are usually plural:
-- "The cat and the dog **are** playing."
-
-BUT: When "and" joins two words that refer to the same person/thing, the subject is singular:
-- "The founder and CEO **is** speaking." (one person who is both)
-
-Subjects joined by "or" or "nor" agree with the subject CLOSEST to the verb:
-- "Neither the teacher nor the students **were** present." (students = plural → "were")
-- "Neither the students nor the teacher **was** present." (teacher = singular → "was")
-
-**Case 3: Collective Nouns**
-
-Words like *team, family, group, committee, class, audience, government* are usually treated as SINGULAR in American English when the group acts as a unit:
-- "The team **is** winning."
-
-They are PLURAL when the members act individually:
-- "The team **are** arguing among themselves." (British English; less common on SAT/ACT)
-
-**Case 4: Words That Look Plural but Are Singular**
-
-- *news, mathematics, physics, economics, politics* (when referring to the subject/field)
-- *measles, mumps*
-- *the United States*
-
-**Examples:**
-
-- "The news **is** shocking."
-- "Mathematics **is** my favorite subject."
-
-**Case 5: "There" Sentences**
-
-When a sentence begins with "there," the subject comes AFTER the verb:
-- "There **are** three books on the table." (books = plural)
-- "There **is** a book on the table." (book = singular)
-
-**Case 6: Inverted Sentences**
-
-In questions or sentences beginning with prepositional phrases, the subject may not come first:
-- "**In the box** were three kittens." (kittens = plural → "were")
-
----
-
-#### 2.3 Subject-Verb Agreement with Relative Pronouns
-
-When a relative pronoun (who, which, that) is the subject of a relative clause, the verb in that clause agrees with the ANTECEDENT (the noun the pronoun refers to):
-
-- "The students who **are** studying will pass." (students = plural → "are")
-- "The student who **is** studying will pass." (student = singular → "is")
-
----
-
-### Section 3: Verb Tenses
-
-Verb tense indicates WHEN an action occurs. The SAT/ACT tests your ability to maintain **tense consistency** within a passage and to choose the correct tense based on context clues.
-
----
-
-#### 3.1 The Six Main Tenses
-
-| Tense | Structure | Example | Signal Words |
-|-------|-----------|---------|--------------|
-| Simple Past | verb + -ed (or irregular) | She **walked** | yesterday, last year, in 1990, ago |
-| Simple Present | verb / verb + -s | She **walks** | always, usually, every day, now |
-| Simple Future | will + verb | She **will walk** | tomorrow, next year, soon |
-| Present Perfect | has/have + past participle | She **has walked** | since, for, already, yet, ever, never, recently |
-| Past Perfect | had + past participle | She **had walked** | before, by the time, already (in past context) |
-| Future Perfect | will have + past participle | She **will have walked** | by, by the time (future reference) |
-
----
-
-#### 3.2 Key Tense Rules for SAT/ACT
-
-**Rule 1: Use the present perfect (has/have + past participle) with "since" and "for" when the action continues into the present.**
-
-- "She **has lived** here **since** 2010." (She still lives here.)
-- "They **have worked** at the company **for** five years." (They still work there.)
-
-**Rule 2: Use the past perfect (had + past participle) to show that one past action happened BEFORE another past action.**
-
-- "By the time I arrived, the movie **had already started**."
-- "She **had finished** her homework before she went out."
-
-**Rule 3: Use the simple past for completed actions at a specific time in the past.**
-
-- "Columbus **sailed** to America in 1492."
-- "She **graduated** last year."
-
-**Rule 4: Use the simple present for general truths, habits, and ongoing states.**
-
-- "Water **boils** at 100°C."
-- "The Earth **revolves** around the Sun."
-
-**Rule 5: Maintain tense consistency. Do not shift tenses without a logical reason.**
-
-- Inconsistent: "She **walked** to the store and **buys** milk."
-- Consistent: "She **walked** to the store and **bought** milk."
-
----
-
-#### 3.3 Helping Verbs and Tense Identification
-
-The SAT/ACT often tests your ability to identify the correct helping verb to pair with a main verb. Here is a breakdown:
-
-**Simple Present:** No helping verb (just the base form, or base + -s for third person singular)
-- "She **plays** tennis."
-
-**Simple Past:** No helping verb (just the past form)
-- "She **played** tennis."
-
-**Future:** "will" + base verb
-- "She **will play** tennis."
-
-**Present Perfect:** "has" (singular) or "have" (plural) + past participle
-- "She **has played** tennis." / "They **have played** tennis."
-
-**Past Perfect:** "had" + past participle
-- "She **had played** tennis."
-
-**Conditional (would):** "would" + base verb
-- "She **would play** tennis if she had time."
-
-**Conditional Perfect (would have):** "would have" + past participle
-- "She **would have played** tennis if she had known."
-
----
-
-#### 3.4 Tense Consistency in Passages
-
-When editing a passage, always check for **unnecessary tense shifts**. If the passage is written in the past tense, all verbs describing events in that time frame should be in the past tense—unless there is a clear reason to shift (e.g., a general truth or a more recent event).
-
-**Example of an error:**
-
-> "The researcher conducted the experiment and **records** the results. She then **analyzed** the data and **publishes** her findings."
-
-**Corrected:**
-
-> "The researcher conducted the experiment and **recorded** the results. She then **analyzed** the data and **published** her findings."
-
----
-
-### Section 4: Punctuation Mastery
-
-Punctuation is heavily tested on the SAT/ACT. The key is understanding the FUNCTION of each punctuation mark and the RULES governing its use.
-
----
-
-#### 4.1 Commas
-
-The comma is the most frequently tested punctuation mark. Here are ALL the rules:
-
-**Rule 1: Use commas to separate items in a list of three or more.**
-
-- "I bought apples, oranges, and bananas."
-- The Oxford comma (before "and") is preferred on the SAT/ACT.
-
-**Rule 2: Use a comma before a coordinating conjunction (FANBOYS) that joins two independent clauses.**
-
-FANBOYS = For, And, Nor, But, Or, Yet, So
-
-- "She studied hard, **but** she still failed the test."
-- "I wanted to go, **so** I got ready quickly."
-
-**Rule 3: Use a comma after an introductory clause or phrase.**
-
-- "**After the rain stopped**, we went outside."
-- "**Running late**, she skipped breakfast."
-
-**Rule 4: Use commas to set off nonessential (nonrestrictive) elements.**
-
-- "My brother, **who is a doctor**, lives in Boston."
-- "The book, **published in 1925**, is a classic."
-
-**Rule 5: Do NOT use a comma to separate a subject from its verb.**
-
-- Incorrect: "The tall man with the hat, was waiting."
-- Correct: "The tall man with the hat was waiting."
-
-**Rule 6: Do NOT use a comma between two independent clauses without a coordinating conjunction. This is a COMMA SPLICE.**
-
-- Incorrect: "She studied hard, she passed the test."
-- Correct: "She studied hard; she passed the test." OR "She studied hard, and she passed the test."
-
-**Rule 7: Use commas after introductory words like "however," "therefore," "moreover," "furthermore," "nevertheless" when they begin a sentence.**
-
-- "**However**, the results were inconclusive."
-
-**Rule 8: Use commas to separate coordinate adjectives (adjectives that independently modify the same noun and could be connected by "and").**
-
-- "She is a **talented, dedicated** teacher." (You could say "talented and dedicated.")
-- BUT: "She wore a **bright red** dress." (Not "bright and red"—these are cumulative adjectives, so no comma.)
-
----
-
-#### 4.2 Semicolons
-
-**Rule 1: Use a semicolon to join two closely related independent clauses WITHOUT a coordinating conjunction.**
-
-- "She studied hard; she passed the test."
-- "The experiment was successful; the results were published."
-
-**Rule 2: Use a semicolon before transitional expressions (however, therefore, moreover, furthermore, consequently, nevertheless, for example, in fact, etc.) that connect two independent clauses.**
-
-- "She studied hard; **therefore**, she passed the test."
-- "The data was inconclusive; **however**, the team continued their research."
-
-**Rule 3: Use semicolons to separate items in a list when the items themselves contain commas.**
-
-- "The conference was attended by Dr. Smith, the keynote speaker; Ms. Jones, the organizer; and Mr. Lee, the sponsor."
-
----
-
-#### 4.3 Colons
-
-**Rule 1: A colon must be preceded by a COMPLETE INDEPENDENT CLAUSE.**
-
-- Correct: "She brought three items: a pen, a notebook, and a calculator."
-- Incorrect: "She brought: a pen, a notebook, and a calculator." (Not a complete clause before the colon.)
-
-**Rule 2: Use a colon to introduce a list, an explanation, an elaboration, or a quotation.**
-
-- "The recipe requires the following ingredients: flour, sugar, eggs, and butter."
-- "He had one goal: to win the championship."
-
-**Rule 3: Do NOT use a colon after a verb or preposition that directly introduces the list.**
-
-- Incorrect: "The ingredients are: flour, sugar, and eggs."
-- Correct: "The ingredients are flour, sugar, and eggs."
-
----
-
-#### 4.4 Dashes
-
-**Rule 1: Use a dash (em dash) to set off a middle comma clause for emphasis or dramatic effect.**
-
-- "The winner—**a complete novice**—shocked everyone."
-- "She finally found what she was looking for—**her lost ring**."
-
-**Rule 2: Use a dash to add information at the end of a sentence, especially when the information is surprising or emphatic.**
-
-- "He studied for eight hours straight—**and still failed**."
-- "There was only one possible explanation—**sabotage**."
-
-**Rule 3: Dashes can replace commas, colons, or parentheses when you want more emphasis.**
-
-- Instead of commas: "My best friend—the one I've known since kindergarten—is moving away."
-- Instead of a colon: "She had one dream—to become a doctor."
-
----
-
-#### 4.5 Apostrophes
-
-**Rule 1: Use an apostrophe + s ('s) to show possession for singular nouns.**
-
-- "The **student's** book" (one student)
-- "**James's** car" (singular noun ending in s—both "James's" and "James'" are acceptable, but the SAT/ACT typically uses "James's")
-
-**Rule 2: Use an apostrophe after the s (s') to show possession for plural nouns ending in s.**
-
-- "The **students'** books" (multiple students)
-- "The **teachers'** lounge"
-
-**Rule 3: Use 's for irregular plural nouns that don't end in s.**
-
-- "The **children's** toys"
-- "The **people's** choice"
-
-**Rule 4: Do NOT use an apostrophe with possessive pronouns.**
-
-- **its** (possessive) vs. **it's** (contraction of "it is")
-- **whose** (possessive) vs. **who's** (contraction of "who is")
-- **theirs, ours, yours, hers, his** (NO apostrophes)
-
-**Rule 5: Use apostrophes for contractions.**
-
-- **it's** = it is
-- **don't** = do not
-- **they're** = they are
-- **who's** = who is
-
-**SAT/ACT Favorite:** The tests LOVE to confuse "its" vs. "it's," "their" vs. "they're" vs. "there," and "whose" vs. "who's."
-
----
-
-#### 4.6 Common Punctuation Errors Tested
-
-**Error 1: Comma Splice**
-- Incorrect: "She was tired, she went to bed early."
-- Correct: "She was tired; she went to bed early." OR "She was tired, so she went to bed early."
-
-**Error 2: Run-on Sentence**
-- Incorrect: "She was tired she went to bed early."
-- Correct: "She was tired. She went to bed early." OR "She was tired; she went to bed early."
-
-**Error 3: Fused Sentence with "however"**
-- Incorrect: "She was tired however she stayed up."
-- Correct: "She was tired; however, she stayed up." OR "She was tired. However, she stayed up."
-
-**Error 4: Missing comma after introductory element**
-- Incorrect: "After eating the dog went for a walk."
-- Correct: "After eating, the dog went for a walk."
-
-**Error 5: Unnecessary comma before a list introduced by a verb**
-- Incorrect: "She enjoys: reading, writing, and hiking."
-- Correct: "She enjoys reading, writing, and hiking."
-
----
-
-## PART II: TRANSITIONS
-
----
-
-### Section 5: Understanding Transition Relationships
-
-Transitions are words or phrases that show the logical relationship between ideas. On the SAT/ACT, you will be asked to choose the transition that best completes a sentence or connects two sentences. The key is to identify the **relationship** between the ideas BEFORE looking at the answer choices.
-
----
-
-#### 5.1 The Major Transition Categories
-
-**Category 1: Addition / Support / Emphasis**
-These transitions add information or reinforce a point.
-
-| Transition | Example |
-|-----------|---------|
-| Furthermore | "The plan is effective. Furthermore, it is cost-efficient." |
-| Moreover | "She is intelligent. Moreover, she is hardworking." |
-| Additionally | "The car is fast. Additionally, it is fuel-efficient." |
-| In addition | "He speaks French. In addition, he speaks Spanish." |
-| Also | "She is a talented musician. She is also a skilled painter." |
-| Indeed | "The results were impressive. Indeed, they exceeded all expectations." |
-| In fact | "He seems quiet. In fact, he is quite outgoing." |
-| As a matter of fact | "I thought it was expensive. As a matter of fact, it was quite affordable." |
-
-**Category 2: Contrast / Opposition / Concession**
-These transitions show that the second idea contrasts with or opposes the first.
-
-| Transition | Example |
-|-----------|---------|
-| However | "She studied hard. However, she failed." |
-| Nevertheless | "The odds were against him. Nevertheless, he succeeded." |
-| Nonetheless | "It was raining. Nonetheless, we went hiking." |
-| On the other hand | "City life is exciting. On the other hand, it can be stressful." |
-| Conversely | "Hot air rises. Conversely, cold air sinks." |
-| In contrast | "The first experiment succeeded. In contrast, the second failed." |
-| Although | "Although she was tired, she kept working." |
-| Even though | "Even though it was cold, she went outside." |
-| Whereas | "He prefers tea, whereas she prefers coffee." |
-| While | "While I agree with your point, I disagree with your conclusion." |
-| Despite / In spite of | "Despite the rain, the event was well-attended." |
-
-**Category 3: Cause and Effect / Result**
-These transitions show that one thing causes or results from another.
-
-| Transition | Example |
-|-----------|---------|
-| Therefore | "She studied hard. Therefore, she passed." |
-| Consequently | "He missed the deadline. Consequently, he lost the contract." |
-| As a result | "The road was icy. As a result, many accidents occurred." |
-| Thus | "The data was corrupted. Thus, the experiment had to be repeated." |
-| Hence | "The budget was cut. Hence, the project was delayed." |
-| Accordingly | "The weather was severe. Accordingly, the flight was canceled." |
-| So | "It was raining, so we stayed inside." |
-| For this reason | "She was allergic to nuts. For this reason, she avoided the dessert." |
-
-**Category 4: Example / Illustration**
-These transitions introduce specific examples or evidence.
-
-| Transition | Example |
-|-----------|---------|
-| For example | "Many fruits are rich in vitamin C. For example, oranges and strawberries." |
-| For instance | "Some animals hibernate. For instance, bears sleep through winter." |
-| Specifically | "She loves outdoor sports. Specifically, she enjoys rock climbing." |
-| In particular | "The course covers many topics. In particular, it focuses on genetics." |
-| To illustrate | "The economy is struggling. To illustrate, unemployment has risen sharply." |
-| Such as | "Tropical fruits, such as mangoes and papayas, are rich in vitamins." |
-
-**Category 5: Sequence / Order / Time**
-These transitions show the order of events or steps.
-
-| Transition | Example |
-|-----------|---------|
-| First, Second, Third | "First, gather the materials. Second, mix the ingredients." |
-| Next | "She finished her homework. Next, she practiced piano." |
-| Then | "He woke up. Then, he brushed his teeth." |
-| Subsequently | "She graduated. Subsequently, she found a job." |
-| Meanwhile | "He cooked dinner. Meanwhile, she set the table." |
-| Finally | "After months of work, she finally completed the project." |
-| Before | "Before you leave, turn off the lights." |
-| After | "After the meeting, we went to lunch." |
-| Previously | "Previously, the company had operated at a loss." |
-| Eventually | "She practiced every day. Eventually, she mastered the piece." |
-
-**Category 6: Conclusion / Summary**
-These transitions signal a conclusion or summary.
-
-| Transition | Example |
-|-----------|---------|
-| In conclusion | "In conclusion, the evidence supports the theory." |
-| To sum up | "To sum up, exercise is essential for good health." |
-| In summary | "In summary, the project was a success." |
-| Overall | "Overall, the new policy has been beneficial." |
-| In short | "In short, we need to work harder." |
-| Ultimately | "Ultimately, the decision is yours." |
-| All in all | "All in all, it was a great experience." |
-
-**Category 7: Similarity / Comparison**
-These transitions show that two ideas are similar.
-
-| Transition | Example |
-|-----------|---------|
-| Similarly | "She excels in math. Similarly, she is strong in science." |
-| Likewise | "He was praised for his work. Likewise, her efforts were recognized." |
-| In the same way | "She helps her colleagues. In the same way, she mentors new employees." |
-| By the same token | "We should respect our elders. By the same token, we should listen to experts." |
-| Equally | "Both candidates were qualified. Equally, both had strong leadership skills." |
-
-**Category 8: Condition**
-These transitions introduce a condition.
-
-| Transition | Example |
-|-----------|---------|
-| If | "If it rains, the game will be canceled." |
-| Unless | "Unless you study, you will not pass." |
-| Provided that | "You can go, provided that you finish your homework." |
-| As long as | "As long as you try your best, I will be proud." |
-
----
-
-#### 5.2 How to Approach Transition Questions
-
-**Step 1:** Read the sentence containing the transition AND the sentences before and after it.
-
-**Step 2:** Determine the logical relationship between the ideas:
-- Does the second sentence ADD to the first? → Addition
-- Does the second sentence CONTRADICT the first? → Contrast
-- Does the second sentence RESULT from the first? → Cause/Effect
-- Does the second sentence GIVE AN EXAMPLE? → Example
-- Does the second sentence SHOW ORDER? → Sequence
-- Does the second sentence SUMMARIZE? → Conclusion
-
-**Step 3:** Eliminate answer choices that don't match the relationship.
-
-**Step 4:** If two choices seem correct, look at the PUNCTIATION and GRAMMAR of the transition:
-- "However" needs a semicolon before it and a comma after it when joining two independent clauses.
-- "Therefore" follows the same pattern.
-- "For example" can begin a sentence or be inserted after a comma.
-
-**Example:**
-
-> "The new policy was designed to reduce costs. __________, it actually increased expenses."
-
-**Analysis:** The second sentence CONTRASTS with what was expected. We need a contrast transition.
-
-**Answer choices:**
-A) Therefore (cause/effect) ✗
-B) However (contrast) ✓
-C) For example (example) ✗
-D) Furthermore (addition) ✗
-
-**Answer: B) However**
-
----
-
-#### 5.3 Transitions Within a Single Sentence
-
-Some transition questions ask you to complete a single sentence with a transition word. The same logic applies—identify the relationship between the two parts of the sentence.
-
-**Example:**
-
-> "__________ the experiment was well-designed, the results were inconclusive."
-
-The first clause acknowledges something positive, but the second clause presents a contrasting outcome. We need a concessive transition.
-
-**Answer:** "Although the experiment was well-designed, the results were inconclusive."
-
----
-
-#### 5.4 Transitions Between Paragraphs
-
-Sometimes the SAT/ACT asks you to choose the best transition sentence to connect two paragraphs. In these cases:
-
-1. Read the LAST sentence of the first paragraph.
-2. Read the FIRST sentence of the second paragraph.
-3. Determine the relationship between the two paragraphs.
-4. Choose the option that best bridges the ideas.
-
----
-
-## PART III: READING COMPREHENSION STRATEGIES
-
----
-
-### Section 6: Active Reading and Annotation
-
-The SAT and ACT Reading sections test your ability to understand, analyze, and interpret passages. Success requires more than just reading—it requires **active engagement** with the text.
-
----
-
-#### 6.1 The Annotation Method
-
-**Step 1: Read the passage once, focusing on understanding.**
-
-Don't try to memorize every detail. Instead, focus on:
-- What is the MAIN IDEA of each paragraph?
-- What is the AUTHOR'S PURPOSE? (To inform, persuade, argue, describe, explain?)
-- What is the AUTHOR'S TONE? (Neutral, critical, enthusiastic, skeptical, sympathetic?)
-
-**Step 2: Circle or highlight transitional words and phrases.**
-
-Transitions are the skeleton of a passage's argument. By marking them, you can quickly see how ideas connect:
-- "However" → the author is about to contrast
-- "For example" → evidence is coming
-- "Therefore" → a conclusion is being drawn
-- "Furthermore" → additional support is being added
-
-**Step 3: Write a brief margin note for each paragraph.**
-
-In 3-5 words, summarize the main point of each paragraph. This creates a "map" of the passage that you can refer back to when answering questions.
-
-**Example:**
-
-> Paragraph 1: "History of steam cars"
-> Paragraph 2: "Why steam cars failed"
-> Paragraph 3: "Modern revival efforts"
-> Paragraph 4: "Environmental benefits"
-
-**Step 4: Identify the author's main claim or purpose.**
+$$A = 1000(1 + 0.05)^3 = 1000(1.157625) = 1157.63$$
 
-After reading, ask yourself:
-- What is the author trying to convince me of?
-- What is the central argument or point?
-- Is the author objective or biased?
+**Key Insight:** Compound interest always yields more than simple interest (for the same rate and time period) because you earn "interest on interest."
 
----
-
-#### 6.2 Passage Types and Strategies
-
-**Type 1: Literary Narrative (SAT/ACT)**
-
-These passages are excerpts from novels, short stories, or memoirs. Focus on:
-- **Character motivations:** Why does a character do what they do?
-- **Tone and mood:** What feeling does the passage convey?
-- **Foreshadowing:** What future events are hinted at?
-- **Symbolism:** What do objects, settings, or actions represent?
-
-**Strategy:** Pay attention to what characters say, think, and do. The correct answer will always be supported by specific details in the passage—never by outside knowledge or assumptions.
-
----
-
-**Type 2: Humanities (SAT)**
-
-These passages are about art, literature, philosophy, or cultural topics. They often feature:
-- A discussion of an artist, writer, or thinker's work
-- An analysis of a cultural phenomenon
-- A debate about interpretation or meaning
-
-**Strategy:** Identify the author's perspective on the subject. Is the author praising, critiquing, or analyzing? Look for evaluative language (adjectives, adverbs) that reveal the author's attitude.
-
----
-
-**Type 3: Science Passages (SAT/ACT)**
-
-These passages present scientific information, research findings, or debates about scientific topics. Focus on:
-- **The main finding or hypothesis:** What did the research discover or propose?
-- **The evidence:** What data or observations support the claim?
-- **The methodology:** How was the research conducted?
-- **Conflicting viewpoints:** Are there competing theories or interpretations?
-
-**Strategy:** Don't get bogged down in technical details. Focus on the BIG PICTURE: What is the main idea? What evidence supports it? What are the implications?
-
----
-
-**Type 4: History/Social Science (SAT)**
-
-These passages are about historical events, social issues, or political ideas. They often feature:
-- A primary source (speech, letter, historical document)
-- An analysis of a historical event or movement
-- A debate about policy or social change
-
-**Strategy:** Identify the author's argument and the evidence used to support it. Pay attention to the historical context and the author's purpose in writing.
-
----
-
-#### 6.3 Question Types and How to Answer Them
-
-**Type 1: Main Idea / Primary Purpose**
-
-These questions ask: "What is the passage mainly about?" or "The primary purpose of the passage is to..."
-
-**Strategy:**
-- Look at your margin notes for each paragraph.
-- Identify the common thread that runs through all paragraphs.
-- Eliminate answers that are too narrow (focusing on one detail) or too broad (going beyond the passage's scope).
-
-**Wrong answer traps:**
-- Too specific: focuses on one paragraph only
-- Too general: goes beyond what the passage actually discusses
-- Distortion: twists the author's meaning slightly
-- Opposite: states the opposite of what the author argues
-
----
-
-**Type 2: Detail / Specific Information**
-
-These questions ask about a specific fact, detail, or piece of information in the passage.
-
-**Strategy:**
-- Use your margin notes to locate the relevant paragraph.
-- Go back to the passage and read the specific lines carefully.
-- The correct answer will be a PARAPHRASE of what the passage says—not an exact quote.
-
-**Wrong answer traps:**
-- Uses words from the passage but changes the meaning
-- States something that is TRUE but not mentioned in the passage
-- Confuses two similar details from different parts of the passage
-
----
-
-**Type 3: Inference**
-
-These questions ask you to draw a conclusion based on information in the passage. The answer is NOT directly stated but can be logically inferred.
-
-**Strategy:**
-- Find the specific lines that relate to the question.
-- Ask: "What MUST be true based on this information?"
-- The correct answer will be strongly supported by the text, even if not explicitly stated.
-
-**Wrong answer traps:**
-- Too extreme: uses words like "always," "never," "only," "all"
-- Not supported: goes beyond what the passage implies
-- Contradicted: directly contradicts information in the passage
-
----
-
-**Type 4: Vocabulary in Context**
-
-These questions ask what a word or phrase means AS USED IN THE PASSAGE.
-
-**Strategy:**
-- Go back to the passage and read the sentence containing the word.
-- Try replacing the word with each answer choice.
-- Choose the option that best fits the CONTEXT—not necessarily the most common definition.
-
-**Example:**
-
-> "The scientist's theory was **novel** and challenged existing assumptions."
-
-What does "novel" mean in this context?
-A) Fictional
-B) New and original ✓
-C) Lengthy
-D) Controversial
-
-Even though "novel" can mean a work of fiction, the context ("challenged existing assumptions") tells us it means "new and original."
-
----
-
-**Type 5: Function / Rhetorical Purpose**
-
-These questions ask WHY the author includes a particular detail, example, or paragraph.
-
-**Strategy:**
-- Look at the context: What comes before and after the referenced material?
-- Ask: "What role does this play in the author's argument?"
-- Common functions: to provide evidence, to introduce a counterargument, to illustrate a point, to transition between ideas, to emphasize a claim.
-
----
-
-**Type 6: Evidence-Based (Command of Evidence)**
-
-These questions ask: "Which choice provides the best evidence for the answer to the previous question?" OR "Which lines best support the answer?"
-
-**Strategy:**
-- Go back to the lines referenced in each answer choice.
-- Determine which set of lines MOST DIRECTLY supports the answer to the previous question.
-- The correct evidence will be specific and directly relevant—not just vaguely related.
-
----
-
-**Type 7: Paired Passages**
-
-The SAT often presents two shorter passages on the same topic. Questions may ask about each passage individually or about the relationship between them.
-
-**Strategy:**
-- Read Passage 1 and answer questions about it.
-- Read Passage 2 and answer questions about it.
-- For relationship questions, ask: "Do the authors AGREE or DISAGREE?" and "What is each author's main point?"
-
----
-
-#### 6.4 The Process of Elimination
-
-On the SAT/ACT, it's often easier to eliminate wrong answers than to identify the correct one immediately. Here's how:
-
-**Eliminate answers that:**
-1. **Are too extreme** — Words like "always," "never," "all," "none," "only" are rarely correct.
-2. **Are too vague** — If an answer could apply to ANY passage, it's probably wrong.
-3. **Contradict the passage** — Even partially.
-4. **Are not supported by evidence** — If you can't point to specific lines that support it, eliminate it.
-5. **Distort the author's meaning** — Close but slightly off.
-6. **Are true but irrelevant** — The statement may be true in real life, but if it's not discussed in the passage, it's wrong.
-
----
-
-#### 6.5 Time Management Strategies
-
-**For the SAT Reading Section (65 minutes, 5 passages):**
-- Spend approximately 13 minutes per passage (including reading and answering questions).
-- Read the passage in 3-4 minutes.
-- Answer questions in 8-9 minutes.
-- If a question is taking too long, mark it and come back.
-
-**For the ACT Reading Section (35 minutes, 4 passages):**
-- Spend approximately 8-9 minutes per passage.
-- Read the passage in 3 minutes.
-- Answer questions in 5-6 minutes.
-- The ACT is more time-pressured, so practice reading quickly while maintaining comprehension.
-
-**General Tips:**
-- Read the passage BEFORE looking at the questions.
-- Answer the questions you find easiest first.
-- Always go back to the passage for evidence—don't rely on memory.
-- Don't spend more than 1 minute on any single question.
-
----
-
-### Section 7: Rhetorical Synthesis
-
-The SAT Digital format includes a question type called **Rhetorical Synthesis**, which presents you with bullet-pointed notes about a topic and asks you to combine the information into a sentence that meets a specific rhetorical goal.
-
----
-
-#### 7.1 How to Approach Rhetorical Synthesis Questions
-
-**Step 1: Read the question prompt carefully.**
-
-Identify the CLAIM you need to make and the EVIDENCE you need to use.
-
-**Step 2: Review the bullet points.**
-
-Each bullet point contains a fact, detail, or piece of information. Determine which bullets are RELEVANT to the claim you need to make.
-
-**Step 3: Synthesize the information.**
-
-Combine the relevant bullet points into a single, clear sentence that:
-- Makes the required claim
-- Uses the required evidence
-- Is grammatically correct
-- Is concise (not wordy)
-
-**Step 4: Evaluate the answer choices.**
-
-Choose the option that best accomplishes the rhetorical goal stated in the prompt.
-
----
-
-#### 7.2 Common Rhetorical Goals
-
-- **Emphasize a contrast:** Use "however," "while," "in contrast"
-- **Provide evidence:** Use "for example," "as shown by," "according to"
-- **Draw a conclusion:** Use "therefore," "thus," "as a result"
-- **Add information:** Use "additionally," "moreover," "furthermore"
-- **Concede a point:** Use "although," "despite," "while"
-
----
-
-### Section 8: Words in Context
-
-The SAT frequently tests your ability to determine the meaning of a word based on how it's used in a passage. This is NOT about memorizing vocabulary (though that helps)—it's about using CONTEXT CLUES.
-
----
-
-#### 8.1 Types of Context Clues
-
-**Type 1: Definition Clue**
-The passage directly defines the word.
-- "The **ephemeral** nature of the flowers—lasting only a day—made them precious."
-
-**Type 2: Synonym Clue**
-A similar word appears nearby.
-- "She was **elated**, **overjoyed** at the news."
-
-**Type 3: Antonym Clue**
-An opposite word or contrast signal appears nearby.
-- "Unlike his **gregarious** brother, who loved parties, he was quiet and reserved."
-
-**Type 4: Example Clue**
-Examples help clarify the meaning.
-- "The museum displayed **artifacts**—pottery, tools, and jewelry—from ancient civilizations."
-
-**Type 5: Inference Clue**
-The overall context suggests the meaning.
-- "After months of **drought**, the rains finally came, and the parched earth drank deeply."
-
----
-
-#### 8.2 Strategy for Words in Context Questions
-
-1. **Cover the answer choices** and read the sentence with the word.
-2. **Predict** what the word means based on context.
-3. **Uncover the choices** and find the one closest to your prediction.
-4. **Plug it back in** to verify it makes sense.
-
----
-
-## PART IV: PRACTICE PROBLEMS WITH DETAILED EXPLANATIONS
-
----
-
-### Grammar Practice
-
-**Problem 1:**
-
-> "The committee, composed of twelve members from various departments, (has/have) reached a decision."
-
-**Answer:** has
-
-**Explanation:** "Committee" is a collective noun treated as singular in American English. The prepositional phrase "of twelve members from various departments" does NOT change the subject. The subject is "committee" (singular), so the verb must be "has."
-
----
-
-**Problem 2:**
-
-> "Neither the students nor the teacher (was/were) aware of the schedule change."
-
-**Answer:** was
-
-**Explanation:** With "neither...nor," the verb agrees with the subject CLOSEST to it. "Teacher" is singular, so the verb is "was."
-
----
-
-**Problem 3:**
-
-> "The book that I borrowed from the library, which was recommended by my professor, (is/are) overdue."
-
-**Answer:** is
-
-**Explanation:** The subject is "book" (singular). The relative clauses "that I borrowed from the library" and "which was recommended by my professor" are both modifiers and do not affect subject-verb agreement. The verb must be "is."
+**The Rule of 72 (Approximation):** To estimate how long it takes for an investment to double at a given annual interest rate, divide 72 by the interest rate:
 
----
-
-**Problem 4:**
-
-> "Running through the park at dawn, (the sunrise was/Sarah saw) breathtaking."
-
-**Answer:** Sarah saw
-
-**Explanation:** The introductory clause "Running through the park at dawn" contains an action. The subject of the main clause must be the person who was running. "The sunrise" cannot run, so the correct subject is "Sarah."
-
----
-
-**Problem 5:**
-
-> "The data in the report (shows/show) a significant increase in sales."
-
-**Answer:** show
-
-**Explanation:** "Data" is technically the plural of "datum." On the SAT/ACT, "data" is usually treated as plural. The prepositional phrase "in the report" does not affect the subject. Therefore, the verb should be "show."
-
----
-
-### Punctuation Practice
-
-**Problem 6:**
-
-> "She wanted to go to the concert. However she couldn't get tickets."
-
-Which is the best correction?
-
-A) NO CHANGE
-B) concert, however she
-C) concert; however, she
-D) concert, however, she
-
-**Answer:** C
-
-**Explanation:** "However" is a conjunctive adverb joining two independent clauses. The correct punctuation is a semicolon before "however" and a comma after it.
-
----
-
-**Problem 7:**
-
-> "The three main causes of the war were: economic instability, political corruption, and social unrest."
-
-Which correction should be made?
-
-A) NO CHANGE
-B) were economic
-C) were; economic
-D) were, economic
-
-**Answer:** B
-
-**Explanation:** A colon should NOT be used after a verb ("were") that directly introduces a list. The correct version simply removes the colon: "The three main causes of the war were economic instability, political corruption, and social unrest."
-
----
-
-**Problem 8:**
-
-> "My sister a talented artist painted a beautiful mural."
-
-Which correction should be made?
-
-A) NO CHANGE
-B) sister, a talented artist, painted
-C) sister; a talented artist; painted
-D) sister: a talented artist: painted
-
-**Answer:** B
-
-**Explanation:** "A talented artist" is a nonessential appositive that renames "my sister." It must be set off by commas on BOTH sides.
-
----
-
-### Transition Practice
-
-**Problem 9:**
-
-> "The new highway reduced commute times significantly. __________, it also led to increased air pollution in nearby neighborhoods."
-
-A) Therefore
-B) However
-C) For example
-D) Furthermore
-
-**Answer:** D
-
-**Explanation:** The second sentence ADDS another consequence of the new highway. It's not a contrast (B), a conclusion (A), or an example (C). "Furthermore" correctly signals an additional point.
-
----
-
-**Problem 10:**
-
-> "__________ the company's profits have increased, employee satisfaction has declined."
-
-A) Because
-B) Although
-C) Therefore
-D) Similarly
-
-**Answer:** B
-
-**Explanation:** The sentence presents a CONTRAST: profits up, satisfaction down. "Although" is the correct concessive transition to show this unexpected relationship.
-
----
-
-**Problem 11:**
-
-> "The experiment yielded unexpected results. __________, the researchers decided to revise their hypothesis."
-
-A) However
-B) For instance
-C) Consequently
-D) Meanwhile
-
-**Answer:** C
-
-**Explanation:** The unexpected results CAUSED the researchers to revise their hypothesis. This is a cause-and-effect relationship. "Consequently" (meaning "as a result") is the correct transition.
-
----
-
-### Reading Comprehension Practice
-
-**Passage Excerpt:**
-
-> "The concept of the 'zone of proximal development' was introduced by psychologist Lev Vygotsky to describe the gap between what a learner can do without help and what they can achieve with guidance. A learner completes a task with the assistance of a more knowledgeable other, such as a teacher or peer; subsequently, the learner internalizes the skill and can perform the task independently."
-
-**Question:** As used in the passage, "subsequently" most nearly means
+$$\text{Years to double} \approx \frac{72}{\text{Interest Rate (\%)}}$$
 
-A) However
-B) Therefore
-C) Afterward
-D) Simultaneously
+**Example:** At 6% annual interest, an investment will double in approximately $\frac{72}{6} = 12$ years.
 
-**Answer:** C
-
-**Explanation:** The context shows a sequence: first the learner gets help, THEN they internalize the skill. "Subsequently" means "afterward" or "following that." It indicates a temporal sequence, not a contrast (A), a conclusion (B), or simultaneity (D).
-
----
-
-**Question:** The primary purpose of the passage is to
-
-A) argue that teachers are essential for learning
-B) explain a psychological concept
-C) compare different learning theories
-D) criticize traditional education methods
-
-**Answer:** B
-
-**Explanation:** The passage is explanatory in nature. It introduces and defines Vygotsky's "zone of proximal development." It does not argue (A), compare theories (C), or criticize (D). The author's purpose is purely informational.
-
----
-
-## PART V: COMPREHENSIVE REVIEW CHECKLIST
-
----
-
-### Grammar Checklist
-
-- [ ] Can I identify the subject of a sentence by crossing out prepositional phrases, relative clauses, and comma clauses?
-- [ ] Do I know which indefinite pronouns are always singular vs. plural?
-- [ ] Can I spot dangling modifiers (where the subject doesn't match the introductory clause)?
-- [ ] Do I know the difference between "its" and "it's," "whose" and "who's," "their/they're/there"?
-- [ ] Can I identify comma splices and run-on sentences?
-- [ ] Do I know when to use a semicolon vs. a comma vs. a colon?
-- [ ] Can I maintain tense consistency in a passage?
-
-### Punctuation Checklist
-
-- [ ] Do I know the 8 comma rules?
-- [ ] Can I use semicolons to join independent clauses?
-- [ ] Do I know that a colon must follow a complete sentence?
-- [ ] Can I use dashes for emphasis or to set off nonessential information?
-- [ ] Do I know when apostrophes indicate possession vs. contraction?
-
-### Transitions Checklist
-
-- [ ] Can I identify the 8 transition categories (addition, contrast, cause/effect, example, sequence, conclusion, similarity, condition)?
-- [ ] Can I determine the logical relationship between two ideas?
-- [ ] Do I know the punctuation rules for transitions like "however," "therefore," "for example"?
-
-### Reading Comprehension Checklist
-
-- [ ] Can I annotate a passage effectively (margin notes, transition marking)?
-- [ ] Can I identify the main idea and author's purpose?
-- [ ] Can I distinguish between main idea, detail, inference, and function questions?
-- [ ] Can I use the process of elimination to narrow down answer choices?
-- [ ] Can I find textual evidence to support my answers?
-- [ ] Can I determine word meanings from context clues?
-- [ ] Can I manage my time effectively on reading sections?
-
----
-
-## PART VI: FINAL PRACTICE TEST
-
 ---
-
-### Section A: Grammar (10 Questions)
-
-**Directions:** Each sentence contains an error in grammar, usage, or mechanics. Choose the answer that corrects the error. If there is no error, choose A (NO CHANGE).
-
-**1.** The collection of rare manuscripts, including several from the 15th century, are on display at the museum.
-
-A) NO CHANGE
-B) is on display
-C) were on display
-D) have been on display
-
-**Answer:** B — "Collection" is a singular collective noun. The prepositional phrase "of rare manuscripts" does not change the subject.
-
-**2.** Each of the participants in the study were required to sign a consent form.
-
-A) NO CHANGE
-B) was required
-C) are required
-D) have been required
-
-**Answer:** B — "Each" is always singular. The prepositional phrase "of the participants in the study" does not affect subject-verb agreement.
 
-**3.** Walking through the ancient ruins, the history of the civilization came alive for the tourists.
+## Part III: Probability and Statistics
 
-A) NO CHANGE
-B) the tourists felt the history of the civilization come alive
-C) the history was coming alive for tourists
-D) there was a sense of history coming alive
+### Measures of Center: Mean, Median, and Mode
 
-**Answer:** B — The introductory clause "Walking through the ancient ruins" requires the subject to be the people who were walking. Only option B provides a logical subject ("the tourists").
+**Mean (Average):**
 
-**4.** The reason she failed the test is because she didn't study.
+The mean is the sum of all values divided by the number of values:
 
-A) NO CHANGE
-B) is that she didn't study
-C) is due to her not studying
-D) is on account of her not studying
+$$\text{Mean} = \frac{\text{Sum of all values}}{\text{Number of values}} = \frac{\sum x_i}{n}$$
 
-**Answer:** B — "The reason...is because" is redundant. The correct construction is "The reason...is that..."
+**Example:** Find the mean of $\{4, 7, 9, 12, 18\}$:
 
-**5.** Neither the manager nor the employees was willing to compromise.
+$$\text{Mean} = \frac{4 + 7 + 9 + 12 + 18}{5} = \frac{50}{5} = 10$$
 
-A) NO CHANGE
-B) were willing
-C) has been willing
-D) is willing
+**Weighted Mean:**
 
-**Answer:** B — With "neither...nor," the verb agrees with the closest subject. "Employees" is plural, so the verb should be "were."
+When different values have different weights (importance or frequency), the weighted mean is:
 
-**6.** The team, along with their coaches, are traveling to the championship.
+$$\text{Weighted Mean} = \frac{\sum (x_i \times w_i)}{\sum w_i}$$
 
-A) NO CHANGE
-B) is traveling
-C) were traveling
-D) have been traveling
+**Example:** A student's grades are: Homework (20% weight, score 90), Midterm (30% weight, score 80), Final (50% weight, score 85).
 
-**Answer:** B — "Along with" does not create a compound noun. The subject is "team" (singular collective noun), so the verb should be "is."
+$$\text{Weighted Mean} = \frac{90(0.20) + 80(0.30) + 85(0.50)}{0.20 + 0.30 + 0.50} = \frac{18 + 24 + 42.5}{1} = 84.5$$
 
-**7.** Having been notified of the changes, the report was revised by the committee.
+**Median:**
 
-A) NO CHANGE
-B) the committee revised the report
-C) there was a revision of the report by the committee
-D) the report underwent revision
+The median is the middle value when the data is arranged in ascending order.
 
-**Answer:** B — The introductory clause "Having been notified of the changes" requires the subject to be the people who were notified. Only option B provides a logical subject ("the committee").
+- If $n$ (the number of values) is **odd**, the median is the middle value.
+- If $n$ is **even**, the median is the average of the two middle values.
 
-**8.** The number of students who participate in extracurricular activities have increased.
+**Example (Odd):** $\{3, 5, 7, 9, 11\}$ — Median = 7 (the 3rd value)
 
-A) NO CHANGE
-B) has increased
-C) are increasing
-D) were increasing
+**Example (Even):** $\{3, 5, 7, 9, 11, 13\}$ — Median = $\frac{7 + 9}{2} = 8$
 
-**Answer:** B — "The number of" is always singular. Compare with "A number of" (plural).
+**Mode:**
 
-**9.** She is one of those students who always completes their homework on time.
+The mode is the value that appears **most frequently** in the data set.
 
-A) NO CHANGE
-B) complete their homework on time
-C) completes her homework on time
-D) complete his or her homework on time
+**Example:** $\{2, 3, 3, 5, 5, 5, 7\}$ — Mode = 5
 
-**Answer:** B — The relative clause "who always complete" modifies "students" (plural), so the verb should be "complete." The pronoun "their" also agrees with the plural antecedent.
+A data set can have:
+- **One mode** (unimodal)
+- **Two modes** (bimodal)
+- **More than two modes** (multimodal)
+- **No mode** (if all values appear with equal frequency)
 
-**10.** Between you and I, the decision was unfair.
+**Relationship Between Mean, Median, and Mode:**
 
-A) NO CHANGE
-B) you and me
-C) I and you
-D) me and you
+- In a **symmetric** distribution: Mean $\approx$ Median $\approx$ Mode
+- In a **right-skewed** (positively skewed) distribution: Mode < Median < Mean (the mean is pulled toward the high outliers)
+- In a **left-skewed** (negatively skewed) distribution: Mean < Median < Mode (the mean is pulled toward the low outliers)
 
-**Answer:** B — After the preposition "between," the pronouns must be in the objective case: "you and me."
+The SAT may ask you to identify the shape of a distribution based on the relationship between these measures, or to determine which measure is most appropriate for a given data set.
 
----
-
-### Section B: Punctuation (8 Questions)
-
-**11.** The conference will feature speakers from three fields: medicine, engineering, and education.
-
-A) NO CHANGE
-B) fields, medicine,
-C) fields; medicine,
-D) fields medicine,
-
-**Answer:** A — The colon correctly follows a complete sentence and introduces a list.
-
-**12.** She was an excellent student, she graduated with honors.
-
-A) NO CHANGE
-B) student; she graduated
-C) student she graduated
-D) student, and she graduated
-
-**Answer:** B — Two independent clauses cannot be joined by a comma alone (comma splice). A semicolon is correct here. Option D would also be grammatically correct with "and," but B is the best choice given the options.
-
-**13.** The ingredients for the recipe include: flour, sugar, eggs, and butter.
-
-A) NO CHANGE
-B) include flour,
-C) include; flour,
-D) include: flour;
-
-**Answer:** B — A colon should NOT be used after a verb that directly introduces a list. Remove the colon.
-
-**14.** My uncle, a retired pilot has traveled to over fifty countries.
-
-A) NO CHANGE
-B) pilot, has traveled
-C) pilot; has traveled
-D) pilot has traveled
-
-**Answer:** B — "A retired pilot" is a nonessential appositive that must be set off by commas on BOTH sides.
-
-**15.** The project was challenging however, the team completed it on time.
-
-A) NO CHANGE
-B) challenging, however, the
-C) challenging; however, the
-D) challenging, however; the
+**When to Use Each Measure:**
+- **Mean:** Best for data without extreme outliers; uses all data points.
+- **Median:** Best for data with extreme outliers or skewed distributions; represents the "typical" value.
+- **Mode:** Best for categorical data or when identifying the most common value.
 
-**Answer:** C — "However" is a conjunctive adverb joining two independent clauses. The correct punctuation is a semicolon before and a comma after.
+### Measures of Spread: Range, Interquartile Range, and Standard Deviation
 
-**16.** The company's CEO—a visionary leader with decades of experience announced the new strategy.
+**Range:**
 
-A) NO CHANGE
-B) experience—announced
-C) experience, announced
-D) experience; announced
+The range is the difference between the maximum and minimum values:
 
-**Answer:** B — The appositive "a visionary leader with decades of experience" must be set off by dashes on BOTH sides (or commas on both sides). The closing dash is missing.
+$$\text{Range} = \text{Maximum} - \text{Minimum}$$
 
-**17.** The childrens' toys were scattered across the room.
+**Example:** $\{4, 7, 9, 12, 18\}$ — Range = $18 - 4 = 14$
 
-A) NO CHANGE
-B) children's toys
-C) childrens toys
-D) childrens's toys
+The range is simple to calculate but is heavily affected by outliers.
 
-**Answer:** B — "Children" is an irregular plural (not ending in s), so the possessive is formed by adding 's: "children's."
+**Interquartile Range (IQR):**
 
-**18.** Its unclear whether they're going to finish on time.
+The IQR measures the spread of the middle 50% of the data:
 
-A) NO CHANGE
-B) It's unclear whether they're
-C) Its unclear whether their
-D) It's unclear whether their
+$$\text{IQR} = Q_3 - Q_1$$
 
-**Answer:** B — "Its" (possessive) should be "It's" (contraction of "it is"). "They're" (contraction of "they are") is correct because the sentence needs a subject and verb, not a possessive pronoun.
+where:
+- $Q_1$ (first quartile) is the median of the lower half of the data
+- $Q_3$ (third quartile) is the median of the upper half of the data
 
----
-
-### Section C: Transitions (6 Questions)
-
-**19.** The new software is highly efficient. __________, it requires significant training to use effectively.
-
-A) Therefore
-B) However
-C) For example
-D) Furthermore
+**Example:** $\{1, 3, 5, 7, 9, 11, 13, 15, 17\}$
 
-**Answer:** B — The second sentence presents a drawback that contrasts with the positive first sentence.
+- The median is 9.
+- Lower half: $\{1, 3, 5, 7\}$ — $Q_1 = \frac{3+5}{2} = 4$
+- Upper half: $\{11, 13, 15, 17\}$ — $Q_3 = \frac{13+15}{2} = 14$
+- $\text{IQR} = 14 - 4 = 10$
 
-**20.** The city has invested heavily in public transportation. __________, the number of bus routes has doubled, and three new subway lines have opened.
+**Outlier Detection Using IQR:**
 
-A) However
-B) In contrast
-C) For instance
-D) Specifically
+A value is considered an outlier if it falls below $Q_1 - 1.5 \times \text{IQR}$ or above $Q_3 + 1.5 \times \text{IQR}$.
 
-**Answer:** D — The second sentence provides SPECIFIC details about the investment mentioned in the first sentence. "Specifically" signals this elaboration.
+**Standard Deviation:**
 
-**21.** __________ the risks involved, the explorers decided to continue their journey.
+The standard deviation measures the average distance of each data point from the mean. While you will **not** be asked to calculate the standard deviation by hand on the SAT, you need to understand what it represents and how to interpret it.
 
-A) Because of
-B) Despite
-C) As a result of
-D) Similarly to
+- A **smaller** standard deviation means the data points are clustered more tightly around the mean.
+- A **larger** standard deviation means the data points are more spread out.
 
-**Answer:** B — The sentence shows that the explorers continued EVEN THOUGH there were risks. This is a concessive relationship.
+**Key Properties:**
+- Standard deviation is always **non-negative**.
+- If all values in a data set are the same, the standard deviation is **0**.
+- Adding a constant to every value shifts the mean but does **not** change the standard deviation.
+- Multiplying every value by a constant multiplies both the mean and the standard deviation by that constant.
 
-**22.** The experiment was conducted under controlled conditions. __________, the results may not apply to real-world situations.
+**Comparing Standard Deviations:**
 
-A) Therefore
-B) Moreover
-C) However
-D) For example
+The SAT may present two data sets and ask you to compare their standard deviations. You can often determine this by visual inspection:
+- The data set with values more spread out from the mean has the larger standard deviation.
+- The data set with values more clustered around the mean has the smaller standard deviation.
 
-**Answer:** C — The second sentence LIMITS or CONTRASTS with the implication of the first. The controlled conditions suggest reliability, but the author cautions that real-world application may differ.
+### Data Interpretation: Tables, Graphs, and Charts
 
-**23.** She practiced the piano for six hours a day. __________, she won the national competition.
+The SAT frequently presents data in visual formats and asks you to extract information, identify trends, and draw conclusions. You should be comfortable with the following types of data displays:
 
-A) However
-B) Meanwhile
-C) Consequently
-D) Although
+**Bar Graphs:**
+- Used to compare quantities across categories.
+- The height (or length) of each bar represents the value.
+- Pay attention to the scale and units on the axes.
 
-**Answer:** C — The intense practice LED TO her winning. This is a cause-and-effect relationship.
+**Line Graphs:**
+- Used to show trends over time.
+- The slope of the line indicates the rate of change.
+- Steeper slopes indicate faster rates of change.
 
-**24.** The first theory suggests that the phenomenon is caused by temperature changes. __________ proposes that pressure variations are responsible.
+**Scatterplots:**
+- Used to show the relationship between two variables.
+- Each point represents one data pair $(x, y)$.
+- A **line of best fit** (or trend line) can be drawn to model the relationship.
+- The **correlation** can be positive (as $x$ increases, $y$ increases), negative (as $x$ increases, $y$ decreases), or nonexistent.
 
-A) The second theory
-B) Similarly, the second theory
-C) Therefore, the second theory
-D) For example, the second theory
+**Pie Charts:**
+- Used to show parts of a whole.
+- Each sector's angle is proportional to the percentage it represents.
+- To find the percentage: $\frac{\text{Sector Angle}}{360°} \times 100\%$
 
-**Answer:** A — The sentence simply introduces a second, alternative theory. No transition word is needed because the structure ("The first... The second...") already signals the relationship.
+**Histograms:**
+- Used to show the distribution of continuous data.
+- The data is grouped into intervals (bins), and the height of each bar represents the frequency.
+- Unlike bar graphs, the bars in a histogram touch each other (no gaps).
 
----
-
-### Section D: Reading Comprehension (5 Questions)
+**Box-and-Whisker Plots (Box Plots):**
+- Display the five-number summary: minimum, $Q_1$, median, $Q_3$, maximum.
+- The "box" spans from $Q_1$ to $Q_3$, with a line at the median.
+- The "whiskers" extend to the minimum and maximum (or to the most extreme non-outlier values).
+- The length of the box represents the IQR.
 
-**Passage:**
+**Two-Way Tables (Contingency Tables):**
+- Display the frequency of data categorized by two variables.
+- Marginal frequencies are the totals for each row and column.
+- Joint frequencies are the values in the interior cells.
 
-> The Industrial Revolution, which began in Britain in the late 18th century, fundamentally transformed the nature of work. Prior to industrialization, most production occurred in homes or small workshops, with skilled artisans crafting goods by hand. The introduction of mechanized production in factories shifted labor from rural areas to urban centers, creating a new class of industrial workers. While this transition generated unprecedented economic growth, it also brought significant social challenges, including poor working conditions, child labor, and urban overcrowding. Reform movements eventually emerged to address these issues, leading to labor laws and regulations that shaped modern employment practices.
+**Example:** A survey of 200 students asks whether they play a sport and whether they play a musical instrument.
 
-**25.** The primary purpose of the passage is to
+| | Play Instrument | Don't Play Instrument | Total |
+|:---|:---:|:---:|:---:|
+| **Play Sport** | 40 | 60 | 100 |
+| **Don't Play Sport** | 30 | 70 | 100 |
+| **Total** | 70 | 130 | 200 |
 
-A) argue that the Industrial Revolution was harmful to society
-B) describe the transformation of work during the Industrial Revolution
-C) compare pre-industrial and post-industrial working conditions
-D) explain the causes of the Industrial Revolution
+From this table, you can answer questions like:
+- How many students play a sport? **100** (row total)
+- How many students play an instrument? **70** (column total)
+- How many students play both a sport and an instrument? **40** (joint frequency)
+- How many students play a sport but don't play an instrument? **60**
+- What percentage of students who play a sport also play an instrument? $\frac{40}{100} \times 100\% = 40\%$
 
-**Answer:** B — The passage describes how the Industrial Revolution changed the nature of work, covering both the shift to mechanized production and its social consequences. It does not primarily argue (A), compare (C), or explain causes (D).
+### Probability Fundamentals
 
-**26.** As used in the passage, "unprecedented" most nearly means
+**Basic Probability:**
 
-A) unexpected
-B) unmatched in scale
-C) unwelcome
-D) uncontrolled
+The probability of an event $A$ is:
 
-**Answer:** B — The context describes "unprecedented economic growth"—growth that had never been seen before. "Unmatched in scale" best captures this meaning.
+$$P(A) = \frac{\text{Number of favorable outcomes}}{\text{Total number of possible outcomes}}$$
 
-**27.** According to the passage, which of the following was a consequence of industrialization?
+Probability is always between 0 and 1 (inclusive):
+- $P(A) = 0$ means the event is impossible.
+- $P(A) = 1$ means the event is certain.
+- $P(A) = 0.5$ means the event is equally likely to occur or not occur.
 
-A) A decrease in urban population
-B) The elimination of skilled artisan work
-C) The emergence of reform movements
-D) A decline in economic growth
+**Complement Rule:**
 
-**Answer:** C — The passage states that "Reform movements eventually emerged to address these issues." The other options are contradicted by the passage.
+The probability that event $A$ does **not** occur is:
 
-**28.** The passage suggests that the shift to factory production
+$$P(\text{not } A) = 1 - P(A)$$
 
-A) was universally welcomed by workers
-B) occurred gradually over several centuries
-C) created both economic benefits and social problems
-D) primarily affected agricultural workers
+**Example:** If the probability of rain is 0.3, the probability of no rain is $1 - 0.3 = 0.7$.
 
-**Answer:** C — The passage explicitly states that the transition "generated unprecedented economic growth" but "also brought significant social challenges." This dual impact is the central theme.
+**"OR" Rule (Addition Rule):**
 
-**29.** Which of the following best describes the author's tone in the passage?
+For two events $A$ and $B$:
 
-A) Nostalgic
-B) Critical
-C) Objective
-D) Enthusiastic
+$$P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B)$$
 
-**Answer:** C — The author presents information in a balanced, factual manner, noting both the benefits and challenges of industrialization without expressing a strong personal opinion.
-
----
+If $A$ and $B$ are **mutually exclusive** (cannot both occur), then $P(A \text{ and } B) = 0$, and:
 
-## ANSWER KEY
-
-| Question | Answer | Category |
-|----------|--------|----------|
-| 1 | B | SVA |
-| 2 | B | SVA |
-| 3 | B | Modifier |
-| 4 | B | Redundancy |
-| 5 | B | SVA (neither/nor) |
-| 6 | B | SVA (along with) |
-| 7 | B | Modifier |
-| 8 | B | SVA (the number of) |
-| 9 | B | SVA (relative clause) |
-| 10 | B | Pronoun case |
-| 11 | A | Colon |
-| 12 | B | Comma splice |
-| 13 | B | Colon misuse |
-| 14 | B | Appositive commas |
-| 15 | C | Semicolon with however |
-| 16 | B | Dash (appositive) |
-| 17 | B | Apostrophe (irregular plural) |
-| 18 | B | Its vs. it's |
-| 19 | B | Contrast transition |
-| 20 | D | Specificity transition |
-| 21 | B | Concessive transition |
-| 22 | C | Contrast/limitation |
-| 23 | C | Cause/effect transition |
-| 24 | A | No transition needed |
-| 25 | B | Main idea |
-| 26 | B | Vocabulary in context |
-| 27 | C | Detail |
-| 28 | C | Inference |
-| 29 | C | Tone |
+$$P(A \text{ or } B) = P(A) + P(B)$$
 
----
+**"AND" Rule (Multiplication Rule):**
 
-## SUMMARY OF KEY PRINCIPLES
+For two **independent** events $A$ and $B$:
 
-1. **Grammar:** Find the true subject by eliminating prepositional phrases, relative clauses, and comma clauses. Ensure the verb agrees in number. Watch for dangling modifiers after introductory clauses.
+$$P(A \text{ and } B) = P(A) \times P(B)$$
 
-2. **Punctuation:** Master the comma rules (especially the comma splice and nonessential elements). Know when to use semicolons (between independent clauses), colons (after complete sentences, before lists/explanations), and dashes (for emphasis). Never use apostrophes with possessive pronouns.
+Two events are independent if the occurrence of one does not affect the probability of the other.
 
-3. **Transitions:** Always identify the logical relationship between ideas BEFORE looking at answer choices. Eliminate choices that don't match the relationship.
+**Example:** A fair coin is flipped twice. What is the probability of getting heads both times?
 
-4. **Reading Comprehension:** Annotate passages actively. Use margin notes. Always find textual evidence. Eliminate wrong answers using the "too extreme," "not supported," and "distortion" criteria. Manage your time carefully.
+$$P(\text{Heads on 1st}) \times P(\text{Heads on 2nd}) = \frac{1}{2} \times \frac{1}{2} = \frac{1}{4}$$
 
-5. **Practice:** The key to ELA mastery is consistent, deliberate practice. Work through official SAT/ACT practice tests, review every mistake, and understand WHY the correct answer is correct—not just WHAT the correct answer is.
+**Dependent Events:**
 
----
+If the events are **dependent** (the first outcome affects the second), you must adjust the probability of the second event:
 
-*End of Chapter 9*
+$$P(A \text{ and } B) = P(A) \times P(B|A)$$
 
----
+where $P(B|A)$ is the probability of $B$ given that $A$ has occurred.
 
+**Example:** A bag contains 5 red marbles and 3 blue marbles. Two marbles are drawn without replacement. What is the probability both are red?
 
-# Chapter 10: Full-Length Practice Problems, Timed Drills, and Answer Explanations With Common Mistake Analysis
+$$P(\text{1st red}) = \frac{5}{8}$$
 
----
+After drawing one red marble, there are 4 red marbles left out of 7 total:
 
-## Introduction
+$$P(\text{2nd red | 1st red}) = \frac{4}{7}$$
 
-This chapter is the capstone of everything you have learned so far. It brings together all the topics covered in the previous nine chapters—linear functions, quadratics, percents, rates, ratios, proportions, lines, angles, triangles, and trigonometry—into full-length, timed practice sets modeled after the actual SAT and ACT. Each problem is followed by a detailed, step-by-step answer explanation and a "Common Mistake Analysis" section that identifies the most frequent errors students make on that problem type, why those errors occur, and how to avoid them.
+$$P(\text{both red}) = \frac{5}{8} \times \frac{4}{7} = \frac{20}{56} = \frac{5}{14}$$
 
-The chapter is organized into three full-length practice modules:
+**Conditional Probability:**
 
-- **Module A: No-Calculator Section** (20 questions, 25 minutes)
-- **Module B: Calculator Section** (38 questions, 55 minutes)
-- **Module C: Timed Drills** (10 rapid-fire questions, 12 minutes)
+Conditional probability is the probability of an event given that another event has already occurred:
 
-After all three modules, you will find a comprehensive answer key with full explanations and common mistake analyses.
+$$P(B|A) = \frac{P(A \text{ and } B)}{P(A)}$$
 
-Before we begin, let us review the most critical formulas and concepts from each chapter that you must have memorized.
+This is frequently tested using two-way tables.
 
----
+**Example:** Using the two-way table from earlier, what is the probability that a student plays a musical instrument, given that they play a sport?
 
-## Formula Review: The Complete Reference Sheet
+$$P(\text{Instrument | Sport}) = \frac{40}{100} = 0.4$$
 
-### Linear Functions (Chapter 1)
+Note that this is different from the unconditional probability of playing an instrument: $P(\text{Instrument}) = \frac{70}{200} = 0.35$.
 
-**Slope Formula:**
-$$m = \frac{y_2 - y_1}{x_2 - x_1}$$
+### Expected Value
 
-**Slope-Intercept Form:**
-$$y = mx + b$$
-where $m$ is the slope and $b$ is the $y$-intercept.
+The **expected value** (or expected number) is the average outcome you would expect if an experiment were repeated many times. It is calculated as:
 
-**Point-Slope Form:**
-$$y - y_1 = m(x - x_1)$$
+$$E(X) = \sum [x_i \times P(x_i)]$$
 
-**Standard Form:**
-$$Ax + By = C$$
-where $A$, $B$, and $C$ are integers and $A$ is non-negative.
+**Example:** A game costs $2 to play. You roll a fair six-sided die. If you roll a 6, you win $10. Otherwise, you win nothing. What is the expected value of your winnings?
 
-**Parallel Lines:** Same slope ($m_1 = m_2$)
+- $P(\text{win } \$10) = \frac{1}{6}$
+- $P(\text{win } \$0) = \frac{5}{6}$
+- Expected winnings: $10 \times \frac{1}{6} + 0 \times \frac{5}{6} = \frac{10}{6} \approx 1.67$
 
-**Perpendicular Lines:** Negative reciprocal slopes ($m_1 \cdot m_2 = -1$)
+Since the game costs $2 to play and the expected winnings are only $1.67, the expected **net** value is $1.67 - 2 = -0.33$, meaning you would lose an average of $0.33 per game.
 
-**Midpoint Formula:**
-$$\left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)$$
+### Sampling and Surveys
 
-**Distance Formula:**
-$$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
+**Population vs. Sample:**
+- **Population:** The entire group you want to draw conclusions about.
+- **Sample:** A subset of the population that is actually observed or surveyed.
 
-**Average Rate of Change (Slope over an interval):**
-$$\frac{\Delta y}{\Delta x} = \frac{f(x_2) - f(x_1)}{x_2 - x_1}$$
+**Key Concepts:**
+- A sample should be **representative** of the population to allow valid generalizations.
+- **Random sampling** helps ensure representativeness and reduces bias.
+- **Sample size** affects the reliability of conclusions: larger samples generally yield more reliable results.
 
----
+**Margin of Error:**
+The margin of error gives a range within which the true population parameter is likely to fall. A smaller margin of error indicates greater precision. The margin of error is inversely related to the square root of the sample size:
 
-### Quadratics (Chapters 2, 3, 4)
+$$\text{Margin of Error} \propto \frac{1}{\sqrt{n}}$$
 
-**Standard Form:**
-$$f(x) = ax^2 + bx + c$$
+This means that to halve the margin of error, you need to **quadruple** the sample size.
 
-**Vertex Form:**
-$$f(x) = a(x - h)^2 + k$$
-where $(h, k)$ is the vertex.
+**Types of Bias:**
+- **Selection bias:** The sample is not representative of the population.
+- **Response bias:** The survey questions are worded in a way that influences responses.
+- **Non-response bias:** Certain groups are less likely to respond to the survey.
 
-**Intercept Form:**
-$$f(x) = a(x - p)(x - q)$$
-where $p$ and $q$ are the $x$-intercepts.
+The SAT may ask you to identify potential sources of bias in a study or survey, or to evaluate whether a conclusion is valid based on the sampling method.
 
-**Vertex (from Standard Form):**
-$$h = -\frac{b}{2a}, \quad k = f\left(-\frac{b}{2a}\right)$$
+### Correlation vs. Causation
 
-**Axis of Symmetry:**
-$$x = -\frac{b}{2a}$$
+One of the most important concepts in data analysis is the distinction between **correlation** and **causation**:
 
-**Quadratic Formula:**
-$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+- **Correlation:** Two variables tend to change together (both increase, both decrease, or one increases while the other decreases).
+- **Causation:** One variable's change **directly causes** the other variable to change.
 
-**Discriminant:**
-$$D = b^2 - 4ac$$
-- $D > 0$: Two distinct real roots
-- $D = 0$: One real root (a repeated root)
-- $D < 0$: No real roots (two complex roots)
+**Critical Principle:** Correlation does **not** imply causation. Just because two variables are correlated does not mean one causes the other. There may be:
 
-**Sum of Roots:**
-$$p + q = -\frac{b}{a}$$
+- A **confounding variable** (a third variable that affects both).
+- A **coincidental** relationship (the correlation is due to chance).
+- A **reverse causation** relationship (the assumed cause is actually the effect).
 
-**Product of Roots:**
-$$pq = \frac{c}{a}$$
+**Example:** Ice cream sales and drowning deaths are positively correlated (both increase in the summer). However, ice cream consumption does not cause drowning. The confounding variable is **temperature** — hot weather leads to both more ice cream consumption and more swimming (and thus more drowning).
 
-**Completing the Square:**
-$$ax^2 + bx + c = a\left(x + \frac{b}{2a}\right)^2 + \left(c - \frac{b^2}{4a}\right)$$
+The SAT frequently tests this concept by presenting a correlation and asking whether a causal conclusion is justified.
 
 ---
-
-### Percents (Chapter 5)
-
-**Percent as a Factor:**
-$$x\% = \frac{x}{100}$$
-
-**Percent of a Whole:**
-$$\text{Part} = \left(\frac{\text{Percent}}{100}\right) \times \text{Whole}$$
 
-**Percent Change:**
-$$\text{Percent Change} = \frac{\text{New} - \text{Old}}{\text{Old}} \times 100\%$$
+## Part IV: Advanced Applications and SAT-Specific Strategies
 
-**Percent Increase Factor:**
-$$\text{New} = \text{Old} \times \left(1 + \frac{\text{Percent Increase}}{100}\right)$$
+### Percentage and Ratio Problems in Context
 
-**Percent Decrease Factor:**
-$$\text{New} = \text{Old} \times \left(1 - \frac{\text{Percent Decrease}}{100}\right)$$
+The SAT frequently embeds percentage and ratio concepts in real-world scenarios involving:
 
-**Successive Percent Changes:**
-If a quantity is increased by $a\%$ and then decreased by $b\%$:
-$$\text{Final} = \text{Original} \times \left(1 + \frac{a}{100}\right)\left(1 - \frac{b}{100}\right)$$
+- **Finance:** Interest rates, investment returns, profit margins, tax rates
+- **Demographics:** Population growth, density, migration rates
+- **Science:** Concentration of solutions, dilution, percent composition
+- **Business:** Market share, markup, discount, commission rates
+- **Mixture problems:** Combining solutions of different concentrations
 
 **Mixture Problems:**
-$$C_1 V_1 + C_2 V_2 = C_{\text{final}}(V_1 + V_2)$$
-where $C$ represents concentration and $V$ represents volume.
+
+These problems involve combining two or more substances with different concentrations or prices to create a mixture with a desired concentration or price.
+
+**Example:** A chemist wants to make 200 mL of a 40% acid solution. She has a 30% acid solution and a 60% acid solution. How much of each should she use?
+
+Let $x$ = mL of 30% solution, and $y$ = mL of 60% solution.
+
+System of equations:
+1. $x + y = 200$ (total volume)
+2. $0.30x + 0.60y = 0.40(200) = 80$ (total acid)
+
+From equation 1: $y = 200 - x$
+
+Substitute into equation 2:
+
+$$0.30x + 0.60(200 - x) = 80$$
+$$0.30x + 120 - 0.60x = 80$$
+$$-0.30x = -40$$
+$$x = \frac{40}{0.30} = \frac{400}{3} \approx 133.33 \text{ mL}$$
+
+$$y = 200 - 133.33 = 66.67 \text{ mL}$$
+
+### Data Sufficiency and Reasoning
+
+Many SAT questions in this domain test your ability to determine whether you have **sufficient information** to answer a question, rather than requiring a full calculation.
+
+**Strategy:** Before calculating, ask yourself:
+1. What information is given?
+2. What information is needed?
+3. Is the given information enough to determine the answer?
+
+**Example:** The average (arithmetic mean) of five numbers is 20. What is the sum of the five numbers?
+
+**Analysis:** The formula for the mean is $\text{Mean} = \frac{\text{Sum}}{n}$. Rearranging: $\text{Sum} = \text{Mean} \times n = 20 \times 5 = 100$. The information is sufficient.
+
+**Example:** The ratio of boys to girls in a class is 3:5. What is the total number of students?
+
+**Analysis:** The ratio tells us the number of boys is $3k$ and the number of girls is $5k$ for some positive integer $k$. The total is $8k$. Without knowing $k$, we cannot determine the total. The information is **not** sufficient.
+
+### Estimation and Approximation
+
+On the SAT, especially in the no-calculator context (though the Digital SAT allows a calculator throughout), estimation is a valuable skill:
+
+- **Round numbers** to make mental calculations easier.
+- **Use benchmarks** (e.g., $25\%$ is $\frac{1}{4}$, $33\%$ is approximately $\frac{1}{3}$).
+- **Check reasonableness** — does your answer make sense in context?
+
+**Example:** What is approximately $34\%$ of $198$?
+
+Round to: $33\%$ of $200 \approx \frac{1}{3} \times 200 \approx 66.67$
+
+The actual answer is $0.34 \times 198 = 67.32$, so our estimate is very close.
+
+### Reading Graphs and Tables Carefully
+
+When interpreting data displays, always:
+
+1. **Read the title** to understand what the display is showing.
+2. **Read axis labels** and **legends** to understand what each variable represents.
+3. **Note the scale** — are the intervals uniform? Is the scale linear or logarithmic?
+4. **Identify units** — are we dealing with thousands, millions, percentages, etc.?
+5. **Look for trends** — increasing, decreasing, cyclical, or no pattern.
+6. **Check for outliers** — data points that deviate significantly from the overall pattern.
+
+### Common SAT Traps in This Domain
+
+1. **Confusing "percent of" with "percent more than":**
+   - "50% of 80" = $0.50 \times 80 = 40$
+   - "50% more than 80" = $80 + 0.50 \times 80 = 120$
+
+2. **Using the wrong base for percentage change:**
+   - The base is always the **original** value, not the new value.
+
+3. **Adding successive percentages:**
+   - A 10% increase followed by a 10% decrease does **not** return to the original value.
+
+4. **Confusing correlation with causation:**
+   - Just because two variables move together doesn't mean one causes the other.
+
+5. **Misreading the scale on a graph:**
+   - Check whether the axis starts at 0 or another value, and whether the intervals are uniform.
+
+6. **Forgetting to convert units:**
+   - If a rate is given in miles per hour and the time is in minutes, convert minutes to hours first.
+
+7. **Confusing mean and median:**
+   - The mean is affected by outliers; the median is not.
+
+8. **Not simplifying ratios:**
+   - Always express ratios in lowest terms.
+
+### Connecting to Other Domains
+
+Problem Solving and Data Analysis does not exist in isolation. On the SAT, you will frequently need to combine these concepts with:
+
+- **Algebra:** Setting up and solving equations involving ratios, percentages, and proportions.
+- **Geometry:** Using ratios in similar figures, calculating percentages of areas or volumes.
+- **Advanced Math:** Working with exponential growth and decay (which involves repeated percentage changes).
+- **Reading and Writing:** Interpreting data presented in passages and evaluating arguments based on statistical evidence.
+
+**Example (Combining Algebra and Ratios):** The ratio of Alice's age to Bob's age is 3:5. In 10 years, the ratio will be 2:3. What is Alice's current age?
+
+Let Alice's age be $3x$ and Bob's age be $5x$.
+
+In 10 years:
+
+$$\frac{3x + 10}{5x + 10} = \frac{2}{3}$$
+
+Cross-multiply:
+
+$$3(3x + 10) = 2(5x + 10)$$
+$$9x + 30 = 10x + 20$$
+$$x = 10$$
+
+Alice's current age: $3(10) = 30$
 
 ---
 
-### Rates, Ratios, and Proportions (Chapter 6)
+## Summary of Key Formulas and Concepts
 
-**Ratio Representation:**
-If the ratio of $a$ to $b$ is $m:n$, then $a = mk$ and $b = nk$ for some positive constant $k$.
+### Ratios and Proportions
+- Ratio: $\frac{a}{b}$ or $a:b$ (always simplified)
+- Proportion: $\frac{a}{b} = \frac{c}{d} \Rightarrow ad = bc$
+- Constant of proportionality: $y = kx$
+- Unit rate: $\frac{\text{Quantity}}{\text{1 unit of another quantity}}$
 
-**Proportion:**
-$$\frac{a}{b} = \frac{c}{d} \implies ad = bc$$
+### Rates
+- Distance = Rate $\times$ Time: $D = rt$
+- Average Speed = $\frac{\text{Total Distance}}{\text{Total Time}}$
+- Combined Work Rate: $\frac{1}{t_1} + \frac{1}{t_2} = \frac{1}{t_{\text{together}}}$
 
-**Rate Formula:**
-$$\text{Rate} = \frac{\text{Quantity}}{\text{Consumption}}$$
+### Percentages
+- $x\% = \frac{x}{100}$
+- Part = Percent $\times$ Whole
+- Percent Change = $\frac{\text{New} - \text{Original}}{\text{Original}} \times 100\%$
+- New Value = Original $\times (1 \pm \text{rate})$
+- Simple Interest: $A = P(1 + rt)$
+- Compound Interest: $A = P\left(1 + \frac{r}{n}\right)^{nt}$
 
-**Average Speed:**
-$$\text{Average Speed} = \frac{\text{Total Distance}}{\text{Total Time}}$$
+### Statistics
+- Mean: $\frac{\sum x_i}{n}$
+- Median: Middle value (or average of two middle values)
+- Mode: Most frequent value
+- Range: $\text{Max} - \text{Min}$
+- IQR: $Q_3 - Q_1$
 
-**Note:** Average speed is NOT the average of the speeds unless the time intervals are equal.
-
-**Work Rate:**
-If Person A can complete a job in $a$ hours and Person B in $b$ hours, together:
-$$\frac{1}{a} + \frac{1}{b} = \frac{1}{T} \implies T = \frac{ab}{a + b}$$
-
-**Factor of Change:**
-If a quantity changes by a factor of $r$, and a related quantity is proportional to $n$ powers of the first, then the related quantity changes by a factor of $r^n$.
+### Probability
+- $P(A) = \frac{\text{Favorable outcomes}}{\text{Total outcomes}}$
+- $P(\text{not } A) = 1 - P(A)$
+- $P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B)$
+- $P(A \text{ and } B) = P(A) \times P(B)$ (for independent events)
+- $P(B|A) = \frac{P(A \text{ and } B)}{P(A)}$
 
 ---
 
-### Lines and Angles (Chapter 7)
+This comprehensive treatment of Problem Solving and Data Analysis provides the theoretical foundation and practical strategies you need to master this domain on the SAT. The key to success lies not only in memorizing formulas but in developing the ability to read problems carefully, identify the appropriate mathematical tools, set up correct equations, and interpret your results in context. Practice applying these concepts to a variety of problem types, and always be on the lookout for the common traps and nuances that the SAT employs.
 
-**Angle Relationships:**
-- **Complementary Angles:** Sum to $90°$
-- **Supplementary Angles:** Sum to $180°$
-- **Vertical Angles:** Congruent
-- **Linear Pair:** Supplementary
+---
 
-**Triangle Angle Sum:**
-$$\angle A + \angle B + \angle C = 180°$$
 
-**Exterior Angle Theorem:**
-$$\text{Exterior Angle} = \text{Sum of two remote interior angles}$$
+# Chapter 4: Geometry & Trigonometry — Essential Formulas & Spatial Reasoning
 
-**Sum of Exterior Angles of any Polygon:**
-$$360°$$
+## 4.1 The Foundational Role of Geometry in the SAT Math Section
 
-**Sum of Interior Angles of an $n$-gon:**
-$$180°(n - 2)$$
+Geometry and Trigonometry constitute one of the four major content domains tested on the SAT Math section, accounting for approximately 15% of the total questions (roughly 5–7 questions out of 44). While this percentage may appear modest compared to Algebra (35%) and Advanced Math (35%), the questions within this domain tend to be among the most conceptually dense and formula-dependent on the entire exam. A student who has internalized the spatial relationships, formulas, and trigonometric ratios discussed in this chapter can often solve these questions with remarkable speed—sometimes in under 30 seconds—freeing up valuable time for the more algebraically intensive problems elsewhere.
 
-**Each Interior Angle of a Regular $n$-gon:**
-$$\frac{180°(n - 2)}{n}$$
+The SAT does not test geometry as a proof-based discipline. You will never be asked to write a formal geometric proof or to cite Euclid's postulates. Instead, the test measures your ability to:
 
-**Each Exterior Angle of a Regular $n$-gon:**
-$$\frac{360°}{n}$$
+1. **Apply formulas** for perimeter, area, volume, and surface area to both standard and composite shapes.
+2. **Reason about angles** formed by intersecting lines, parallel lines cut by transversals, and the interior/exterior angles of polygons.
+3. **Analyze triangles** using congruence, similarity, the Pythagorean theorem, and special right triangle ratios.
+4. **Understand circles** including arc length, sector area, central and inscribed angles, and the equation of a circle in the coordinate plane.
+5. **Utilize basic trigonometry** involving sine, cosine, and tangent in right triangles, as well as the complementary angle relationships between these functions.
+6. **Interpret and manipulate shapes** in the coordinate plane, including reflections, rotations, translations, and dilations.
 
-**Triangle Inequality:**
-The third side of a triangle must be greater than the positive difference of the other two sides and less than their sum:
+Before proceeding, it is critical to understand a fundamental shift that occurred when the SAT transitioned to its digital format: **a built-in reference sheet is now available to you at all times during the Math section.** This reference sheet contains many of the formulas you might expect. However—and this is a crucial strategic point—relying on the reference sheet during the actual exam is a form of cognitive tax. Every second you spend clicking to open the reference sheet, scanning it, and locating the appropriate formula is a second you are not spending on solving the problem. The most successful students have these formulas committed to deep memory. They know not just *what* the formula is, but *why* it works, *when* to apply it, and *how* to manipulate it algebraically when the problem demands a non-standard approach.
+
+This chapter will build your understanding from the ground up, starting with the most basic relationships and progressing to the more nuanced applications that distinguish 750+ scorers from the rest.
+
+---
+
+## 4.2 Lines and Angles: The Language of Geometry
+
+### 4.2.1 Fundamental Definitions
+
+Geometry begins with the concept of a **line**—a one-dimensional figure that extends infinitely in both directions. A **line segment** is a finite portion of a line defined by two endpoints. A **ray** is a hybrid: it starts at a specific point (the endpoint) and extends infinitely in one direction.
+
+An **angle** is formed by two rays sharing a common endpoint, called the **vertex**. The measure of an angle describes the amount of rotation from one ray to the other and is expressed in **degrees** (°), where a full rotation equals 360°.
+
+### 4.2.2 Classification of Angles
+
+| Classification | Degree Range | Description |
+|---|---|---|
+| Acute angle | 0° < θ < 90° | Less than a right angle |
+| Right angle | θ = 90° | Forms a perfect "L" shape |
+| Obtuse angle | 90° < θ < 180° | Greater than a right angle but less than a straight line |
+| Straight angle | θ = 180° | Forms a straight line |
+| Reflex angle | 180° < θ < 360° | Greater than a straight angle |
+
+### 4.2.3 Angle Pairs and Their Relationships
+
+When lines intersect, they create angles with specific mathematical relationships. These relationships appear on the SAT with remarkable frequency, often disguised within complex diagrams.
+
+**Adjacent angles** share a common vertex and a common side but do not overlap. If two adjacent angles form a straight line, they are called a **linear pair**, and their measures sum to 180°.
+
+**Vertical angles** (also called opposite angles) are the angles opposite each other when two lines intersect. Vertical angles are always **congruent** (equal in measure). This is one of the most frequently invoked facts on the SAT, because it allows you to transfer angle measures from one side of an intersection to the other without any calculation.
+
+**Complementary angles** are two angles whose measures sum to exactly 90°. **Supplementary angles** are two angles whose measures sum to exactly 180°. These definitions are foundational and are often tested in word problems or algebraic setups where you are told that one angle is "twice the complement of the other" or similar phrasing.
+
+### 4.2.4 Parallel Lines and Transversals
+
+When a **transversal** (a line that intersects two or more other lines) cuts through two **parallel lines** (lines in the same plane that never intersect), it creates eight angles that fall into several categories of congruence and supplementarity:
+
+- **Corresponding angles** are congruent. These are angles that occupy the same relative position at each intersection (e.g., both upper-left).
+- **Alternate interior angles** are congruent. These are angles on opposite sides of the transversal but between the two parallel lines.
+- **Alternate exterior angles** are congruent. These are angles on opposite sides of the transversal and outside the two parallel lines.
+- **Same-side interior angles** (also called consecutive interior angles) are supplementary (sum to 180°).
+- **Same-side exterior angles** are supplementary.
+
+A powerful way to remember this: if the angles are on the **same side** of the transversal, they are **supplementary**; if they are on **opposite sides**, they are **congruent** (provided the lines are parallel).
+
+The SAT frequently tests these relationships by giving you a diagram with one angle measure labeled and asking you to find another. The key is to identify the relationship between the given angle and the target angle—are they corresponding, alternate interior, alternate exterior, or same-side?
+
+### 4.2.5 Perpendicular Lines
+
+Two lines are **perpendicular** if they intersect at a right angle (90°). In the coordinate plane, perpendicular lines have slopes that are **negative reciprocals** of each other. If one line has slope $m$, a line perpendicular to it has slope $-\frac{1}{m}$. This relationship is absolutely critical and connects geometry to algebra and coordinate geometry.
+
+For example, if a line has a slope of $\frac{3}{4}$, any line perpendicular to it has a slope of $-\frac{4}{3}$. If a line is horizontal (slope = 0), a perpendicular line is vertical (undefined slope), and vice versa.
+
+---
+
+## 4.3 Triangles: The Most Important Geometric Shape
+
+Triangles are, without question, the single most important geometric shape on the SAT. They appear in problems involving area, the Pythagorean theorem, similarity, congruence, special right triangles, and basic trigonometry. A deep understanding of triangle properties is non-negotiable for a high score.
+
+### 4.3.1 Basic Properties
+
+A triangle is a polygon with three sides and three interior angles. The **Triangle Sum Theorem** states that the sum of the three interior angles of any triangle is always **180°**. This fact is used on virtually every triangle problem on the SAT, either directly or as a step in a longer chain of reasoning.
+
+The **Triangle Inequality Theorem** states that the sum of the lengths of any two sides of a triangle must be greater than the length of the third side. Equivalently, the length of any one side must be less than the sum and greater than the absolute difference of the other two sides. If a triangle has sides of length $a$ and $b$, the third side $c$ must satisfy:
+
 $$|a - b| < c < a + b$$
 
-**Side-Angle Relationship in a Triangle:**
-The longest side is opposite the largest angle; the shortest side is opposite the smallest angle.
+This theorem is tested in problems that ask: "If two sides of a triangle have lengths 5 and 9, which of the following could be the length of the third side?" The answer must satisfy $4 < c < 14$.
 
----
+### 4.3.2 Classification of Triangles
 
-### Triangles: Right Triangles, Trigonometry, and Special Triangles (Chapters 8, 9)
+**By angles:**
+- **Acute triangle**: all three angles are acute (< 90°)
+- **Right triangle**: one angle is exactly 90°
+- **Obtuse triangle**: one angle is obtuse (> 90°)
 
-**Pythagorean Theorem:**
+**By sides:**
+- **Equilateral triangle**: all three sides are equal; all three angles are 60°
+- **Isosceles triangle**: at least two sides are equal; the angles opposite the equal sides are also equal
+- **Scalene triangle**: all three sides have different lengths
+
+The **isosceles triangle** deserves special attention because the SAT loves to exploit the fact that if two sides are equal, the angles opposite those sides are equal (the **Isosceles Triangle Theorem**), and conversely, if two angles are equal, the sides opposite those angles are equal.
+
+### 4.3.3 The Pythagorean Theorem
+
+The Pythagorean Theorem is arguably the single most important formula in all of SAT geometry. For a right triangle with legs of length $a$ and $b$ and hypotenuse of length $c$:
+
 $$a^2 + b^2 = c^2$$
-where $c$ is the hypotenuse.
 
-**Common Pythagorean Triples:**
-- $3, 4, 5$ (and multiples: $6, 8, 10$; $9, 12, 15$; etc.)
-- $5, 12, 13$ (and multiples)
-- $8, 15, 17$ (and multiples)
-- $7, 24, 25$ (and multiples)
+The **converse** is also true: if the side lengths of a triangle satisfy $a^2 + b^2 = c^2$, then the triangle is a right triangle with the right angle opposite side $c$.
 
-**Special Right Triangles:**
+The SAT tests the Pythagorean Theorem in several ways:
 
-**45°-45°-90° Triangle:**
-The legs are congruent and the hypotenuse is $\sqrt{2}$ times a leg.
-$$\text{If leg} = s, \text{ then hypotenuse} = s\sqrt{2}$$
+1. **Direct application**: given two sides, find the third.
+2. **Distance formula derivation**: the distance between two points $(x_1, y_1)$ and $(x_2, y_2)$ in the coordinate plane is derived from the Pythagorean Theorem:
+
+$$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
+
+3. **Hidden right triangles**: a problem might describe a rectangle, and you need to recognize that the diagonal creates two right triangles.
+4. **Three-dimensional applications**: finding the diagonal of a rectangular prism requires applying the Pythagorean Theorem twice.
+
+### 4.3.4 Special Right Triangles
+
+Two specific right triangles appear so frequently on the SAT that you should have their side ratios memorized to the point of instant recall. These are the **45°-45°-90° triangle** and the **30°-60°-90° triangle**.
+
+**45°-45°-90° Triangle (Isosceles Right Triangle):**
+
+The two legs are equal, and the hypotenuse is $\sqrt{2}$ times the length of each leg.
+
+- Side ratio: $1 : 1 : \sqrt{2}$
+- If each leg has length $x$, the hypotenuse has length $x\sqrt{2}$.
+
+This triangle arises whenever you cut a square along its diagonal. It also appears in problems involving the coordinate plane where movement is equal in the $x$ and $y$ directions.
 
 **30°-60°-90° Triangle:**
-The side opposite 30° is the shortest leg. The side opposite 60° is $\sqrt{3}$ times the shortest leg. The hypotenuse is twice the shortest leg.
-$$\text{If shortest leg} = s, \text{ then longer leg} = s\sqrt{3}, \text{ hypotenuse} = 2s$$
 
-**Trigonometric Ratios (SOH-CAH-TOA):**
-$$\sin(\theta) = \frac{\text{opposite}}{\text{hypotenuse}}$$
-$$\cos(\theta) = \frac{\text{adjacent}}{\text{hypotenuse}}$$
-$$\tan(\theta) = \frac{\text{opposite}}{\text{adjacent}}$$
+The sides are in a fixed ratio based on the shortest leg (opposite the 30° angle).
 
-**Reciprocal Trigonometric Ratios:**
-$$\csc(\theta) = \frac{1}{\sin(\theta)} = \frac{\text{hypotenuse}}{\text{opposite}}$$
-$$\sec(\theta) = \frac{1}{\cos(\theta)} = \frac{\text{hypotenuse}}{\text{adjacent}}$$
-$$\cot(\theta) = \frac{1}{\tan(\theta)} = \frac{\text{adjacent}}{\text{opposite}}$$
+- Side ratio: $1 : \sqrt{3} : 2$
+- If the shortest leg (opposite 30°) has length $x$, then the longer leg (opposite 60°) has length $x\sqrt{3}$, and the hypotenuse has length $2x$.
 
-**Cofunction Identities:**
-$$\sin(\theta) = \cos(90° - \theta)$$
-$$\cos(\theta) = \sin(90° - \theta)$$
+This triangle arises when you draw an altitude in an equilateral triangle, splitting it into two congruent 30°-60°-90° triangles. It also appears in problems involving equilateral triangles, regular hexagons, and certain coordinate geometry setups.
 
-**Area of a Triangle:**
-$$A = \frac{1}{2}bh$$
-$$A = \frac{1}{2}ab\sin(C) \quad \text{(two sides and included angle)}$$
+**Critical note**: The SAT often gives you these triangles in disguised forms. For example, a problem might tell you that a triangle has angles measuring 30°, 60°, and 90°, and that the hypotenuse is 10. You should immediately know that the shorter leg is 5 and the longer leg is $5\sqrt{3}$—without reaching for a calculator or writing any equations.
 
-**Heron's Formula:**
-$$s = \frac{a + b + c}{2}$$
-$$A = \sqrt{s(s-a)(s-b)(s-c)}$$
+### 4.3.5 Pythagorean Triples
 
-**Similar Triangles:**
-- **AA Similarity:** Two angles of one triangle congruent to two angles of another.
-- **SSS Similarity:** All three corresponding sides proportional.
-- **SAS Similarity:** Two sides proportional and the included angle congruent.
+A **Pythagorean triple** is a set of three positive integers $(a, b, c)$ that satisfy $a^2 + b^2 = c^2$. The SAT frequently uses these as side lengths because they allow for clean, integer answers. The most common Pythagorean triples you should recognize are:
 
-If $\triangle ABC \sim \triangle XYZ$ with scale factor $k$:
-$$\frac{AB}{XY} = \frac{BC}{YZ} = \frac{AC}{XZ} = k$$
-$$\frac{\text{Area of } \triangle ABC}{\text{Area of } \triangle XYZ} = k^2$$
+- **3, 4, 5** (and all multiples: 6, 8, 10; 9, 12, 15; etc.)
+- **5, 12, 13** (and multiples)
+- **8, 15, 17** (and multiples)
+- **7, 24, 25** (and multiples)
 
+There is also a less commonly tested but still important triple: **20, 21, 29**.
+
+When you see a right triangle with two sides that are multiples of these triples, you can instantly determine the third side without any computation. For example, if a right triangle has legs of 15 and 36, notice that $15 = 3(5)$ and $36 = 3(12)$, so this is a 3-4-5 triple scaled by 3, giving a hypotenuse of $3(13) = 39$.
+
+### 4.3.6 Congruence of Triangles
+
+Two triangles are **congruent** if they are identical in both shape and size—all corresponding sides and angles are equal. The SAT tests congruence through several criteria:
+
+1. **SSS (Side-Side-Side)**: If all three sides of one triangle are equal to all three sides of another, the triangles are congruent.
+2. **SAS (Side-Angle-Side)**: If two sides and the included angle of one triangle are equal to the corresponding parts of another, the triangles are congruent.
+3. **ASA (Angle-Side-Angle)**: If two angles and the included side of one triangle are equal to the corresponding parts of another, the triangles are congruent.
+4. **AAS (Angle-Angle-Side)**: If two angles and a non-included side of one triangle are equal to the corresponding parts of another, the triangles are congruent.
+5. **HL (Hypotenuse-Leg)**: Specific to right triangles. If the hypotenuse and one leg of a right triangle are equal to the hypotenuse and one leg of another right triangle, the triangles are congruent.
+
+**Important warning**: **AAA (Angle-Angle-Angle)** does NOT prove congruence. Two triangles can have the same three angles but different side lengths (they would be similar but not congruent). The SAT occasionally includes AAA as a distractor answer choice.
+
+### 4.3.7 Similarity of Triangles
+
+Two triangles are **similar** if they have the same shape but not necessarily the same size. This means all corresponding angles are equal and all corresponding sides are proportional. Similarity is arguably even more important than congruence on the SAT because it connects to proportions, scale factors, and ratios.
+
+Criteria for similarity:
+
+1. **AA (Angle-Angle)**: If two angles of one triangle equal two angles of another, the triangles are similar. (Since the third angle must also be equal by the Triangle Sum Theorem, AA is sufficient.)
+2. **SSS (Side-Side-Side)**: If all three pairs of corresponding sides are proportional, the triangles are similar.
+3. **SAS (Side-Angle-Side)**: If two pairs of corresponding sides are proportional and the included angles are equal, the triangles are similar.
+
+When two triangles are similar with a scale factor of $k$ (meaning each side of the larger triangle is $k$ times the corresponding side of the smaller):
+
+- The ratio of corresponding sides is $k$.
+- The ratio of corresponding altitudes, medians, angle bisectors, and perimeters is also $k$.
+- The ratio of their areas is $k^2$.
+- The ratio of their volumes (for 3D solids) is $k^3$.
+
+This last point—that area scales by the **square** of the linear scale factor—is tested with surprising frequency and is a common source of error. If one triangle has sides twice as long as another similar triangle, its area is **four times** (not two times) as large.
+
+### 4.3.8 Key Triangle Centers and Special Segments
+
+The SAT occasionally tests knowledge of special points and segments within triangles:
+
+- **Altitude**: a perpendicular segment from a vertex to the line containing the opposite side. Every triangle has three altitudes. In a right triangle, two of the altitudes are the legs themselves.
+- **Median**: a segment from a vertex to the midpoint of the opposite side. Every triangle has three medians.
+- **Angle bisector**: a segment that divides an angle into two equal angles.
+- **Perpendicular bisector**: a line perpendicular to a side at its midpoint.
+- **Centroid**: the intersection of the three medians. It is the triangle's center of mass.
+- **Orthocenter**: the intersection of the three altitudes.
+- **Incenter**: the intersection of the three angle bisectors. It is the center of the inscribed circle.
+- **Circumcenter**: the intersection of the three perpendicular bisectors. It is the center of the circumscribed circle.
+
+For the SAT, the most important of these is the **altitude**, because it is essential for calculating area, and the **median**, because problems sometimes state that a line segment connects a vertex to the midpoint of the opposite side and then ask about length relationships.
+
+### 4.3.9 The Exterior Angle Theorem
+
+An **exterior angle** of a triangle is formed by extending one side of the triangle. The Exterior Angle Theorem states that the measure of an exterior angle equals the sum of the measures of the two **remote interior angles** (the two interior angles that are not adjacent to the exterior angle).
+
+This theorem is powerful because it allows you to relate angles inside and outside a triangle without any additional information. It also immediately implies that an exterior angle is greater than either remote interior angle individually.
+
+---
+
+## 4.4 Quadrilaterals and Polygons
+
+### 4.4.1 The Sum of Interior Angles
+
+For any polygon with $n$ sides, the sum of the interior angles is:
+
+$$\text{Sum of interior angles} = (n - 2) \times 180°$$
+
+This formula is derived by drawing all possible diagonals from one vertex, which divides the $n$-gon into $(n - 2)$ triangles, each contributing 180°.
+
+For a quadrilateral ($n = 4$), the sum is $(4 - 2) \times 180° = 360°$. For a pentagon, it is 540°. For a hexagon, it is 720°.
+
+### 4.4.2 Types of Quadrilaterals
+
+**Parallelogram**: a quadrilateral with both pairs of opposite sides parallel.
+
+- Opposite sides are equal in length.
+- Opposite angles are equal.
+- Consecutive angles are supplementary (sum to 180°).
+- Diagonals bisect each other.
+- Area = base × height (NOT side × side—the height is the perpendicular distance between bases).
+
+**Rectangle**: a parallelogram with four right angles.
+
+- All properties of a parallelogram apply.
+- Diagonals are equal in length.
+- Area = length × width.
+
+**Rhombus**: a parallelogram with four equal sides.
+
+- All properties of a parallelogram apply.
+- Diagonals are perpendicular bisectors of each other.
+- Diagonals bisect the interior angles.
+- Area = $\frac{d_1 \times d_2}{2}$, or base × height.
+
+**Square**: both a rectangle and a rhombus.
+
+- All properties of both apply.
+- This is the most "powerful" quadrilateral—it has the maximum symmetry.
+
+**Trapezoid**: a quadrilateral with exactly one pair of parallel sides (called the bases).
+
+- The **midsegment** (or median) of a trapezoid connects the midpoints of the non-parallel sides, is parallel to the bases, and its length equals the average of the two base lengths.
+- Area = $\frac{1}{2}(b_1 + b_2) \times h = \text{midsegment} \times h$.
+
+**Isosceles trapezoid**: a trapezoid with equal non-parallel sides.
+
+- Base angles are equal.
+- Diagonals are equal in length.
+
+### 4.4.3 Regular Polygons
+
+A **regular polygon** is one in which all sides are equal and all interior angles are equal. For a regular $n$-gon:
+
+- Each interior angle = $\frac{(n - 2) \times 180°}{n}$
+- Each exterior angle = $\frac{360°}{n}$
+- The sum of all exterior angles (one at each vertex) is always 360°, regardless of the number of sides.
+
+The SAT most commonly tests regular hexagons and regular octagons. A regular hexagon can be divided into 6 equilateral triangles by drawing lines from the center to each vertex, which makes it possible to compute its area using equilateral triangle formulas.
+
+---
+
+## 4.5 Circles
+
+### 4.5.1 Fundamental Definitions
+
+A **circle** is the set of all points in a plane that are at a fixed distance (the **radius**, $r$) from a fixed point (the **center**).
+
+- **Diameter** ($d$): a line segment passing through the center with endpoints on the circle. $d = 2r$.
+- **Chord**: a line segment with both endpoints on the circle. The diameter is the longest possible chord.
+- **Arc**: a portion of the circle's circumference.
+- **Sector**: the region bounded by two radii and the arc between them (like a "pizza slice").
+- **Segment**: the region bounded by a chord and the arc it subtends.
+- **Tangent**: a line that touches the circle at exactly one point (the point of tangency). The tangent line is perpendicular to the radius drawn to the point of tangency.
+- **Secant**: a line that intersects the circle at two points.
+
+### 4.5.2 Circumference and Area
+
+**Circumference:**
+
+$$C = 2\pi r = \pi d$$
+
+**Area:**
+
+$$A = \pi r^2$$
+
+These are the two most fundamental circle formulas. The SAT tests them in straightforward applications (given the radius, find the area) and in more complex scenarios (finding the area of a shaded region by subtracting one shape from another).
+
+### 4.5.3 Arc Length and Sector Area
+
+A **central angle** is an angle whose vertex is at the center of the circle. The measure of a central angle equals the measure of its intercepted arc (in degrees).
+
+**Arc length** is a fraction of the full circumference, proportional to the central angle:
+
+$$\text{Arc length} = \frac{\theta}{360°} \times 2\pi r$$
+
+where $\theta$ is the central angle in degrees.
+
+**Sector area** is a fraction of the full area:
+
+$$\text{Sector area} = \frac{\theta}{360°} \times \pi r^2$$
+
+These formulas are essentially the same idea: you are taking a fraction $\frac{\theta}{360°}$ of the whole (circumference or area).
+
+### 4.5.4 Inscribed Angles
+
+An **inscribed angle** is an angle whose vertex lies on the circle and whose sides are chords of the circle. The Inscribed Angle Theorem states:
+
+**An inscribed angle measures half the measure of its intercepted arc.**
+
+Equivalently, an inscribed angle equals half the central angle that subtends the same arc.
+
+This theorem has a critical corollary: if an inscribed angle intercepts a semicircle (an arc of 180°), the inscribed angle is 90°. This means that any triangle inscribed in a circle where one side is the diameter must be a right triangle (Thales' Theorem). The SAT uses this to create hidden right triangles in circle problems.
+
+### 4.5.5 The Equation of a Circle
+
+In the coordinate plane, a circle with center $(h, k)$ and radius $r$ has the equation:
+
+$$(x - h)^2 + (y - k)^2 = r^2$$
+
+For example, a circle with center $(3, -2)$ and radius 5 has the equation $(x - 3)^2 + (y + 2)^2 = 25$.
+
+The SAT tests this equation in several ways:
+
+1. Given the equation, identify the center and radius.
+2. Given the center and radius, write the equation.
+3. Determine whether a given point lies inside, on, or outside the circle by plugging its coordinates into the left side and comparing to $r^2$.
+4. Find the equation of a circle given the endpoints of a diameter (the center is the midpoint, and the radius is half the distance between the endpoints).
+
+### 4.5.6 Tangent Lines to Circles
+
+A line tangent to a circle at point $P$ is perpendicular to the radius drawn to $P$. This fact is the key to most tangent-line problems on the SAT. If you are given a circle and a tangent line, you can form a right triangle by drawing the radius to the point of tangency, and then apply the Pythagorean Theorem.
+
+---
+
+## 4.6 Perimeter, Area, and Volume: A Comprehensive Reference
+
+### 4.6.1 Two-Dimensional Shapes
+
+| Shape | Perimeter/Circumference | Area |
+|---|---|---|
+| Rectangle | $2l + 2w$ | $l \times w$ |
+| Square | $4s$ | $s^2$ |
+| Triangle | $a + b + c$ | $\frac{1}{2} \times \text{base} \times \text{height}$ |
+| Parallelogram | $2(a + b)$ | $\text{base} \times \text{height}$ |
+| Trapezoid | sum of all sides | $\frac{1}{2}(b_1 + b_2) \times h$ |
+| Circle | $2\pi r$ | $\pi r^2$ |
+| Rhombus | $4s$ | $\frac{d_1 \times d_2}{2}$ |
+| Regular $n$-gon | $n \times s$ | $\frac{1}{2} \times \text{perimeter} \times \text{apothem}$ |
+
+### 4.6.2 Three-Dimensional Solids
+
+The SAT tests volume and surface area of three-dimensional solids, though less frequently than 2D area problems.
+
+**Rectangular Prism (Box):**
+- Volume = $l \times w \times h$
+- Surface Area = $2lw + 2lh + 2wh$
+
+**Cube:**
+- Volume = $s^3$
+- Surface Area = $6s^2$
+
+**Cylinder:**
+- Volume = $\pi r^2 h$
+- Surface Area = $2\pi r^2 + 2\pi rh$ (two circular bases + lateral surface)
+
+**Sphere:**
+- Volume = $\frac{4}{3}\pi r^3$
+- Surface Area = $4\pi r^2$
+
+**Cone:**
+- Volume = $\frac{1}{3}\pi r^2 h$
+- Surface Area = $\pi r^2 + \pi r\ell$ (where $\ell$ is the slant height)
+
+**Pyramid:**
+- Volume = $\frac{1}{3} \times \text{base area} \times h$
+
+**Important note about the SAT reference sheet**: The digital SAT provides a reference sheet that includes the volume formulas for cylinders, cones, spheres, and pyramids, as well as the surface area formulas for spheres, cylinders, and cones. However, it does NOT include the formula for the volume of a rectangular prism or the area of a triangle—these are considered fundamental enough that you must have them memorized.
+
+### 4.6.3 Composite Shapes and Shaded Regions
+
+One of the most common SAT geometry problems involves finding the area of a **shaded region** created by overlapping or nested shapes. The strategy is almost always:
+
+1. Find the area of the larger shape.
+2. Find the area of the smaller shape(s) that are removed.
+3. Subtract to find the shaded area.
+
+For example, a square inscribed in a circle: to find the area of the circle not covered by the square, you would compute the circle's area minus the square's area. To find the square's area from the circle's radius, you might need to recognize that the diagonal of the square equals the diameter of the circle, and then use the relationship between a square's diagonal and its side length ($d = s\sqrt{2}$).
+
+---
+
+## 4.7 Coordinate Geometry
+
+### 4.7.1 The Coordinate Plane
+
+The coordinate plane (also called the Cartesian plane) is defined by two perpendicular axes: the horizontal **x-axis** and the vertical **y-axis**. Any point in the plane is identified by an ordered pair $(x, y)$, where $x$ is the horizontal displacement from the origin and $y$ is the vertical displacement.
+
+The plane is divided into four **quadrants**:
+- Quadrant I: $x > 0$, $y > 0$
+- Quadrant II: $x < 0$, $y > 0$
+- Quadrant III: $x < 0$, $y < 0$
+- Quadrant IV: $x > 0$, $y < 0$
+
+### 4.7.2 The Midpoint Formula
+
+The midpoint of a segment with endpoints $(x_1, y_1)$ and $(x_2, y_2)$ is:
+
+$$\text{Midpoint} = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)$$
+
+This is simply the average of the $x$-coordinates and the average of the $y$-coordinates.
+
+### 4.7.3 The Distance Formula
+
+The distance between two points $(x_1, y_1)$ and $(x_2, y_2)$ is:
+
+$$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
+
+This is a direct application of the Pythagorean Theorem, where the horizontal difference $(x_2 - x_1)$ and the vertical difference $(y_2 - y_1)$ serve as the legs of a right triangle, and the distance is the hypotenuse.
+
+### 4.7.4 Slope and Its Geometric Meaning
+
+The **slope** of a line passing through points $(x_1, y_1)$ and $(x_2, y_2)$ is:
+
+$$m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{\text{rise}}{\text{run}}$$
+
+Slope measures the steepness and direction of a line:
+- **Positive slope**: line rises from left to right
+- **Negative slope**: line falls from left to right
+- **Zero slope**: horizontal line
+- **Undefined slope**: vertical line
+
+**Parallel lines** have equal slopes. **Perpendicular lines** have slopes that are negative reciprocals (their product equals $-1$).
+
+### 4.7.5 Equations of Lines
+
+**Slope-intercept form**: $y = mx + b$, where $m$ is the slope and $b$ is the $y$-intercept.
+
+**Point-slope form**: $y - y_1 = m(x - x_1)$, useful when you know one point and the slope.
+
+**Standard form**: $Ax + By = C$, where $A$, $B$, and $C$ are integers (and $A$ is typically positive).
+
+The SAT may ask you to convert between these forms, identify the slope or intercept from a given equation, or find the equation of a line given specific conditions (e.g., passing through a point and parallel to another line).
+
+### 4.7.6 Transformations in the Coordinate Plane
+
+The SAT tests geometric transformations that move or alter shapes in the coordinate plane:
+
+**Translations**: shifting a shape horizontally and/or vertically. If a point $(x, y)$ is translated $h$ units horizontally and $k$ units vertically, its new coordinates are $(x + h, y + k)$.
+
+**Reflections**: flipping a shape over a line.
+- Reflection over the $x$-axis: $(x, y) \rightarrow (x, -y)$
+- Reflection over the $y$-axis: $(x, y) \rightarrow (-x, y)$
+- Reflection over the line $y = x$: $(x, y) \rightarrow (y, x)$
+
+**Rotations**: turning a shape around a point (usually the origin).
+- 90° counterclockwise rotation about the origin: $(x, y) \rightarrow (-y, x)$
+- 180° rotation about the origin: $(x, y) \rightarrow (-x, -y)$
+- 270° counterclockwise rotation about the origin: $(x, y) \rightarrow (y, -x)$
+
+**Dilations**: scaling a shape by a factor $k$ from a center point. If the center is the origin, $(x, y) \rightarrow (kx, ky)$. A dilation with $|k| > 1$ is an enlargement; with $0 < |k| < 1$, it is a reduction. The area changes by a factor of $k^2$.
+
+### 4.7.7 Connecting Geometry and Algebra
+
+One of the most powerful techniques on the SAT is the ability to translate geometric problems into algebraic ones using the coordinate plane. For example:
+
+- To find where two lines intersect, set their equations equal and solve.
+- To find the distance from a point to a line, use the distance formula.
+- To determine if two segments are perpendicular, check if their slopes are negative reciprocals.
+- To find the area of a triangle in the coordinate plane, use the formula:
+
+$$\text{Area} = \frac{1}{2}|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$$
+
+This is sometimes called the "shoelace formula."
+
+---
+
+## 4.8 Basic Trigonometry
+
+### 4.8.1 Right Triangle Trigonometry
+
+Trigonometry on the SAT is limited to **right triangle trigonometry**. You do not need to know the unit circle, graphs of trigonometric functions, or advanced identities. You need to know three ratios:
+
+For an acute angle $\theta$ in a right triangle:
+
+- **Sine (sin)**: $\frac{\text{opposite}}{\text{hypotenuse}}$
+- **Cosine (cos)**: $\frac{\text{adjacent}}{\text{hypotenuse}}$
+- **Tangent (tan)**: $\frac{\text{opposite}}{\text{adjacent}}$
+
+The mnemonic **SOH-CAH-TOA** encapsulates these three definitions.
+
+**Critical understanding**: The trigonometric ratios depend only on the **angles**, not on the size of the triangle. This is because all right triangles with the same acute angles are similar, meaning the ratios of corresponding sides are constant regardless of the triangle's size.
+
+### 4.8.2 The Reciprocal Trigonometric Functions
+
+The SAT may also test the reciprocal functions:
+
+- **Cosecant (csc)**: $\frac{\text{hypotenuse}}{\text{opposite}} = \frac{1}{\sin}$
+- **Secant (sec)**: $\frac{\text{hypotenuse}}{\text{adjacent}} = \frac{1}{\cos}$
+- **Cotangent (cot)**: $\frac{\text{adjacent}}{\text{opposite}} = \frac{1}{\tan}$
+
+These appear less frequently but are fair game.
+
+### 4.8.3 The Complementary Angle Relationship
+
+In a right triangle, the two acute angles are complementary (sum to 90°). This creates a powerful relationship:
+
+$$\sin(\theta) = \cos(90° - \theta) \quad \text{and} \quad \cos(\theta) = \sin(90° - \theta)$$
+
+For example, $\sin(30°) = \cos(60°) = \frac{1}{2}$, and $\sin(60°) = \cos(30°) = \frac{\sqrt{3}}{2}$.
+
+This relationship is tested on the SAT in problems that ask: "If $\sin(\theta) = \frac{3}{5}$, what is $\cos(90° - \theta)$?" The answer is simply $\frac{3}{5}$.
+
+### 4.8.4 Solving Right Triangles with Trigonometry
+
+The SAT uses trigonometry in problems where you are given:
+- One side and one acute angle, and asked to find another side.
+- Two sides, and asked to find an acute angle.
+
+The key is to identify which sides (opposite, adjacent, hypotenuse) are involved relative to the given angle, and then choose the appropriate trigonometric ratio.
+
+For example: In right triangle $ABC$ with right angle at $C$, if angle $A = 30°$ and $AB$ (hypotenuse) = 10, then:
+- $BC$ (opposite angle $A$) = $AB \times \sin(30°) = 10 \times \frac{1}{2} = 5$
+- $AC$ (adjacent to angle $A$) = $AB \times \cos(30°) = 10 \times \frac{\sqrt{3}}{2} = 5\sqrt{3}$
+
+This connects directly to the 30°-60°-90° special right triangle ratios discussed earlier.
+
+### 4.8.5 Trigonometry in Non-Right-Triangle Contexts
+
+While the SAT only tests right triangle trigonometry directly, it sometimes creates problems where you need to **construct** a right triangle within a more complex figure. For example:
+
+- In a rectangle, drawing a diagonal creates right triangles. If you know the dimensions of the rectangle and the angle the diagonal makes with a side, you can use trigonometry to find lengths.
+- In an isosceles triangle, drawing the altitude to the base creates two congruent right triangles.
+- In a circle, a radius drawn to a point of tangency is perpendicular to the tangent line, creating a right triangle.
+
+The key insight is: **look for or create right triangles** whenever a trigonometric ratio is needed.
+
+### 4.8.6 The Relationship Between Slope and Tangent
+
+There is a beautiful connection between coordinate geometry and trigonometry: the slope of a line equals the tangent of the angle the line makes with the positive $x$-axis (measured counterclockwise).
+
+$$m = \tan(\theta)$$
+
+where $\theta$ is the angle of inclination. This means:
+- A line with slope 1 makes a 45° angle with the $x$-axis.
+- A line with slope $\sqrt{3}$ makes a 60° angle.
+- A line with slope $\frac{1}{\sqrt{3}}$ makes a 30° angle.
+
+While the SAT rarely tests this connection explicitly, understanding it deepens your comprehension of both topics and can provide a useful check on your work.
+
+---
+
+## 4.9 Geometric Reasoning and Problem-Solving Strategies
+
+### 4.9.1 Drawing Diagrams
+
+When a geometry problem does not come with a diagram, **draw one**. Label all given information. If the diagram is provided, mark it up: label known angles, write side lengths, draw altitudes or other auxiliary lines. Many geometry problems that seem impossible become trivial once you have a clear diagram.
+
+### 4.9.2 Adding Auxiliary Lines
+
+One of the most powerful techniques in geometry is adding lines that are not in the original figure. Common auxiliary constructions include:
+
+- Drawing an altitude in a triangle or isosceles triangle.
+- Drawing a diagonal in a quadrilateral to create triangles.
+- Connecting the center of a circle to points on the circumference to create radii.
+- Extending a line segment to create supplementary angles or exterior angles.
+- Drawing a line parallel to an existing line through a different point.
+
+The goal is to create right triangles, similar triangles, or other familiar configurations that allow you to apply known formulas and relationships.
+
+### 4.9.3 Working Backwards
+
+In some geometry problems, you are asked to find a specific value (an angle, a side length, an area). Instead of trying to compute it directly from the given information, you can sometimes work backwards: assume the answer is what it is, and check if it is consistent with all the given conditions. This is particularly useful on multiple-choice questions where you can test the answer choices.
+
+### 4.9.4 Using Proportions and Ratios
+
+Many geometry problems on the SAT are fundamentally about proportions. Similar triangles, scale factors, and the relationship between linear dimensions and area all involve ratios. When you see a problem involving similar figures, immediately write down the proportion:
+
+$$\frac{\text{corresponding side of larger figure}}{\text{corresponding side of smaller figure}} = \text{scale factor}$$
+
+Then use this proportion to find the unknown quantity.
+
+### 4.9.5 Estimation and Elimination
+
+On multiple-choice geometry problems, you can often eliminate answer choices by estimating. If a problem asks for the area of a triangle with base 10 and height 8, you know the area is $\frac{1}{2}(10)(8) = 40$. If the answer choices are 20, 40, 80, and 160, you can eliminate 20 (forgetting the $\frac{1}{2}$), 80 (forgetting the $\frac{1}{2}$ and doubling), and 160 (using base × height without the $\frac{1}{2}$ and then doubling). This kind of estimation is a powerful check against careless errors.
+
+### 4.9.6 Connecting Multiple Concepts
+
+The most challenging SAT geometry problems require you to combine multiple concepts. For example:
+
+- A problem might involve a right triangle inscribed in a circle, requiring you to use both the Pythagorean Theorem and the properties of circles.
+- A problem might ask for the area of a shaded region between a square and a circle, requiring you to compute both areas and subtract.
+- A problem might involve similar triangles created by a shadow, requiring you to set up a proportion and solve for an unknown height.
+
+The key to solving these multi-step problems is to break them into smaller, manageable pieces. Identify what you know, identify what you need to find, and determine which geometric relationships connect the two.
+
+---
+
+## 4.10 Common Pitfalls and How to Avoid Them
+
+### 4.10.1 Confusing Area and Perimeter
+
+This is one of the most common errors on the SAT. Area measures the space *inside* a shape (in square units), while perimeter measures the distance *around* a shape (in linear units). A shape can have a large area but a small perimeter, or vice versa. Always check whether the problem asks for area or perimeter before computing.
+
+### 4.10.2 Using the Wrong Height for a Triangle
+
+The height of a triangle is the **perpendicular** distance from a vertex to the line containing the opposite side. In an obtuse triangle, the height may fall *outside* the triangle. Students sometimes mistakenly use one of the sides as the height when it is not perpendicular to the chosen base.
+
+### 4.10.3 Forgetting the $\frac{1}{2}$ in the Triangle Area Formula
+
+The area of a triangle is $\frac{1}{2} \times \text{base} \times \text{height}$, not base × height. This is one of the most frequently forgotten factors on the entire SAT.
+
+### 4.10.4 Confusing Radius and Diameter
+
+If a problem gives you the diameter but you use it as the radius (or vice versa), your answer will be off by a factor of 2 (or 4, for area). Always double-check whether you are working with $r$ or $d$.
+
+### 4.10.5 Assuming Figures Are Drawn to Scale
+
+Unless the problem explicitly states that the figure is drawn to scale, you cannot rely on visual judgment to determine angle measures, side lengths, or relative sizes. The SAT deliberately draws figures that are **not** to scale when they want you to compute values rather than estimate them.
+
+### 4.10.6 Mixing Up Inscribed and Central Angles
+
+Remember: an inscribed angle is **half** the measure of the central angle that subtends the same arc. Students sometimes double instead of halve, or vice versa.
+
+### 4.10.7 Forgetting That Area Scales by the Square of the Scale Factor
+
+If a figure is dilated by a factor of $k$, its perimeter scales by $k$ but its area scales by $k^2$. This is a common source of error in similarity problems.
+
+### 4.10.8 Not Recognizing Hidden Right Triangles
+
+Many SAT geometry problems contain right triangles that are not immediately obvious. Look for:
+- Diagonals of rectangles
+- Altitudes of triangles
+- Radii meeting tangent lines
+- The diagonal of a rectangular prism
+- Equilateral triangles split by altitudes
+
+---
+
+## 4.11 Advanced Geometric Relationships
+
+### 4.11.1 The Relationship Between a Circle's Chord and Its Distance from the Center
+
+If a chord is at a perpendicular distance $d$ from the center of a circle with radius $r$, the length of the chord is:
+
+$$2\sqrt{r^2 - d^2}$$
+
+This follows from the Pythagorean Theorem applied to the right triangle formed by the radius, the perpendicular distance, and half the chord.
+
+### 4.11.2 The Area of an Equilateral Triangle
+
+For an equilateral triangle with side length $s$:
+
+$$A = \frac{s^2\sqrt{3}}{4}$$
+
+This formula is derived by drawing an altitude, which has length $\frac{s\sqrt{3}}{2}$, and applying the standard triangle area formula.
+
+### 4.11.3 The Relationship Between Arc Length, Radius, and Central Angle (in Radians)
+
+While the SAT primarily uses degrees, it is worth noting that if the central angle is given in radians ($\theta$), the arc length is simply:
+
+$$s = r\theta$$
+
+This is a more elegant formula than the degree version and is sometimes referenced in problems that involve radian measure.
+
+### 4.11.4 The Pythagorean Theorem in Three Dimensions
+
+The **space diagonal** of a rectangular prism with dimensions $l$, $w$, and $h$ has length:
+
+$$d = \sqrt{l^2 + w^2 + h^2}$$
+
+This is found by applying the Pythagorean Theorem twice: first to find the diagonal of the base ($\sqrt{l^2 + w^2}$), and then using that diagonal and the height as legs of another right triangle to find the space diagonal.
+
+### 4.11.5 Similarity in Three Dimensions
+
+Just as in two dimensions, three-dimensional solids can be similar. If two solids are similar with a linear scale factor of $k$:
+- Corresponding lengths are in the ratio $k : 1$.
+- Corresponding surface areas are in the ratio $k^2 : 1$.
+- Corresponding volumes are in the ratio $k^3 : 1$.
+
+### 4.11.6 The Equation of a Circle and Geometric Problem-Solving
+
+The standard form of a circle's equation, $(x - h)^2 + (y - k)^2 = r^2$, is a powerful tool for solving geometric problems algebraically. For example:
+
+- To find where a line intersects a circle, substitute the line's equation into the circle's equation and solve the resulting quadratic.
+- To find the tangent line to a circle at a point, use the fact that the radius to that point is perpendicular to the tangent line.
+- To find the shortest distance from a point to a circle, compute the distance from the point to the center and subtract the radius.
+
+---
+
+## 4.12 Strategic Summary for Test Day
+
+When you encounter a geometry or trigonometry problem on the SAT, follow this mental checklist:
+
+1. **Read carefully**: Identify what is given and what is asked. Is the problem about area, perimeter, volume, angles, or side lengths?
+
+2. **Draw or mark up the diagram**: Label all known values. Add auxiliary lines if needed.
+
+3. **Identify the relevant shape(s)**: Is this a triangle problem? A circle problem? A composite shape?
+
+4. **Recall the appropriate formula(s)**: Do you need the Pythagorean Theorem? A special right triangle ratio? A circle formula? A trigonometric ratio?
+
+5. **Set up equations and solve**: Translate the geometric relationships into algebraic equations.
+
+6. **Check your answer**: Does the answer make sense? Are the units correct? Did you answer what was actually asked?
+
+7. **Use the answer choices**: On multiple-choice questions, you can often work backwards from the choices or use estimation to eliminate unreasonable options.
+
+The geometry and trigonometry questions on the SAT are among the most predictable and formulaic. Unlike some of the more creative algebra or data analysis problems, geometry problems tend to follow recognizable patterns. By mastering the formulas, relationships, and strategies outlined in this chapter, you can turn this domain from a source of anxiety into a reliable source of points.
+
+---
+
+
+# Chapter 5: Functions & Their Transformations — Composition, Inverses & Graphical Analysis
+
+---
+
+## 5.1 The Foundational Nature of Functions on the SAT
+
+Functions are the single most important topic on the SAT Math section. They appear in every module, in every difficulty band, and in nearly every question type — from straightforward evaluation to complex graphical analysis. The College Board's own content specifications place "Advanced Math" (which is dominated by function concepts) at approximately 35% of the Math section, and function reasoning bleeds into Algebra, Problem-Solving & Data Analysis, and even Geometry & Trigonometry questions.
+
+A function, at its core, is a rule that assigns to each input exactly one output. This deceptively simple definition conceals enormous depth. On the SAT, you will encounter functions presented in multiple representations: algebraic formulas, tables of values, graphs in the coordinate plane, verbal descriptions, and even nested compositions. The test rewards students who can fluidly translate between these representations and who understand the structural behavior of functions — how they grow, decay, shift, stretch, and interact with one another.
+
+The Digital SAT's adaptive format means that if you perform well on the first module, the second module will present harder function questions — questions that test not just procedural fluency but genuine conceptual understanding. This chapter will build that understanding from the ground up.
+
+---
+
+## 5.2 Function Notation and Evaluation
+
+### 5.2.1 Standard Notation
+
+The notation $f(x)$ does not mean "$f$ times $x$." It is read as "$f$ of $x$" and represents the output of the function $f$ when the input is $x$. The variable $x$ is the independent variable (the input), and $f(x)$ is the dependent variable (the output).
+
+When a function is defined by a formula such as $f(x) = 3x^2 - 5x + 2$, evaluating the function at a specific value means substituting that value everywhere the variable $x$ appears. For example, $f(4)$ means replace every $x$ with 4:
+
+$$f(4) = 3(4)^2 - 5(4) + 2 = 3(16) - 20 + 2 = 48 - 20 + 2 = 30$$
+
+This seems straightforward, but the SAT introduces wrinkles. You may be asked to evaluate at a negative number, a fraction, a variable expression, or even another function's output. Each variation tests whether you truly understand substitution as a structural operation rather than a mechanical one.
+
+### 5.2.2 Evaluation at Variable Expressions
+
+A question may ask for $f(a + 1)$ or $f(2x - 3)$. The principle is identical: substitute the entire expression for the variable. If $f(x) = x^2 + 1$, then:
+
+$$f(a + 1) = (a + 1)^2 + 1 = a^2 + 2a + 1 + 1 = a^2 + 2a + 2$$
+
+Students who mistakenly write $f(a + 1) = a^2 + 1$ are falling into one of the most common traps on the SAT — failing to substitute the entire expression. The function's rule applies to whatever is inside the parentheses, not just the variable name.
+
+### 5.2.3 Piecewise-Defined Functions
+
+Some SAT questions define a function differently depending on the input value. These are called piecewise functions. For example:
+
+$$f(x) = \begin{cases} x + 3 & \text{if } x < 0 \\ x^2 & \text{if } x \geq 0 \end{cases}$$
+
+To evaluate $f(-2)$, you first determine which case applies: since $-2 < 0$, you use the first rule, giving $f(-2) = -2 + 3 = 1$. To evaluate $f(3)$, since $3 \geq 0$, you use the second rule, giving $f(3) = 9$.
+
+The SAT may present piecewise functions graphically rather than algebraically, asking you to read values from the graph. The key skill is identifying which piece of the function applies to a given input.
+
+### 5.2.4 Functions Defined by Tables
+
+Sometimes a function is defined not by a formula but by a table of input-output pairs:
+
+| $x$ | $f(x)$ |
+|------|--------|
+| -2 | 7 |
+| 0 | 3 |
+| 2 | -1 |
+| 4 | -5 |
+
+From this table, you can read that $f(0) = 3$ and $f(4) = -5$. But the SAT may ask harder questions: What is the value of $x$ for which $f(x) = -1$? (Answer: $x = 2$.) Or: If $f(x) = 3$, what is $x$? (Answer: $x = 0$.)
+
+The table format tests whether you understand that a function is a set of ordered pairs — and that you can read the table in either direction (input-to-output or output-to-input).
+
+---
+
+## 5.3 Domain and Range
+
+### 5.3.1 Definitions
+
+The **domain** of a function is the set of all possible input values (the $x$-values for which the function is defined). The **range** is the set of all possible output values (the resulting $f(x)$-values).
+
+For many functions on the SAT, the domain is all real numbers. But certain operations restrict the domain:
+
+- **Division by zero**: If $f(x) = \frac{1}{x-3}$, then $x = 3$ is excluded from the domain because it makes the denominator zero.
+- **Even roots of negative numbers**: If $f(x) = \sqrt{x+2}$, then $x+2 \geq 0$, so $x \geq -2$. The domain is $[-2, \infty)$.
+- **Logarithms of non-positive numbers**: If $f(x) = \ln(x)$, then $x > 0$.
+
+The SAT frequently tests domain restrictions, especially those involving division by zero and square roots. A common question format gives you a function and asks which value is NOT in the domain, or asks you to find the domain in interval notation.
+
+### 5.3.2 Range Determination
+
+Finding the range is generally harder than finding the domain because it requires understanding the behavior of the function's output. For a quadratic function $f(x) = x^2 - 4x + 7$, you can find the range by completing the square:
+
+$$f(x) = (x - 2)^2 + 3$$
+
+Since $(x-2)^2 \geq 0$ for all real $x$, the minimum value of $f(x)$ is $3$, and the range is $[3, \infty)$.
+
+For the SAT, you should be comfortable determining the range of:
+
+- **Quadratic functions** (by finding the vertex)
+- **Absolute value functions** (always $\geq 0$, shifted vertically)
+- **Rational functions** (by analyzing horizontal asymptotes and behavior)
+- **Exponential functions** (always positive for standard bases)
+
+### 5.3.3 Domain and Range from Graphs
+
+When a function is presented graphically, the domain is the set of $x$-values for which the graph exists (the "shadow" of the graph on the $x$-axis), and the range is the set of $y$-values for which the graph exists (the "shadow" on the $y$-axis).
+
+A common SAT question shows a graph with a hole, an asymptote, or a restricted portion and asks you to identify the domain or range. You must pay careful attention to:
+
+- **Open circles** (indicating a point not included)
+- **Closed circles** (indicating a point that is included)
+- **Arrows** (indicating the graph continues indefinitely)
+- **Gaps or breaks** in the graph
+
+---
+
+## 5.4 Composition of Functions
+
+### 5.4.1 The Concept of Composition
+
+Function composition is the operation of applying one function to the result of another. The composition of $f$ with $g$, written $f(g(x))$ or $(f \circ g)(x)$, means: first apply $g$ to $x$, then apply $f$ to the result.
+
+Symbolically: $(f \circ g)(x) = f(g(x))$
+
+The output of $g$ becomes the input of $f$. This is read from right to left — $g$ acts first, then $f$.
+
+### 5.4.2 Evaluating Compositions
+
+If $f(x) = 2x + 1$ and $g(x) = x^2 - 3$, then:
+
+$$f(g(x)) = f(x^2 - 3) = 2(x^2 - 3) + 1 = 2x^2 - 6 + 1 = 2x^2 - 5$$
+
+The process is mechanical but requires care: you substitute the entire expression for $g(x)$ into every instance of the variable in $f$.
+
+You may also be asked to evaluate at a specific number:
+
+$$f(g(2)) = f(2^2 - 3) = f(1) = 2(1) + 1 = 3$$
+
+Or you can compose in the other order:
+
+$$g(f(x)) = g(2x + 1) = (2x + 1)^2 - 3 = 4x^2 + 4x + 1 - 3 = 4x^2 + 4x - 2$$
+
+**Critical insight**: In general, $f(g(x)) \neq g(f(x))$. Composition is not commutative. The SAT loves to test whether students understand this by asking whether two compositions are equal, or by giving you $f(g(x))$ and $g(f(x))$ and asking you to compare them.
+
+### 5.4.3 Compositions with Three or More Functions
+
+The SAT occasionally presents triple compositions like $f(g(h(x)))$. The evaluation proceeds from the innermost function outward:
+
+1. Evaluate $h(x)$
+2. Substitute that result into $g$
+3. Substitute that result into $f$
+
+This is no different in principle from a double composition — it just requires more careful bookkeeping.
+
+### 5.4.4 Finding the Input Given the Output of a Composition
+
+A more challenging SAT question gives you the value of a composition and asks for the input. For example: If $f(x) = x + 4$ and $g(x) = 3x$, and $f(g(a)) = 19$, what is $a$?
+
+Working forward: $f(g(a)) = f(3a) = 3a + 4 = 19$, so $3a = 15$ and $a = 5$.
+
+Alternatively, you can find a formula for the composition first, then solve. The key is recognizing that composition creates a new function, and you can solve equations involving that new function just as you would any other equation.
+
+### 5.4.5 Compositions Involving Unknown Functions
+
+Some SAT questions give you partial information about functions and ask you to determine a composition. For example: If $f(x) = ax + b$ and $g(x) = x^2$, and $f(g(2)) = 10$ and $f(g(3)) = 19$, what are $a$ and $b$?
+
+From $f(g(2)) = f(4) = 4a + b = 10$ and $f(g(3)) = f(9) = 9a + b = 19$, you get a system of two equations. Subtracting: $5a = 9$, so $a = \frac{9}{5}$, and then $b = 10 - 4(\frac{9}{5}) = 10 - \frac{36}{5} = \frac{14}{5}$.
+
+This type of question bridges composition with systems of equations — a hallmark of SAT question design that tests multiple concepts simultaneously.
+
+---
+
+## 5.5 Inverse Functions
+
+### 5.5.1 The Concept of an Inverse
+
+The inverse of a function $f$, denoted $f^{-1}$, "undoes" the action of $f$. If $f$ takes an input $x$ and produces output $y$, then $f^{-1}$ takes $y$ as input and produces $x$ as output. Formally:
+
+$$f^{-1}(f(x)) = x \quad \text{and} \quad f(f^{-1}(x)) = x$$
+
+This means that $f$ and $f^{-1}$ are inverses of each other if and only if both compositions yield the identity function (the function that returns its input unchanged).
+
+**Important**: The notation $f^{-1}(x)$ does NOT mean $\frac{1}{f(x)}$. The superscript $-1$ in this context denotes the inverse function, not the reciprocal. This is one of the most persistent sources of confusion for students, and the SAT exploits it regularly.
+
+### 5.5.2 When Does an Inverse Exist?
+
+Not every function has an inverse. For a function to have an inverse, it must be **one-to-one** (also called **injective**), meaning that no two different inputs produce the same output. Equivalently, the function must pass the **horizontal line test**: any horizontal line drawn in the coordinate plane must intersect the graph of the function at most once.
+
+For example, $f(x) = x^2$ is NOT one-to-one over all real numbers because $f(2) = f(-2) = 4$. Therefore, $f(x) = x^2$ does not have an inverse unless you restrict its domain (for example, to $x \geq 0$, in which case the inverse is $f^{-1}(x) = \sqrt{x}$).
+
+The SAT may ask you to determine whether a function has an inverse, or to restrict the domain of a function so that an inverse exists.
+
+### 5.5.3 Finding the Inverse Algebraically
+
+To find the inverse of a function $f(x)$:
+
+1. Replace $f(x)$ with $y$
+2. Swap $x$ and $y$
+3. Solve for $y$
+4. Replace $y$ with $f^{-1}(x)$
+
+**Example**: Find the inverse of $f(x) = 3x - 5$.
+
+Step 1: $y = 3x - 5$
+
+Step 2: $x = 3y - 5$
+
+Step 3: $x + 5 = 3y$, so $y = \frac{x + 5}{3}$
+
+Step 4: $f^{-1}(x) = \frac{x + 5}{3}$
+
+You can verify: $f(f^{-1}(x)) = f\left(\frac{x+5}{3}\right) = 3\left(\frac{x+5}{3}\right) - 5 = x + 5 - 5 = x$. ✓
+
+### 5.5.4 The Relationship Between a Function and Its Inverse
+
+The graph of $f^{-1}$ is the reflection of the graph of $f$ across the line $y = x$. This is because swapping $x$ and $y$ (which is what finding the inverse does algebraically) corresponds geometrically to reflecting across the diagonal line $y = x$.
+
+This has several important consequences:
+
+- If $(a, b)$ is on the graph of $f$, then $(b, a)$ is on the graph of $f^{-1}$.
+- The domain of $f^{-1}$ equals the range of $f$, and the range of $f^{-1}$ equals the domain of $f$.
+- If $f$ is increasing, then $f^{-1}$ is also increasing.
+
+The SAT frequently tests the graphical relationship between a function and its inverse. You may be shown a graph and asked to identify the inverse, or shown both graphs and asked about their relationship.
+
+### 5.5.5 Inverse of a Composition
+
+If $f$ and $g$ are both invertible, then the inverse of the composition $f(g(x))$ is:
+
+$$(f \circ g)^{-1} = g^{-1} \circ f^{-1}$$
+
+Notice the reversal of order — this is analogous to how $(AB)^{-1} = B^{-1}A^{-1}$ for matrices, or how you put on socks before shoes but take off shoes before socks. The last function applied is the first one undone.
+
+### 5.5.6 Self-Inverse Functions
+
+A function is called **self-inverse** if $f^{-1}(x) = f(x)$, meaning $f(f(x)) = x$. Examples include:
+
+- $f(x) = x$ (the identity function)
+- $f(x) = -x$
+- $f(x) = \frac{1}{x}$ (for $x \neq 0$)
+- $f(x) = a - x$ for any constant $a$
+
+Self-inverse functions are their own reflection across the line $y = x$ — their graphs are symmetric about that line.
+
+---
+
+## 5.6 Transformations of Functions
+
+### 5.6.1 The Transformation Framework
+
+One of the most powerful and frequently tested topics on the SAT is the transformation of functions — how the graph of $y = f(x)$ changes when you modify the formula. If you understand the transformation rules deeply, you can answer many graphical questions without doing any algebra at all.
+
+The general transformed function takes the form:
+
+$$y = a \cdot f(b(x - h)) + k$$
+
+Each parameter controls a specific transformation:
+
+| Parameter | Transformation | Effect on Graph |
+|-----------|---------------|-----------------|
+| $a$ (outside) | Vertical stretch/compression and reflection | If $|a| > 1$, stretch; if $0 < |a| < 1$, compress; if $a < 0$, reflect over $x$-axis |
+| $b$ (inside, multiplied by $x$) | Horizontal stretch/compression and reflection | If $|b| > 1$, compress horizontally; if $0 < |b| < 1$, stretch; if $b < 0$, reflect over $y$-axis |
+| $h$ (inside, subtracted) | Horizontal shift | If $h > 0$, shift right; if $h < 0$, shift left |
+| $k$ (outside, added) | Vertical shift | If $k > 0$, shift up; if $k < 0$, shift down |
+
+### 5.6.2 Vertical Transformations
+
+Vertical transformations are the most intuitive because they operate in the same direction as the output.
+
+**Vertical shift**: $f(x) + k$
+
+Adding a constant $k$ to the output shifts the entire graph up by $k$ units (if $k > 0$) or down by $|k|$ units (if $k < 0$). Every point $(x, y)$ on the graph of $f$ moves to $(x, y + k)$.
+
+**Vertical stretch/compression**: $a \cdot f(x)$
+
+Multiplying the output by a constant $a$ stretches the graph vertically by a factor of $|a|$ (if $|a| > 1$) or compresses it by a factor of $|a|$ (if $0 < |a| < 1$). Every point $(x, y)$ on the graph of $f$ moves to $(x, ay)$.
+
+**Reflection over the $x$-axis**: $-f(x)$
+
+Multiplying the output by $-1$ flips the graph upside down. Every point $(x, y)$ moves to $(x, -y)$.
+
+### 5.6.3 Horizontal Transformations
+
+Horizontal transformations are counterintuitive because they operate in the opposite direction to what you might expect.
+
+**Horizontal shift**: $f(x - h)$
+
+Subtracting $h$ from the input shifts the graph to the **right** by $h$ units (if $h > 0$) or to the **left** by $|h|$ units (if $h < 0$). This is the opposite of what the sign suggests, which is why students frequently get this wrong.
+
+Think of it this way: $f(x - 3)$ means "to find the output at position $x$, look at what $f$ was doing 3 units to the left." So the graph shifts right.
+
+**Horizontal stretch/compression**: $f(bx)$
+
+Multiplying the input by $b$ compresses the graph horizontally by a factor of $|b|$ (if $|b| > 1$) or stretches it by a factor of $\frac{1}{|b|}$ (if $0 < |b| < 1$). Again, this is the opposite of what you might expect.
+
+**Reflection over the $y$-axis**: $f(-x)$
+
+Replacing $x$ with $-x$ flips the graph left-to-right. Every point $(x, y)$ moves to $(-x, y)$.
+
+### 5.6.4 The Order of Transformations
+
+When multiple transformations are applied simultaneously, the order matters. The standard order of operations dictates the sequence:
+
+1. **Horizontal transformations** (inside the function): stretch/compression and reflection first, then shift
+2. **Vertical transformations** (outside the function): stretch/compression and reflection first, then shift
+
+For $y = 2f(3x - 6) + 5$, you should factor inside the function to identify the horizontal shift correctly:
+
+$$y = 2f(3(x - 2)) + 5$$
+
+This represents: horizontal compression by factor 3, shift right by 2, vertical stretch by 2, shift up by 5.
+
+A common mistake is to say the shift is 6 units right, but because the 3 is multiplied by both $x$ and the $-2$, the actual shift is only 2 units right. **Always factor out the coefficient of $x$ inside the function to correctly identify the horizontal shift.**
+
+### 5.6.5 Identifying Transformations from Graphs
+
+The SAT frequently shows you the graph of a function $f$ and asks you to identify the graph of a transformed version like $f(x - 2) + 3$ or $-2f(x)$. The key strategy is to track specific points:
+
+- Pick a recognizable point on the graph of $f$, such as the vertex of a parabola or the $y$-intercept.
+- Apply the transformation to that point.
+- Find the answer choice whose graph contains the transformed point.
+
+For example, if the vertex of $f$ is at $(1, 4)$ and you're looking for $y = f(x - 2) + 3$, the new vertex is at $(1 + 2, 4 + 3) = (3, 7)$. Find the graph with a vertex (or corresponding feature) at $(3, 7)$.
+
+### 5.6.6 Writing the Equation of a Transformed Function
+
+Conversely, the SAT may show you the graph of a transformed function and ask you to write its equation in terms of the original function $f$. The strategy is:
+
+1. Identify a key point on the original graph of $f$
+2. Identify the corresponding point on the transformed graph
+3. Determine what horizontal and vertical transformations map the original point to the new point
+4. Write the equation using those transformations
+
+### 5.6.7 Even and Odd Functions
+
+Two special types of symmetry are tested on the SAT:
+
+**Even function**: $f(-x) = f(x)$ for all $x$ in the domain. The graph is symmetric about the $y$-axis. Examples: $f(x) = x^2$, $f(x) = \cos(x)$, $f(x) = |x|$.
+
+**Odd function**: $f(-x) = -f(x)$ for all $x$ in the domain. The graph is symmetric about the origin (rotational symmetry of 180°). Examples: $f(x) = x^3$, $f(x) = \sin(x)$, $f(x) = \frac{1}{x}$.
+
+The SAT may ask you to identify whether a function is even, odd, or neither from its graph, its equation, or a table of values. You may also be asked about the result of composing even and odd functions, or about the symmetry properties of transformed functions.
+
+---
+
+## 5.7 Graphical Analysis of Functions
+
+### 5.7.1 Reading Key Features from Graphs
+
+The SAT expects you to extract detailed information from function graphs. Key features include:
+
+- **Intercepts**: Where the graph crosses the axes. The $x$-intercepts (also called zeros or roots) are the solutions to $f(x) = 0$. The $y$-intercept is $f(0)$.
+- **Maximum and minimum values**: The highest and lowest points on the graph (or on a specified interval).
+- **Intervals of increase and decrease**: Where the graph rises (as $x$ increases, $f(x)$ increases) or falls (as $x$ increases, $f(x)$ decreases).
+- **End behavior**: What happens to $f(x)$ as $x$ approaches positive or negative infinity.
+- **Asymptotes**: Lines that the graph approaches but never touches.
+
+### 5.7.2 Zeros of a Function
+
+The zeros (or roots) of a function $f$ are the $x$-values where $f(x) = 0$. Graphically, these are the $x$-intercepts — the points where the graph crosses or touches the $x$-axis.
+
+The SAT may ask:
+
+- How many zeros does the function have?
+- What is the sum of the zeros?
+- What is the product of the zeros?
+- For what values of a parameter does the function have exactly one zero?
+
+For a quadratic $f(x) = ax^2 + bx + c$, the sum of the zeros is $-\frac{b}{a}$ and the product is $\frac{c}{a}$ (Vieta's formulas). The discriminant $b^2 - 4ac$ tells you how many real zeros exist: two if positive, one if zero, none if negative.
+
+### 5.7.3 Positive and Negative Regions
+
+The SAT may ask where a function is positive ($f(x) > 0$), negative ($f(x) < 0$), or zero ($f(x) = 0$). Graphically:
+
+- The function is **positive** where the graph lies **above** the $x$-axis
+- The function is **negative** where the graph lies **below** the $x$-axis
+- The function is **zero** where the graph **intersects** the $x$-axis
+
+For a quadratic with two real roots $r_1 < r_2$ and positive leading coefficient, the function is negative between the roots ($r_1 < x < r_2$) and positive outside them ($x < r_1$ or $x > r_2$).
+
+### 5.7.4 Intersection Points of Two Functions
+
+The points where two functions $f$ and $g$ intersect are the solutions to the equation $f(x) = g(x)$. Graphically, these are the points where the two graphs cross.
+
+The SAT may ask:
+
+- How many times do the graphs intersect?
+- What is the sum of the $x$-coordinates of the intersection points?
+- For what value of a parameter do the graphs intersect exactly once?
+
+To find intersection points algebraically, set $f(x) = g(x)$ and solve. The number of solutions tells you the number of intersection points.
+
+### 5.7.5 Maximum and Minimum Values
+
+For a quadratic function $f(x) = ax^2 + bx + c$:
+
+- If $a > 0$, the parabola opens upward and has a **minimum** at the vertex
+- If $a < 0$, the parabola opens downward and has a **maximum** at the vertex
+- The vertex occurs at $x = -\frac{b}{2a}$
+
+The SAT may ask for the maximum or minimum value of a function, the $x$-value at which it occurs, or the behavior of the function on a specific interval.
+
+### 5.7.6 Asymptotes
+
+An **asymptote** is a line that a graph approaches but never touches (or touches only at infinity).
+
+**Vertical asymptotes** occur where a function grows without bound, typically where the denominator of a rational function equals zero (provided the numerator doesn't also equal zero at that point). For $f(x) = \frac{1}{x-3}$, there is a vertical asymptote at $x = 3$.
+
+**Horizontal asymptotes** describe the end behavior of a function — what value $f(x)$ approaches as $x$ goes to positive or negative infinity. For rational functions:
+
+- If the degree of the numerator is less than the degree of the denominator, the horizontal asymptote is $y = 0$
+- If the degrees are equal, the horizontal asymptote is $y = \frac{\text{leading coefficient of numerator}}{\text{leading coefficient of denominator}}$
+- If the degree of the numerator is greater, there is no horizontal asymptote (though there may be an oblique/slant asymptote)
+
+The SAT tests asymptotes both algebraically and graphically. You may need to identify asymptotes from an equation, or determine an equation from a graph with asymptotes.
+
+---
+
+## 5.8 Special Function Types on the SAT
+
+### 5.8.1 Linear Functions
+
+Linear functions have the form $f(x) = mx + b$, where $m$ is the slope and $b$ is the $y$-intercept. Their graphs are straight lines.
+
+Key properties:
+
+- Constant rate of change: the slope $m$ represents the change in output per unit change in input
+- Domain and range are all real numbers (unless restricted)
+- Always one-to-one (always has an inverse)
+- The inverse of $f(x) = mx + b$ is $f^{-1}(x) = \frac{x - b}{m}$
+
+### 5.8.2 Quadratic Functions
+
+Quadratic functions have the form $f(x) = ax^2 + bx + c$ with $a \neq 0$. Their graphs are parabolas.
+
+Key properties:
+
+- The vertex is at $\left(-\frac{b}{2a}, f\left(-\frac{b}{2a}\right)\right)$
+- The axis of symmetry is the vertical line $x = -\frac{b}{2a}$
+- Can be written in **vertex form**: $f(x) = a(x - h)^2 + k$, where $(h, k)$ is the vertex
+- The discriminant $b^2 - 4ac$ determines the number of real zeros
+- Not one-to-one over all real numbers (fails horizontal line test), so the domain must be restricted to define an inverse
+
+**Converting to vertex form by completing the square**:
+
+For $f(x) = 2x^2 - 12x + 19$:
+
+$$f(x) = 2(x^2 - 6x) + 19 = 2(x^2 - 6x + 9 - 9) + 19 = 2(x - 3)^2 - 18 + 19 = 2(x - 3)^2 + 1$$
+
+The vertex is $(3, 1)$.
+
+### 5.8.3 Exponential Functions
+
+Exponential functions have the form $f(x) = ab^x$, where $a \neq 0$ and $b > 0$, $b \neq 1$.
+
+Key properties:
+
+- The $y$-intercept is $f(0) = a$
+- The domain is all real numbers; the range is $(0, \infty)$ if $a > 0$
+- If $b > 1$, the function represents **exponential growth** (increasing)
+- If $0 < b < 1$, the function represents **exponential decay** (decreasing)
+- The horizontal asymptote is $y = 0$
+- The function is always one-to-one, so it always has an inverse (the logarithm)
+
+**Growth factor interpretation**: In $f(x) = ab^x$, the base $b$ is the growth factor. If $b = 1.05$, the quantity grows by 5% per unit increase in $x$. If $b = 0.95$, the quantity decays by 5% per unit increase in $x$.
+
+The SAT frequently presents exponential functions in context — population growth, radioactive decay, compound interest, cooling objects, etc. You must be able to interpret the parameters $a$ and $b$ in context.
+
+### 5.8.4 Absolute Value Functions
+
+The absolute value function $f(x) = |x|$ has a V-shaped graph with its vertex at the origin. It can be defined piecewise:
+
+$$|x| = \begin{cases} x & \text{if } x \geq 0 \\ -x & \text{if } x < 0 \end{cases}$$
+
+Transformed absolute value functions like $f(x) = a|x - h| + k$ have:
+
+- Vertex at $(h, k)$
+- Opens upward if $a > 0$, downward if $a < 0$
+- The slope of the right branch is $a$; the slope of the left branch is $-a$
+
+The SAT may ask you to:
+
+- Graph an absolute value function
+- Write the equation of an absolute value function from its graph
+- Solve absolute value equations and inequalities
+- Determine the number of solutions to equations like $|x - 3| = c$
+
+### 5.8.5 Rational Functions
+
+Rational functions are ratios of polynomials: $f(x) = \frac{P(x)}{Q(x)}$.
+
+Key properties:
+
+- The domain excludes values where $Q(x) = 0$
+- Vertical asymptotes occur at zeros of the denominator (that are not also zeros of the numerator)
+- If a zero of the denominator is also a zero of the numerator, there may be a **hole** (removable discontinuity) instead of an asymptote
+- Horizontal asymptotes depend on the degrees of numerator and denominator (as described in Section 5.7.6)
+
+The SAT may present rational functions and ask about their asymptotes, holes, domain, or behavior near undefined points.
+
+---
+
+## 5.9 Function Modeling and Interpretation
+
+### 5.9.1 Choosing the Right Function Type
+
+The SAT frequently presents a real-world scenario and asks you to select the appropriate function type:
+
+| Scenario | Function Type |
+|----------|--------------|
+| Constant rate of change | Linear: $f(x) = mx + b$ |
+| Constant percent rate of change | Exponential: $f(x) = ab^x$ |
+| Maximize or minimize a quantity | Quadratic: $f(x) = ax^2 + bx + c$ |
+| Quantity approaches a limiting value | Rational or exponential decay |
+| V-shaped relationship | Absolute value: $f(x) = a|x - h| + k$ |
+
+### 5.9.2 Interpreting Parameters in Context
+
+When a function models a real-world situation, each parameter has a meaningful interpretation:
+
+For $P(t) = 1500(1.03)^t$ modeling a population:
+
+- $1500$ is the initial population (at $t = 0$)
+- $1.03$ means the population grows by 3% per time unit
+- $t$ is the number of time units elapsed
+
+For $h(t) = -16t^2 + 64t + 80$ modeling the height of a thrown object:
+
+- $80$ is the initial height (in feet)
+- $64$ is the initial upward velocity (in feet per second)
+- $-16$ is half the acceleration due to gravity (in feet per second squared)
+
+The SAT will ask you to interpret these parameters, predict values, or determine when the function reaches a certain value.
+
+### 5.9.3 Average Rate of Change
+
+The **average rate of change** of a function $f$ over the interval $[a, b]$ is:
+
+$$\frac{f(b) - f(a)}{b - a}$$
+
+This is the slope of the secant line connecting $(a, f(a))$ to $(b, f(b))$. For a linear function, the average rate of change is constant (equal to the slope). For nonlinear functions, it varies depending on the interval.
+
+The SAT may ask you to:
+
+- Calculate the average rate of change from a table or graph
+- Compare average rates of change over different intervals
+- Interpret the average rate of change in context (e.g., "the population grew by an average of 500 people per year between 2010 and 2020")
+
+### 5.9.4 Connecting Representations
+
+One of the deepest skills the SAT tests is the ability to connect different representations of the same function. Given a formula, you should be able to:
+
+- Generate a table of values
+- Sketch the graph
+- Describe the behavior in words
+- Identify the function type and key features
+
+Conversely, given a graph, you should be able to:
+
+- Read specific values
+- Determine the domain and range
+- Identify intervals of increase/decrease
+- Recognize the function type
+- Write a possible equation
+
+The SAT's multi-representation approach means that a single function might be tested through a table in one question, a graph in another, and a formula in a third. Mastery requires fluency in all representations.
+
+---
+
+## 5.10 Advanced Composition and Inverse Concepts
+
+### 5.10.1 Compositions with Tables
+
+When functions are defined by tables, composition requires careful lookup. If $f$ and $g$ are both defined by tables, to find $f(g(2))$:
+
+1. Look up $g(2)$ in the table for $g$
+2. Use that result as the input to look up $f(\text{that value})$ in the table for $f$
+
+If the intermediate value is not in the table for $f$, the composition may be undefined (or the question may provide additional information).
+
+### 5.10.2 Compositions with Graphs
+
+When functions are presented graphically, you evaluate compositions by reading values from the graphs. To find $f(g(1))$:
+
+1. Read $g(1)$ from the graph of $g$ (find $x = 1$, read the $y$-value)
+2. Use that $y$-value as the $x$-input for $f$, and read $f(\text{that value})$ from the graph of $f$
+
+This process can be extended to triple compositions or to finding the input given the output (working backward through the graphs).
+
+### 5.10.3 Functional Equations
+
+Some SAT questions present equations involving unknown functions and ask you to determine properties of those functions. For example:
+
+If $f(x + y) = f(x) + f(y)$ for all real $x$ and $y$, and $f(1) = 5$, what is $f(3)$?
+
+Using the functional equation: $f(3) = f(1 + 1 + 1) = f(1) + f(1) + f(1) = 5 + 5 + 5 = 15$.
+
+These questions test your ability to work with functions abstractly, without knowing the explicit formula.
+
+### 5.10.4 Comparing Functions
+
+The SAT may present two or more functions and ask you to compare them. Common comparison tasks include:
+
+- Which function has a greater value at a specific point?
+- Which function has a greater rate of change?
+- Which function has more zeros?
+- Which function has a greater maximum or minimum?
+
+These comparisons can be made algebraically, graphically, or numerically depending on how the functions are presented.
+
+### 5.10.5 Functions and Their Inverses: Advanced Relationships
+
+Beyond the basic mechanics of finding and verifying inverses, the SAT tests deeper understanding:
+
+**If $f(a) = b$, then $f^{-1}(b) = a$.** This is the fundamental relationship. If you know a point on the graph of $f$, you immediately know a point on the graph of $f^{-1}$.
+
+**Inverse of a transformation**: If $g(x) = f(x - h) + k$, then $g^{-1}(x) = f^{-1}(x - k) + h$. Notice that the horizontal and vertical shifts swap roles in the inverse.
+
+---
+
+## 5.11 Strategic Approaches for the SAT
+
+### 5.11.1 The Plug-In Strategy
+
+When a function question asks for the value of an expression involving $f$ at a specific point, and the function is defined by a formula, direct substitution is usually fastest. But when the function is defined by a table or graph, you must read the value carefully.
+
+For more complex questions, **plugging in specific values** can be a powerful strategy. If a question asks which expression equals $f(g(x))$ for all $x$, you can test a convenient value of $x$ (like $x = 0$ or $x = 1$) to eliminate wrong answer choices.
+
+### 5.11.2 The Point-Tracking Strategy for Transformations
+
+When identifying the graph of a transformed function, track 2–3 key points through the transformation. If the original graph contains points $(0, 1)$, $(2, 5)$, and $(-1, -2)$, and the transformation is $y = f(x - 2) + 3$, the new points are $(3, 4)$, $(4, 8)$, and $(1, 1)$. Find the answer choice containing all these points.
+
+### 5.11.3 Working Backward from Answers
+
+For inverse function questions, you can verify answer choices by checking if $f(f^{-1}(x)) = x$. This is often faster than computing the inverse from scratch, especially when the answer choices are simple expressions.
+
+### 5.11.4 Recognizing Function Types from Data
+
+When given a table of values, you can often determine the function type by examining patterns:
+
+- **Linear**: Constant first differences (equal changes in $f(x)$ for equal changes in $x$)
+- **Quadratic**: Constant second differences (the differences of the differences are constant)
+- **Exponential**: Constant ratio (each $f(x)$ value is a fixed multiple of the previous one)
+
+This classification skill is essential for SAT questions that present data and ask you to identify the function type or write a formula.
+
+---
+
+## 5.12 Common Traps and Misconceptions
+
+### 5.12.1 Confusing $f^{-1}(x)$ with $\frac{1}{f(x)}$
+
+As emphasized throughout this chapter, $f^{-1}(x)$ is the inverse function, not the reciprocal. The notation is unfortunate but standard. Always read $f^{-1}$ as "f inverse," not "f to the negative one."
+
+### 5.12.2 Horizontal Shift Direction
+
+$f(x - 3)$ shifts the graph **right** by 3, not left. $f(x + 3)$ shifts **left** by 3. The direction is opposite to the sign inside the function. This is the single most common transformation error on the SAT.
+
+### 5.12.3 Forgetting to Factor for Horizontal Stretch/Compression
+
+In $f(3x - 6)$, the horizontal shift is NOT 6 units. You must factor: $f(3(x - 2))$, so the shift is 2 units right (combined with a horizontal compression by factor 3).
+
+### 5.12.4 Assuming All Functions Have Inverses
+
+Only one-to-one functions have inverses. If a function fails the horizontal line test, it does not have an inverse unless you restrict its domain. The SAT may give you a quadratic and ask for its inverse — the answer is that it doesn't have one (over its natural domain), or you must specify a restricted domain.
+
+### 5.12.5 Misreading Composition Order
+
+$f(g(x))$ means apply $g$ first, then $f$. The function closest to the $x$ acts first. Reading order (right to left) matches the order of operations.
+
+### 5.12.6 Ignoring Domain Restrictions in Compositions
+
+The domain of $f(g(x))$ consists of all $x$ in the domain of $g$ such that $g(x)$ is in the domain of $f$. Both conditions must be satisfied. The SAT may test this by giving you functions with restricted domains and asking for the domain of the composition.
+
+---
+
+## 5.13 Connections to Other SAT Topics
+
+Functions do not exist in isolation on the SAT. They connect to virtually every other math topic:
+
+- **Systems of equations**: Finding where two functions intersect is equivalent to solving a system
+- **Inequalities**: The regions where $f(x) > g(x)$ or $f(x) < 0$ connect function analysis with inequality solving
+- **Geometry**: Functions can represent geometric relationships (area as a function of side length, distance as a function of time)
+- **Statistics**: Lines of best fit are linear functions; exponential models appear in data analysis
+- **Trigonometry**: Sine and cosine are periodic functions with specific domain, range, and transformation properties
+- **Coordinate geometry**: The equation of a circle is not a function (it fails the vertical line test), but the upper and lower semicircles are functions
+
+Understanding these connections allows you to approach SAT questions flexibly, using whichever representation or technique is most efficient for a given problem.
+
+---
+
+## 5.14 Summary of Key Formulas and Relationships
+
+| Concept | Formula/Relationship |
+|---------|---------------------|
+| Composition | $(f \circ g)(x) = f(g(x))$ |
+| Inverse verification | $f(f^{-1}(x)) = x$ and $f^{-1}(f(x)) = x$ |
+| Inverse of linear function | If $f(x) = mx + b$, then $f^{-1}(x) = \frac{x-b}{m}$ |
+| Vertex of parabola | $x = -\frac{b}{2a}$ for $f(x) = ax^2 + bx + c$ |
+| Vertex form | $f(x) = a(x-h)^2 + k$, vertex at $(h, k)$ |
+| Discriminant | $b^2 - 4ac$ determines number of real zeros |
+| Sum of roots | $-\frac{b}{a}$ for $ax^2 + bx + c = 0$ |
+| Product of roots | $\frac{c}{a}$ for $ax^2 + bx + c = 0$ |
+| Average rate of change | $\frac{f(b) - f(a)}{b - a}$ |
+| Vertical asymptote of rational function | Zero of denominator (not cancelled by numerator) |
+| Horizontal asymptote (equal degrees) | $y = \frac{\text{leading coeff. of num.}}{\text{leading coeff. of den.}}$ |
+| Exponential growth/decay | $f(x) = ab^x$; growth if $b > 1$, decay if $0 < b < 1$ |
+| Transformation: vertical shift | $f(x) + k$ shifts up by $k$ |
+| Transformation: horizontal shift | $f(x - h)$ shifts right by $h$ |
+| Transformation: vertical stretch | $a \cdot f(x)$ stretches vertically by $|a|$ |
+| Transformation: horizontal compression | $f(bx)$ compresses horizontally by $|b|$ |
+
+---
+
+This chapter has covered the full landscape of functions and their transformations as tested on the SAT. From basic evaluation to advanced composition, from finding inverses to analyzing graphs, the key to mastery is not memorizing formulas in isolation but understanding how these concepts interconnect. Every function question on the SAT is testing your ability to see structure, recognize patterns, and move fluidly between representations. Build that fluency through deliberate practice, and the function questions — which constitute the largest single category on the SAT Math section — become your greatest source of points.
+
+---
+
+
+# Chapter 6: Systems of Equations & Inequalities — Substitution, Elimination & Graphical Methods
+
+---
+
+## 6.1 Introduction to Systems of Equations
+
+A **system of equations** is a collection of two or more equations involving the same set of variables. The solution to a system is the set of values for the variables that satisfies all equations simultaneously. In the context of the SAT, the most common systems involve two equations and two variables (typically $x$ and $y$), though occasionally you may encounter systems with three variables or systems that pair a linear equation with a nonlinear one.
+
+Understanding how to solve these systems efficiently is critical for the Algebra content domain of the SAT. The test will frequently present systems in word problems, abstract algebraic forms, or graphical representations and ask for the solution $(x, y)$ or the value of an expression like $x + y$ or $xy$.
+
+### 6.1.1 Types of Solutions
+
+A system of two linear equations in two variables can have exactly one of three possible outcomes:
+
+1. **Exactly One Solution (Independent and Consistent):** The two lines intersect at exactly one point. The slopes of the lines are different ($m_1 \neq m_2$).
+
+2. **No Solution (Inconsistent):** The two lines are parallel and never intersect. The slopes are the same ($m_1 = m_2$), but the $y$-intercepts are different ($b_1 \neq b_2$).
+
+3. **Infinitely Many Solutions (Dependent and Consistent):** The two lines are identical (they lie on top of each other). The slopes are the same ($m_1 = m_2$) and the $y$-intercepts are the same ($b_1 = b_2$).
+
+The SAT frequently tests the second and third cases by asking "For what value of $k$ does the system have no solution?" or "For what value of $c$ does the system have infinitely many solutions?" These questions test whether you understand the *structural* conditions that produce each outcome, rather than just the mechanical process of solving.
+
+### 6.1.2 The Ratio Test for Determining the Number of Solutions
+
+Given a system in standard form:
+
+$$a_1x + b_1y = c_1$$
+$$a_2x + b_2y = c_2$$
+
+You can determine the number of solutions by comparing the ratios of coefficients:
+
+- **One solution** if and only if $\frac{a_1}{a_2} \neq \frac{b_1}{b_2}$ (the lines have different slopes).
+- **No solution** if and only if $\frac{a_1}{a_2} = \frac{b_1}{b_2} \neq \frac{c_1}{c_2}$ (same slope, different intercepts — parallel lines).
+- **Infinitely many solutions** if and only if $\frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{c_1}{c_2}$ (same slope, same intercept — identical lines).
+
+This ratio comparison is the fastest method for "how many solutions" questions on the SAT and should be committed to memory.
+
+---
+
+## 6.2 The Substitution Method
+
+The substitution method is the most fundamental algebraic technique for solving systems of equations. It is particularly useful when one of the variables is already isolated (e.g., $y = 3x + 2$) or can be easily isolated.
+
+### 6.2.1 The Step-by-Step Algorithm
+
+1. **Isolate a Variable:** Choose one of the equations and solve for one variable in terms of the other (e.g., solve for $y$ in terms of $x$).
+
+2. **Substitute:** Take the expression you found in Step 1 and substitute it into the *other* equation (the one you did not manipulate). This will result in an equation with only one variable.
+
+3. **Solve:** Solve the single-variable equation for that variable.
+
+4. **Back-Substitute:** Take the value you found in Step 3 and plug it back into the expression from Step 1 to find the value of the second variable.
+
+5. **Verify:** Plug both values into the original equations to ensure they satisfy both.
+
+### 6.2.2 Detailed Example
+
+Consider the system:
+
+$$x + y = 10$$
+$$2x - y = 8$$
+
+**Step 1: Isolate a variable.** From the first equation, isolate $y$:
+
+$$y = 10 - x$$
+
+**Step 2: Substitute.** Substitute $(10 - x)$ for $y$ in the second equation:
+
+$$2x - (10 - x) = 8$$
+
+**Step 3: Solve.** Distribute the negative sign and combine like terms:
+
+$$2x - 10 + x = 8$$
+$$3x - 10 = 8$$
+$$3x = 18$$
+$$x = 6$$
+
+**Step 4: Back-Substitute.** Substitute $x = 6$ into $y = 10 - x$:
+
+$$y = 10 - 6 = 4$$
+
+**Step 5: Verify.** Check $(6, 4)$ in both original equations:
+
+- $6 + 4 = 10$ ✓
+- $2(6) - 4 = 12 - 4 = 8$ ✓
+
+The solution is $(6, 4)$.
+
+### 6.2.3 When to Use Substitution on the SAT
+
+- **Isolated Variable:** If an equation is already in the form $y = \dots$ or $x = \dots$, substitution is almost always the fastest method.
+
+- **Expression Problems:** If the question asks for the value of an expression like $3x + 2y$ rather than individual variables, substitution can sometimes yield the answer without finding $x$ and $y$ individually.
+
+- **Nonlinear Systems:** Substitution is the primary method for solving systems involving nonlinear equations (such as a line and a parabola).
+
+---
+
+## 6.3 The Elimination Method (Linear Combination)
+
+The elimination method is often faster than substitution, especially when the equations are in standard form ($Ax + By = C$) and no variable is isolated. The goal is to add or subtract the equations to eliminate one of the variables.
+
+### 6.3.1 The Step-by-Step Algorithm
+
+1. **Align the Equations:** Write the equations so that like terms are in columns ($x$'s over $x$'s, $y$'s over $y$'s, constants over constants).
+
+2. **Match Coefficients:** If the coefficients of the variable you want to eliminate are not opposites, multiply one or both equations by a constant so that they become opposites (e.g., turn $2x$ and $3x$ into $6x$ and $-6x$).
+
+3. **Add or Subtract:** Add the two equations together. The variable with opposite coefficients will cancel out (sum to zero).
+
+4. **Solve:** Solve the resulting single-variable equation.
+
+5. **Back-Substitute:** Substitute the found value back into one of the original equations to find the other variable.
+
+### 6.3.2 Detailed Example
+
+Consider the system:
+
+$$3x + 2y = 12$$
+$$2x - 3y = -1$$
+
+**Step 1: Align.** The equations are already aligned.
+
+**Step 2: Match coefficients.** To eliminate $y$, the coefficients are $2$ and $-3$. The least common multiple of $2$ and $3$ is $6$. Multiply the first equation by $3$ and the second by $2$:
+
+$$9x + 6y = 36$$
+$$4x - 6y = -2$$
+
+**Step 3: Add.**
+
+$$(9x + 6y) + (4x - 6y) = 36 + (-2)$$
+$$13x = 34$$
+
+**Step 4: Solve.**
+
+$$x = \frac{34}{13}$$
+
+**Step 5: Back-Substitute.** Substitute $x = \frac{34}{13}$ into $3x + 2y = 12$:
+
+$$3\left(\frac{34}{13}\right) + 2y = 12$$
+$$\frac{102}{13} + 2y = 12$$
+$$2y = 12 - \frac{102}{13} = \frac{156}{13} - \frac{102}{13} = \frac{54}{13}$$
+$$y = \frac{27}{13}$$
+
+The solution is $\left(\frac{34}{13}, \frac{27}{13}\right)$.
+
+### 6.3.3 Shortcut: Solving for Expressions Directly
+
+Sometimes the SAT asks for the value of $x + y$ or $x - y$ rather than the individual values of $x$ and $y$. In these cases, you can manipulate the equations to find the expression directly without solving for the variables individually.
+
+**Example:** If $3x + 4y = 10$ and $5x - 4y = 6$, what is the value of $x + y$?
+
+**Solution:** Adding the two equations eliminates $y$:
+
+$$(3x + 4y) + (5x - 4y) = 10 + 6$$
+$$8x = 16 \implies x = 2$$
+
+Substituting $x = 2$ into the first equation:
+
+$$3(2) + 4y = 10 \implies 6 + 4y = 10 \implies y = 1$$
+
+Therefore, $x + y = 2 + 1 = 3$.
+
+This "add first" strategy is one of the most powerful time-saving techniques on the SAT. Before committing to a full solution method, always examine whether adding, subtracting, or scaling the equations directly produces the quantity being asked for.
+
+---
+
+## 6.4 Graphical Methods and Interpretation
+
+The graphical approach to systems of equations relies on the fundamental principle that the solution to a system is the point(s) where the graphs of the equations intersect.
+
+### 6.4.1 Slope-Intercept Form for Graphing
+
+To graph a line quickly, convert it to slope-intercept form: $y = mx + b$, where $m$ is the slope and $b$ is the $y$-intercept.
+
+**Example:** Consider the system:
+
+$$y = 2x + 1$$
+$$y = -x + 4$$
+
+- **Line 1:** Slope $m = 2$, $y$-intercept $b = 1$. Start at $(0, 1)$ and go up 2, right 1.
+- **Line 2:** Slope $m = -1$, $y$-intercept $b = 4$. Start at $(0, 4)$ and go down 1, right 1.
+
+To find the exact coordinates of the intersection point algebraically:
+
+$$2x + 1 = -x + 4$$
+$$3x = 3 \implies x = 1$$
+$$y = 2(1) + 1 = 3$$
+
+Intersection point: $(1, 3)$.
+
+### 6.4.2 Analyzing the Graph for Solutions
+
+- **One Intersection Point:** The system is independent and consistent. The slopes are different.
+- **Parallel Lines (No Intersection):** The system is inconsistent. The slopes are identical, but the $y$-intercepts differ.
+- **Coincident Lines (Infinite Intersections):** The system is dependent. The equations represent the exact same line (same slope, same $y$-intercept).
+
+### 6.4.3 Systems of Inequalities
+
+When dealing with systems of inequalities, the solution is not a single point but a **region** on the coordinate plane.
+
+**Step 1: Graph the Boundary Line.** Replace the inequality sign ($<, >, \leq, \geq$) with an equals sign ($=$) and graph the line.
+
+- For strict inequalities ($<$ or $>$), draw a **dashed line** to indicate points on the line are *not* included.
+- For non-strict inequalities ($\leq$ or $\geq$), draw a **solid line** to indicate points on the line *are* included.
+
+**Step 2: Shade the Region.** Pick a test point not on the line (usually the origin $(0,0)$ if it is not on the line). Substitute the coordinates into the inequality.
+
+- If the statement is true, shade the side of the line containing the test point.
+- If the statement is false, shade the opposite side.
+
+**Step 3: Find the Overlap.** The solution to the system of inequalities is the region where the shading from all inequalities overlaps. This is often called the **feasible region**.
+
+**Example:** Graph the system:
+
+$$y \leq x + 2$$
+$$y > -x$$
+
+- Graph $y = x + 2$ as a solid line. Test $(0,0)$: $0 \leq 2$ (True). Shade below the line.
+- Graph $y = -x$ as a dashed line. Test $(1,0)$: $0 > -1$ (True). Shade above the line.
+- The solution is the wedge-shaped region where the two shaded areas overlap.
+
+### 6.4.4 Strategic Implications for the SAT
+
+On the Digital SAT, systems of inequality questions often appear in the context of word problems involving constraints (budget limits, production capacity, time restrictions). The key skills tested are:
+
+1. **Translating verbal constraints into inequalities.** Phrases like "at most," "at least," "no more than," and "must exceed" correspond to specific inequality symbols.
+2. **Identifying the feasible region graphically.** You may be shown several graphs and asked which one correctly represents a system of constraints.
+3. **Testing whether a point satisfies a system.** A point satisfies a system of inequalities if and only if it lies within the overlapping shaded region (and on solid, not dashed, boundary lines).
+
+---
+
+## 6.5 Special Cases and SAT Traps
+
+### 6.5.1 The "No Solution" Trap
+
+The SAT loves to test the conditions for no solution. Remember: **no solution means parallel lines.** This happens when the ratios of the coefficients of $x$ and $y$ are equal, but the ratio of the constants is different.
+
+For the system:
+
+$$ax + by = c$$
+$$dx + ey = f$$
+
+If $\frac{a}{d} = \frac{b}{e} \neq \frac{c}{f}$, the system has no solution.
+
+**Example:** For what value of $k$ does the system $3x + 4y = 12$ and $6x + ky = 20$ have no solution?
+
+**Solution:** Set up the ratios:
+
+$$\frac{3}{6} = \frac{4}{k}$$
+$$\frac{1}{2} = \frac{4}{k} \implies k = 8$$
+
+Now check the constants: $\frac{12}{20} = \frac{3}{5}$. Since $\frac{1}{2} \neq \frac{3}{5}$, the lines are parallel and the system has no solution when $k = 8$.
+
+**SAT Insight:** Always verify that the constant ratio is *different* from the coefficient ratios. If all three ratios are equal, the system has infinitely many solutions, not zero.
+
+### 6.5.2 The "Infinite Solutions" Trap
+
+Infinite solutions occur when the two equations are essentially the same (multiples of each other). This means all three ratios are equal.
+
+**Example:** For what value of $c$ does the system $2x + 5y = 10$ and $4x + 10y = c$ have infinitely many solutions?
+
+**Solution:** The second equation is exactly $2$ times the first equation. For the lines to be identical, the constant must also be multiplied by $2$:
+
+$$c = 10 \times 2 = 20$$
+
+### 6.5.3 Nonlinear Systems
+
+Occasionally, the SAT will pair a linear equation with a quadratic equation. The substitution method is almost always required here.
+
+**Example:**
+
+$$y = x^2 - 4x + 3$$
+$$y = x - 1$$
+
+**Solution:** Set the expressions for $y$ equal to each other:
+
+$$x^2 - 4x + 3 = x - 1$$
+$$x^2 - 5x + 4 = 0$$
+$$(x - 4)(x - 1) = 0$$
+
+So $x = 4$ or $x = 1$. Find the corresponding $y$ values using $y = x - 1$:
+
+- If $x = 4$, $y = 3$. Point: $(4, 3)$.
+- If $x = 1$, $y = 0$. Point: $(1, 0)$.
+
+The system has two solutions: $(4, 3)$ and $(1, 0)$.
+
+**Graphical interpretation:** The line intersects the parabola at two points. A line can intersect a parabola at 0, 1, or 2 points, corresponding to no solution, one solution (tangent), or two solutions. The SAT may ask you to determine, based on a graph or algebraic analysis, how many intersection points exist.
+
+---
+
+## 6.6 Word Problems and Modeling with Systems
+
+Many SAT math problems are presented as real-world scenarios. The key is to translate the text into algebraic equations. Here are the most common templates:
+
+### 6.6.1 The "Sum and Difference" Template
+
+"The sum of two numbers is 15, and their difference is 3."
+
+$$x + y = 15$$
+$$x - y = 3$$
+
+Adding the equations immediately gives $2x = 18$, so $x = 9$ and $y = 6$.
+
+### 6.6.2 The "Mixture/Price" Template
+
+"A store sells apples for \$1 each and oranges for \$2 each. If you buy 10 fruits and spend \$14, how many of each did you buy?"
+
+Let $a$ = number of apples, $r$ = number of oranges:
+
+$$a + r = 10$$
+$$1a + 2r = 14$$
+
+From the first equation, $a = 10 - r$. Substituting into the second:
+
+$$(10 - r) + 2r = 14 \implies r = 4 \implies a = 6$$
+
+### 6.6.3 The "Rate/Distance" Template
+
+"A boat travels 60 miles downstream in 3 hours and the same distance upstream in 5 hours. Find the speed of the boat in still water and the speed of the current."
+
+Let $b$ = boat speed in still water, $c$ = current speed:
+
+- Downstream (with current): $b + c = \frac{60}{3} = 20$
+- Upstream (against current): $b - c = \frac{60}{5} = 12$
+
+Adding: $2b = 32 \implies b = 16$. Then $c = 4$.
+
+### 6.6.4 The "Fixed and Variable Cost" Template
+
+Many SAT word problems involve a **fixed cost** (a one-time fee, a base price, a starting amount) plus a **variable cost** (a per-unit charge, a rate per hour, a cost per item). These naturally produce linear equations of the form $y = mx + b$, where $b$ is the fixed cost and $m$ is the variable rate.
+
+When a problem gives you two different scenarios (e.g., "Company A charges a \$50 setup fee plus \$10 per hour, and Company B charges a \$20 setup fee plus \$15 per hour"), you are being set up to either:
+
+- Find when the two costs are equal (set the two expressions equal and solve), or
+- Determine which company is cheaper for a given quantity (evaluate both expressions and compare).
+
+---
+
+## 6.7 Advanced Strategies for the SAT
+
+### 6.7.1 The "Add First" Strategy
+
+Before jumping into substitution or elimination, always look at the equations. If adding or subtracting them immediately yields a simple expression (like $x + y = \text{something}$ or $x = \text{something}$), do that first. The SAT is designed so that clever manipulation saves time.
+
+This strategy is particularly effective when:
+- The coefficients of one variable are already opposites (e.g., $+3y$ in one equation and $-3y$ in the other).
+- The question asks for a combination of variables (like $x + y$) rather than individual values.
+- One equation can be easily multiplied to create opposite coefficients.
+
+### 6.7.2 The "Plug In" Strategy (Backsolving)
+
+If the question asks for the solution $(x, y)$ and provides multiple-choice answers, you can often just plug the choices into both equations to see which one works. Start with the middle value to minimize the number of attempts.
+
+This strategy is especially useful when:
+- The system involves complex fractions or decimals that make algebraic solving error-prone.
+- The answer choices are simple integer pairs.
+- You are running low on time and need a reliable fallback.
+
+### 6.7.3 The "Graphical Estimation" Strategy
+
+If you are given a graph and asked to identify the system, or vice versa, use the intercepts and slope to verify. The $x$-intercept occurs when $y = 0$, and the $y$-intercept occurs when $x = 0$. These two points are enough to draw the line and check for intersections.
+
+On the Digital SAT, the embedded Desmos graphing calculator makes this strategy even more powerful. You can graph both equations and visually identify the intersection point, then verify algebraically.
+
+### 6.7.4 Checking for Consistency
+
+Always verify your answer by plugging the values back into the *original* equations, not the manipulated ones. This catches arithmetic errors, which are the most common source of lost points on the SAT.
+
+A systematic verification habit takes only 10–15 seconds and can save you from the frustration of selecting a trap answer that results from a sign error or arithmetic mistake in the final step.
+
+### 6.7.5 Recognizing When a System Is "Hidden"
+
+Not all SAT systems of equations are presented as two equations set side by side. Sometimes a system is embedded within a single word problem, a table of values, or a graph. The key recognition signals are:
+
+- **Two unknown quantities** are mentioned, and **two independent relationships** between them are provided.
+- A **table** shows two different linear patterns, and you need to find where they intersect.
+- A **graph** shows two lines or curves, and you need to determine their point(s) intersection.
+- A **word problem** describes a scenario with two constraints (e.g., total cost and total quantity) that must both be satisfied simultaneously.
+
+Training yourself to recognize these hidden systems is one of the most valuable pattern-recognition skills you can develop for the SAT Math section.
+
+---
+
+## 6.8 Connections to Other SAT Topics
+
+The techniques in this chapter connect directly to several other SAT content domains:
+
+- **Linear Functions (Chapter 1):** A system of two linear equations is fundamentally about the intersection of two lines. Understanding slope, intercepts, and the slope-intercept form is prerequisite knowledge for this chapter.
+
+- **Advanced Math (Chapter 2):** Nonlinear systems (line-parabola, circle-line) require the same substitution skills as linear systems, combined with quadratic solving techniques.
+
+- **Problem Solving and Data Analysis (Chapter 3):** Word problems involving rates, mixtures, and cost optimization frequently produce systems of equations.
+
+- **Geometry and Trigonometry (Chapter 4):** Coordinate geometry problems often require finding the intersection of lines, which is equivalent to solving a system of equations.
+
+- **Functions and Transformations (Chapter 5):** Finding where two functions intersect — $f(x) = g(x)$ — is equivalent to solving a system. Function composition and inverse concepts also connect to the algebraic manipulation skills developed in this chapter.
+
+Mastering systems of equations is not just about one content domain. It is about building the algebraic reasoning skills that underpin nearly every advanced topic on the SAT Math section.
+
+---
+
+
+# Chapter 7: Exponentials, Radicals & Rational Expressions — Advanced Manipulation Techniques
+
+---
+
+## 7.1 Introduction: Why This Chapter Exists
+
+The SAT Math section does not merely test whether you can compute. It tests whether you can *manipulate* — whether you can take an expression that looks terrifying and, through a sequence of well-chosen algebraic moves, reduce it to something clean and recognizable. Nowhere is this more apparent than in the domain of exponentials, radicals, and rational expressions.
+
+These three topics are deeply interconnected. An exponent can be fractional, which makes it a radical. A radical in a denominator can be rationalized, which produces a rational expression. A rational expression can be simplified by factoring, which often reveals hidden exponential structure. The SAT exploits these connections relentlessly, weaving them into questions that appear in both the Algebra and Advanced Math content domains.
+
+This chapter will take you through every microscopic detail you need to master. We will begin with the foundational laws of exponents, extend them to rational and negative exponents, connect them to radical notation, explore the mechanics of rationalization, dissect rational expressions through the lens of polynomial factoring, and finally examine how the SAT disguises these concepts inside word problems, function notation, and data tables.
+
+By the end of this chapter, you will not merely know the rules — you will understand *why* the rules work, *when* each technique is the optimal path, and *how* the SAT constructs questions to trap students who rely on memorization rather than deep structural understanding.
+
+---
+
+## 7.2 The Laws of Exponents: A Complete Derivation and Reference
+
+### 7.2.1 The Five Core Laws
+
+Every exponential manipulation on the SAT traces back to five fundamental laws. Let us state each one precisely, define its domain of validity, and explain the reasoning behind it.
+
+**Law 1: The Product Rule**
+
+$$a^m \cdot a^n = a^{m+n}$$
+
+This is the foundational law from which many others derive. The reasoning is direct: $a^m$ means $a$ multiplied by itself $m$ times; $a^n$ means $a$ multiplied by itself $n$ times. Multiplying these together gives $a$ multiplied by itself $m+n$ times.
+
+*Critical domain note:* This law holds for all real numbers $m$ and $n$ when $a > 0$. When $a = 0$, we must have $m > 0$ and $n > 0$ to avoid the undefined expression $0^0$. When $a < 0$, the law still holds for integer exponents, but fractional exponents introduce complex numbers, which the SAT does not test. For all practical SAT purposes, assume $a > 0$ when dealing with non-integer exponents.
+
+**Law 2: The Quotient Rule**
+
+$$\frac{a^m}{a^n} = a^{m-n}$$
+
+This follows from the product rule combined with the definition of negative exponents (see Law 4). When $m > n$, the result is a positive exponent. When $m < n$, the result is a negative exponent, which the SAT frequently uses to test whether students understand that a negative exponent does not make the value negative — it makes it a reciprocal.
+
+**Law 3: The Power Rule**
+
+$$(a^m)^n = a^{m \cdot n}$$
+
+This is perhaps the most frequently tested law on the SAT, and also the most frequently misapplied. The exponent $n$ distributes to *each* factor inside the parenthesis. A common SAT trap involves expressions like $(2x^3)^4$, where students correctly compute $2^4 = 16$ and $(x^3)^4 = x^{12}$, yielding $16x^{12}$. The trap answer is often $8x^{12}$ (doubling instead of raising 2 to the 4th power) or $16x^7$ (adding exponents instead of multiplying them).
+
+**Law 4: The Negative Exponent Rule**
+
+$$a^{-n} = \frac{1}{a^n}$$
+
+This definition is not arbitrary — it is the *only* definition that makes the product rule consistent for all integer exponents. If we want $a^m \cdot a^n = a^{m+n}$ to hold even when $m$ or $n$ is negative, then we are forced to define $a^{-n}$ as $1/a^n$. The SAT tests this by presenting expressions like $3^{-2}$ and watching whether students compute $1/9$ or $-9$ (a catastrophic error) or $1/6$ (confusing the exponent with multiplication).
+
+**Law 5: The Zero Exponent Rule**
+
+$$a^0 = 1 \quad \text{(for } a \neq 0\text{)}$$
+
+Again, this is a definition forced by consistency with the product rule. If $a^m \cdot a^0 = a^{m+0} = a^m$, then $a^0$ must equal 1. The case $0^0$ is undefined and will never appear on the SAT.
+
+### 7.2.2 The Extended Laws: Fractional and Rational Exponents
+
+The SAT frequently tests exponents that are not integers. The bridge between exponents and radicals is the following definition:
+
+$$a^{1/n} = \sqrt[n]{a}$$
+
+This is the *definition* of a fractional exponent. It is not a theorem to be proved at the SAT level — it is the meaning of the notation. From this definition and the power rule, we derive the general case:
+
+$$a^{m/n} = \sqrt[n]{a^m} = (\sqrt[n]{a})^m$$
+
+These two forms are equivalent, and the SAT may present either one. The key strategic insight is this: **when $m$ is large, it is usually easier to compute the root first and then raise to the power**, because the root reduces the magnitude of the number. For example, $64^{5/6}$ is easier to compute as $(\sqrt[6]{64})^5 = 2^5 = 32$ than as $\sqrt[6]{64^5} = \sqrt[6]{1{,}073{,}741{,}824}$.
+
+### 7.2.3 Combining the Laws: The SAT's Favorite Moves
+
+The SAT rarely tests a single law in isolation. Instead, it chains multiple laws together in a single problem. Here is a taxonomy of the most common combinations:
+
+**Combination 1: Product Rule + Negative Exponent**
+
+An expression like $2^3 \cdot 2^{-5}$ requires the product rule: $2^{3+(-5)} = 2^{-2} = 1/4$. The SAT may present this with variables: $x^3 \cdot x^{-5} = x^{-2} = 1/x^2$.
+
+**Combination 2: Quotient Rule + Fractional Exponent**
+
+An expression like $\frac{8^{2/3}}{8^{1/3}}$ requires the quotient rule: $8^{2/3 - 1/3} = 8^{1/3} = 2$. Alternatively, one could compute $8^{2/3} = 4$ and $8^{1/3} = 2$ separately, then divide: $4/2 = 2$. Both paths are valid; the first is faster.
+
+**Combination 3: Power Rule + Fractional Exponent**
+
+An expression like $(16^{1/4})^2$ can be handled two ways: first compute $16^{1/4} = 2$, then square to get 4; or use the power rule: $16^{2/4} = 16^{1/2} = 4$. The power rule approach is faster.
+
+**Combination 4: Negative Base with Care**
+
+When the base is negative, the SAT is careful to ensure the exponent is an integer (since fractional exponents of negative bases involve complex numbers). A typical problem: $(-2)^3 \cdot (-2)^{-1} = (-2)^{3+(-1)} = (-2)^2 = 4$. Note that the result is positive because the final exponent is even.
+
+### 7.2.4 Equivalent Exponential Expressions
+
+A very common SAT question type asks: "Which expression is equivalent to [some exponential expression]?" The strategy is to apply the laws systematically and compare with the answer choices. The SAT designs wrong answers by making predictable errors:
+
+- **Adding instead of multiplying exponents** in a power-of-power situation
+- **Multiplying instead of adding exponents** in a product situation
+- **Forgetting to distribute** an exponent to every factor in a product
+- **Confusing** $a^{m+n}$ **with** $a^m + a^n$ (these are never equal unless trivial)
+- **Treating** $(a+b)^n$ **as** $a^n + b^n$ (this is almost never true; the SAT loves this trap)
+
+---
+
+## 7.3 Radicals: Deep Structure and Manipulation
+
+### 7.3.1 Definitions and Notation
+
+The radical symbol $\sqrt[n]{a}$ denotes the *principal* $n$th root of $a$. When $n$ is even, the principal root is the *non-negative* root. When $n$ is odd, the principal root has the same sign as $a$.
+
+This distinction matters enormously on the SAT. The equation $x^2 = 9$ has two solutions ($x = 3$ and $x = -3$), but $\sqrt{9} = 3$ only. The radical symbol always returns a single value — the principal root. This is why the SAT can create questions like: "If $x^2 = 16$, what is the value of $x$?" — and the answer is "cannot be determined" if the question does not specify that $x$ is non-negative, because $x$ could be $4$ or $-4$.
+
+### 7.3.2 Converting Between Radical and Exponential Notation
+
+The ability to fluently convert between $\sqrt[n]{a^m}$ and $a^{m/n}$ is essential. The SAT exploits the fact that some operations are easier in one form than the other:
+
+- **Multiplication and division** are often easier in radical form: $\sqrt{a} \cdot \sqrt{b} = \sqrt{ab}$
+- **Raising to powers** is often easier in exponential form: $(a^{m/n})^p = a^{mp/n}$
+- **Comparing magnitudes** is sometimes easier in exponential form: to compare $2^{1/2}$ and $3^{1/3}$, raise both to the 6th power to get $2^3 = 8$ and $3^2 = 9$, so $3^{1/3} > 2^{1/2}$
+
+### 7.3.3 Simplifying Radicals
+
+The SAT frequently asks students to simplify radical expressions. The key principle is: **factor out perfect powers from under the radical**.
+
+For $\sqrt{72}$: factor $72 = 36 \cdot 2 = 6^2 \cdot 2$, so $\sqrt{72} = \sqrt{6^2 \cdot 2} = 6\sqrt{2}$.
+
+For $\sqrt[3]{54}$: factor $54 = 27 \cdot 2 = 3^3 \cdot 2$, so $\sqrt[3]{54} = \sqrt[3]{3^3 \cdot 2} = 3\sqrt[3]{2}$.
+
+The general algorithm is:
+1. Factor the radicand into prime factors.
+2. Group the prime factors into sets of size $n$ (for an $n$th root).
+3. Each complete group of $n$ identical factors comes out of the radical as a single factor.
+4. Any remaining factors that cannot form a complete group stay inside.
+
+For variables, the same principle applies. To simplify $\sqrt{x^7}$ where $x > 0$: write $x^7 = x^6 \cdot x = (x^3)^2 \cdot x$, so $\sqrt{x^7} = x^3\sqrt{x}$. For $\sqrt[3]{x^{11}}$: write $x^{11} = x^9 \cdot x^2 = (x^3)^3 \cdot x^2$, so $\sqrt[3]{x^{11}} = x^3\sqrt[3]{x^2}$.
+
+### 7.3.4 Adding and Subtracting Radicals
+
+Radicals can only be added or subtracted when they are *like radicals* — meaning they have the same index and the same radicand. This is directly analogous to combining like terms in algebra.
+
+$3\sqrt{5} + 2\sqrt{5} = 5\sqrt{5}$, but $3\sqrt{5} + 2\sqrt{2}$ cannot be simplified further.
+
+The SAT sometimes presents expressions that *look* unlike but can be simplified to like radicals. For example: $\sqrt{12} + \sqrt{27} = 2\sqrt{3} + 3\sqrt{3} = 5\sqrt{3}$. The key move is to simplify each radical first, then check whether they match.
+
+### 7.3.5 Multiplying Radicals
+
+The product rule for radicals states:
+
+$$\sqrt[n]{a} \cdot \sqrt[n]{b} = \sqrt[n]{ab}$$
+
+This extends to any number of factors. The SAT uses this in both directions — sometimes asking students to combine radicals into a single radical, and sometimes asking them to split a radical into simpler pieces.
+
+For radicals with *different* indices, the strategy is to convert to exponential form, find a common denominator for the exponents, and then convert back. For example, to multiply $\sqrt{2} \cdot \sqrt[3]{4}$:
+
+$$\sqrt{2} \cdot \sqrt[3]{4} = 2^{1/2} \cdot 4^{1/3} = 2^{1/2} \cdot (2^2)^{1/3} = 2^{1/2} \cdot 2^{2/3} = 2^{1/2 + 2/3} = 2^{7/6} = \sqrt[6]{2^7} = \sqrt[6]{128}$$
+
+Or, simplifying further: $2^{7/6} = 2^{1 + 1/6} = 2 \cdot 2^{1/6} = 2\sqrt[6]{2}$.
+
+---
+
+## 7.4 Rationalization: The SAT's Signature Move
+
+### 7.4.1 Rationalizing a Simple Denominator
+
+When a radical appears in the denominator of a fraction, the SAT often requires (or strongly rewards) rationalization — the process of eliminating the radical from the denominator.
+
+For a simple square root in the denominator: $\frac{a}{\sqrt{b}}$, multiply numerator and denominator by $\sqrt{b}$:
+
+$$\frac{a}{\sqrt{b}} = \frac{a}{\sqrt{b}} \cdot \frac{\sqrt{b}}{\sqrt{b}} = \frac{a\sqrt{b}}{b}$$
+
+This works because $\sqrt{b} \cdot \sqrt{b} = b$, which is rational.
+
+### 7.4.2 Rationalizing a Binomial Denominator
+
+The more sophisticated version involves a binomial denominator containing radicals, such as $\frac{1}{\sqrt{a} + \sqrt{b}}$ or $\frac{1}{1 + \sqrt{3}}$. The strategy is to multiply by the *conjugate* — the same expression with the sign between the terms flipped.
+
+The conjugate of $\sqrt{a} + \sqrt{b}$ is $\sqrt{a} - \sqrt{b}$. Multiplying these gives:
+
+$$(\sqrt{a} + \sqrt{b})(\sqrt{a} - \sqrt{b}) = a - b$$
+
+This is a difference of squares, and the radicals disappear entirely.
+
+For example:
+
+$$\frac{1}{1 + \sqrt{3}} = \frac{1}{1 + \sqrt{3}} \cdot \frac{1 - \sqrt{3}}{1 - \sqrt{3}} = \frac{1 - \sqrt{3}}{1 - 3} = \frac{1 - \sqrt{3}}{-2} = \frac{\sqrt{3} - 1}{2}$$
+
+The SAT frequently presents this in the context of "which expression is equivalent to..." and includes the un-rationalized form as a trap answer.
+
+### 7.4.3 Rationalizing with Cube Roots
+
+For cube roots, the conjugate strategy is more complex because the difference of squares pattern does not apply. Instead, one uses the sum/difference of cubes formulas:
+
+$$a^3 + b^3 = (a + b)(a^2 - ab + b^2)$$
+$$a^3 - b^3 = (a - b)(a^2 + ab + b^2)$$
+
+To rationalize $\frac{1}{\sqrt[3]{a} + \sqrt[3]{b}}$, multiply numerator and denominator by $\sqrt[3]{a^2} - \sqrt[3]{ab} + \sqrt[3]{b^2}$, which is chosen specifically because:
+
+$$(\sqrt[3]{a} + \sqrt[3]{b})(\sqrt[3]{a^2} - \sqrt[3]{ab} + \sqrt[3]{b^2}) = a + b$$
+
+This is a higher-level technique that appears on the hardest SAT questions.
+
+---
+
+## 7.5 Rational Expressions: Structure, Simplification, and Strategy
+
+### 7.5.1 Definition and Domain Restrictions
+
+A rational expression is a ratio of two polynomials: $\frac{P(x)}{Q(x)}$. The fundamental rule is that **the denominator cannot be zero**. Before simplifying any rational expression, you must identify the values of the variable that make the denominator zero and exclude them from the domain.
+
+This is a frequent SAT trap. Consider: "For what value of $x$ is the expression $\frac{x^2 - 4}{x - 2}$ undefined?" The expression simplifies to $x + 2$ for all $x \neq 2$, but it is *undefined* at $x = 2$ because the original denominator is zero there. The simplified form $x + 2$ is not equivalent to the original expression — it has a different domain.
+
+### 7.5.2 Simplifying Rational Expressions
+
+The process of simplifying a rational expression is identical in spirit to reducing a fraction: factor both numerator and denominator completely, then cancel common factors.
+
+For example:
+
+$$\frac{x^2 - 5x + 6}{x^2 - 9} = \frac{(x-2)(x-3)}{(x-3)(x+3)} = \frac{x-2}{x+3} \quad \text{for } x \neq 3, x \neq -3$$
+
+The cancellation of $(x-3)$ is valid only when $x \neq 3$. The SAT may test whether students understand this subtlety by asking about the domain or by asking whether two rational expressions are equivalent (they are equivalent only if they have the same domain and the same value at every point in that domain).
+
+### 7.5.3 The Connection to Exponentials
+
+Rational expressions and exponentials intersect in several important ways on the SAT:
+
+**Negative exponents create rational expressions:** The expression $x^{-3} + x^{-2}$ can be rewritten as $\frac{1}{x^3} + \frac{1}{x^2} = \frac{1 + x}{x^3}$. This conversion is often the key to solving exponential equations on the SAT.
+
+**Rational exponents create radical expressions:** As discussed in Section 7.2.2, $a^{m/n} = \sqrt[n]{a^m}$, which is a radical. When this radical appears in a denominator, rationalization may be required.
+
+**Exponential equations often reduce to rational expressions:** An equation like $2^{2x} - 5 \cdot 2^x + 4 = 0$ can be solved by substituting $u = 2^x$, yielding $u^2 - 5u + 4 = 0$, which factors as $(u-1)(u-4) = 0$. This is a rational/algebraic technique applied to an exponential equation.
+
+### 7.5.4 Complex Rational Expressions
+
+A complex rational expression is one where the numerator and/or denominator itself contains fractions. The SAT presents these in forms like:
+
+$$\frac{\frac{1}{x} + \frac{1}{y}}{\frac{1}{x} - \frac{1}{y}}$$
+
+There are two standard approaches:
+
+**Method 1: Combine fractions in numerator and denominator separately.**
+
+$$\frac{\frac{1}{x} + \frac{1}{y}}{\frac{1}{x} - \frac{1}{y}} = \frac{\frac{y+x}{xy}}{\frac{y-x}{xy}} = \frac{y+x}{y-x}$$
+
+The $xy$ denominators cancel because they appear in both the top and bottom of the main fraction.
+
+**Method 2: Multiply numerator and denominator by the LCD of all fractions.**
+
+The LCD of $\frac{1}{x}$, $\frac{1}{y}$, $\frac{1}{x}$, and $\frac{1}{y}$ is $xy$. Multiplying through:
+
+$$\frac{xy \cdot \left(\frac{1}{x} + \frac{1}{y}\right)}{xy \cdot \left(\frac{1}{x} - \frac{1}{y}\right)} = \frac{y + x}{y - x}$$
+
+Both methods yield the same result. Method 2 is generally more reliable for complex expressions because it eliminates all fractions in a single step.
+
+---
+
+## 7.6 Advanced Factoring Techniques for Rational Expressions
+
+### 7.6.1 Factoring Out the GCF
+
+Before applying any sophisticated factoring technique, always check for a greatest common factor. This includes variable factors: $x^5 + x^3 = x^3(x^2 + 1)$.
+
+The SAT sometimes hides the GCF. For example: $2^{n+3} + 2^{n+1} = 2^{n+1}(2^2 + 1) = 2^{n+1} \cdot 5$. This is exponential factoring, and it appears regularly in the Advanced Math domain.
+
+### 7.6.2 Factoring by Grouping
+
+When a polynomial has four or more terms and no common factor across all terms, grouping may work. The general approach for four terms $ax + ay + bx + by$ is:
+
+$$ax + ay + bx + by = a(x+y) + b(x+y) = (a+b)(x+y)$$
+
+The SAT presents this in forms that require rearranging terms or recognizing non-obvious groupings. For example:
+
+$$x^3 + 2x^2 - 9x - 18 = x^2(x+2) - 9(x+2) = (x^2 - 9)(x+2) = (x-3)(x+3)(x+2)$$
+
+### 7.6.3 Sum and Difference of Cubes
+
+These formulas are essential for the hardest rational expression problems:
+
+$$a^3 + b^3 = (a + b)(a^2 - ab + b^2)$$
+$$a^3 - b^3 = (a - b)(a^2 + ab + b^2)$$
+
+The SAT may present these with numbers: $x^3 + 8 = x^3 + 2^3 = (x+2)(x^2 - 2x + 4)$, or with variables: $27y^3 - 1 = (3y)^3 - 1^3 = (3y-1)(9y^2 + 3y + 1)$.
+
+A useful mnemonic: **SOAP** — Same sign, Opposite sign, Always Positive. This refers to the signs in the trinomial factor: the first sign matches the original, the second sign is opposite, and the last sign is always positive.
+
+### 7.6.4 Factoring Quadratics with Leading Coefficient ≠ 1
+
+The SAT frequently presents quadratics like $6x^2 + 7x - 20$ where the leading coefficient is not 1. The systematic approach (sometimes called the "AC method") is:
+
+1. Multiply $a \cdot c$: $6 \cdot (-20) = -120$
+2. Find two numbers that multiply to $-120$ and add to $7$: $15$ and $-8$
+3. Split the middle term: $6x^2 + 15x - 8x - 20$
+4. Factor by grouping: $3x(2x + 5) - 4(2x + 5) = (3x - 4)(2x + 5)$
+
+This technique is essential for simplifying rational expressions where the numerator or denominator is a non-monic quadratic.
+
+---
+
+## 7.7 Exponential Growth and Decay: The SAT's Applied Context
+
+### 7.7.1 The General Model
+
+The SAT frequently embeds exponential manipulation inside word problems involving growth and decay. The general form is:
+
+$$A(t) = A_0 \cdot b^{t/k}$$
+
+where:
+- $A_0$ is the initial amount
+- $b$ is the base (growth factor if $b > 1$, decay factor if $0 < b < 1$)
+- $t$ is time
+- $k$ is the time for the quantity to multiply by $b$
+
+For compound interest specifically: $A = P(1 + r/n)^{nt}$, where $P$ is principal, $r$ is the annual rate, $n$ is the number of compounding periods per year, and $t$ is years.
+
+### 7.7.2 Doubling Time and Half-Life
+
+The SAT loves problems involving doubling time (for growth) or half-life (for decay). The key insight is that these are *constant* for exponential processes — the time to double (or halve) does not depend on the current amount.
+
+If a population doubles every 3 hours, then after $t$ hours, the population is $P(t) = P_0 \cdot 2^{t/3}$. The exponent $t/3$ represents the number of doubling periods that have elapsed.
+
+The SAT may ask: "How long until the population is 8 times the original?" Since $8 = 2^3$, it takes 3 doubling periods, which is $3 \times 3 = 9$ hours.
+
+### 7.7.3 Converting Between Bases
+
+Sometimes the SAT gives a growth factor per unit time but asks about a different time interval. For example, if a population grows by 10% each year, the annual growth factor is $1.1$. The growth factor over 5 years is $1.1^5$. The growth factor per decade is $1.1^{10}$.
+
+Converting between bases is also important. If $4^x = 8^y$, we can write both sides as powers of 2: $(2^2)^x = (2^3)^y$, so $2^{2x} = 2^{3y}$, which means $2x = 3y$. This technique — converting to a common base — is one of the most powerful tools for solving exponential equations on the SAT.
+
+---
+
+## 7.8 Radical Equations and Extraneous Solutions
+
+### 7.8.1 Solving Radical Equations
+
+When an equation contains a radical, the standard approach is:
+
+1. Isolate the radical on one side of the equation.
+2. Raise both sides to the power that eliminates the radical (square both sides for square roots, cube both sides for cube roots).
+3. Solve the resulting equation.
+4. **Check all solutions in the original equation.**
+
+Step 4 is critical because raising both sides of an equation to an even power can introduce *extraneous solutions* — values that satisfy the squared equation but not the original equation. This happens because squaring destroys sign information: both $x = 3$ and $x = -3$ satisfy $x^2 = 9$, but only $x = 3$ satisfies $x = 3$.
+
+For example, solve $\sqrt{x + 5} = x - 1$:
+
+Squaring both sides: $x + 5 = x^2 - 2x + 1$
+
+Rearranging: $x^2 - 3x - 4 = 0$
+
+Factoring: $(x - 4)(x + 1) = 0$
+
+So $x = 4$ or $x = -1$.
+
+Checking: $\sqrt{4 + 5} = \sqrt{9} = 3$ and $4 - 1 = 3$. ✓
+
+Checking: $\sqrt{-1 + 5} = \sqrt{4} = 2$ but $-1 - 1 = -2$. ✗
+
+So $x = -1$ is extraneous. The only solution is $x = 4$.
+
+The SAT may present a radical equation and ask for the sum of all solutions, or the product of all solutions, and the extraneous solution is often included as a trap answer.
+
+### 7.8.2 Equations with Two Radicals
+
+When an equation contains two radicals, such as $\sqrt{x + 3} + \sqrt{x - 2} = 5$, the strategy is:
+
+1. Isolate one radical: $\sqrt{x + 3} = 5 - \sqrt{x - 2}$
+2. Square both sides: $x + 3 = 25 - 10\sqrt{x - 2} + x - 2$
+3. Simplify: $3 = 23 - 10\sqrt{x - 2}$
+4. Isolate the remaining radical: $10\sqrt{x - 2} = 20$, so $\sqrt{x - 2} = 2$
+5. Square again: $x - 2 = 4$, so $x = 6$
+6. Check: $\sqrt{6+3} + \sqrt{6-2} = 3 + 2 = 5$. ✓
+
+---
+
+## 7.9 Rational Exponents in Equations
+
+### 7.9.1 The Substitution Technique
+
+When an equation involves terms like $x^{1/2}$, $x^{1/3}$, or mixtures of rational exponents, a substitution can transform it into a polynomial equation.
+
+For example, $x^{1/2} + x^{1/3} = 2$ can be handled by substituting $u = x^{1/6}$ (the LCM of 2 and 3 is 6). Then $x^{1/2} = u^3$ and $x^{1/3} = u^2$, giving $u^3 + u^2 = 2$, or $u^3 + u^2 - 2 = 0$. Factoring: $(u-1)(u^2 + 2u + 2) = 0$. The only real solution is $u = 1$, so $x^{1/6} = 1$, meaning $x = 1$.
+
+### 7.9.2 Equations of the Form $a^{2x} + b \cdot a^x + c = 0$
+
+This is a very common SAT pattern. The equation looks exponential but is secretly quadratic in disguise. The substitution $u = a^x$ converts it to $u^2 + bu + c = 0$, which can be solved by factoring or the quadratic formula.
+
+For example: $4^x - 5 \cdot 2^x + 4 = 0$
+
+Substitute $u = 2^x$: $u^2 - 5u + 4 = 0$
+
+Factor: $(u - 1)(u - 4) = 0$
+
+So $u = 1$ or $u = 4$.
+
+If $2^x = 1$, then $x = 0$.
+
+If $2^x = 4 = 2^2$, then $x = 2$.
+
+The solutions are $x = 0$ and $x = 2$.
+
+---
+
+## 7.10 Comparing Exponential Expressions
+
+### 7.10.1 The Cross-Multiplication Technique
+
+When the SAT asks which of two exponential expressions is larger, direct computation is often impractical. Instead, one can use strategic comparison techniques.
+
+**Technique 1: Same base, compare exponents.** If $a > 1$, then $a^m > a^n$ if and only if $m > n$. If $0 < a < 1$, the inequality reverses: $a^m > a^n$ if and only if $m < n$.
+
+**Technique 2: Same exponent, compare bases.** If $n > 0$, then $a^n > b^n$ if and only if $a > b$ (for positive $a, b$).
+
+**Technique 3: Convert to the same base.** To compare $2^{1/2}$ and $3^{1/3}$, raise both to the 6th power: $(2^{1/2})^6 = 2^3 = 8$ and $(3^{1/3})^6 = 3^2 = 9$. Since $9 > 8$, we have $3^{1/3} > 2^{1/2}$.
+
+**Technique 4: Use logarithms (conceptual).** While the SAT does not require formal logarithm computation, understanding that $\log_b(x)$ is an increasing function for $b > 1$ helps: if $\log_b(A) > \log_b(B)$, then $A > B$.
+
+### 7.10.2 The Role of the Number 1
+
+The number 1 is the critical benchmark for exponential comparisons. Since $a^0 = 1$ for any positive $a$:
+
+- If $a > 1$ and $x > 0$, then $a^x > 1$
+- If $a > 1$ and $x < 0$, then $a^x < 1$
+- If $0 < a < 1$ and $x > 0$, then $a^x < 1$
+- If $0 < a < 1$ and $x < 0$, then $a^x > 1$
+
+The SAT exploits this by asking questions like: "Is $0.5^{-3}$ greater than or less than 1?" Since the base is between 0 and 1 and the exponent is negative, the result is greater than 1. Specifically, $0.5^{-3} = (1/2)^{-3} = 2^3 = 8$.
+
 ---
+
+## 7.11 Simplifying Nested Radicals
+
+### 7.11.1 The Denesting Problem
+
+Occasionally, the SAT presents a nested radical like $\sqrt{7 + 4\sqrt{3}}$ and asks for a simplified form. The technique is to express the nested radical as a sum (or difference) of simpler radicals: $\sqrt{a} + \sqrt{b}$.
+
+Assume $\sqrt{7 + 4\sqrt{3}} = \sqrt{m} + \sqrt{n}$ for some positive $m, n$. Squaring both sides:
+
+$$7 + 4\sqrt{3} = m + n + 2\sqrt{mn}$$
+
+For this to hold, we need $m + n = 7$ and $2\sqrt{mn} = 4\sqrt{3}$, so $\sqrt{mn} = 2\sqrt{3}$, meaning $mn = 12$.
+
+We need two numbers that add to 7 and multiply to 12: those numbers are 3 and 4.
+
+Therefore: $\sqrt{7 + 4\sqrt{3}} = \sqrt{3} + \sqrt{4} = \sqrt{3} + 2$.
 
-## Module A: No-Calculator Section
+This technique works when the nested radical has the form $\sqrt{a + b\sqrt{c}}$ where $a^2 - b^2 \cdot c$ is a perfect square.
 
-**Time Limit: 25 minutes for 20 questions**
+### 7.11.2 Recognizing Perfect Square Radicals
 
-**Directions:** For questions 1–15, select the best answer from the choices given. For questions 16–20, grid in your answer on the student response sheet.
+The SAT may present expressions that *look* like they contain radicals but actually simplify to rational numbers. For example:
 
+$$\sqrt{11 + 6\sqrt{2}} = \sqrt{9 + 6\sqrt{2} + 2} = \sqrt{(3 + \sqrt{2})^2} = 3 + \sqrt{2}$$
+
+The key is to recognize when the expression under the radical is a perfect square of the form $(a + b\sqrt{c})^2 = a^2 + 2ab\sqrt{c} + b^2c$.
+
 ---
 
-**Question 1**
+## 7.12 Asymptotic Behavior and End Behavior of Rational Expressions
 
-If $3x + 5 = 23$, what is the value of $6x + 10$?
+### 7.12.1 What Happens as $x$ Grows Large
 
-A) 36
-B) 46
-C) 56
-D) 66
+The SAT occasionally tests understanding of what happens to a rational expression as $x$ approaches infinity. This is not formal calculus — it is intuitive reasoning about dominant terms.
 
----
+For $\frac{3x^2 + 5x - 1}{2x^2 - x + 7}$, as $x$ becomes very large, the lower-degree terms become negligible. The expression behaves like $\frac{3x^2}{2x^2} = \frac{3}{2}$. We say the expression "approaches" $3/2$ for large $x$.
+
+For $\frac{x^3 + 2x}{x^2 + 1}$, the numerator grows like $x^3$ and the denominator like $x^2$, so the whole expression grows like $x^3/x^2 = x$. It becomes arbitrarily large as $x$ increases.
 
-**Question 2**
+For $\frac{x^2 + 1}{x^3 + 2x}$, the numerator grows like $x^2$ and the denominator like $x^3$, so the expression behaves like $x^2/x^3 = 1/x$, approaching 0 as $x$ increases.
 
-The ratio of boys to girls in a class is 3:5. If there are 32 students in the class, how many girls are there?
+### 7.12.2 The Formal Connection (Without Calculus)
 
-A) 12
-B) 15
-C) 18
-D) 20
+The SAT may ask: "For large values of $x$, which expression is greatest?" The strategy is to compare the *degrees* of the numerator and denominator:
 
+- If degree(numerator) > degree(denominator), the expression grows without bound.
+- If degree(numerator) < degree(denominator), the expression approaches 0.
+- If the degrees are equal, the expression approaches the ratio of leading coefficients.
+
+This is tested in the context of data tables (showing values of the expression for increasing $x$) or in comparison questions.
+
 ---
 
-**Question 3**
+## 7.13 Common SAT Traps and How to Avoid Them
 
-A car travels at a constant speed of 60 miles per hour. How many miles does the car travel in 45 minutes?
+### 7.13.1 The Distributive Error with Exponents
 
-A) 40
-B) 45
-C) 50
-D) 55
+**The trap:** $(a + b)^n = a^n + b^n$
 
----
+**Why it's wrong:** Exponents do not distribute over addition. The correct expansion of $(a + b)^2$ is $a^2 + 2ab + b^2$, not $a^2 + b^2$. The SAT includes $a^2 + b^2$ as a trap answer for questions involving $(a + b)^2$.
 
-**Question 4**
+**How to avoid it:** Remember that an exponent means repeated *multiplication*, not repeated *addition*. $(a+b)^2 = (a+b)(a+b)$, which requires FOIL or the binomial formula, not term-by-term exponentiation.
 
-If $f(x) = 2x^2 - 3x + 1$, what is $f(-2)$?
+### 7.13.2 The Sign Error with Negative Exponents
 
-A) 11
-B) 15
-C) 19
-D) 21
+**The trap:** $2^{-3} = -8$
 
----
+**Why it's wrong:** A negative exponent means reciprocal, not negative value. $2^{-3} = 1/2^3 = 1/8$.
 
-**Question 5**
+**How to avoid it:** Always convert negative exponents to positive by moving the base to the denominator (or numerator if it's already in the denominator). The sign of the exponent tells you about position (numerator vs. denominator), not about the sign of the result.
 
-In the figure below, lines $l$ and $m$ are parallel, and line $t$ is a transversal. If $\angle 1 = 65°$, what is the measure of $\angle 2$?
+### 7.13.3 The Domain Oversight
 
-```
-      t
-  1  / 
-   /   
-l /_____ 
-  \  2
-   \  
-m \_____
-```
+**The trap:** Simplifying $\frac{x^2 - 4}{x - 2}$ to $x + 2$ and forgetting that $x = 2$ is excluded.
 
-A) 25°
-B) 65°
-C) 115°
-D) 125°
+**Why it matters:** The SAT may ask "for what values of $x$ is the original expression undefined?" The answer is $x = 2$, even though the simplified form $x + 2$ is defined at $x = 2$.
 
----
+**How to avoid it:** Before simplifying any rational expression, identify the values that make the denominator zero. Write them down. Never lose track of them.
 
-**Question 6**
+### 7.13.4 The Radical Equation Extraneous Solution
 
-A store offers a 20% discount on all items. If the original price of a jacket is $85, and there is a 6% sales tax applied after the discount, what is the final price of the jacket?
+**The trap:** Solving $\sqrt{x} = -2$ and concluding $x = 4$.
 
-A) $68.00
-B) $71.08
-C) $72.08
-D) $75.08
+**Why it's wrong:** The principal square root function always returns a non-negative value. $\sqrt{4} = 2$, not $-2$. The equation $\sqrt{x} = -2$ has no real solution.
 
----
+**How to avoid it:** Remember that $\sqrt{a}$ denotes the *principal* (non-negative) square root. If a problem leads to $\sqrt{a} = b$ where $b < 0$, there is no solution. Always check radical equation solutions in the original equation.
 
-**Question 7**
+### 7.13.5 The Base-Comparison Error
 
-What is the slope of the line that passes through the points $(-3, 7)$ and $(5, -1)$?
+**The trap:** Thinking that because $3 > 2$, we have $3^{1/2} > 2^{1/3}$ (comparing bases without considering exponents).
 
-A) $-2$
-B) $-1$
-C) $1$
-D) $2$
+**Why it's wrong:** The exponents matter just as much as the bases. In fact, $3^{1/2} \approx 1.732$ and $2^{1/3} \approx 1.260$, so $3^{1/2} > 2^{1/3}$ in this case, but the reasoning "bigger base means bigger result" fails in general. For example, $2^3 = 8 < 9 = 3^2$, even though $3 > 2$.
 
+**How to avoid it:** When comparing $a^m$ and $b^n$ where both the bases and exponents differ, use one of the techniques from Section 7.10: convert to the same base, convert to the same exponent, or raise both to a common power.
+
 ---
 
-**Question 8**
+## 7.14 The Interplay of Exponentials, Radicals, and Rational Expressions in SAT Function Problems
 
-The quadratic equation $x^2 - 6x + k = 0$ has exactly one real solution. What is the value of $k$?
+### 7.14.1 Function Notation with Exponents
 
-A) 6
-B) 9
-C) 12
-D) 36
+The SAT frequently presents exponential expressions inside function notation. For example, if $f(x) = 2^{x+1}$, then $f(3) = 2^4 = 16$, and $f(x+1) = 2^{x+2} = 2 \cdot 2^{x+1} = 2f(x)$. This last observation — that $f(x+1) = 2f(x)$ — reveals the exponential structure: increasing $x$ by 1 doubles the output.
 
----
+The SAT may ask: "If $f(x) = 3 \cdot 2^x$, what is $f(x+1)$ in terms of $f(x)$?" The answer is $f(x+1) = 3 \cdot 2^{x+1} = 3 \cdot 2^x \cdot 2 = 2f(x)$.
 
-**Question 9**
+### 7.14.2 Radical Functions and Their Domains
 
-In right triangle $ABC$, with right angle at $C$, $AC = 6$ and $BC = 8$. What is $\sin(A)$?
+When a function involves a radical, the domain is restricted. For $f(x) = \sqrt{x - 3}$, the domain is $x \geq 3$. For $f(x) = \sqrt{5 - x}$, the domain is $x \leq 5$.
 
-A) $\frac{3}{5}$
-B) $\frac{4}{5}$
-C) $\frac{3}{4}$
-D) $\frac{4}{3}$
+The SAT may combine this with other concepts: "What is the domain of $f(x) = \frac{\sqrt{x-2}}{x-5}$?" Here, we need $x - 2 \geq 0$ (so $x \geq 2$) AND $x - 5 \neq 0$ (so $x \neq 5$). The domain is $x \geq 2$ with $x \neq 5$, or in interval notation: $[2, 5) \cup (5, \infty)$.
 
+### 7.14.3 Rational Functions and Vertical Asymptotes
+
+For a rational function $f(x) = \frac{P(x)}{Q(x)}$, if a factor $(x - a)$ appears in the denominator but not in the numerator, then $x = a$ is a vertical asymptote — the function grows without bound as $x$ approaches $a$. If $(x - a)$ appears in both numerator and denominator, it cancels, and there is a "hole" in the graph at $x = a$ rather than an asymptote.
+
+The SAT tests this distinction. For $f(x) = \frac{(x-2)(x+3)}{(x-2)(x-5)}$, the factor $(x-2)$ cancels, so there is a hole at $x = 2$ and a vertical asymptote at $x = 5$. The simplified form is $f(x) = \frac{x+3}{x-5}$ for $x \neq 2$.
+
 ---
 
-**Question 10**
+## 7.15 Strategic Summary: Decision Frameworks for the SAT
 
-If $2^{x+1} = 32$, what is the value of $x$?
+When you encounter a problem involving exponentials, radicals, or rational expressions on the SAT, the following decision frameworks will guide you to the fastest solution path:
 
-A) 3
-B) 4
-C) 5
-D) 6
+### Framework 1: Exponential Expression Manipulation
 
----
+1. **Can I write everything with the same base?** If so, do it — then equate exponents.
+2. **Is there a common exponent?** If so, compare bases.
+3. **Is it a quadratic in disguise?** Look for patterns like $a^{2x} + c \cdot a^x + d = 0$ and substitute $u = a^x$.
+4. **Are there negative exponents?** Convert to reciprocals to make all exponents positive.
+5. **Are there fractional exponents?** Consider converting to radical form if it simplifies the problem.
 
-**Question 11**
+### Framework 2: Radical Expression Manipulation
 
-A rectangle has a length that is 3 times its width. If the area of the rectangle is 108 square units, what is the perimeter of the rectangle?
+1. **Is there a radical in the denominator?** Rationalize it.
+2. **Can I simplify the radicand?** Factor out perfect powers.
+3. **Are there like radicals?** Combine them.
+4. **Is there a nested radical?** Try to denest it as a sum of simpler radicals.
+5. **Is the radical in an equation?** Isolate it, raise both sides to the appropriate power, and check for extraneous solutions.
 
-A) 24
-B) 36
-C) 48
-D) 72
+### Framework 3: Rational Expression Manipulation
 
+1. **Can I factor numerator and denominator?** Do so completely, then cancel common factors.
+2. **Is it a complex rational expression?** Multiply numerator and denominator by the LCD of all sub-fractions.
+3. **Am I being asked about the domain?** Identify values that make the denominator zero *before* simplifying.
+4. **Am I being asked about asymptotes or holes?** Factor, identify canceled factors (holes) and uncanceled denominator factors (asymptotes).
+5. **Does the expression involve a parameter?** Use the condition that the equation has a specific number of solutions to determine the parameter.
+
 ---
 
-**Question 12**
+## 7.16 Connections to Other SAT Topics
 
-The sum of three consecutive odd integers is 63. What is the largest of these integers?
+The techniques in this chapter do not exist in isolation. They connect to virtually every other topic on the SAT:
 
-A) 19
-B) 21
-C) 23
-D) 25
+- **Linear equations:** Solving $2^x = 8$ is solving an exponential equation, but it reduces to $2^x = 2^3$, so $x = 3$ — a linear equation.
+- **Quadratics:** The substitution $u = a^x$ converts certain exponential equations into quadratics.
+- **Systems of equations:** A system like $2^x \cdot 3^y = 72$ and $2^y \cdot 3^x = 108$ can be solved by multiplying the equations (adding exponents) and dividing them (subtracting exponents).
+- **Data analysis:** Exponential growth models appear in table-based questions where students must recognize the pattern and predict future values.
+- **Geometry:** The Pythagorean theorem produces radical expressions; the distance formula is a radical; the area of a circle involves $\pi r^2$, which is a rational expression in $r$.
+- **Word problems:** Population growth, compound interest, radioactive decay, and pH calculations all involve exponential or rational expressions.
 
 ---
 
-**Question 13**
+## 7.17 Final Remarks: The Philosophy of Algebraic Manipulation
 
-If $\tan(\theta) = \frac{5}{12}$ and $\theta$ is an acute angle in a right triangle, what is $\sin(\theta)$?
+The SAT's testing of exponentials, radicals, and rational expressions is ultimately a test of *algebraic fluency* — the ability to see structure in an expression and choose the right transformation to reveal that structure. This is not a skill that can be developed through memorization alone. It requires:
 
-A) $\frac{5}{13}$
-B) $\frac{12}{13}$
-C) $\frac{5}{12}$
-D) $\frac{13}{5}$
+1. **Deep understanding of why the rules work**, not just what the rules are. When you understand that $a^{-n} = 1/a^n$ is the only definition that makes the product rule consistent, you will never forget it.
 
----
+2. **Pattern recognition through extensive exposure.** The more expressions you manipulate, the faster you will recognize that $x^4 - 16$ is a difference of squares, that $\sqrt{50}$ simplifies to $5\sqrt{2}$, and that $2^{3x+1} = 8 \cdot 2^{3x}$.
 
-**Question 14**
+3. **Strategic flexibility.** The best SAT students do not have a single rigid approach to every problem. They look at the expression, consider multiple paths (convert to radicals? convert to exponents? factor? substitute?), and choose the path that looks cleanest for the specific problem at hand.
 
-The vertex of the parabola $y = -2x^2 + 8x - 5$ is at the point $(h, k)$. What is the value of $k$?
+4. **Vigilance about domain and extraneous solutions.** The SAT rewards students who check their work and who understand that algebraic transformations can sometimes change the domain of an expression.
 
-A) $-5$
-B) $-3$
-C) 3
-D) 5
+Master these principles, and the techniques in this chapter will serve you not only on the SAT but in every subsequent mathematics course you encounter.
 
 ---
 
-**Question 15**
+---
 
-Ashish is 250% older than Bob. Bob is what percent younger than Ashish?
 
-A) 60%
-B) 66.7%
-C) 71.4%
-D) 75%
+# Chapter 8: SAT Reading & Writing — Grammar Rules, Rhetorical Skills & Evidence-Based Strategies
 
 ---
 
-**Question 16** (Grid-In)
+## 8.1 Overview of the Reading and Writing Section
 
-If $x^2 - y^2 = 28$ and $x + y = 14$, what is the value of $x - y$?
+The SAT Reading and Writing section is the first major section of the digital SAT. It consists of **54 questions** divided into **two modules of 27 questions each**, with **32 minutes per module** (64 minutes total). Every question is multiple-choice with four answer choices. Each question is based on a short passage (typically 25–150 words) or, in some cases, a pair of short passages. The section is **adaptive**: performance on Module 1 determines whether Module 2 is easier or harder.
 
----
+The Reading and Writing section tests four broad content domains:
 
-**Question 17** (Grid-In)
+| Domain | Approximate Weight | Key Skills |
+|---|---|---|
+| **Craft and Structure** | ~28% | Vocabulary in context, text structure, purpose, cross-text connections |
+| **Information and Ideas** | ~26% | Central ideas, details, textual/quantitative evidence, inferences |
+| **Standard English Conventions** | ~26% | Grammar, sentence structure, punctuation, usage |
+| **Expression of Ideas** | ~20% | Rhetorical synthesis, transitions, effective revision |
 
-What is the sum of the solutions to the equation $2x^2 + 5x - 3 = 0$?
+Each domain contains specific question types, and understanding the precise nature of each type is essential for efficient preparation. This chapter provides an exhaustive treatment of every grammar rule, rhetorical skill, and evidence-based strategy tested on the exam.
 
 ---
 
-**Question 18** (Grid-In)
+## 8.2 Standard English Conventions — The Grammar and Usage Domain
 
-In a right triangle, the hypotenuse is 10 and one leg is 6. What is the length of the other leg?
+The Standard English Conventions domain tests your ability to recognize and correct errors in written English. These questions present a short passage with four underlined portions; you must select the choice that best corrects the error (or select "NO CHANGE" if the underlined portion is already correct). The errors fall into two major categories: **Boundaries** (sentence structure) and **Form, Structure, and Sense** (parts of speech and usage).
 
----
+### 8.2.1 Subject-Verb Agreement
 
-**Question 19** (Grid-In)
+**Rule:** A verb must agree in number with its subject. Singular subjects take singular verbs; plural subjects take plural verbs.
 
-If a triangle has sides of length 9 and 4, and the third side is an integer, what is the smallest possible perimeter of the triangle?
+**Key Complications:**
 
----
+- **Intervening phrases:** The subject and verb may be separated by prepositional phrases, relative clauses, or appositives. The verb agrees with the subject, not with the nearest noun.
+  - *Example:* "The **box** of chocolates **is** on the table." (Subject: "box," not "chocolates.")
+  - *Example:* "The **results** of the experiment **were** surprising." (Subject: "results.")
 
-**Question 20** (Grid-In)
+- **Compound subjects joined by "and":** Usually plural.
+  - *Example:* "The teacher **and** the student **are** in the room."
 
-An angle's supplement is 75% more than the angle itself. What is the measure of the angle, in degrees?
+- **Compound subjects joined by "or" / "nor":** The verb agrees with the subject **closer** to the verb.
+  - *Example:* "Neither the students nor the teacher **was** present."
+  - *Example:* "Neither the teacher nor the students **were** present."
 
----
+- **Indefinite pronouns:** Words like *each, every, everyone, everybody, anyone, anybody, someone, somebody, no one, nobody, either, neither* are **singular**.
+  - *Example:* "Everyone **is** expected to attend."
 
-## Module B: Calculator Section
+- **Collective nouns:** Words like *team, group, committee, family, audience* are usually **singular** when acting as a unit.
+  - *Example:* "The committee **has** reached its decision."
 
-**Time Limit: 55 minutes for 38 questions**
+- **Subjects with "there is / there are":** The subject follows the verb. The verb must agree with that subject.
+  - *Example:* "There **are** several reasons for this decision."
 
-**Directions:** For questions 1–30, select the best answer. For questions 31–38, grid in your answer.
+- **Relative clauses:** The verb in a relative clause agrees with the antecedent of the relative pronoun.
+  - *Example:* "She is one of the students who **were** selected." ("Who" refers to "students," which is plural.)
+  - *Example:* "She is the only one of the students who **was** selected." ("Who" refers to "one," which is singular.)
 
----
+### 8.2.2 Pronoun-Antecedent Agreement
 
-**Question 1**
+**Rule:** A pronoun must agree in number, person, and gender with its antecedent (the noun it replaces).
 
-The equation $T = 15n + 120$ models the total cost $T$, in dollars, for $n$ tickets to a concert, including a one-time processing fee. What does the number 15 represent in this equation?
+- **Singular antecedents take singular pronouns:**
+  - *Example:* "Each student must bring **his or her** own materials."
 
-A) The processing fee
-B) The total cost
-C) The price per ticket
-D) The number of tickets
+- **Plural antecedents take plural pronouns:**
+  - *Example:* "The students brought **their** own materials."
 
----
+- **Indefinite pronoun antecedents:** *Each, every, everyone, anyone, someone, no one, either, neither* are singular.
+  - *Example:* "Everyone should bring **his or her** notebook."
 
-**Question 2**
+- **Collective nouns as antecedents:** Usually take singular pronouns.
+  - *Example:* "The team celebrated **its** victory."
 
-If $5x - 3 = 2x + 15$, what is the value of $x$?
+**Note on Singular "They":** The SAT has historically preferred "his or her" with singular antecedents. However, in recent years, the College Board has shown some flexibility. When in doubt on the SAT, prefer the grammatically precise agreement over colloquial usage.
 
-A) 4
-B) 5
-C) 6
-D) 7
+### 8.2.3 Pronoun Case
 
----
+**Rule:** Pronouns must be in the correct case depending on their function in the sentence.
 
-**Question 3**
+- **Subjective case (used for subjects):** I, you, he, she, it, we, they, who
+- **Objective case (used for objects):** me, you, him, her, it, us, them, whom
+- **Possessive case (used for ownership):** my, your, his, her, its, our, their, whose
 
-A circle has its center at $(2, -3)$ and a radius of 5. Which of the following points lies on the circle?
+**Key Complications:**
 
-A) $(5, 1)$
-B) $(6, -3)$
-C) $(2, 2)$
-D) $(-3, -3)$
+- **Pronouns in compound constructions:** Remove the other person to test.
+  - *Correct:* "John and **I** went to the store." (Remove "John and" — "I went" is correct.)
+  - *Correct:* "The teacher gave the assignment to John and **me**." (Remove "John and" — "gave to me" is correct.)
 
----
+- **Who vs. Whom:** "Who" is subjective; "whom" is objective.
+  - *Example:* "**Who** is coming to the party?" (Subject of "is coming.")
+  - *Example:* "To **whom** did you give the letter?" (Object of the preposition "to.")
+  - *Quick test:* If you can answer with "he/she," use **who**. If you can answer with "him/her," use **whom**.
 
-**Question 4**
+- **Pronouns after linking verbs:** Use the subjective case.
+  - *Example:* "It was **I** who called." (Formal; "I" follows the linking verb "was.")
 
-The function $f$ is defined by $f(x) = 3x + 4$. If $f(a) = 19$, what is the value of $a$?
+- **Pronouns in comparisons (than/as):** Complete the elliptical clause mentally.
+  - *Example:* "She is taller than **I**." (Short for "taller than I am.")
+  - *Example:* "He likes her more than **me**." (Short for "more than he likes me.")
+  - *Example:* "He likes her more than **I**." (Short for "more than I like her.")
 
-A) 3
-B) 5
-C) 7
-D) 15
+### 8.2.4 Verb Tense and Consistency
 
----
+**Rule:** Verbs must be in the correct tense and must remain consistent throughout a passage unless a shift in time is logically required.
 
-**Question 5**
+**The Major Tenses:**
 
-Hugo's math class assigns grades based on the following scale:
+| Tense | Form | Example |
+|---|---|---|
+| Simple Past | verb + ed (or irregular) | She **walked** to school. |
+| Past Progressive | was/were + verb-ing | She **was walking** to school. |
+| Past Perfect | had + past participle | She **had walked** to school. |
+| Simple Present | verb / verb + s | She **walks** to school. |
+| Present Progressive | am/is/are + verb-ing | She **is walking** to school. |
+| Present Perfect | has/have + past participle | She **has walked** to school. |
+| Simple Future | will + verb | She **will walk** to school. |
+| Future Perfect | will have + past participle | She **will have walked** to school. |
 
-| Range | Grade |
-|-------|-------|
-| At least 90% | A |
-| 80%–89% | B |
-| 70%–79% | C |
-| 60%–69% | D |
-| Less than 60% | F |
+**Key Rules:**
 
-Hugo scored 82, 88, 91, and 83 on his four unit exams (each worth 100 points). The final exam is worth 200 points. If Hugo's course grade was listed as a B, which of the following could NOT have been his score on the final exam?
+- **Past perfect** is used for the earlier of two past actions.
+  - *Example:* "She **had finished** her homework before she **went** to the party."
 
-A) 136
-B) 156
-C) 166
-D) 176
+- **Present perfect** connects the past to the present. It is used for actions that began in the past and continue into the present, or for past actions with present relevance.
+  - *Example:* "I **have lived** here for five years." (And I still live here.)
+  - *Example:* "She **has already eaten**." (Relevant to the present moment.)
 
----
+- **Tense consistency:** Do not shift tenses without a logical reason.
+  - *Incorrect:* "She **walked** to the store and **buys** some milk."
+  - *Correct:* "She **walked** to the store and **bought** some milk."
 
-**Question 6**
+- **Sequence of tenses in subordinate clauses:** When the main clause is in the past tense, the subordinate clause typically uses a past tense as well.
+  - *Example:* "He said that he **was** tired." (Not "is tired," unless the condition is still true at the time of reporting.)
 
-What is the value of $\tan(A)$ in right triangle $ABC$ below, where the right angle is at $C$?
+### 8.2.5 Modifier Placement
 
-```
-     A
-     |\
-     | \
-  8  |  \ 17
-     |   \
-     |____\
-    C  15  B
-```
+**Rule:** Modifiers must be placed as close as possible to the words they modify. Misplaced and dangling modifiers create ambiguity or absurdity.
 
-A) $\frac{8}{15}$
-B) $\frac{15}{8}$
-C) $\frac{8}{17}$
-D) $\frac{15}{17}$
+- **Misplaced modifiers:** A modifier is too far from the word it is intended to modify, causing confusion.
+  - *Incorrect:* "She nearly drove her car for six hours." (This suggests she "nearly drove" — as in, she almost drove but didn't.)
+  - *Correct:* "She drove her car for nearly six hours."
 
----
+- **Dangling modifiers:** A modifier has no logical word to modify in the sentence.
+  - *Incorrect:* "Walking to school, the rain began to fall." (This suggests the rain was walking to school.)
+  - *Correct:* "Walking to school, **she** noticed the rain beginning to fall."
 
-**Question 7**
+- **Limiting modifiers:** Words like *only, almost, nearly, just, even, hardly, scarcely* should be placed immediately before the word they modify.
+  - *Ambiguous:* "She only told him the secret." (Did she only tell him, or only tell the secret?)
+  - *Clear:* "She told only him the secret." (No one else was told.)
 
-The area of a rectangle is 300 square meters, and its length is 3 times its width. How many meters wide is the rectangle?
+### 8.2.6 Parallel Structure
 
-A) 10
-B) 30
-C) 50
-D) 100
+**Rule:** Elements in a list, comparison, or series must be in the same grammatical form.
 
----
+- **Parallelism in lists:**
+  - *Incorrect:* "She likes **swimming**, **to run**, and **biking**."
+  - *Correct:* "She likes **swimming**, **running**, and **biking**." (All gerunds.)
+  - *Also correct:* "She likes **to swim**, **to run**, and **to bike**." (All infinitives.)
 
-**Question 8**
+- **Parallelism with correlative conjunctions:** *both...and, either...or, neither...nor, not only...but also, whether...or*
+  - *Incorrect:* "She **not only** is smart **but also** has talent."
+  - *Correct:* "She is **not only** smart **but also** talented." (Both adjectives.)
+  - *Incorrect:* "Either you **leave now** or **you will be penalized**."
+  - *Correct:* "Either **leave now** or **be penalized**." (Both imperative verbs.)
 
-A parallelogram has a perimeter of 96 inches, and one of its sides measures 16 inches. What are the lengths, in inches, of the other three sides?
+- **Parallelism in comparisons:**
+  - *Incorrect:* "Swimming in the ocean is more refreshing than **to swim** in a pool."
+  - *Correct:* "Swimming in the ocean is more refreshing than **swimming** in a pool."
 
-A) 16, 16, 48
-B) 16, 24, 24
-C) 16, 32, 32
-D) 16, 40, 40
+### 8.2.7 Comma Rules
 
----
+The SAT tests comma usage extensively. Here are the rules most frequently tested:
 
-**Question 9**
+**Rule 1: Use a comma before a coordinating conjunction (FANBOYS: for, and, nor, but, or, yet, so) that joins two independent clauses.**
+- *Example:* "She studied hard, **but** she still failed the test."
+- *No comma needed* if the conjunction joins two phrases (not two independent clauses):
+  - *Example:* "She studied hard and passed the test."
 
-At Central High School, 4 out of every 10 students ride the bus, and 3 out of every 8 bus riders are freshmen. If there are 2,500 students at Central, how many students are freshmen who ride the bus?
+**Rule 2: Use a comma after an introductory element.**
+- After introductory adverb clauses: "**Although it was raining**, we went for a walk."
+- After introductory participial phrases: "**Walking down the street**, she noticed a strange light."
+- After introductory prepositional phrases (especially if long or if needed for clarity): "**In the middle of the night**, the phone rang."
+- After introductory transitional words: "**However**, the plan was flawed."
 
-A) 375
-B) 412
-C) 428
-D) 705
+**Rule 3: Use commas to set off nonessential (nonrestrictive) elements.**
+- *Example:* "My brother, **who lives in Chicago**, is visiting." (The clause is additional information; the sentence still identifies "my brother" without it.)
+- *Compare:* "The man **who stole the car** was arrested." (The clause is essential to identify which man; no commas.)
 
----
+**Rule 4: Use commas to separate items in a series of three or more.**
+- *Example:* "She bought apples, oranges, and bananas."
+- The Oxford comma (before "and") is standard on the SAT.
 
-**Question 10**
+**Rule 5: Use commas to separate coordinate adjectives (adjectives that independently modify the same noun).**
+- Test: If you can insert "and" between the adjectives and the sentence still makes sense, they are coordinate.
+  - *Example:* "She is a **talented, dedicated** teacher." ("Talented and dedicated" works.)
+- *No comma* if the adjectives are cumulative (the first adjective modifies the combination of the second adjective and the noun):
+  - *Example:* "She wore a **bright red** dress." (Not "bright and red.")
 
-If $90° < \theta < 180°$ and $\sin(\theta) = \frac{20}{29}$, then $\cos(\theta) = $?
+**Rule 6: Do NOT use a comma to separate a subject from its verb.**
+- *Incorrect:* "The student who studied all night, **passed** the test."
+- *Correct:* "The student who studied all night **passed** the test."
 
-A) $\frac{20}{29}$
-B) $\frac{21}{29}$
-C) $-\frac{21}{29}$
-D) $-\frac{20}{29}$
+**Rule 7: Do NOT use a comma between a verb and its direct object.**
+- *Incorrect:* "She said, that she would come."
+- *Correct:* "She said that she would come."
 
----
+### 8.2.8 Semicolon and Colon Usage
 
-**Question 11**
+**Semicolons (;):**
+- Used to join two **closely related independent clauses** without a conjunction.
+  - *Example:* "She studied hard; she passed the test."
+- Used before transitional adverbs (however, therefore, moreover, nevertheless, consequently, etc.) that connect two independent clauses.
+  - *Example:* "She studied hard; **therefore**, she passed the test."
+- Used to separate items in a series when the items themselves contain commas.
+  - *Example:* "The committee included Dr. Smith, the chair; Ms. Jones, the secretary; and Mr. Brown, the treasurer."
 
-Given $f(t) = \frac{t+1}{t-1}$, what is (are) the real value(s) of $t$ for which $f(t) = t$?
+**Colons (:):**
+- Used to introduce a list, an explanation, or an elaboration.
+  - *Example:* "She brought three items: a pen, a notebook, and a calculator."
+- The clause before the colon must be an **independent clause** (a complete sentence).
+  - *Incorrect:* "The items she brought were: a pen, a notebook, and a calculator."
+  - *Correct:* "The items she brought were a pen, a notebook, and a calculator." (No colon needed because the list directly completes the thought.)
 
-A) $-1$ only
-B) $2$ only
-C) $-1$ and $2$ only
-D) $1$ and $2$ only
+### 8.2.9 Apostrophe Usage
 
----
+**Rule:** Apostrophes are used for **contractions** and **possession**, not for plurals.
 
-**Question 12**
+- **Contractions:** it's = it is; they're = they are; who's = who is; you're = you are
+- **Possession:**
+  - Singular nouns: add **'s** → "the **student's** book"
+  - Plural nouns ending in *s*: add **'** → "the **students'** books"
+  - Plural nouns not ending in *s*: add **'s** → "the **children's** toys"
+  - Joint possession: add **'s** to the last name only → "Jack and **Jill's** pail"
+  - Individual possession: add **'s** to each name → "Jack's and **Jill's** books"
 
-The system of equations
-$$3x - cy = 2$$
-$$4x + y = 12$$
-has no solution. What is the value of $c$?
+**Common SAT Traps:**
+- **Its vs. It's:** "Its" is possessive; "it's" means "it is" or "it has."
+- **Their vs. They're vs. There:** "Their" is possessive; "they're" means "they are"; "there" is an adverb or expletive.
+- **Whose vs. Who's:** "Whose" is possessive; "who's" means "who is."
+- Plural nouns should **never** have apostrophes: "The **students** passed" (not "student's").
 
-A) $-\frac{3}{4}$
-B) $-\frac{4}{3}$
-C) $\frac{3}{4}$
-D) $\frac{4}{3}$
+### 8.2.10 Commonly Confused Words
 
----
+The SAT frequently tests the following word pairs:
 
-**Question 13**
+| Word | Meaning/Use |
+|---|---|
+| **Affect** (verb) | to influence |
+| **Effect** (noun) | a result |
+| **Effect** (verb) | to bring about (less common) |
+| **Accept** (verb) | to receive or agree to |
+| **Except** (preposition/conjunction) | excluding |
+| **Than** (conjunction) | used in comparisons |
+| **Then** (adverb) | at that time, next |
+| **Fewer** (adjective) | used with countable nouns |
+| **Less** (adjective) | used with uncountable nouns |
+| **Much** (adjective/adverb) | used with uncountable nouns |
+| **Many** (adjective) | used with countable nouns |
+| **Lie** (verb) | to recline (lay, lain, lying) |
+| **Lay** (verb) | to place something (laid, laid, laying) |
+| **Rise** (verb) | to go up (rose, risen, rising) |
+| **Raise** (verb) | to lift something (raised, raised, raising) |
+| **Ensure** (verb) | to make certain |
+| **Insure** (verb) | to provide insurance |
+| **Assure** (verb) | to give confidence to someone |
+| **Principal** (noun/adj.) | head of a school; main |
+| **Principle** (noun) | a rule or truth |
+| **Stationary** (adj.) | not moving |
+| **Stationery** (noun) | writing materials |
+| **Complement** (noun/verb) | something that completes |
+| **Compliment** (noun/verb) | praise |
+| **Elicit** (verb) | to draw out |
+| **Illicit** (adj.) | illegal |
+| **Allusion** (noun) | an indirect reference |
+| **Illusion** (noun) | a false perception |
+| **Cite** (verb) | to reference |
+| **Site** (noun) | a location |
+| **Sight** (noun) | vision |
 
-A line in the $xy$-plane passes through the origin and has a slope of $\frac{1}{7}$. Which of the following points lies on this line?
+### 8.2.11 Sentence Boundaries
 
-A) $(0, 7)$
-B) $(1, 7)$
-C) $(7, 1)$
-D) $(14, 2)$
+The SAT tests your ability to recognize and correct errors in sentence structure, including **fragments, run-ons, and comma splices**.
 
----
+**Fragments:** An incomplete sentence missing a subject, a verb, or a complete thought.
+- *Fragment:* "Because she studied hard." (Dependent clause standing alone.)
+- *Correct:* "Because she studied hard, she passed the test." OR "She studied hard."
 
-**Question 14**
+**Run-on sentences:** Two or more independent clauses joined without proper punctuation or a conjunction.
+- *Run-on:* "She studied hard she passed the test."
+- *Correct:* "She studied hard. She passed the test." OR "She studied hard, and she passed the test." OR "She studied hard; she passed the test."
 
-The equation $h = -25t^2 + 160t + 41$ models the height $h$, in feet, of a rocket $t$ seconds after launch. At what time does the rocket reach its maximum height?
+**Comma splices:** Two independent clauses joined by only a comma (without a conjunction).
+- *Comma splice:* "She studied hard, she passed the test."
+- *Correct:* "She studied hard; she passed the test." OR "She studied hard, and she passed the test."
 
-A) 2.5 seconds
-B) 3.2 seconds
-C) 4.0 seconds
-D) 6.4 seconds
+### 8.2.12 Relative Pronouns and Clauses
 
----
+**Rule:** Relative pronouns introduce dependent clauses that modify nouns.
 
-**Question 15**
+| Pronoun | Use |
+|---|---|
+| **Who** | Refers to people (subjective case) |
+| **Whom** | Refers to people (objective case) |
+| **Whose** | Refers to people or things (possessive) |
+| **Which** | Refers to things (nonrestrictive clauses, set off by commas) |
+| **That** | Refers to things (restrictive clauses, no commas) |
+| **Where** | Refers to places |
+| **When** | Refers to times |
 
-Tina runs at a rate of 8 miles per hour. At that rate, how many miles will she run in 12 minutes?
+**Key Distinctions:**
+- **Who vs. Whom:** "Who" is the subject of the relative clause; "whom" is the object.
+  - "The student **who** won the award is my friend." ("Who" is the subject of "won.")
+  - "The student **whom** I admire is my friend." ("Whom" is the object of "admire.")
 
-A) $\frac{4}{5}$
-B) $\frac{8}{5}$
-C) $\frac{12}{5}$
-D) $\frac{16}{5}$
+- **That vs. Which:** "That" introduces restrictive (essential) clauses; "which" introduces nonrestrictive (nonessential) clauses.
+  - "The book **that** I borrowed is overdue." (Restrictive — identifies which book.)
+  - "The book, **which** I borrowed yesterday, is overdue." (Nonrestrictive — adds extra information.)
 
----
+- **Where vs. When:** Use "where" for places and "when" for times. Do not use "where" to mean "in which" in formal writing.
+  - *Incorrect:* "This is a situation **where** careful thought is needed."
+  - *Correct:* "This is a situation **in which** careful thought is needed."
 
-**Question 16**
+### 8.2.13 Subjunctive Mood
 
-Marcos programs his calculator to evaluate a linear function. When 5 is entered, the calculator displays 2. When 15 is entered, the calculator displays 6. Which of the following expressions explains what the calculator will display when any number $n$ is entered?
+**Rule:** The subjunctive mood is used to express wishes, demands, suggestions, or hypothetical/conditional situations that are contrary to fact.
 
-A) $\frac{2n}{5}$
-B) $\frac{n}{5}$
-C) $n - 3$
-D) $\frac{n - 3}{2}$
+- **After verbs of demand, suggestion, or recommendation:** Use the base form of the verb (no -s, no tense marking).
+  - *Example:* "The teacher **insisted** that he **study** harder." (Not "studies" or "studied.")
+  - *Example:* "She **recommended** that he **be** present." (Not "is.")
 
----
+- **After "if" in contrary-to-fact conditions:** Use "were" for all subjects (including "I" and "he/she/it").
+  - *Example:* "If I **were** you, I would accept the offer." (Not "was.")
+  - *Example:* "If she **were** here, she would help." (Not "was.")
 
-**Question 17**
+- **Expressions with "as if" or "as though":** Use "were."
+  - *Example:* "He acted as if he **were** the boss."
 
-The sum of the roots of a quadratic is 8. What is the $x$-coordinate of the vertex of the parabola?
+### 8.2.14 Idiomatic Expressions and Preposition Usage
 
-A) 2
-B) 4
-C) 6
-D) 8
+The SAT tests knowledge of standard English idioms—the correct prepositions that follow certain verbs, adjectives, and nouns. These must be memorized, as they often defy logical rules.
 
+**Common Idiomatic Pairs:**
+
+- **Agree with** (a person); **agree on** (a plan); **agree to** (a proposal)
+- **Comply with** (not "comply to")
+- **Consists of** (not "consists in" when meaning "composed of")
+- **Different from** (preferred on the SAT; "different than" is sometimes accepted in informal usage but "different from" is the standard)
+- **Divided into** (not "divided in" when referring to parts)
+- **Identical with/to** (both accepted, but "identical with" is more formal)
+- **Independent of** (not "independent from")
+- **Prefer X to Y** (not "prefer X over Y" in formal SAT usage)
+- **Prohibit from** (not "prohibit to")
+- **Responsible for** (not "responsible of")
+- **Superior to** (not "superior than")
+- **Contrast with** (not "contrast to" when used as a verb meaning "to compare")
+
+**Strategy:** When a question tests an idiom, read the sentence aloud in your mind. The correct idiom will often "sound right" if you have been exposed to standard written English through extensive reading.
+
 ---
 
-**Question 18**
+## 8.3 Expression of Ideas — Rhetorical Effectiveness
 
-A rectangle has its length and width in a 5:12 ratio. If the rectangle's diagonal is 65, what is the rectangle's area?
+The Expression of Ideas domain tests your ability to revise texts for clarity, conciseness, and rhetorical effectiveness. The two main question types are **Transitions** and **Rhetorical Synthesis**.
 
-A) 300
-B) 600
-C) 1200
-D) 1500
+### 8.3.1 Transitions
 
----
+Transition questions ask you to select the word or phrase that best connects two sentences or ideas. The key is to identify the **logical relationship** between the ideas.
 
-**Question 19**
+**Major Logical Relationships and Their Transition Words:**
 
-In the figure below, $A$ is on $\overline{BE}$ and $C$ is on $\overline{BD}$. What is the measure of $\angle ABC$?
+| Relationship | Transition Words/Phrases |
+|---|---|
+| **Addition** | furthermore, moreover, in addition, also, likewise, similarly, and, besides |
+| **Contrast** | however, nevertheless, nonetheless, on the other hand, conversely, in contrast, although, even though, yet, still, but, on the contrary |
+| **Cause/Effect** | therefore, consequently, thus, hence, as a result, accordingly, because, since, so, for this reason |
+| **Example/Illustration** | for example, for instance, specifically, in particular, namely, such as, to illustrate |
+| **Emphasis** | indeed, in fact, certainly, above all, most importantly, particularly |
+| **Concession** | admittedly, granted, of course, naturally, while it is true that |
+| **Sequence/Time** | first, second, next, then, finally, subsequently, meanwhile, afterward, previously, initially, ultimately |
+| **Conclusion/Summary** | in conclusion, to summarize, in short, overall, ultimately, all in all, in summary |
+| **Condition** | if, unless, provided that, in the event that, assuming that |
+| **Similarity** | similarly, likewise, in the same way, by the same token, correspondingly |
 
-```
-       B
-      /|\
-     / | \
-    /  |  \
-   A   |   C
-   132°|   
-       |    
-       D    E
-```
+**Strategy for Transition Questions:**
 
-A) 24°
-B) 42°
-C) 48°
-D) 66°
+1. **Read the sentences before and after the transition.** Identify the relationship between the ideas.
+2. **Determine the logical flow.** Is the second sentence adding to the first? Contrasting it? Providing a cause or effect? Giving an example?
+3. **Eliminate choices that represent the wrong relationship.** If the ideas contrast, eliminate additive transitions.
+4. **Watch for subtle distinctions.** "However" and "nevertheless" both show contrast, but "nevertheless" implies a stronger concession. "Therefore" and "consequently" both show cause/effect, but "consequently" emphasizes a more direct result.
 
----
+**Common SAT Traps:**
+- **"However" vs. "Therefore":** Students often confuse contrast with cause/effect. Always check whether the second sentence opposes or follows from the first.
+- **"For example" vs. "In conclusion":** Make sure the second sentence actually provides an example or a summary before selecting these.
+- **"Indeed" vs. "However":** "Indeed" emphasizes or confirms; "however" contradicts or contrasts.
 
-**Question 20**
+### 8.3.2 Rhetorical Synthesis
 
-How many liters of a 25% acidic solution must be added to 40 liters of a 40% acidic solution to make a solution that is 30% acidic?
+Rhetorical Synthesis questions present a series of bulleted notes (often from a student's research or brainstorming) and ask you to combine the information into a single sentence that meets specific criteria. These questions test your ability to synthesize information, maintain logical relationships, and write concisely.
 
-A) 60
-B) 80
-C) 100
-D) 120
+**Strategy for Rhetorical Synthesis Questions:**
 
----
+1. **Read the question carefully.** Identify exactly what the sentence must accomplish (e.g., "emphasize a contrast," "provide an example," "state the main finding").
+2. **Read all the bullet points.** Identify the key pieces of information and their relationships.
+3. **Determine the logical structure.** The question will specify what relationship the sentence should express (cause/effect, contrast, addition, example, etc.).
+4. **Eliminate answer choices that:**
+   - Misrepresent the information in the bullets
+   - Express the wrong logical relationship
+   - Are unnecessarily wordy or redundant
+   - Introduce information not supported by the bullets
+   - Are grammatically incorrect
+5. **Select the choice that is accurate, concise, and meets the stated goal.**
+
+**Deep-Dive Reasoning Process:**
+
+When approaching a Rhetorical Synthesis question, your internal reasoning should proceed as follows:
 
-**Question 21**
+*First, parse the directive.* The question will tell you what the sentence must do. If it says "emphasize a contrast," you need a transition word or structural device that sets two ideas against each other. If it says "provide an example," the sentence must present a general claim followed by a specific illustration. If it says "state the main finding," the sentence should present a conclusion drawn from the data.
 
-If $f(x) = -6x^2$, what is $f(-3)$?
+*Second, inventory the bullets.* Read each bullet and identify its core content. Look for relationships: Do two bullets present opposing findings? Does one bullet provide data that supports a claim in another? Is there a cause-and-effect chain? The logical relationship you identify should match the directive from the question.
 
-A) $-324$
-B) $-54$
-C) 54
-D) 108
+*Third, evaluate answer choices against the directive.* Read each choice and ask: (a) Does it accurately represent all the information in the bullets? (b) Does it express the correct logical relationship? (c) Is it grammatically correct? (d) Is it concise? Any choice that fails any of these criteria should be eliminated.
 
+*Fourth, compare remaining choices.* If two choices both seem correct, look for the one that is more concise, more precise, or more directly satisfies the directive. The SAT rewards economy of expression—the best answer says exactly what it needs to say and nothing more.
+
 ---
 
-**Question 22**
+## 8.4 Information and Ideas — Comprehension and Reasoning
 
-A bowling lane is 65 feet long and 3 feet wide (top view). The pin deck is a rectangular area within the lane. What is the ratio of the total area of the bowling lane to the area of the pin deck, if the pin deck is 5 feet wide?
+The Information and Ideas domain tests your ability to understand, analyze, and draw conclusions from passages. The four question types are: **Central Ideas and Details**, **Inferences**, **Command of Evidence (Textual)**, and **Command of Evidence (Quantitative)**.
 
-A) $12:1$
-B) $13:1$
-C) $13:12$
-D) $137:17$
+### 8.4.1 Central Ideas and Details
 
----
+These questions ask you to identify the main idea of a passage or to answer specific questions based on information explicitly stated in the passage.
 
-**Question 23**
+**Strategy:**
 
-Halle bowls a series of 3 games. She has bowled 2 of 3 games with scores of 148 and 176. What score will Halle need to earn in her 3rd game to have an average score of 172 for the 3 games?
+1. **Read the passage actively.** As you read, mentally summarize each paragraph in a few words. Identify the topic sentence (usually the first or last sentence of a paragraph).
+2. **Distinguish the main idea from supporting details.** The main idea is the overarching point; details are specific facts, examples, or evidence that support it.
+3. **For "main idea" questions,** look for the answer choice that encompasses the entire passage, not just one paragraph or one detail.
+4. **For "detail" questions,** locate the relevant portion of the passage. The correct answer will be a paraphrase of what the passage says, not an exact word-for-word copy.
+5. **Eliminate choices that are too broad, too narrow, or not supported by the passage.**
 
-A) 165
-B) 172
-C) 182
-D) 192
+**Common Traps:**
+- **Too broad:** An answer choice that goes beyond the scope of the passage.
+- **Too narrow:** An answer choice that captures only one detail but not the main idea.
+- **Distortion:** An answer choice that slightly twists the information in the passage.
+- **Out of scope:** An answer choice that introduces information not mentioned in the passage.
 
----
+### 8.4.2 Inferences
 
-**Question 24**
+Inference questions ask you to draw a conclusion that is **strongly supported** by the passage but not explicitly stated. The correct answer must follow logically from the information provided.
 
-The diameter of each bowling pin at its base is 2.25 inches. When all 10 pins are set up, which of the following values is closest to the area, in square inches, covered by the bases of the pins?
+**Key Principle:** An inference on the SAT is not a wild guess or a personal opinion. It is a conclusion that **must** be true based on the passage. If you can conceive of any scenario in which the answer choice might not be true given the passage, it is not the correct inference.
 
-A) 40
-B) 71
-C) 111
-D) 159
+**Strategy:**
 
----
+1. **Identify what the passage explicitly says.**
+2. **Look for logical implications.** What must be true if the passage is true?
+3. **Avoid extreme language.** Answer choices with words like *always, never, all, none, only, must* are often too absolute. Words like *suggests, implies, likely, may, some, often* are more appropriate for inferences.
+4. **Eliminate choices that require outside knowledge or assumptions.** The inference must be based solely on the passage.
 
-**Question 25**
+**Types of Inferences:**
+- **Logical completion:** The passage sets up a situation, and you must determine what logically follows.
+- **Author's implied attitude:** The passage does not directly state the author's opinion, but word choice and tone imply it.
+- **Cause/effect:** The passage describes a situation, and you must infer the likely cause or result.
 
-Elmhurst Street is a two-way street. In each direction, it has one 12-foot-wide lane for car traffic, one 6-foot-wide bike lane, and one 8-foot-wide parking lane. How many feet wide is Elmhurst Street?
+### 8.4.3 Command of Evidence (Textual)
 
-A) 26
-B) 38
-C) 52
-D) 60
+These questions present a claim and ask you to identify the piece of evidence from the passage that most strongly supports that claim.
 
----
+**Strategy:**
 
-**Question 26**
+1. **Read the claim carefully.** Understand exactly what is being asserted.
+2. **Return to the passage.** Locate the relevant section.
+3. **Evaluate each answer choice.** The correct choice will be a direct quote or close paraphrase from the passage that provides the strongest, most specific support for the claim.
+4. **Eliminate choices that:**
+   - Are only tangentially related to the claim
+   - Support a different claim
+   - Are too general or vague
+   - Contradict the claim
 
-If $\sqrt{2x - 11} = 1$, what is the value of $x$?
+**Key Insight:** The correct answer will almost always be a specific detail, statistic, or quote from the passage—not a general summary.
 
-A) 5
-B) 6
-C) 36
-D) 50
+### 8.4.4 Command of Evidence (Quantitative)
 
----
+These questions present data in a graph, table, or chart and ask you to select the answer choice that best supports or completes a claim based on that data.
 
-**Question 27**
+**Strategy:**
 
-Which of the following is equivalent to $(3x)^2$?
+1. **Read the title, labels, and units** of the graph/table carefully.
+2. **Identify trends, patterns, and key data points.**
+3. **Read the claim or question stem.** Understand what the data needs to show.
+4. **Match the data to the claim.** The correct answer will accurately reflect the data presented.
 
-A) $6x$
-B) $9x$
-C) $6x^2$
-D) $9x^2$
+**Common Traps:**
+- **Misreading the scale or units:** Always check the axes and labels.
+- **Confusing correlation with causation:** The data may show a relationship, but that does not prove one causes the other.
+- **Extrapolating beyond the data:** Do not assume trends continue outside the range shown.
 
 ---
 
-**Question 28**
+## 8.5 Craft and Structure — Vocabulary, Purpose, and Cross-Text Analysis
 
-A trapezoid $ABCD$ has $AB \parallel DC$, the measures of the interior angles are distinct, and the measure of $\angle D = x$. What is the degree measure of $\angle A$ in terms of $x$?
+The Craft and Structure domain tests your ability to understand vocabulary in context, analyze the structure and purpose of texts, and make connections between related passages.
 
-A) $(180 - x)°$
-B) $(180 - 0.5x)°$
-C) $(180 + 0.5x)°$
-D) $(180 + x)°$
+### 8.5.1 Words in Context
 
----
+These questions ask you to determine the meaning of a word or phrase **as it is used in the passage**. The word may have multiple meanings; you must select the one that fits the context.
 
-**Question 29**
+**Strategy:**
 
-In the figure below, $A$ is on $\overline{BE}$ and $C$ is on $\overline{BD}$. If it can be determined, what is the measure of $\angle ABC$?
+1. **Read the sentence containing the word.** Identify the context clues (surrounding words, phrases, and the overall meaning of the sentence).
+2. **Substitute each answer choice into the sentence.** The correct choice should fit seamlessly without changing the meaning of the sentence.
+3. **Do not rely solely on your prior knowledge of the word.** The SAT often tests secondary or less common meanings.
+4. **Look for context clues:**
+   - **Definition clues:** The passage may define the word directly.
+   - **Example clues:** Examples following the word may illuminate its meaning.
+   - **Contrast clues:** Words like "but," "however," "although" signal that the word contrasts with another idea.
+   - **Tone clues:** The overall tone of the passage can help you determine whether the word has a positive, negative, or neutral connotation.
 
-```
-    B
-   /|\
-  / | \
- /  |  \
-A   |   C
-132°|   
-    |    
-    D    E
-```
+**Common SAT Vocabulary Categories:**
 
-A) 24°
-B) 42°
-C) 48°
-D) Cannot be determined from the given information
+The SAT does not test obscure vocabulary, but it does test **high-utility academic words** that appear frequently in college-level texts. These include words related to:
 
----
+- **Analysis:** *scrutinize, dissect, examine, evaluate, assess, appraise*
+- **Argument:** *assert, contend, maintain, posit, allege, refute, rebut, dispute*
+- **Change:** *transform, modify, alter, revise, amend, fluctuate, oscillate*
+- **Complexity:** *intricate, convoluted, multifaceted, nuanced, elaborate*
+- **Support:** *corroborate, substantiate, bolster, reinforce, endorse, champion*
+- **Opposition:** *contradict, challenge, undermine, subvert, repudiate, negate*
+- **Tone/Attitude:** *sardonic, laudatory, ambivalent, indifferent, vehement, pragmatic, cynical, sanguine, trepidation, reverence, disdain, approbation*
 
-**Question 30**
+**Strategy for Building Vocabulary:**
+- Read widely from academic sources (science journals, historical essays, literary criticism).
+- When you encounter an unfamiliar word, look it up and note its meaning **in context**.
+- Create flashcards with the word, its definition, and a sample sentence.
+- Review words in groups (synonyms, antonyms, thematic categories).
 
-The expression $y^2(6x + 2y + 12x - 2y)$ is equivalent to which of the following?
+### 8.5.2 Text Structure and Purpose
 
-A) $9xy^2$
-B) $18xy$
-C) $3xy^2 + 12x$
-D) $18xy^2$
+These questions ask you to identify the **overall structure** of a passage or the **purpose** of a specific part (e.g., why the author includes a particular paragraph or detail).
 
----
+**Common Text Structures:**
 
-**Question 31** (Grid-In)
+| Structure | Description |
+|---|---|
+| **Chronological** | Events presented in time order |
+| **Cause and Effect** | Explains why something happened and/or its consequences |
+| **Problem and Solution** | Presents a problem and then discusses solutions |
+| **Compare and Contrast** | Examines similarities and differences between two or more things |
+| **Classification** | Organizes information into categories |
+| **Description** | Provides detailed information about a topic |
+| **Argument/Persuasion** | Presents a claim and supports it with evidence and reasoning |
+| **Narrative** | Tells a story or recounts events |
 
-If $x^2 - 9x + 20 = 0$, what is the sum of the solutions?
+**Common Purposes:**
 
----
+- **To inform:** The author presents facts and information objectively.
+- **To persuade:** The author argues for a particular position.
+- **To explain:** The author clarifies a process, concept, or phenomenon.
+- **To describe:** The author paints a vivid picture of a person, place, or event.
+- **To entertain:** The author engages the reader through storytelling or humor.
+- **To analyze:** The author breaks down a topic into its components and examines them.
 
-**Question 32** (Grid-In)
+**Strategy:**
 
-What is the slope of the line $4x + 7y = 28$?
+1. **Identify the author's main purpose.** Ask yourself: "Why did the author write this?" The answer should account for the entire passage, not just one part.
+2. **For "purpose of a paragraph/detail" questions,** consider how that part functions within the whole. Does it provide evidence? Introduce a counterargument? Offer an example? Transition between ideas?
+3. **Look for signal words:** "However" signals contrast; "for example" signals illustration; "therefore" signals conclusion; "in addition" signals continuation.
 
----
+### 8.5.3 Cross-Text Connections
+
+These questions present **two short passages** on related topics and ask you to compare the authors' points of view, arguments, or approaches.
 
-**Question 33** (Grid-In)
+**Strategy:**
 
-A triangle has angles in the ratio 1:3:5. What is the measure, in degrees, of the largest angle?
+1. **Read Passage 1 and identify the author's main claim, tone, and approach.**
+2. **Read Passage 2 and do the same.**
+3. **Compare the two.** Ask: Do the authors agree? Disagree? Complement each other? Approach the topic from different angles?
+4. **Evaluate the answer choices** based on evidence from both passages.
 
+**Key Distinctions:**
+- **Agree vs. Disagree:** Do the authors reach the same conclusion, or do they take opposing positions?
+- **Complementary vs. Contradictory:** Do the passages provide different pieces of the same puzzle, or do they present conflicting information?
+- **Tone differences:** Is one author more skeptical, enthusiastic, or neutral than the other?
+- **Scope differences:** Does one passage focus on a broad overview while the other zooms in on a specific aspect?
+
 ---
 
-**Question 34** (Grid-In)
+## 8.6 General Reading Strategies for the SAT
 
-If $2^{3x} = 64$, what is the value of $x$?
+### 8.6.1 Active Reading
 
----
+Passive reading—simply letting your eyes move over the words—is insufficient for the SAT. Active reading means engaging with the text:
 
-**Question 35** (Grid-In)
+1. **Predict:** Before reading, glance at the question stems (if provided) to know what to look for.
+2. **Annotate mentally:** As you read, identify the main idea of each paragraph, the author's tone, and key transitions.
+3. **Summarize:** After reading, mentally state the main idea of the passage in one sentence.
+4. **Question:** Ask yourself: "What is the author trying to accomplish? What evidence is provided? How does this paragraph relate to the previous one?"
 
-The product of the roots of the quadratic $3x^2 + 13x - 38 = 0$ can be written as $\frac{m}{n}$ where $m$ and $n$ are relatively prime positive integers. What is $m + n$?
+### 8.6.2 Passage Types and How to Approach Them
 
----
+The SAT Reading and Writing section includes passages from the following domains:
 
-**Question 36** (Grid-In)
+- **Literature:** Excerpts from novels, short stories, or poems. Focus on character, theme, tone, and literary devices.
+- **History/Social Studies:** Passages from historical documents, speeches, or social science research. Focus on argument, evidence, and rhetorical strategies.
+- **Science:** Passages about scientific concepts, experiments, or discoveries. Focus on hypothesis, methodology, results, and implications.
+- **Humanities:** Passages about art, philosophy, or cultural topics. Focus on interpretation, analysis, and perspective.
 
-A triangle has sides of length 9 and 6. If the third side is an integer, what is the greatest possible perimeter of the triangle?
+**Approach by Passage Type:**
 
----
+- **Literature:** Pay attention to character motivations, narrative voice, symbolism, and emotional tone. Ask: "What is the author revealing about the character or theme?"
+- **History/Social Studies:** Identify the author's argument, the evidence used, and any counterarguments. Ask: "What is the author's position, and how is it supported?"
+- **Science:** Identify the research question, methodology, findings, and implications. Ask: "What did the study find, and what does it mean?"
+- **Humanities:** Focus on the author's interpretation or analysis of a work, idea, or cultural phenomenon. Ask: "What is the author's perspective, and how is it developed?"
 
-**Question 37** (Grid-In)
+### 8.6.3 Process of Elimination
 
-In right triangle $ABC$ with right angle at $C$, $\sin(A) = \frac{5}{13}$. What is the length of side $BC$ if $AC = 12$?
+On the SAT, it is often easier to eliminate wrong answers than to identify the correct one directly. Use the following elimination criteria:
 
----
+- **Too extreme:** Answer choices with absolute language (*always, never, all, none*) are often incorrect.
+- **Too vague:** Answer choices that are overly general may not capture the specific meaning required.
+- **Not supported:** If the passage does not provide evidence for the answer choice, eliminate it.
+- **Contradicts the passage:** If the answer choice directly contradicts information in the passage, eliminate it.
+- **Misrepresents the passage:** If the answer choice twists or distorts the information, eliminate it.
+- **Irrelevant:** If the answer choice introduces information not discussed in the passage, eliminate it.
+
+### 8.6.4 Time Management
 
-**Question 38** (Grid-In)
+With 32 minutes per module and 27 questions, you have approximately **75 seconds per question**. However, some questions will take less time and others more. Here is a recommended time allocation:
 
-If Ashish is 250% older than Bob, and Ashish is 42 years old, how old is Bob?
+- **Reading the passage:** 1–2 minutes per passage (since passages are short)
+- **Answering questions:** 45–60 seconds per question
+- **Reviewing flagged questions:** Use any remaining time to revisit questions you flagged
 
+**Pacing Strategy:**
+1. Do not spend more than 3 minutes reading a single passage.
+2. If a question is taking too long, flag it and move on. Return to it after completing the other questions.
+3. Answer the questions you find easiest first to build confidence and save time for harder questions.
+4. Never leave a question unanswered—there is no penalty for guessing.
+
 ---
 
-## Module C: Timed Drills
+## 8.7 Common Mistakes and How to Avoid Them
 
-**Time Limit: 12 minutes for 10 questions**
+### 8.7.1 Bringing Outside Knowledge
 
-These are rapid-fire questions designed to test your speed and accuracy. Each question should take approximately 1 minute or less.
+**Mistake:** Using your own knowledge or opinions to answer questions rather than relying on the passage.
 
----
+**Correction:** Every answer must be supported by the passage. Even if you know a fact that contradicts the passage, the passage is the authority for the purposes of the test.
 
-**Drill 1**
+### 8.7.2 Misreading the Question Stem
 
-If $7 + 3x = 22$, then $2x = $?
+**Mistake:** Answering the wrong question because you misread the stem (e.g., selecting an answer that describes what the author *does* say when the question asks what the author *does not* say).
 
----
+**Correction:** Underline or mentally note key words in the question stem: *NOT, EXCEPT, LEAST, MOST, BEST, PRIMARY, MAIN*. Make sure you are answering the question that is actually asked.
 
-**Drill 2**
+### 8.7.3 Over-Inferring
 
-What is the slope of the line $y = -4x + 9$?
+**Mistake:** Drawing conclusions that go beyond what the passage supports.
 
----
+**Correction:** Stick closely to the text. The correct inference is the one that is most directly and strongly supported by the passage. If you need to make multiple assumptions to justify an answer, it is likely wrong.
 
-**Drill 3**
+### 8.7.4 Ignoring Context for Vocabulary
 
-If a bag contains 3 red, 2 white, and 5 blue beads, what is the probability of randomly selecting a bead that is NOT white?
+**Mistake:** Selecting the most common definition of a word without considering how it is used in the passage.
 
----
+**Correction:** Always substitute the answer choice back into the sentence. The correct choice must fit the context both logically and grammatically.
 
-**Drill 4**
+### 8.7.5 Falling for "Half-Right" Answers
 
-What is the vertex of the parabola $y = (x - 3)^2 + 5$?
+**Mistake:** Selecting an answer choice that is partially correct but contains one word or phrase that makes it wrong.
 
----
+**Correction:** Read the entire answer choice carefully. The SAT often includes answer choices that are 90% correct but contain a single word that makes them incorrect (e.g., changing "some" to "all," or "suggests" to "proves").
 
-**Drill 5**
+### 8.7.6 Not Reviewing Grammar Rules Systematically
 
-If $\sin(\theta) = \frac{3}{5}$, what is $\cos(\theta)$?
+**Mistake:** Studying grammar rules in isolation without understanding how they interact.
 
+**Correction:** Study grammar rules in context. Practice identifying errors in full passages, not just isolated sentences. Understand how multiple rules can apply to the same sentence (e.g., a sentence might have both a subject-verb agreement error and a modifier error).
+
 ---
+
+## 8.8 Summary of Key Grammar Rules
 
-**Drill 6**
+For quick reference, here is a consolidated list of the most frequently tested grammar rules on the SAT:
 
-A car travels 150 miles at 30 miles per hour and then another 200 miles at 50 miles per hour. What is the average speed for the entire journey, to the nearest hundredth?
+1. **Subject-verb agreement:** Verb agrees with subject, not with intervening nouns.
+2. **Pronoun-antecedent agreement:** Pronoun agrees with antecedent in number, person, and gender.
+3. **Pronoun case:** Use subjective case for subjects, objective case for objects.
+4. **Verb tense consistency:** Maintain consistent tense unless a shift is logically required.
+5. **Modifier placement:** Place modifiers near the words they modify; avoid dangling modifiers.
+6. **Parallel structure:** Elements in a list or comparison must be in the same grammatical form.
+7. **Comma rules:** Use commas after introductory elements, before FANBOYS joining independent clauses, around nonessential elements, and to separate items in a series.
+8. **Semicolons:** Join two closely related independent clauses.
+9. **Colons:** Introduce lists, explanations, or elaborations (preceded by an independent clause).
+10. **Apostrophes:** Use for possession and contractions, never for plurals.
+11. **Sentence boundaries:** Avoid fragments, run-ons, and comma splices.
+12. **Relative pronouns:** Use "who/whom" for people, "that/which" for things; "that" for restrictive, "which" for nonrestrictive.
+13. **Subjunctive mood:** Use base form of verb after demands, suggestions, and contrary-to-fact conditions.
+14. **Idiomatic expressions:** Know standard preposition pairings.
+15. **Commonly confused words:** Master the distinctions between frequently confused pairs.
 
 ---
+
+## 8.9 Summary of Key Rhetorical and Reading Strategies
+
+1. **Identify logical relationships** between ideas to select appropriate transitions.
+2. **Synthesize information** from multiple sources for rhetorical synthesis questions.
+3. **Distinguish main ideas from supporting details** when answering central idea questions.
+4. **Draw inferences** that are strongly supported by the passage, not based on outside knowledge.
+5. **Locate textual evidence** that directly supports a given claim.
+6. **Interpret quantitative data** accurately from graphs, tables, and charts.
+7. **Determine word meaning from context**, not from memorized definitions alone.
+8. **Analyze text structure and purpose** by identifying how each part contributes to the whole.
+9. **Compare two passages** by examining their arguments, tones, scopes, and perspectives.
+10. **Use process of elimination** systematically on every question.
+11. **Manage time effectively** by pacing yourself and flagging difficult questions for review.
+12. **Read actively** by summarizing, questioning, and predicting as you go.
 
-**Drill 7**
+---
 
-What is the discriminant of $x^2 + 6x + 9 = 0$, and what does it tell you about the number of real solutions?
+This chapter has provided an exhaustive treatment of every grammar rule, rhetorical skill, and evidence-based reading strategy tested on the SAT Reading and Writing section. Mastery of these concepts—combined with consistent, deliberate practice using official materials—is the foundation for achieving a high score on this section of the exam.
 
 ---
 
-**Drill 8**
 
-If the ratio of $a$ to $b$ is 2:7 and $a + b = 45$, what is the value of $b$?
+# Chapter 9: Test-Taking Tactics — Time Management, Adaptive Module Strategies & Calculator Mastery
 
 ---
+
+## 9.1 The Architecture of the Digital SAT: Why Tactics Matter More Than Ever
 
-**Drill 9**
+The Digital SAT is not merely a computer-based version of the paper test. It is an entirely different assessment experience, built on adaptive testing technology that fundamentally changes how you should approach every single minute. Unlike the legacy paper SAT, where every student saw the same questions in the same order, the Digital SAT adjusts its difficulty in real time. This means your decisions on early questions ripple through the entire section, determining which tier of questions you face next—and ultimately, your score ceiling.
 
-In a 30°-60°-90° triangle, the shortest side is 5. What is the hypotenuse?
+The entire exam is divided into two sections—Reading and Writing (RW), followed by Math—each split into two modules. The first module in each section contains a calibrated mix of easy, medium, and hard questions. Your performance on this first module determines whether your second module will be significantly harder (the "upper pathway") or somewhat easier (the "lower pathway"). This multistage adaptive model means that the questions themselves are pre-determined within difficulty tiers; the difficulty level of your entire second module shifts based on your aggregate performance in the first.
 
+This architecture creates a fundamentally different strategic landscape than any previous version of the SAT. Every choice you make—how you spend your time, which questions you prioritize, how you manage uncertainty—must be calibrated to this adaptive structure. The following sections provide the complete tactical framework for maximizing your score within this system.
+
 ---
+
+## 9.2 Strategic Time Allocation: The Three-Tier System
+
+### 9.2.1 The Philosophy of Unequal Time Spending
+
+The single most counterintuitive truth about the Digital SAT is that spending equal time on every question is one of the worst strategies you can adopt. The test is designed so that questions cluster by difficulty, and your time should cluster accordingly.
+
+Think of your time as a budget. You have 32 minutes per RW module and 35 minutes per Math module. Within each module, questions are organized by content domain (e.g., Algebra questions grouped together, then Advanced Math, etc.), and within those clusters, they generally progress from easier to harder. This ordering gives you a natural roadmap for time allocation.
+
+The average time per question is approximately **71 seconds for RW** ($1920 \div 27 \approx 71$) and approximately **95 seconds for Math** ($2100 \div 22 \approx 95$). But the average is a misleading target. You should not spend the average time on every question. Instead, you should deliberately spend less than average on easy questions and more than average on hard ones.
+
+**Tier 1 — Rapid-Fire Questions (First 30–40% of the module)**
+
+These are the straightforward questions that test foundational skills. They include:
+- Simple linear equations in Math
+- Basic grammar identification in RW (subject-verb agreement, comma placement)
+- Vocabulary-in-context questions where the passage contains a clear signal
+
+For these questions, your target should be **40–60 seconds each**—roughly 15–25 seconds below the per-question average. Why? Because every second you save here is a second you can invest in the harder questions that determine your pathway and your ceiling.
+
+The temptation is to double-check these easy answers. Resist it. If you recognized the correct method and executed it cleanly, move on immediately. The adaptive algorithm rewards fewer errors on easy questions more than it punishes slightly slower times on hard ones.
+
+**Tier 2 — Standard-Effort Questions (Middle 30–40% of the module)**
+
+These require genuine thought—you need to set up equations, analyze passage structure, or combine multiple steps. Your target here should be approximately the **average time per question**—about 71 seconds for RW and about 95 seconds for Math.
+
+These are the questions that separate competent students from strong ones. Here, you should practice your systematic problem-solving approaches:
+- For Math: Read the entire question carefully before starting. Identify what is being asked. Choose your method (algebraic, graphical via Desmos, or backsolving). Execute. Verify your answer is reasonable.
+- For RW: Read the question stem first, then the passage. Predict the answer you are looking for. Then compare with the options.
+
+**Tier 3 — High-Effort Questions (Final 20–30% of the module)**
+
+These are the questions that truly challenge even well-prepared students. They may involve:
+- Multi-step advanced math problems requiring algebraic manipulation and logical deduction
+- Paired-passage comparison questions in RW that require synthesizing two different perspectives
+- Questions with answer choices intentionally designed to trap students who made common errors
+
+Your target for these should be **120–150 seconds each**, potentially more if the problem is genuinely complex. The time you saved on Tier 1 questions should fund this deeper engagement on Tier 3 questions.
+
+However—and this is critical—you must have the discipline to know when a Tier 3 question is consuming too much time. If you have spent approximately 2 minutes on a single question and still have not made meaningful progress toward a clean solution, it is strategically better to make your best educated guess from the remaining answer choices and move on. Why? Because you still have remaining questions worth points, and the time you save by guessing on one hard question can be redistributed to two or three subsequent questions where you have a much higher probability of success.
+
+### 9.2.2 The Time Checkpoint Method
 
-**Drill 10**
+To implement this three-tier system effectively, you should establish mental time checkpoints within each module. Here is the framework:
 
-After receiving a 20% discount and paying 10% sales tax, Viraj buys the entire store for $S$ dollars. What was the price of the store before any discounts and taxes, in terms of $S$?
+**For a 32-minute RW module (27 questions):**
+- After question 9: You should be at approximately 5–7 minutes elapsed (roughly 33–47 seconds per question on average so far)
+- After question 18: You should be at approximately 14–16 minutes elapsed (roughly 47–53 seconds per question on average so far)
+- After question 25: You should be at approximately 26–28 minutes elapsed
+- Questions 26–27: You should have approximately 4–6 minutes remaining
 
+**For a 35-minute Math module (22 questions):**
+- After question 7: You should be at approximately 5–7 minutes elapsed (roughly 43–60 seconds per question on average so far)
+- After question 14: You should be at approximately 15–17 minutes elapsed (roughly 64–73 seconds per question on average so far)
+- After question 19: You should be at approximately 25–27 minutes elapsed
+- Questions 20–22: You should have approximately 8–10 minutes remaining
+
+If you find yourself significantly behind these checkpoints, it means you are spending too much time on the earlier (easier) questions. This is a red flag. It means you either did not recognize the efficient solution method, or you fell into a trap and had to redo work. Either way, you need to self-correct immediately—simplify your approach on subsequent questions and commit to making faster decisions.
+
+If you find yourself significantly ahead, that is generally a good sign, but be cautious. Being ahead should not come at the cost of accuracy. Answering questions quickly but incorrectly destroys your module adaptivity pathway and is worse than answering them correctly but taking more time.
+
 ---
+
+## 9.3 Managing the Adaptive Pathway: Module 1 as the Gateway
+
+### 9.3.1 Understanding Your Real Priority in Module 1
+
+The adaptive nature of the test makes Module 1 disproportionately important. Your primary goal in Module 1 is not to answer every question correctly—that is unrealistic and unnecessary. Your primary goal is to answer the first 60–70% of questions correctly with near-perfect accuracy, while making educated guesses on the questions you do not know.
+
+This is a fundamental shift in how you should think about test-taking. On a traditional paper test, every question is equally weighted in terms of its contribution to your raw score. On the Digital SAT, the easy questions in Module 1 have an outsized impact because they determine your pathway. A single incorrectly answered easy question in Module 1 steals value from you twice: once directly (you lose the point for that question), and once indirectly (it may contribute to you receiving the easier Module 2 with its lower scoring ceiling).
+
+Conversely, the hard questions at the end of Module 1 are worth less in pathway terms because missing one or two of them will not significantly affect your pathway placement if you have already secured the threshold. This creates a counterintuitive strategic imperative: it is more important to get an easy question right than a hard question right.
+
+### 9.3.2 The Clean Sheet Rule
+
+One of the most important Module 1 strategies is what we call the "Clean Sheet" rule: there should be no question left completely blank, and every question should have an intentional answer choice selected. Because there is no penalty for wrong answers (rights-only scoring), leaving a question blank is the one truly unforgivable mistake. A random guess gives you a 25% chance of being correct on a four-option multiple-choice question. A blank gives you 0%.
+
+But the Clean Sheet rule goes further. Every answer should be intentional, even when you are not confident. This means:
+
+1. **Eliminate what you can.** Even if you cannot determine the correct answer, eliminating one or two obviously wrong options dramatically improves your odds from 25% to 33% or 50%.
+
+2. **Trust your strongest instinct on the rest.** After elimination, go with your strongest instinct. Long deliberation between two remaining options rarely produces correct answers beyond chance—and it costs precious time.
+
+3. **Flag it.** The Bluebook testing application allows you to flag questions for review. If you have eliminated one option and guessed between the remaining two, flag it. If you have time at the end of the module, you can return. But do not count on having this return time—assume your first answer will be your final answer.
+
+### 9.3.3 Internalizing Module 1 Pacing Through Deliberate Practice
+
+To internalize proper Module 1 pacing, you should engage in specific, targeted practice exercises designed to build the decision-making reflexes you need under pressure.
 
+**The Speed Discipline Exercise.** Take the first 10 questions of a Module 1 practice set. Give yourself exactly 6 minutes (36 seconds per question). Force yourself to make decisions quickly. After the exercise, check your accuracy. The goal is to answer 8–9 of 10 correctly even under extreme time pressure. If you can do this, it means you truly understand the early content—and you can slow down slightly on real Module 1 to build in your checkpoints without sacrificing accuracy. If you cannot reach this accuracy level under speed pressure, it signals that your foundational content knowledge needs reinforcement before you can afford to rush.
+
+**The Threshold Awareness Exercise.** Take a full Module 1 practice set (27 RW or 22 Math questions). Before starting, mark the question that represents your estimated 65% threshold (question 17–18 for RW, question 14 for Math). Answer all questions normally but pay special attention to accuracy up through your threshold. After finishing, calculate: how many questions did you get correct up through the threshold? This number is your pathway-determining score. Practice until you consistently hit 16+ correct through question 17–18 in RW and 13+ through question 14 in Math. This exercise trains you to recognize which questions are "pathway-critical" and to allocate your cognitive resources accordingly.
+
+**The Strategic Guess Exercise.** Take the last 8–9 questions of a Module 1 practice set. Give yourself 12 minutes for these questions (about 80 seconds each, and these are the harder questions so they deserve more time than average). For each question, if you have not arrived at a clear method after 90 seconds of reading and analysis, commit to your best process of elimination and guess. The goal is to practice making the "strategic guess" decision without guilt or panic. This exercise builds the emotional discipline to walk away from a hard question—a skill that directly protects your time for the remaining questions in the module.
+
 ---
+
+## 9.4 Module 2 Strategy: Playing the Hand You Are Dealt
+
+### 9.4.1 Reading Your Module 2: Is It Hard or Easy?
+
+There is no explicit indicator on your screen telling you which module pathway you received. However, you can often infer it within the first 3–5 questions. In the harder Module 2, the questions will immediately present more complex structures, more answer options that are closely related, and more demands for multi-step reasoning. In the easier Module 2, the questions will feel more similar to the simpler Module 1 questions, with more direct solutions and clearer signal words in passage-based questions.
+
+This inference is strategically important because it should adjust your expectations and emotional state:
+
+**If you receive the harder Module 2:**
+- Your scoring ceiling is significantly higher. Even a modest percentage correct on hard questions can yield an excellent score.
+- Expect to feel challenged. This is normal and desirable. It means you unlocked the upper pathway.
+- Do not panic if questions feel difficult. The scaling system accounts for difficulty. A 65% correct rate on hard questions could score comparably to or better than an 85% correct rate on easy questions.
+- Focus on questions that feel "approachable"—the ones where you can at least identify the right approach even if execution is complex. Ignore the 1–2 questions that are simply beyond preparation and eliminate-and-guess.
 
-# ANSWER KEY AND EXPLANATIONS
+**If you received the easier Module 2:**
+- Your scoring ceiling is limited. Even perfect accuracy will likely cap you in the lower-to-mid 700s at best.
+- Compensate by aiming for near-perfect accuracy. Every single question matters. You cannot afford to miss more than 1–3 questions total.
+- Work with exceptional care and precision. Double-check your answers. Verify your algebra. Read every word of every passage question.
+- Accept this outcome gracefully and commit to a stronger retake. The strategic takeaway is that your Module 1 preparation needs more work.
 
+### 9.4.2 The No-Return Constraint
+
+A critical structural feature of the Digital SAT is that once you leave a module, you cannot return to it. This has profound strategic implications:
+
+1. **No "save the hard ones for later" across modules.** On the old paper SAT, you could skip hard questions, answer the easier ones, and then return to the hard ones if time remained. The Bluebook app technically allows you to navigate within a module (move between questions), so you can still return to flagged questions within the current module. However, once you submit your answers and move to Module 2, all decisions on Module 1 are permanently locked.
+
+2. **Strategic implication:** Within a module, you should absolutely use the flagging system. If a question stumps you after 60–90 seconds, flag it, select your best-guess answer (remember, no blanks!), and continue. If time remains at the end of the module, return to flagged questions and invest additional time. The key is that you have already committed to an answer by the time you move on—but time remains within the module to revisit.
+
+3. **Module-end protocol:** In the final 3–4 minutes of any module, do not attempt new questions from the beginning. Instead:
+   - First pass: Review all flagged questions, investing additional time where your elimination may have narrowed options.
+   - Second pass: Review any answers where you recall feeling uncertain.
+   - Final pass: Ensure every single question has an answer selected. No blanks. If time is running out, select at random for any truly blank questions—a 25% chance is infinitely better than 0%.
+
 ---
+
+## 9.5 Desmos Calculator Mastery: A Strategic Weapon
+
+### 9.5.1 The Desmos Advantage
+
+The Digital SAT embeds the Desmos graphing calculator directly into the Bluebook application for the entire Math section. This eliminates the old "no calculator" section entirely—you always have calculator access. But more importantly, Desmos is not just a calculator; it is a graphing tool that can solve many problems visually in seconds.
 
-## Module A: No-Calculator Section — Answers and Explanations
+Understanding and practicing Desmos is not optional—it is essential for competitive scorers. Many problems that would take 2–3 minutes of algebra can be solved in 20–40 seconds by graphing the equations and visually identifying solutions.
 
+### 9.5.2 Essential Desmos Techniques
+
+**Technique 1: Graphing Equations to Find Solutions**
+
+For any problem asking you to solve an equation or system of equations:
+1. Open the Desmos graphing calculator.
+2. Type in the equation(s) exactly as given.
+3. Identify the solution visually:
+   - For a single equation set equal to zero, look for where the graph crosses the $x$-axis (the zeros/roots).
+   - For a system of equations, look for intersection points.
+   - For an equation set equal to a value (e.g., $x^2 - 3x = 5$), type $y = x^2 - 3x$ and $y = 5$ separately, then find their intersection.
+
+This method is particularly powerful for:
+- Quadratic equations (finding roots)
+- Systems of linear equations (finding the intersection point)
+- Systems of linear and quadratic equations
+- Any equation where algebraic manipulation would be complex
+
+**Technique 2: Graphing Inequalities**
+
+For inequality problems:
+1. Type the inequality directly into Desmos (it supports $<$, $>$, $\leq$, $\geq$).
+2. The shaded region represents the solution set.
+3. For systems of inequalities, type multiple inequalities—the overlapping shaded region satisfies all conditions simultaneously.
+
+This is invaluable for problems asking "which point satisfies the inequality system" or "which of the following ordered pairs is a solution."
+
+**Technique 3: Checking Answer Choices**
+
+When you are stuck on a multiple-choice problem:
+1. Enter the equation or relationship from the problem into Desmos.
+2. Test each answer choice by plugging values into the equation or checking if points lie on the graph.
+3. The correct choice will be the one that satisfies the relationship.
+
+This "backsolving via Desmos" approach is often faster than solving algebraically, especially when the algebraic setup is complex.
+
+**Technique 4: Exploring Function Behavior**
+
+For problems involving function transformations, maxima/minima, or asymptotic behavior:
+1. Enter the function into Desmos.
+2. Use the slider feature (add a parameter with a letter like $a$ or $b$) to visualize how changes in parameters affect the graph.
+3. Observe intercepts, vertex points, and where the function increases or decreases.
+
+**Technique 5: Statistical Calculations**
+
+Desmos also supports statistical operations. For problems involving means, medians, or other descriptive statistics, you can enter data lists and compute summary statistics directly.
+
+### 9.5.3 When NOT to Use Desmos
+
+Despite its power, Desmos is not always the fastest tool. Here are situations where mental math or pencil-and-paper is superior:
+
+1. **Simple arithmetic calculations.** Typing $47 \times 8$ into Desmos takes longer than doing it mentally or on scratch paper. Reserve Desmos for calculations that genuinely benefit from graphical visualization.
+
+2. **Problems with integer-only manipulation.** If a problem says "where $x$ and $y$ are positive integers," graphing might show you an approximate solution but you still need to verify the exact integer. Sometimes direct algebraic reasoning is cleaner.
+
+3. **Extremely time-pressured situations.** If you are running low on time, the act of opening Desmos, typing equations, and interpreting the graph adds approximately 15–20 seconds of overhead per use. If a problem can be solved algebraically in under 45 seconds, do not waste time switching to the calculator.
+
+4. **Truly basic questions.** If a question asks for the slope of $y = 3x + 7$, you should read the slope as 3 instantly. Typing this into Desmos wastes time.
+
+### 9.5.4 Building Desmos Fluency Through Structured Integration
+
+To make Desmos second nature on test day, you must practice with it extensively during preparation. This is non-negotiable.
+
+**Phase 1: Dual-Solving for Awareness.** Complete every math practice problem twice—once algebraically, once via Desmos. Compare which method was faster for each question type. Build a mental categorization: "For this type of problem, Desmos is faster. For this other type, algebra is faster." This phase builds your strategic decision-making framework for when to reach for the calculator.
+
+**Phase 2: Desmos-First Training.** Start every practice session by using Desmos for at least 50% of problems, even when you know the algebraic solution. Build speed and fluency with the tool. Learn to type equations quickly, navigate the interface without hesitation, and interpret graphs accurately under time pressure. The goal is to reduce the overhead cost of using Desmos from 20+ seconds to under 10 seconds.
+
+**Phase 3: Strategic Integration.** Use Desmos exactly as you would on test day—strategically, not reflexively. Ask yourself for each problem: "Would Desmos save me time here?" If yes, use it. If no, solve it directly. This phase builds the automatic decision-making that separates students who use Desmos as a crutch from students who use it as a weapon.
+
 ---
+
+## 9.6 Process of Elimination: The Universal Accuracy Booster
+
+### 9.6.1 Why Elimination Beats Selection
+
+Cognitive psychology research consistently shows that identification (recognizing a correct answer among options) is easier than recall (producing the correct answer from scratch). The SAT is entirely multiple-choice for most questions, which means the correct answer is physically on your screen at all times. Your task is not to generate the answer—it is to recognize it.
+
+The most reliable way to recognize the correct answer is to systematically prove the other three wrong. When you can eliminate even one option, your probability jumps from 25% to 33%. Eliminate two, and you are at 50%.
+
+### 9.6.2 Common Elimination Patterns by Section
+
+**Math Elimination Patterns:**
+
+1. **The "Too Easy" Trap.** Often, the SAT places an answer choice that represents the result of making a common student error—forgetting to distribute a negative sign, solving for the wrong variable, or making an arithmetic mistake in the final step. If an answer seems "too obviously correct" without real work, it is frequently the trap answer. Double-check before selecting.
 
-### Question 1
+2. **Range Elimination.** For problems involving quantities that must fall within certain bounds (angles in a triangle, probabilities, percentages), you can immediately eliminate any answer outside those bounds. For example, if a probability must be between 0 and 1, and one answer choice says 1.4, eliminate it instantly.
 
-**Answer: A) 36**
+3. **Dimension Elimination.** If a problem asks for an area, the answer must be in square units. If one choice is clearly a length (linear measurement), eliminate it. If the problem asks for a value of $x$ and one choice is a value of $y$, eliminate it.
 
-**Step-by-Step Solution:**
+4. **Parity and Sign Elimination.** For integer problems, if you can determine the answer must be even, or must be negative, or must be greater than 100, you can often eliminate 1–2 choices without solving the full problem.
 
-We are given $3x + 5 = 23$ and asked to find $6x + 10$.
+**Reading and Writing Elimination Patterns:**
 
-Notice that $6x + 10 = 2(3x + 5)$. This is the key insight—we do not need to solve for $x$ individually.
+1. **Extreme Language Elimination.** In passage-based questions, answer choices that use absolute language ("always," "never," "completely," "entirely") are statistically more likely to be incorrect than choices using qualified language ("often," "sometimes," "partially"). This is not a guarantee, but it is a useful heuristic when torn between two options.
 
-$$6x + 10 = 2(3x + 5) = 2(23) = 46$$
+2. **Out of Scope Elimination.** Any answer choice that introduces information not supported by the passage is automatically wrong, even if the information is factually true in the real world. The SAT only cares about what is in the passage. If it is not in the text, it is not the answer.
 
-Wait—let me recheck. $3x + 5 = 23$, so $3x = 18$, meaning $x = 6$. Then $6x + 10 = 6(6) + 10 = 36 + 10 = 46$.
+3. **Half-Right Elimination.** In RW answer choices that are long or contain multiple clauses, often one part of the choice is correct and another part is subtly wrong. Read every word of every answer choice carefully. If any single word in a choice does not fit the passage evidence, the entire choice is wrong.
 
-**The answer is B) 46.**
+4. **Reversal Elimination.** Sometimes an answer choice correctly identifies a detail from the passage but reverses the relationship between subjects. For example, if the passage says "the critics praised the artist's innovation," a wrong answer might say "the artist praised the critics' innovation." Watch for these reversals—they are among the most common trap types on RW.
 
-**Common Mistake Analysis:**
-- **Mistake:** Students often solve for $x$ first ($x = 6$), then substitute into $6x + 10$ to get $36 + 10 = 46$. This works, but some students forget to add the 10 and choose A) 36.
-- **Mistake:** Some students see $6x + 10 = 2(3x + 5)$ and compute $2 \times 23 = 46$ correctly, but then second-guess themselves.
-- **Prevention:** Always double-check by substituting your value of $x$ back into the original equation to verify.
+### 9.6.3 The "Second-Best" Answer and How to Avoid It
 
+The most common reason students miss RW questions is not misunderstanding the passage—it is selecting an answer that is better than most alternatives but subtly inferior to the best one. The SAT constructs answer choices so that:
+- Choice A: Clearly wrong if you read carefully
+- Choice B: Plausible but flawed (the "second-best" answer)
+- Choice C: Correct answer
+- Choice D: Clearly wrong if you read carefully
+
+The strategic question is: why do students pick B instead of C? Usually, it is because B feels "safe"—it is supported by a partial reading of the passage, and it does not overreach. C, the correct answer, often requires either reading a specific qualifying word in the passage, comparing two ideas across paragraphs, or recognizing a subtle but critical distinction.
+
+**How to overcome the second-best trap:** After selecting your answer, force yourself to articulate why the "second-best" answer is specifically wrong. If you cannot articulate a concrete reason based on the passage text—if your objection is just a vague feeling that "this one seems better"—then you likely have not identified the trap correctly. Re-examine both your choice and the runner-up, this time looking for the precise textual evidence that makes one right and the other not.
+
 ---
+
+## 9.7 Tactical Decision-Making Under Time Pressure
+
+### 9.7.1 The 2-Minute Rule
+
+For any individual question, establish a hard boundary: if you have not identified a clear solution path after 2 minutes, you must either:
+(a) Make your best guess based on elimination and move on, OR
+(b) Flag the question, select a guess, and plan to return to it if time remains.
+
+The psychological difficulty of this rule cannot be overstated. Our brains resist abandoning unfinished work—this is called the Zeigarnik effect, and SAT question writers exploit it by making hard problems just solvable enough to keep you engaged past the point of diminishing returns.
+
+The 2-minute rule exists because the opportunity cost of spending 3+ minutes on one question almost always exceeds the value of getting that question right. Those 3 minutes could allow you to answer two easier subsequent questions correctly, which is always a better trade.
 
-### Question 2
+### 9.7.2 The Confidence Thermometer
 
-**Answer: D) 20**
+As you work through each module, develop a real-time awareness of your performance state:
 
-**Step-by-Step Solution:**
+**Green Zone (20–30 seconds ahead of pace, high confidence):**
+You are ahead of schedule and questions feel manageable. Use the extra time to be thorough on hard questions. Double-check calculations for any question where you sensed a trap might exist. This is where you build your score.
 
-The ratio of boys to girls is 3:5. This means:
-- Number of boys = $3k$
-- Number of girls = $5k$
-- Total = $3k + 5k = 8k$
+**Yellow Zone (on pace or slightly behind, moderate confidence):**
+You are at or slightly behind your checkpoints, and some questions are challenging but approachable. This is the most common state. Focus on maintaining accuracy—do not rush, but do not linger. Trust your training.
 
-Since the total is 32 students:
-$$8k = 32 \implies k = 4$$
+**Signs that you are slipping into Yellow from Green:**
+- You have eliminated down to two options on more than two questions in a row
+- You have had to re-solve a question from scratch (meaning your first approach did not work)
+- You catch yourself reading the same question stem more than twice without progressing
 
-Number of girls = $5k = 5(4) = 20$.
+**Red Zone (significantly behind pace, rising anxiety):**
+You are more than 1–2 minutes behind your checkpoints. This triggers a negative feedback loop: rushing leads to errors, which leads to lost time correcting errors, which leads to more rushing. You must break the loop.
 
-**Common Mistake Analysis:**
-- **Mistake:** Students sometimes compute $3k = 12$ (the number of boys) and select A) 12, misreading the question.
-- **Mistake:** Some students set up the proportion $\frac{3}{5} = \frac{x}{32}$ and solve incorrectly.
-- **Prevention:** Always identify what the question is asking for before selecting your answer. Circle "how many girls" in the question.
+**Emergency Red Zone Protocol:**
+1. Take one deep breath. Literally pause for 5 seconds and breathe.
+2. For the next 3–5 questions, do not attempt to "catch up" by rushing. Instead, focus only on identifying and answering the types of questions you are most confident about. If a question looks unfamiliar or complex, eliminate one option and move on without guilt.
+3. Reset your checkpoints. You will not make up time on the next easy question if you are panicked and error-prone.
+4. Accept that this module may be slightly below your target. Remember: you can improve on the next module or the next test date. One difficult module does not ruin your score if you maintain composure.
 
+### 9.7.3 Reading Passage Questions: Strategic Reading vs. Deep Comprehension
+
+One of the most critical tactical decisions on the RW section is how to interact with passages. Many students try to read passages the way they read a textbook—carefully, thoroughly, absorbing every detail. This is the wrong approach. You do not need to deeply understand the passage. You need to answer questions about it.
+
+**The Question-First Approach:**
+1. Before reading the passage, glance at the question. What is being asked?
+2. Read the passage with that question in mind. You are not reading for pleasure or deep understanding—you are scanning for the specific information the question requires.
+3. When you find the relevant portion of the passage, that is where you stop and analyze carefully. The rest of the passage can be skimmed.
+
+This approach preserves tremendous time, especially for passages that contain extraneous details.
+
+**The Passage-First Approach:**
+For some questions—particularly those about main idea, tone, purpose, or overall structure—you need a general understanding of the entire passage before answering. In these cases:
+1. Read the first and last sentence of each paragraph carefully. These sentences contain the core argument.
+2. Skim the middle of each paragraph at moderate speed, noting transition words ("however," "moreover," "nevertheless") that signal shifts in the argument.
+3. Construct a one-sentence mental summary of the passage before looking at the questions.
+
+Both approaches have their place. The key is knowing which one to deploy for each question type, and practicing the switch between them fluently.
+
+**Time benchmarks per passage-question pair:**
+- Short passage (25–75 words) with 1 question: 60–90 seconds total (including reading)
+- Medium passage (75–150 words) with 1 question: 90–120 seconds total
+- Two paired passages with 1 comparison question: 120–150 seconds total
+
 ---
+
+## 9.8 The Flagging System and Module Review Protocol
 
-### Question 3
+### 9.8.1 How Flagging Works in Bluebook
 
-**Answer: B) 45**
+The Bluebook application includes a flag feature that allows you to mark questions for later review. This feature is your best friend within each module, but only if used strategically.
 
-**Step-by-Step Solution:**
+**Flagging rules:**
+- You can set or remove a flag at any point during the module.
+- The flag does not cost you anything—it does not count as an answer or affect scoring.
+- Flagged questions appear with a visual indicator on the question navigation panel, allowing you to quickly jump back to them.
 
-The car travels at 60 miles per hour. We need the distance in 45 minutes.
+**When to flag:**
+- You have spent more than 90 seconds on a question without arriving at a solution
+- You have eliminated 1–2 options but cannot decide between the remaining choices
+- You arrived at an answer but feel uncertain because the problem "felt trickier than expected"
+- You suspect you may have misread the question and want to re-read it with fresh eyes
 
-Convert 45 minutes to hours: $45 \text{ minutes} = \frac{45}{60} \text{ hours} = \frac{3}{4} \text{ hour}$.
+**When NOT to flag:**
+- You are rushing and flag a question just because it is taking time (flags should indicate genuine strategic importance, not impatience)
+- You have already answered confidently (flagging confident answers wastes review time)
 
-$$\text{Distance} = \text{Rate} \times \text{Time} = 60 \times \frac{3}{4} = 45 \text{ miles}$$
+### 9.8.2 The Three-Pass Review System
 
-**Common Mistake Analysis:**
-- **Mistake:** Students sometimes multiply $60 \times 45 = 2700$ without converting minutes to hours.
-- **Mistake:** Some students convert incorrectly, using $\frac{45}{100}$ instead of $\frac{45}{60}$.
-- **Prevention:** Always check units. Speed is in miles per hour, so time must be in hours.
+When you reach the final 3–4 minutes of any module, activate this review protocol:
 
+**Pass 1: Flagged Questions Review (90 seconds)**
+Jump to each flagged question. For each, quickly re-read the question stem and your selected answer. If your original answer still seems correct after the fresh look, keep it and move on. If the fresh look reveals a better answer, change it. If you are still truly stuck, keep your original selection—first instincts are statistically more reliable than anxious second thoughts in most cases.
+
+**Pass 2: Sweep for Slips (60 seconds)**
+Quickly re-examine questions where you selected answers quickly and confidently. The purpose is to catch careless errors: Did you select "A" when you meant "B"? Did you circle the radius when the question asked for diameter? Did you choose the answer that answered a slightly different question than what was actually asked? These "slip" errors are more common under time pressure than you might expect.
+
+**Pass 3: Zero-Blank Check (30 seconds)**
+Use the question navigation panel to verify that every question has an answer selected. The Bluebook display makes it easy to see unanswered questions. For any blank, immediately select any option—even a pure random guess. The expected value of a random guess (0.25 points per question) is higher than zero.
+
 ---
+
+## 9.9 Managing Break Time and Mental Fatigue
 
-### Question 4
+### 9.9.1 The 10-Minute Break Between RW and Math
 
-**Answer: B) 15**
+Between the Reading and Writing section and the Math section, you receive one 10-minute break. How you use this break has a measurable impact on your Math performance.
 
-**Step-by-Step Solution:**
+**Optimal break protocol:**
+- **Minutes 1–3: Physical reset.** Stand up. Stretch. Walk to the restroom if needed. Get blood flowing. If allowed, eat a small snack (a piece of fruit, a granola bar). Drink water.
+- **Minutes 4–6: Mental transition.** Put RW out of your mind entirely. You cannot change those answers. Do not replay RW questions in your head. Instead, silently review Math strategies: "Remember to check Desmos for systems of equations. Remember the vertex form. Remember to eliminate before solving."
+- **Minutes 7–9: Preparation.** Return to your seat. Make sure your device is still connected and ready. Have your scratch paper or whiteboard tool organized. Mentally commit to your Math pacing checkpoints.
+- **Minute 10: Ready.** When the break ends and Math begins, you should feel physically refreshed and mentally recalibrated for mathematical reasoning.
 
-Given $f(x) = 2x^2 - 3x + 1$, find $f(-2)$:
+### 9.9.2 Combating Mid-Test Fatigue
 
-$$f(-2) = 2(-2)^2 - 3(-2) + 1$$
-$$= 2(4) + 6 + 1$$
-$$= 8 + 6 + 1 = 15$$
+Fatigue on the Digital SAT is not just physical—it is cognitive. The sustained concentration required over 2+ hours on a screen taxes your visual processing and attention systems. Strategies to mitigate this:
 
-**Common Mistake Analysis:**
-- **Mistake:** Students sometimes compute $(-2)^2 = -4$ instead of $4$. Remember: a negative number squared is positive.
-- **Mistake:** Students sometimes forget to apply the negative sign to the $-3(-2)$ term, computing it as $-6$ instead of $+6$.
-- **Prevention:** Use parentheses when substituting: $2(-2)^2 - 3(-2) + 1$ is clearer than $2 \cdot -2^2 - 3 \cdot -2 + 1$.
+1. **Blink deliberately.** Staring at a screen reduces blink rate by up to 60%, causing eye strain and reduced concentration. Every few minutes, take a moment to blink fully several times.
 
+2. **Micro-pauses between questions.** After completing a particularly draining question, take one deep breath before moving to the next question. This 2–3 second reset prevents cognitive carryover (where the difficulty of the previous question impairs your focus on the next one).
+
+3. **Vary your visual focus.** When you feel your eyes glazing over from screen-staring, look briefly away from the screen at a distant point in the room. This relaxes the ciliary muscles in your eyes and reduces visual fatigue.
+
+4. **Hydration during the test.** If your testing center rules permit, have a water bottle at your desk. Dehydration as mild as 1–2% of body water loss has measurable effects on cognitive performance. Take a few sips at logical transition points (between modules) rather than sipping continuously.
+
 ---
+
+## 9.10 Test-Day Execution: Putting It All Together
 
-### Question 5
+### 9.10.1 The 30-Second Pre-Start Ritual
 
-**Answer: C) 115°**
+Before your proctor enters the start code, spend 30 seconds:
+1. Take three deep, deliberate breaths.
+2. Remind yourself of one core strategy: "Easy questions first, clean sheet always, Desmos for systems."
+3. Affirm your preparation: "I have practiced this. The format is not new to me. I know my checkpoints."
 
-**Step-by-Step Solution:**
+### 9.10.2 Module-by-Module Mental Script
 
-When two parallel lines are cut by a transversal, several angle relationships exist. $\angle 1$ and $\angle 2$ are same-side interior angles (also called consecutive interior angles), which are supplementary.
+**RW Module 1:** "Accuracy on everything through question 17 is my priority. If I nail the first 17, I unlock hard Module 2. I will spend 40–60 seconds on clear easy questions. I will flag anything that takes me past 90 seconds without a clear answer path. No blanks. Ever."
 
-$$\angle 1 + \angle 2 = 180°$$
-$$65° + \angle 2 = 180°$$
-$$\angle 2 = 115°$$
+**RW Module 2:** "Adapt to what I see. If it is hard, that is good—I hit my threshold. I will be strategic: fully attempt the approachable hard questions, eliminate-and-guess on the brutal ones. I still have my 2-minute rule for any individual question."
 
-**Common Mistake Analysis:**
-- **Mistake:** Students sometimes think $\angle 1$ and $\angle 2$ are corresponding or alternate interior angles and conclude $\angle 2 = 65°$ (choice B).
-- **Prevention:** Carefully identify the relationship between the two angles. Same-side interior angles are supplementary; alternate interior angles and corresponding angles are congruent.
+**Math Module 1:** "Same principle. Accuracy on the fundamentals. Desmos is my ally—I will use it for any system of equation, inequality, or non-linear graphing question. I will not waste time on simple arithmetic when mental math suffices. I protect my pathway by protecting my early accuracy."
 
+**Math Module 2:** "Execute. I have the tools: algebraic reasoning for equations, Desmos for visualization, elimination for multiple choice, back-solving for stubborn problems. If I am in the hard module, every question I answer correctly here is worth more than it would be in the easy module. I focus. I trust my preparation."
+
+### 9.10.3 What To Do When Things Go Wrong
+
+Despite perfect preparation, something may go wrong on test day: you have a panic moment, you lose track of time, a question appears that seems completely unfamiliar. Here is your emergency protocol:
+
+1. **Pause.** Take one deep breath. This is not wasting time—it is resetting your cognition.
+
+2. **Categorize the problem.** Is this a time problem (you are behind pace), a content problem (you do not know how to solve this), or an emotional problem (you are panicking)? Each requires a different response.
+
+3. **Apply the category-specific fix:**
+   - *Time problem:* Immediately switch to aggressive elimination-and-guess on the current question. Pick your best remaining option after eliminating even one choice. Move to the next question and re-establish your checkpoint awareness.
+   - *Content problem:* Eliminate what you can based on general mathematical principles (positive/negative, even/odd, must be an integer, must be a probability $\leq 1$, etc.). Then guess. Do not spend more than 2 minutes on any single question.
+   - *Emotional problem:* Acknowledge the feeling. Say to yourself: "I feel anxious about this question. Anxiety does not mean I cannot answer other questions. I will move on and come back if time allows." Then move to the next question. Often, the emotional disruption dissolves within 30 seconds of engaging with a new, approachable problem.
+
+4. **Remember the big picture.** One poorly-answered question will not destroy your score. Five consecutive poorly-answered questions caused by spiraling panic will. The difference is the reset. Reset fast.
+
 ---
+
+## 9.11 Advanced Tactics for High Scorers (700+ Targets)
 
-### Question 6
+### 9.11.1 The Accuracy-First Paradox
 
-**Answer: B) $71.08**
+Students aiming for 700+ in a section face a paradox: their preparation is so thorough that most questions feel manageable, leading to a tendency to rush and make careless errors on "obvious" questions. Counterintuitively, the biggest score gains for high-scorers come not from answering harder questions, but from eliminating careless mistakes on easy questions.
 
-**Step-by-Step Solution:**
+For a student targeting 780–800 Math, the margin of error is razor-thin. You can afford to miss perhaps 2–4 questions total across both modules. This means every single careless error—a misread question, an arithmetic mistake, a sign error—is devastating.
 
-Original price: $85.
+**The high-scorer's paradoxical strategy:** Slow down on easy questions. Spend 45–50 seconds on questions that should take 30–40 seconds. Check your setup one extra time. Verify that you are solving for what the question actually asked. This extra 10–15 seconds per easy question prevents the careless errors that are the #1 score killer for advanced students.
 
-**Step 1:** Apply the 20% discount.
-$$\text{Discount} = 0.20 \times 85 = 17$$
-$$\text{Sale price} = 85 - 17 = 68$$
+### 9.11.2 Scoring Efficiency: Where Points Per Minute Are Highest
 
-**Step 2:** Apply 6% sales tax to the sale price.
-$$\text{Tax} = 0.06 \times 68 = 4.08$$
-$$\text{Final price} = 68 + 4.08 = 72.08$$
+Not all questions offer the same return on time invested. A useful concept is "scoring efficiency"—expected points gained per minute spent. Here is the approximate ranking:
 
-**The answer is C) $72.08.**
+**Highest efficiency:** Easy and medium questions you can answer in 45–90 seconds. These are nearly guaranteed points for a well-prepared student, and they cost minimal time. This is where you build your score floor and ensure your adaptive pathway.
 
-**Common Mistake Analysis:**
-- **Mistake:** Students sometimes apply the tax to the original price ($85) instead of the discounted price ($68).
-- **Mistake:** Some students add the discount and tax percentages (20% - 6% = 14% net discount) and compute $85 \times 0.86 = 73.10$, which is wrong because the tax applies to the reduced price, not the original.
-- **Prevention:** Always work through discount problems step by step. The order matters: discount first, then tax.
+**Medium efficiency:** Hard questions where you have a clear solution method but it requires multi-step execution. These yield 1 point per 2–3 minutes invested, which is a good rate—better than leaving them blank (0 points per 0 minutes).
 
+**Lowest efficiency:** Hard questions where you have no solution method and must guess. These yield 0.25 expected points per 15–30 seconds invested (time to read and randomly guess). This is actually decent efficiency per minute, but the expected value is low because you will only get it right 1/4 of the time.
+
+**The key insight:** Your preparation time should be invested in converting "low efficiency" questions into "medium efficiency" questions through learned strategies. The elimination techniques, Desmos shortcuts, and process-of-elimination methods described in this chapter are all designed to shift questions from the "guess" category into the "approachable" category.
+
+### 9.11.3 The "Perfect Is the Enemy of Excellent" Principle
+
+A final strategic note for high scorers: your goal is not perfection. Your goal is to maximize your score within the constraints of time, difficulty, and human fallibility. This means:
+
+- You will miss questions. Plan for missing 2–4 questions in each section.
+- You will not understand every question immediately. Plan to spend 30–60 seconds on initial analysis before committing to a solution path.
+- You will sometimes make arithmetic or reading errors. Plan for them by having time to verify, not time to be perfect on the first attempt.
+
+The student who aims for 100% on every question and panics when they do not immediately see the solution will always underperform the student who aims for 85–90% accuracy with calm, systematic execution. On the Digital SAT, that difference can be 50–80 points per section.
+
 ---
+
+## Summary of Key Chapter Principles
+
+1. **Time is a budget, not a constant.** Spend less than average time on easy questions, average time on medium questions, and more than average time on hard questions. Save time early to invest it in harder questions that determine your score.
 
-### Question 7
+2. **Module 1 determines your ceiling.** Accuracy on the first ~60–70% of Module 1 questions is the single most important factor for your section score, because it determines your adaptive pathway.
 
-**Answer: B) $-1$**
+3. **No blanks. Ever.** 25% chance beats 0% chance. Use elimination to improve your odds even further.
 
-**Step-by-Step Solution:**
+4. **Desmos is a strategic weapon.** Practice with it until it is second nature. Use it for graphing, solving systems, checking inequalities, and backsolving.
+
+5. **Eliminate, then select.** Proving three answers wrong is easier than proving one answer right. Master the art of elimination.
+
+6. **Know your checkpoints and have a reset protocol.** If things go off track, you need pre-planned emergency responses, not improvised panic.
+
+7. **Flagging is your module review tool.** Use it strategically, not reflexively. Flag hard decisions, not every uncertain feeling.
+
+8. **Practice Desmos and pacing drills specifically for the digital format.** Your paper-test habits may not translate. The digital format rewards different skills: navigation, flagging, graphical reasoning, interface fluency.
+
+9. **Rest saves time.** In the 10-minute break, physically reset and mentally transition. A fresh mind in Math Module 1 recovers far more points than an extra minute of frantic RW review.
+
+10. **Calm, systematic execution beats frantic brilliance.** Trust your preparation. Execute your systems. The score will follow.
+
+---
 
-Using the slope formula with $(-3, 7)$ and $(5, -1)$:
+---
 
-$$m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{-1 - 7}{5 - (-3)} = \frac{-8}{8} = -1$$
 
-**Common Mistake Analysis:**
-- **Mistake:** Students sometimes reverse the order of subtraction in the numerator or denominator, getting $\frac{8}{-8} = -1$ (which happens to be correct here) or $\frac{8}{8} = 1$ (choice C).
-- **Prevention:** Be consistent: always use $(x_2, y_2) - (x_1, y_1)$ in the same order for both numerator and denominator.
+# Chapter 10: Practice Problem Methodology — Strategic Frameworks for SAT Problem-Solving
 
 ---
+
+## 10.1 The Philosophy of Effective Practice
+
+The difference between students who improve dramatically on the SAT and those who plateau is not the number of practice problems they complete — it is *how* they engage with each problem. Completing 1,000 problems mindlessly yields far fewer gains than completing 200 problems with deep, deliberate analysis. This chapter provides the strategic frameworks that transform practice from a passive exercise into an active learning engine.
+
+### 10.1.1 The Three Phases of Problem Engagement
+
+Every practice problem should be engaged in three distinct phases:
+
+**Phase 1: Strategic Approach Selection (Before Solving)**
+
+Before writing a single equation or selecting an answer, you should consciously identify:
+- What content domain does this problem test? (Algebra, Advanced Math, Problem-Solving & Data Analysis, Geometry & Trigonometry)
+- What specific concept or skill is being assessed?
+- What solution methods are available to me? (Algebraic manipulation, graphical analysis via Desmos, backsolving from answer choices, estimation and elimination)
+- Which method is likely the fastest and most reliable for this specific problem?
+
+This meta-cognitive step — thinking about *how* to think about the problem — is what separates elite scorers from average ones. The average student reads a problem and immediately begins computing. The elite student reads a problem, categorizes it, selects a strategy, and *then* begins computing.
 
-### Question 8
+**Phase 2: Execution with Awareness (During Solving)**
 
-**Answer: B) 9**
+As you solve, maintain awareness of:
+- Am I following a clear path to the answer, or am I computing blindly?
+- Does each step logically follow from the previous one?
+- Is my arithmetic correct? (The SAT designs problems so that arithmetic errors produce trap answer choices.)
+- Am I solving for what the question actually asks? (A common error is solving for $x$ when the question asks for $2x$ or $x + 3$.)
 
-**Step-by-Step Solution:**
+**Phase 3: Post-Solution Analysis (After Solving)**
 
-For a quadratic to have exactly one real solution, the discriminant must equal zero.
+This is the phase most students skip, and it is the most valuable. After solving a problem (whether you got it right or wrong), ask:
+- What was the key insight that unlocked this problem?
+- Could I have solved it faster using a different method?
+- What trap answer choices were present, and what errors do they correspond to?
+- Have I seen this problem structure before? How is it similar to or different from other problems I've solved?
+- If I got it wrong, what specific error did I make? (Conceptual misunderstanding, arithmetic error, misreading the question, or time pressure?)
 
-$$x^2 - 6x + k = 0$$
-$$a = 1, \quad b = -6, \quad c = k$$
+### 10.1.2 The Error Taxonomy
 
-$$D = b^2 - 4ac = (-6)^2 - 4(1)(k) = 36 - 4k$$
+To improve systematically, you must categorize your errors precisely. There are exactly four types of errors on the SAT:
 
-Set $D = 0$:
-$$36 - 4k = 0 \implies k = 9$$
+**Type 1: Conceptual Errors**
+You did not know the underlying mathematical concept or how to apply it. For example, you did not know how to factor a quadratic, or you did not understand what a discriminant tells you about the nature of roots.
 
-**Common Mistake Analysis:**
-- **Mistake:** Students sometimes set $b^2 - 4ac > 0$ (for two solutions) instead of $= 0$ (for one solution).
-- **Mistake:** Some students forget that $b = -6$, not $6$, though $(-6)^2 = 36 = 6^2$, so this doesn't affect the answer here. However, it would matter in other problems.
-- **Prevention:** Memorize: one real solution means $D = 0$.
+*Remedy:* Return to the relevant chapter in this guide. Study the concept. Work through the theoretical explanations. Then attempt similar problems.
 
+**Type 2: Procedural Errors**
+You knew the concept but executed the procedure incorrectly. For example, you knew you needed to solve a system of equations, but you made an arithmetic mistake when adding the equations, or you forgot to flip an inequality sign when dividing by a negative number.
+
+*Remedy:* Slow down during execution. Write out every step rather than skipping steps mentally. Develop a habit of checking each step before moving to the next.
+
+**Type 3: Comprehension Errors**
+You misread the question or misunderstood what was being asked. For example, the problem asked for the value of $x + y$ but you reported the value of $x$ alone. Or the problem stated "which of the following is NOT a solution" and you selected a solution.
+
+*Remedy:* Underline or circle key words in the question stem. Before selecting your answer, re-read the question to confirm you are reporting the correct quantity.
+
+**Type 4: Time-Pressure Errors**
+You knew the concept and could execute the procedure, but you rushed and made careless mistakes. Alternatively, you spent too long on one problem and had to guess on subsequent problems.
+
+*Remedy:* Practice with strict time limits. Develop your pacing checkpoints (as described in Chapter 9). Build the habit of moving on when a problem exceeds your time threshold.
+
 ---
+
+## 10.2 Strategic Frameworks by Content Domain
+
+### 10.2.1 Algebra: The Decision Tree
 
-### Question 9
+When you encounter an algebra problem, apply this decision tree:
 
-**Answer: B) $\frac{4}{5}$**
+**Step 1: Identify the equation type.**
+- Is it a single linear equation in one variable? → Isolate the variable using inverse operations.
+- Is it a system of two linear equations? → Choose substitution or elimination based on the structure.
+- Is it a linear inequality? → Solve as an equation, but remember to flip the sign when multiplying or dividing by a negative.
+- Is it a word problem? → Define variables, translate relationships into equations, solve, and check against the context.
 
-**Step-by-Step Solution:**
+**Step 2: Choose your method based on structure.**
 
-First, find the hypotenuse using the Pythagorean theorem:
-$$AB = \sqrt{AC^2 + BC^2} = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10$$
+For systems of equations:
+- If one variable is already isolated (e.g., $y = 3x + 2$), use **substitution**.
+- If both equations are in standard form $Ax + By = C$ with small integer coefficients, use **elimination**.
+- If the problem asks for an expression like $x + y$ rather than individual values, try **adding or subtracting the equations directly** to obtain the expression.
+- If the problem involves a parameter (e.g., "for what value of $k$ does the system have no solution?"), use the **ratio comparison method**: $\frac{a_1}{a_2} = \frac{b_1}{b_2} \neq \frac{c_1}{c_2}$ for no solution.
 
-For $\angle A$:
-- Opposite side = $BC = 8$
-- Hypotenuse = $AB = 10$
+**Step 3: Verify your answer.**
+- Substitute your solution back into the original equation(s).
+- Check that your answer makes sense in the context of the problem.
+- Confirm you answered the question that was actually asked.
 
-$$\sin(A) = \frac{\text{opposite}}{\text{hypotenuse}} = \frac{8}{10} = \frac{4}{5}$$
+### 10.2.2 Advanced Math: The Quadratic Toolkit
 
-**Common Mistake Analysis:**
-- **Mistake:** Students sometimes use the adjacent side ($AC = 6$) instead of the opposite side, getting $\frac{6}{10} = \frac{3}{5}$ (choice A). This is actually $\cos(A)$, not $\sin(A)$.
-- **Prevention:** For $\sin(A)$, identify the side opposite angle $A$, not the side adjacent to angle $A$.
+Quadratic problems are the backbone of the Advanced Math domain. Your toolkit should include:
 
+**Tool 1: Factoring**
+When a quadratic $ax^2 + bx + c = 0$ has integer roots, factoring is usually the fastest method. Look for two numbers that multiply to $ac$ and add to $b$.
+
+**Tool 2: The Quadratic Formula**
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+Use this when factoring is not obvious or when the roots are not integers. The discriminant $\Delta = b^2 - 4ac$ tells you the nature of the roots:
+- $\Delta > 0$: Two distinct real roots
+- $\Delta = 0$: One repeated real root
+- $\Delta < 0$: No real roots (two complex conjugate roots)
+
+**Tool 3: Completing the Square**
+Convert $ax^2 + bx + c$ to vertex form $a(x - h)^2 + k$ to identify the vertex $(h, k)$, the axis of symmetry $x = h$, and the maximum or minimum value $k$.
+
+**Tool 4: Vieta's Formulas**
+For $ax^2 + bx + c = 0$ with roots $p$ and $q$:
+$$p + q = -\frac{b}{a}, \quad pq = \frac{c}{a}$$
+These are invaluable for problems that ask about relationships between roots without requiring you to find the actual roots.
+
+**Tool 5: The Substitution Technique**
+For equations of the form $a^{2x} + c \cdot a^x + d = 0$, substitute $u = a^x$ to obtain a quadratic in $u$. Solve for $u$, then back-substitute to find $x$.
+
+### 10.2.3 Problem-Solving and Data Analysis: The Translation Framework
+
+This domain tests your ability to translate between real-world scenarios and mathematical structures. The key translation patterns are:
+
+**Ratio and Proportion:**
+If two quantities maintain a constant ratio, set up a proportion:
+$$\frac{a}{b} = \frac{c}{d} \implies ad = bc$$
+Cross-multiplication is your primary tool.
+
+**Percentage Change:**
+$$\text{Percent Change} = \frac{\text{New} - \text{Original}}{\text{Original}} \times 100\%$$
+The denominator is always the **original** value. This is the single most common error in percentage problems.
+
+**Rate Problems:**
+$$\text{Distance} = \text{Rate} \times \text{Time}$$
+For combined rates (two people working together, two trains approaching each other), add the individual rates.
+
+**Statistical Measures:**
+- **Mean** is affected by outliers; **median** is not.
+- **Standard deviation** measures spread; a larger standard deviation means more spread-out data.
+- **Range** = Maximum − Minimum (simple but sensitive to outliers).
+- **IQR** = $Q_3 - Q_1$ (measures the spread of the middle 50% of data).
+
+**Probability:**
+$$P(A) = \frac{\text{Number of favorable outcomes}}{\text{Total number of possible outcomes}}$$
+For independent events: $P(A \text{ and } B) = P(A) \times P(B)$.
+For mutually exclusive events: $P(A \text{ or } B) = P(A) + P(B)$.
+
+### 10.2.4 Geometry and Trigonometry: The Visual Reasoning Framework
+
+**Step 1: Draw or annotate the diagram.**
+If a diagram is provided, label all given information. If no diagram is provided, draw one. Many geometry problems become trivial once you have a clear visual representation.
+
+**Step 2: Identify the relevant shape and its properties.**
+- Triangle? → Think: angles sum to $180°$, Pythagorean theorem, special right triangles (30°-60°-90° and 45°-45°-90°), area = $\frac{1}{2}bh$.
+- Circle? → Think: $A = \pi r^2$, $C = 2\pi r$, arc length = $\frac{\theta}{360°} \times 2\pi r$, sector area = $\frac{\theta}{360°} \times \pi r^2$.
+- Quadrilateral? → Think: sum of interior angles = $360°$, properties of parallelograms, rectangles, rhombuses, trapezoids.
+
+**Step 3: Look for hidden structure.**
+- Diagonals of rectangles create right triangles.
+- Altitudes of isosceles triangles create two congruent right triangles.
+- Radii drawn to points of tangency are perpendicular to the tangent lines.
+- Parallel lines cut by a transversal create congruent corresponding angles and alternate interior angles.
+
+**Step 4: Apply trigonometric ratios when appropriate.**
+In a right triangle, for an acute angle $\theta$:
+$$\sin \theta = \frac{\text{opposite}}{\text{hypotenuse}}, \quad \cos \theta = \frac{\text{adjacent}}{\text{hypotenuse}}, \quad \tan \theta = \frac{\text{opposite}}{\text{adjacent}}$$
+Remember the complementary angle relationship: $\sin \theta = \cos(90° - \theta)$.
+
 ---
+
+## 10.3 The Art of Backsolving
+
+### 10.3.1 When to Backsolve
+
+Backsolving — substituting answer choices into the problem to see which one works — is one of the most powerful techniques on the SAT. It is particularly effective when:
+- The problem asks for a specific numeric value.
+- The algebraic setup is complex or time-consuming.
+- The answer choices are small integers.
+- The problem involves a word problem with a clear "check" condition.
 
-### Question 10
+### 10.3.2 The Backsolving Protocol
 
-**Answer: B) 4**
+1. **Start with choice C** (or the middle value). This allows you to determine whether the correct answer is higher or lower, eliminating up to three choices in one step.
+2. **Substitute the choice** into the problem's conditions.
+3. **Evaluate:** Does this choice satisfy all conditions? If yes, you're done. If the result is too large, try a smaller choice. If too small, try a larger choice.
+4. **Verify** your final answer by checking it against all conditions in the problem.
 
-**Step-by-Step Solution:**
+### 10.3.3 Backsolving Example Framework
 
-$$2^{x+1} = 32$$
+Consider a problem: "A store sells apples for \$1 each and oranges for \$2 each. Maria buys 10 fruits and spends \$14. How many apples did she buy?"
 
-Since $32 = 2^5$:
-$$2^{x+1} = 2^5$$
-$$x + 1 = 5$$
-$$x = 4$$
+Rather than setting up a system of equations, you could backsolve:
+- Try choice C (say, 6 apples): 6 apples × \$1 + 4 oranges × \$2 = \$6 + \$8 = \$14. This matches! The answer is 6.
 
-**Common Mistake Analysis:**
-- **Mistake:** Students sometimes think $32 = 2^6$ (confusing with 64) and get $x = 5$.
-- **Prevention:** Know your powers of 2: $2^1=2, 2^2=4, 2^3=8, 2^4=16, 2^5=32, 2^6=64$.
+This approach is often faster than algebraic setup, especially for problems with small integer answers.
 
 ---
 
-### Question 11
+## 10.4 The Art of Estimation and Elimination
 
-**Answer: C) 48**
+### 10.4.1 When to Estimate
 
-**Step-by-Step Solution:**
+Estimation is valuable when:
+- The answer choices are spread far enough apart that approximation distinguishes them.
+- The problem involves messy numbers that are close to cleaner benchmark values.
+- You need to check whether your exact answer is reasonable.
 
-Let the width = $w$. Then the length = $3w$.
+### 10.4.2 Common Estimation Strategies
 
-$$\text{Area} = l \times w = 3w \times w = 3w^2 = 108$$
-$$w^2 = 36 \implies w = 6$$
+**Benchmark Values:**
+Know these approximations cold:
+- $\sqrt{2} \approx 1.414$, $\sqrt{3} \approx 1.732$, $\sqrt{5} \approx 2.236$
+- $\pi \approx 3.14$, $\pi^2 \approx 9.87$
+- $2^{10} = 1024 \approx 1000$
 
-So width = 6 and length = 18.
+**Rounding:**
+If a problem involves $49 \times 103$, estimate as $50 \times 100 = 5000$. The actual answer is $5047$, and if the choices are spread apart (say, 4,800; 5,047; 5,200; 5,500), your estimate identifies the correct answer immediately.
 
-$$\text{Perimeter} = 2(l + w) = 2(18 + 6) = 2(24) = 48$$
+**Dimensional Analysis:**
+If a problem asks for an area, the answer must be in square units. If one choice is clearly a linear measurement, eliminate it. If a problem asks for a probability, the answer must be between 0 and 1. Any choice outside this range is automatically wrong.
 
-**Common Mistake Analysis:**
-- **Mistake:** Students sometimes find $w = 6$ and stop, thinking the question asks for the width.
-- **Mistake:** Some students compute $3w^2 = 108$ and get $w^2 = 36$, then $w = 6$, but then compute the perimeter as $6 + 18 = 24$ (forgetting to multiply by 2).
-- **Prevention:** Always reread the question after solving to make sure you're answering what was asked.
+### 10.4.3 Systematic Elimination
 
+On every multiple-choice question, you should actively seek to eliminate wrong answers rather than simply searching for the right one. Common elimination criteria:
+
+- **Sign errors:** If the answer must be positive (e.g., a length, a probability, a count of objects), eliminate negative choices.
+- **Parity:** If the answer must be even (e.g., the sum of two even numbers), eliminate odd choices.
+- **Divisibility:** If the answer must be divisible by 3 (e.g., the number of items that can be grouped into sets of 3), eliminate choices not divisible by 3.
+- **Range constraints:** If a problem states $0 < x < 10$, eliminate any choice outside this range.
+- **Physical impossibility:** A probability greater than 1, a negative length, a percentage greater than 100% in contexts where that's impossible — all are instant eliminations.
+
 ---
+
+## 10.5 The Desmos Advantage in Practice
+
+### 10.5.1 Problems Where Desmos Excels
 
-### Question 12
+The embedded Desmos graphing calculator is transformative for certain problem types:
 
-**Answer: C) 23**
+**Systems of Equations:**
+Type both equations into Desmos and find the intersection point visually. This is often faster than algebraic elimination, especially for systems with fractions or decimals.
 
-**Step-by-Step Solution:**
+**Quadratic Analysis:**
+Graph $y = ax^2 + bx + c$ to find zeros, vertex, and direction of opening instantly. For problems asking "how many solutions does this equation have?", graph both sides and count intersections.
 
-Let the three consecutive odd integers be $n$, $n+2$, and $n+4$.
+**Inequality Systems:**
+Type multiple inequalities into Desmos and observe the overlapping shaded region. For problems asking which point satisfies a system of inequalities, visually check each choice.
 
-$$n + (n+2) + (n+4) = 63$$
-$$3n + 6 = 63$$
-$$3n = 57$$
-$$n = 19$$
+**Function Evaluation and Comparison:**
+Graph two functions and compare their values at specific points, or find where one function exceeds the other.
 
-The integers are 19, 21, and 23. The largest is 23.
+### 10.5.2 Problems Where Algebra Is Faster
 
-**Common Mistake Analysis:**
-- **Mistake:** Students sometimes use $n$, $n+1$, $n+2$ (consecutive integers, not consecutive odd integers), getting $3n + 3 = 63$, $n = 20$, and the "largest" as 22 (not an option, but the method is wrong).
-- **Prevention:** Consecutive odd integers differ by 2, not 1.
+Desmos is not always optimal. Use algebra instead when:
+- The problem involves simple integer arithmetic.
+- The answer choices are variables rather than numbers.
+- The problem requires exact symbolic manipulation (e.g., "which expression is equivalent to...").
+- You can solve the problem mentally in under 15 seconds.
 
+The key is developing the judgment to know which tool to reach for — and that judgment comes only from extensive practice with both methods.
+
 ---
+
+## 10.6 Building a Personal Error Log
 
-### Question 13
+### 10.6.1 The Structure of an Effective Error Log
 
-**Answer: A) $\frac{5}{13}$**
+After every practice session, record each error in a structured log with the following fields:
 
-**Step-by-Step Solution:**
+1. **Problem description:** A brief summary of the problem type.
+2. **Your incorrect answer:** What you selected or computed.
+3. **Correct answer:** The actual correct answer.
+4. **Error type:** Conceptual, Procedural, Comprehension, or Time-Pressure.
+5. **Root cause:** A specific description of what went wrong. Not "I made a mistake" but "I forgot to flip the inequality sign when dividing by $-2$" or "I solved for $x$ when the question asked for $x + 3$."
+6. **Correct approach:** A clear description of the correct solution method.
+7. **Prevention strategy:** What specific habit or check will prevent this error in the future?
 
-Given $\tan(\theta) = \frac{5}{12}$. In a right triangle, $\tan = \frac{\text{opposite}}{\text{adjacent}}$.
+### 10.6.2 Analyzing Error Patterns
 
-So the side opposite $\theta$ is 5 and the side adjacent to $\theta$ is 12.
+After logging 20+ errors, review your log for patterns:
+- Are most of your errors concentrated in one content domain? → Focus your study there.
+- Are most of your errors one specific type? → Develop targeted interventions.
+- Do you make the same specific error repeatedly? → Create a personal "watch list" of your most common mistakes and review it before every practice session.
 
-Using the Pythagorean theorem, the hypotenuse is:
-$$h = \sqrt{5^2 + 12^2} = \sqrt{25 + 144} = \sqrt{169} = 13$$
+### 10.6.3 The Error Reduction Cycle
 
-Therefore:
-$$\sin(\theta) = \frac{\text{opposite}}{\text{hypotenuse}} = \frac{5}{13}$$
+Effective practice follows a cycle:
 
-**Common Mistake Analysis:**
-- **Mistake:** Students sometimes think $\sin(\theta) = \frac{5}{12}$ (confusing tangent with sine).
-- **Mistake:** Some students use the adjacent side over the hypotenuse, getting $\frac{12}{13}$ (which is $\cos(\theta)$).
-- **Prevention:** Draw the triangle. Label the sides based on the given trigonometric ratio, then compute the hypotenuse.
+1. **Practice:** Complete a set of problems under timed conditions.
+2. **Analyze:** Log every error with full detail.
+3. **Study:** Review the concepts and procedures underlying your errors.
+4. **Targeted practice:** Complete additional problems specifically targeting your weak areas.
+5. **Repeat:** Complete another timed set and measure improvement.
 
+This cycle, repeated consistently, is the most reliable path to score improvement.
+
 ---
+
+## 10.7 The Mental Game of Problem-Solving
 
-### Question 14
+### 10.7.1 Developing Mathematical Confidence
 
-**Answer: C) 3**
+Confidence on the SAT is not a personality trait — it is a skill built through preparation. When you have solved hundreds of problems of a particular type, encountering a new problem of the same type triggers recognition rather than anxiety. The key is **volume with variety**: solve many problems across all difficulty levels and all question types.
 
-**Step-by-Step Solution:**
+### 10.7.2 Managing the "I Don't Know How to Start" Moment
 
-For $y = -2x^2 + 8x - 5$:
-$$a = -2, \quad b = 8, \quad c = -5$$
+Every student encounters problems that seem impossible on first reading. The protocol for this moment is:
 
-The $x$-coordinate of the vertex:
-$$h = -\frac{b}{2a} = -\frac{8}{2(-2)} = -\frac{8}{-4} = 2$$
+1. **Re-read the problem slowly.** Many "impossible" problems become solvable when you catch a detail you missed on the first read.
+2. **Identify what you know.** Write down any relationships, equations, or facts you can extract from the problem statement, even if you don't see how they connect yet.
+3. **Try a specific case.** If the problem involves variables, plug in a specific number to see if you can detect a pattern.
+4. **Work backward from the answer choices.** What would need to be true for each choice to be correct?
+5. **If still stuck after 90 seconds, eliminate and guess.** Flag the question and move on. Return to it if time permits.
 
-The $y$-coordinate:
-$$k = f(2) = -2(2)^2 + 8(2) - 5 = -8 + 16 - 5 = 3$$
+### 10.7.3 The Growth Mindset in Practice
 
-**Common Mistake Analysis:**
-- **Mistake:** Students sometimes compute $h = -\frac{b}{2a} = -\frac{8}{-4} = 2$ correctly, but then substitute incorrectly, e.g., $-2(2)^2 = -2(4) = -8$ but then compute $8(2) = 16$ and $-8 + 16 - 5 = 3$ correctly. A common error is $-2(2)^2 = (-4)^2 = 16$ (wrong order of operations).
-- **Prevention:** Remember PEMDAS: exponents before multiplication. $-2(2)^2 = -2(4) = -8$, not $(-2 \cdot 2)^2 = 16$.
+Every error is information. Every problem you cannot solve reveals a gap in your knowledge or skills — and a gap is simply a target for your next study session. The students who improve most rapidly are those who treat errors not as failures but as the most valuable part of the learning process.
 
 ---
 
-### Question 15
+## 10.8 Summary of Key Principles
 
-**Answer: C) 71.4%**
+1. **Practice deliberately, not mindlessly.** Every problem should be engaged in three phases: strategic approach selection, execution with awareness, and post-solution analysis.
 
-**Step-by-Step Solution:**
+2. **Categorize your errors precisely.** Conceptual, Procedural, Comprehension, and Time-Pressure errors require different interventions.
 
-"Ashish is 250% older than Bob" means:
-$$A = B + 2.5B = 3.5B$$
+3. **Use the right tool for each problem.** Know when to use algebra, when to use Desmos, when to backsolve, and when to estimate.
 
-So $B = \frac{A}{3.5} = \frac{2A}{7}$.
+4. **Maintain an error log.** Track patterns, identify weaknesses, and target your study accordingly.
 
-"Bob is what percent younger than Ashish" means:
-$$\text{Percent younger} = \frac{A - B}{A} \times 100\%$$
+5. **Build confidence through volume and variety.** The more problem types you have encountered, the fewer "surprises" you will face on test day.
 
-$$= \frac{A - \frac{2A}{7}}{A} \times 100\% = \frac{\frac{5A}{7}}{A} \times 100\% = \frac{5}{7} \times 100\% \approx 71.4\%$$
+6. **Develop a protocol for stuck moments.** Re-read, identify what you know, try specific cases, work backward, and if still stuck, eliminate and move on.
 
-**Common Mistake Analysis:**
-- **Mistake:** Students sometimes think "250% older" means $A = 2.5B$ instead of $A = B + 2.5B = 3.5B$. This is the most common error on this problem type.
-- **Mistake:** Some students compute $\frac{B}{A} = \frac{2}{7} \approx 28.6\%$ and think this is the answer, but the question asks for "what percent YOUNG
+7. **Treat errors as learning opportunities.** The error reduction cycle — practice, analyze, study, target, repeat — is the engine of score improvement.
+
+---
+
+This chapter has provided the strategic frameworks and methodological principles that transform practice from a passive exercise into an active learning system. The specific problems you practice with are less important than the rigor and intentionality with which you engage with each one. Apply these frameworks consistently, and every practice problem becomes a step toward your target score.
+
+---
 
 ---
 
 
 **Sources Used:**
 - Classroom PDFs (Local Brain Sync)
-- Web: Fetched 10 Web Articles | COMPREHENSIVE Definition & Meaning - Merriam-Webster | COMPREHENSIVE | English meaning - Cambridge Dictionary | COMPREHENSIVE Definition & Meaning | Dictionary.com | COMPREHENSIVE Synonyms: 99 Similar and Opposite Words - Merriam-Webster | COMPREHENSIVE definition | Cambridge English Dictionary...
+- Web: Fetched 91 Web Articles | Official SAT® Prep | Test prep | Khan Academy | SAT Online Test Prep & On-Demand Classes | Magoosh - Magoosh SAT | Free SAT Practice Test 2026 | Digital SAT Prep | SAT Prep Courses, Classes, and Test Prep | Kaplan Test Prep | SAT Prep Options | SAT Courses - The Princeton Review...
