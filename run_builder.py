@@ -36,8 +36,15 @@ async def main():
         try:
             subprocess.run(["pandoc", output_md, "-o", output_docx], check=True)
             print(f"Successfully created Word document at {output_docx}")
+            
+            # Automatically push the massive generated documents to GitHub
+            print("Pushing generated study guides to GitHub...")
+            subprocess.run(["git", "add", output_md, output_docx], check=True)
+            subprocess.run(["git", "commit", "-m", f"docs: Auto-update {filename_base} study guide"], check=True)
+            subprocess.run(["git", "push"], check=True)
+            print("Successfully synced to GitHub!")
         except Exception as e:
-            print(f"Pandoc conversion failed: {e}")
+            print(f"Post-processing pipeline failed: {e}")
     else:
         print("Failed to generate study guide.")
 
