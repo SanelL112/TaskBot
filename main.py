@@ -715,10 +715,8 @@ async def watchdog_check(context: ContextTypes.DEFAULT_TYPE):
         "If there is nothing urgent, you MUST reply with exactly the word: NO_ALERT\n\n"
         f"DATA:\n{raw_data}"
     )
-
     try:
         import httpx
-        import os
         from dotenv import load_dotenv
         load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
         api_key = os.getenv("OPENROUTER_API_KEY")
@@ -794,7 +792,9 @@ async def check_updates(context: ContextTypes.DEFAULT_TYPE):
     # 1. Notion Tasks
     new_tasks = []
     for task in ai_result.get("tasks", []):
-        thash = get_hash(task.get("id", task.get("title", "")))
+        task_title = task.get("title", "").strip().lower()
+        task_source = task.get("source", "").strip().lower()
+        thash = get_hash(task_title + "_" + task_source)
         if thash not in state.setdefault("seen_tasks", []):
             new_tasks.append(task)
             state["seen_tasks"].append(thash)
