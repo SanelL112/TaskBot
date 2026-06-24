@@ -73,6 +73,16 @@ def main():
     # Ensure we have the latest updates
     subprocess.run(["git", "pull"], check=False)
     
+    # 0. Sync New Google Classroom & Google Drive Files
+    print("Executing Google Classroom & Drive Sync...")
+    try:
+        from scrapers.nightly_processor import run_nightly_job
+        # Safely run the async sync job in the event loop
+        asyncio.run(run_nightly_job(None, 8534649457))
+        print("Successfully synced and downloaded all new queued PDFs and Docs into the memory bank.")
+    except Exception as e:
+        print(f"Warning: Failed to drain nightly sync queue: {e}")
+    
     # 1. Separated Core Study Guides (Disciplinary Split)
     build_and_push("SAT Math and Geometry Master Guide")
     build_and_push("SAT Reading Comprehension Master Guide")
