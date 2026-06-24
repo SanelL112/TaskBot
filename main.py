@@ -1180,6 +1180,31 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await context.bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id, text=f"❌ OCR Error: {e}")
         return
 
+    # If the user asked a question in the caption, route the OCR text into the primary AI so it can use the PDFs
+    if caption.strip():
+        await context.bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id, text="🧠 Analyzing your question using the Knowledge Base & PDFs...")
+        user_text = f"[I have uploaded a photo. Here is the exact text written in the photo:\n{ocr_text}]\n\nMy Question: {caption}"
+        try:
+            async with message_lock:
+                reply = await send_to_antigravity_and_wait(user_text, chat_id, context, msg)
+                
+            try:
+                await context.bot.delete_message(chat_id=chat_id, message_id=msg.message_id)
+            except Exception:
+                pass
+                
+            max_len = 4096
+            for i in range(0, len(reply), max_len):
+                try:
+                    await context.bot.send_message(chat_id=chat_id, text=reply[i:i+max_len], parse_mode="Markdown")
+                except Exception:
+                    await context.bot.send_message(chat_id=chat_id, text=reply[i:i+max_len])
+            return
+        except Exception as e:
+            logger.error(f"Error answering photo question: {e}")
+            await context.bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id, text=f"❌ Error analyzing photo: {e}")
+            return
+
     await context.bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id, text="🧠 Filtering with local Qwen2 model...")
     
     prompt = (
