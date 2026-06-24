@@ -77,9 +77,10 @@ def search_web_article(topic: str):
         return None, ""
 
 def search_images(topic: str):
-    """Fetches relevant educational diagrams and images for visual concepts."""
+    """Fetches a massive library of relevant educational diagrams and images for visual concepts."""
     try:
-        results = DDGS().images(topic, max_results=15)
+        # Pushing the DuckDuckGo image scraper to pull up to 200 images instead of a hard limit of 15
+        results = DDGS().images(topic, max_results=200)
         if results:
             return [{"title": res["title"], "image": res["image"]} for res in results]
     except Exception as e:
