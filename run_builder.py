@@ -5,7 +5,14 @@ import sys
 # Ensure the parent directory is in sys.path
 sys.path.append("/home/sanel/personal-assistant-bot")
 
-from scrapers.mega_study_builder import generate_mega_guide
+from scrapers.mega_study_builder import generate_mega_guide, logging
+try:
+    import telegram_logger
+    telegram_logger.setup_telegram_logging()
+except Exception as e:
+    print(f"Could not load telegram logger: {e}")
+
+logging.basicConfig(level=logging.INFO, format='%(message)s')
 
 async def main():
     import datetime

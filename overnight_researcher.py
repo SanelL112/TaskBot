@@ -2,6 +2,12 @@ import os
 import glob
 import subprocess
 import logging
+try:
+    import telegram_logger
+    telegram_logger.setup_telegram_logging()
+except:
+    pass
+
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)

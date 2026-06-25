@@ -1,6 +1,12 @@
 import os
 import json
 import logging
+try:
+    import telegram_logger
+    telegram_logger.setup_telegram_logging()
+except:
+    pass
+
 import asyncio
 import subprocess
 import sys
