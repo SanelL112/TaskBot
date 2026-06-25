@@ -92,6 +92,7 @@ def search_youtube(topic: str):
         videosSearch = VideosSearch(f"{topic} educational tutorial", limit=20)
         combined_text = ""
         meta_titles = []
+        ytt_api = YouTubeTranscriptApi()  # New instance-based API (v1.0+)
         
         for _ in range(5): # Loop 5 pages (5 * 20 = 100 videos)
             try:
@@ -101,9 +102,9 @@ def search_youtube(topic: str):
                 for video in result["result"]:
                     if len(meta_titles) >= 100: break
                     try:
-                        transcript_list = YouTubeTranscriptApi.get_transcript(video["id"])
+                        transcript = ytt_api.fetch(video["id"])
                         combined_text += f"\n--- VIDEO: {video['title']} ---\n"
-                        combined_text += " ".join([item["text"] for item in transcript_list])
+                        combined_text += " ".join([s.text for s in transcript.snippets])
                         meta_titles.append(video["title"])
                     except Exception:
                         continue
@@ -117,6 +118,7 @@ def search_youtube(topic: str):
     except Exception as e:
         logger.error(f"YouTube error: {e}")
         return None, ""
+
 
 def generate_mega_guide(topic: str, pdf_text: str = "") -> str:
     """Generates the ultimate chunked study guide."""
