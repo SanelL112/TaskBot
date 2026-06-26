@@ -19,7 +19,7 @@ AGENTAPI_BIN = "/home/sanel/.local/bin/agy"
 def run_overnight_research():
     os.makedirs(KB_DIR, exist_ok=True)
     
-    brain_file = os.path.join(BASE_DIR, "curated_brain.md")
+    brain_file = os.path.join(BASE_DIR, "study_guides", "curated_brain.md")
     summaries = os.path.join(BASE_DIR, "scrapers", "source_cache", "combined_summaries.txt")
     
     context = ""

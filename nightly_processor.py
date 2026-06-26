@@ -28,25 +28,70 @@ Notes:
     return ["General Mathematics", "Advanced Grammar", "Test Strategies"]
 
 def build_and_push(topic: str):
-    """Generates the massive study guide and automatically pushes it to GitHub."""
+    """Generates or updates the massive study guide and automatically pushes it to GitHub."""
     print(f"\n==============================================")
     print(f"Starting Nightly Build Pipeline for: {topic}")
     print(f"==============================================\n")
     
     filename_base = topic.replace(" ", "_").replace("/", "_")
+    output_md = f"/home/sanel/personal-assistant-bot/study_guides/{filename_base}_Study_Guide.md"
+    output_docx = f"/home/sanel/personal-assistant-bot/study_guides/{filename_base}_Study_Guide.docx"
     
-    # 1. Run the massive Editor-in-Chief pipeline
-    result = generate_mega_guide(topic)
-    
+    # Check if we should append to save tokens instead of rebuilding
+    if os.path.exists(output_md):
+        print(f"Study guide for {topic} already exists. Running lightweight append-only update to save tokens...")
+        
+        internal_notes = ""
+        notes_file = "/home/sanel/personal-assistant-bot/scrapers/source_cache/combined_summaries.txt"
+        pdf_file = "/home/sanel/personal-assistant-bot/scrapers/source_cache/pdf_exports.txt"
+        
+        if os.path.exists(notes_file):
+            with open(notes_file, "r") as f:
+                internal_notes += f.read().replace('\x00', '').strip()
+        if os.path.exists(pdf_file):
+            with open(pdf_file, "r") as f:
+                internal_notes += "\n\n" + f.read().replace('\x00', '').strip()
+                
+        if not internal_notes.strip():
+            print("No new classroom notes to append. Skipping update.")
+            return
+            
+        today = datetime.datetime.now().strftime("%Y-%m-%d")
+        prompt = f"""You are an elite academic tutor. We are appending a new section to an existing master study guide on "{topic}".
+Below are the LATEST classroom notes from today. 
+Write a highly detailed new section titled "## 📅 Update: {today} - New Concepts" that perfectly synthesizes these new notes. 
+DO NOT rewrite the entire study guide, ONLY output the new section to be appended to the bottom.
+
+--- NEW CLASSROOM NOTES ---
+{internal_notes}
+"""
+        new_section = call_agy(prompt, timeout=600, model="flash")
+        
+        if new_section:
+            # Clean up <thought> tags
+            import re
+            new_section = re.sub(r'<thought>.*?</thought>', '', new_section, flags=re.DOTALL).strip()
+            
+            with open(output_md, "a", encoding="utf-8") as f:
+                f.write(f"\n\n---\n\n{new_section}\n")
+            print(f"Successfully appended new concepts to {output_md}")
+            result = True
+        else:
+            print("Failed to generate append section.")
+            result = False
+            
+    else:
+        print(f"No existing guide found for {topic}. Running full 10-chapter Mega Build...")
+        result_text = generate_mega_guide(topic)
+        if result_text:
+            with open(output_md, "w", encoding="utf-8") as f:
+                f.write(result_text)
+            print(f"Successfully created study guide at {output_md}")
+            result = True
+        else:
+            result = False
+
     if result:
-        output_md = f"/home/sanel/personal-assistant-bot/{filename_base}_Study_Guide.md"
-        output_docx = f"/home/sanel/personal-assistant-bot/{filename_base}_Study_Guide.docx"
-        
-        # 2. Write to Markdown file (always overwrite to prevent messy stacking)
-        with open(output_md, "w", encoding="utf-8") as f:
-            f.write(result)
-        print(f"Successfully created study guide at {output_md}")
-        
         # 3. Convert to DOCX format
         print("Converting Markdown to DOCX format...")
         try:
@@ -56,13 +101,13 @@ def build_and_push(topic: str):
             # 4. Automatically Sync to GitHub
             print("Pushing freshly generated study guide to GitHub...")
             subprocess.run(["git", "add", output_md, output_docx], check=True)
-            subprocess.run(["git", "commit", "-m", f"docs: Nightly autonomous build of {filename_base} study guide"], check=True)
+            subprocess.run(["git", "commit", "-m", f"docs: Nightly autonomous update of {filename_base} study guide"], check=True)
             subprocess.run(["git", "push"], check=True)
             print(f"Nightly build for '{topic}' completely successfully!")
         except Exception as e:
             print(f"Post-processing pipeline failed: {e}")
     else:
-        print(f"Failed to generate study guide for {topic}.")
+        print(f"Failed to process study guide for {topic}.")
 
 def main():
     print(f"=== Nightly Processor Started at {datetime.datetime.now()} ===")

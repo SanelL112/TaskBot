@@ -27,7 +27,7 @@ async def main():
     result = generate_mega_guide(topic)
     
     if result:
-        output_md = f"/home/sanel/personal-assistant-bot/{filename_base}_Study_Guide.md"
+        output_md = f"/home/sanel/personal-assistant-bot/study_guides/{filename_base}_Study_Guide.md"
         output_docx = f"/home/sanel/personal-assistant-bot/{filename_base}_Study_Guide.docx"
         
         # Always overwrite the file so we don't end up with stacked/redundant versions
