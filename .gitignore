@@ -10,3 +10,11 @@ __pycache__/
 *.json
 source_cache/
 scratch/
+
+*.log
+extracted_pages/
+source_cache/
+latest_digest.txt
+latest_homework.jpg
+learning_rules.txt
+state.json.bak
