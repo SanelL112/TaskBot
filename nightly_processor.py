@@ -206,11 +206,6 @@ if __name__ == "__main__":
     import subprocess
     import time
     
-    # 2:00 AM: Stop the Minecraft Server safely
-    print("Stopping Minecraft Server before heavy nightly build...")
-    subprocess.run('tmux send-keys -t minecraft "stop" C-m', shell=True, check=False)
-    time.sleep(30) # Wait for graceful shutdown
-    
     # Run the main processor
     main()
     
