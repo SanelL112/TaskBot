@@ -1365,9 +1365,9 @@ async def nightly_wrapper(context: ContextTypes.DEFAULT_TYPE):
         # 4. Auto-Generate SAT Guides
         try: await context.bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id, text="💤 **Sleep Cycle:**\n✅ Web Pre-cached.\n4️⃣ Building Separated SAT Study Guides (Math, Reading, Writing)...", parse_mode="Markdown")
         except Exception: pass
-        subprocess.run(['/home/sanel/personal-assistant-bot/venv/bin/python', '/home/sanel/personal-assistant-bot/run_builder.py', 'SAT Math and Geometry Master Guide'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        subprocess.run(['/home/sanel/personal-assistant-bot/venv/bin/python', '/home/sanel/personal-assistant-bot/run_builder.py', 'SAT Reading Comprehension Master Guide'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        subprocess.run(['/home/sanel/personal-assistant-bot/venv/bin/python', '/home/sanel/personal-assistant-bot/run_builder.py', 'SAT Writing and Grammar Master Guide'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        await asyncio.to_thread(subprocess.run, ['/home/sanel/personal-assistant-bot/venv/bin/python', '/home/sanel/personal-assistant-bot/run_builder.py', 'SAT Math and Geometry Master Guide'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        await asyncio.to_thread(subprocess.run, ['/home/sanel/personal-assistant-bot/venv/bin/python', '/home/sanel/personal-assistant-bot/run_builder.py', 'SAT Reading Comprehension Master Guide'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        await asyncio.to_thread(subprocess.run, ['/home/sanel/personal-assistant-bot/venv/bin/python', '/home/sanel/personal-assistant-bot/run_builder.py', 'SAT Writing and Grammar Master Guide'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         
         # 5. Dynamic Daily Topic Guide
         try: await context.bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id, text="💤 **Sleep Cycle:**\n✅ SAT Guide Built.\n5️⃣ Analyzing today's notes to build a dynamic subject guide...", parse_mode="Markdown")
@@ -1384,7 +1384,7 @@ async def nightly_wrapper(context: ContextTypes.DEFAULT_TYPE):
                 if not dynamic_topic or len(dynamic_topic) > 50:
                     dynamic_topic = "General Academic Concepts"
                     
-        subprocess.run(['/home/sanel/personal-assistant-bot/venv/bin/python', '/home/sanel/personal-assistant-bot/run_builder.py', dynamic_topic], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        await asyncio.to_thread(subprocess.run, ['/home/sanel/personal-assistant-bot/venv/bin/python', '/home/sanel/personal-assistant-bot/run_builder.py', dynamic_topic], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         
         try: await context.bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id, text=f"💤 **Sleep Cycle Complete:**\n✅ PDFs Processed\n✅ Memory Consolidated\n✅ Web Pre-cached\n✅ SAT Guide Updated\n✅ '{dynamic_topic}' Guide Generated!\n\nGood night! 🌙", parse_mode="Markdown")
         except Exception: pass
@@ -1418,7 +1418,7 @@ if __name__ == "__main__":
     async def morning_wrapper(context: ContextTypes.DEFAULT_TYPE):
         try:
             import subprocess
-            subprocess.run(["python3", os.path.join(os.path.dirname(os.path.abspath(__file__)), "scrapers", "morning_digest.py")], timeout=60)
+            await asyncio.to_thread(subprocess.run, ["python3", os.path.join(os.path.dirname(os.path.abspath(__file__)), "scrapers", "morning_digest.py")], timeout=60)
         except Exception as e:
             logger.error(f"Morning digest error: {e}")
             
