@@ -7410,3 +7410,110 @@ By applying the rigorous methodologies outlined in this chapter—the Taxonomy o
 - [Ultimate Guide to Reading Comprehension | SuperSummary](https://www.supersummary.com/reading-comprehension-guide/)
 - [How to Get 800 on SAT Reading: 11 Tips from a Perfect Scorer](https://blog.prepscholar.com/how-to-get-800-on-sat-reading-10-strategies-by-a-perfect-scorer)
 - [SAT Reading Comprehension Workbook: Advanced Practice Series...](https://www.amazon.com/SAT-Reading-Comprehension-Workbook-Advanced/dp/0991388305)
+
+---
+
+## 📅 Update: 2026-06-27 - New Concepts
+
+### 📚 PART 1: SAT READING & WRITING — GRAMMAR DEEP DIVE
+
+#### 1. The "Useless Clause" Strategy (Subject Identification)
+To find the subject of a complex sentence, you must strip away the "useless" clauses that distract from the core noun and verb. There are three types of clauses you should mentally cross out:
+
+*   **Relative Clauses:** Begin with relative pronouns (*who, whom, whose, which, that*). Note: *That* does not use a comma before or after it.
+    *   *Example:* "Tom plays an instrument [that was given to him by his grandfather]." → Subject: Tom.
+*   **Comma Clauses (3 Types):**
+    *   **Introductory Comma Clause (ICC):** A dependent clause at the start of a sentence, often beginning with a subordinating conjunction (*Whereas, Although, Because*), a preposition, or an *-ing* adverb.
+    *   **Ending Comma Clause (ECC):** A defining or clarifying phrase at the end, often beginning with an *-ing* adverb (*hoping that...*).
+    *   **Middle Comma Clause (MCC):** An appositive or non-essential clause that interrupts the sentence. Usually, the subject is in the first part and the verb in the second part.
+*   **Prepositional Phrases:** Begin with a preposition and end with a noun (the object of the preposition).
+    *   *Rule:* A subject can **never** be found within a relative clause, a comma clause, or a prepositional phrase.
+
+#### 2. Subject-Verb Agreement (SVA) Master Rules
+*   **Singular vs. Plural:** Most singular subjects do not end in "S"; most singular verbs end in "S." Most plural subjects end in "S"; most plural verbs do not.
+*   **The "Invisible" Subject:** The subject will come before the verb **unless** the sentence begins with "There" or is a question.
+*   **Possessives are NOT Subjects:** Words like *mine, yours, its, theirs, Kailyn's, Varsha's* can never be the subject of a sentence.
+*   **Compound Subjects:** Subjects joined by "and" are plural.
+*   **Tricky Singulars:** The words *each* and *every* are always singular subjects. The word *number* can be singular or plural (*a number* vs. *the number*).
+
+#### 3. Punctuation: The Semicolon and Colon Rules
+*   **Semicolons (;):**
+    1.  Separate items in a list **only if** the items themselves contain commas.
+    2.  Join two full sentences (Independent Clauses) without a coordinating conjunction (FANBOYS).
+*   **Colons (:):**
+    1.  **Requirement:** There **must** be a full sentence before the colon.
+    2.  **Usage:** To introduce a list (without an introductory phrase like *such as*), or to add information at the end of a sentence.
+    3.  **Trap:** Never enter a list with a semicolon, and never use a colon after an introductory phrase.
+*   **Dashes (—):** Used before and after a Middle Comma Clause (MCC) or to add "shocking" or dramatic information at the end of a sentence.
+*   **Apostrophes:** Used for possession. If a word ends in "S," add 's (*James's*). Non-possessive words (*its, theirs, hers*) never use apostrophes.
+
+#### 4. Transition Words: The "ICC" Method
+When answering transition questions, use the **ICC (Identify, Categorize, Choose)** process:
+1.  **Identify:** Read the sentence before the transition and determine its function.
+2.  **Categorize:** Read the sentence including the transition and identify the relationship (Contrast, Support, Cause/Effect, or Sequence).
+3.  **Choose:** Select the transition that best fits that relationship.
+    *   **Contrast:** *However, On the other hand, Conversely, Whereas, Yet.*
+    *   **Support/Evidence:** *Furthermore, Moreover, In fact, For example.*
+    *   **Cause/Effect:** *Consequently, Therefore, As a result, Thus.*
+    *   **Sequence:** *Subsequently, Next, Finally, Previously.*
+
+#### 5. Reading Comprehension: Active Reading & Evidence
+*   **The "Word in Context" Strategy:** The definition of the word is found contextually in the text. Highlight the definition, write a similar word, and then choose the match.
+*   **Rhetorical Synthesis:** Given bulleted research, identify if each bullet is "Background" or "Evidential." Read the claim in the question header and choose the bullets that best support that specific claim.
+*   **Inference Questions:** You must verify your foreshadowing in the answer choices. A "Dummy Answer" provides a viewpoint not discussed, opposes the author, or is too absolute (*always, never*).
+*   **Evidence Analysis:** Step 1: Highlight the claim. Step 2: Write your own response. Step 3: Eliminate "dummy" choices. Step 4: If two remain, find the one wrong word in the incorrect answer.
+
+---
+
+### 🧮 PART 2: SAT MATH — ADVANCED CONCEPTS
+
+#### 1. Advanced Factoring (Quadratics)
+*   **Standard Form:** $y = ax^2 + bx + c$. Use the Quadratic Formula: $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$.
+*   **Intercept Form:** $y = (x-p)(x-q)$. The roots are $x = p$ and $x = q$.
+*   **Vertex Form:** $y = a(x-h)^2 + k$. The vertex is $(h, k)$.
+*   **Factoring by Grouping:** Used for expressions with 4 terms (e.g., $5k^3 - 15k^2 - 4k + 12$). Group the first two and last two terms, factor out the GCF from each, and then factor out the common binomial.
+*   **Difference of Squares:** $a^2 - b^2 = (a+b)(a-b)$.
+*   **Sum/Difference of Cubes:** 
+    *   $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$
+    *   $a^3 + b^3 = (a+b)(a^2 - ab + b^2)$
+
+#### 2. Systems of Linear Equations
+*   **Classification:**
+    *   **Consistent:** At least one solution (lines intersect).
+    *   **Inconsistent:** No solution (lines are parallel).
+    *   **Dependent:** Infinite solutions (lines are identical).
+*   **Solving Methods:**
+    *   **Substitution:** Use when one variable has a coefficient of 1.
+    *   **Elimination:** Find the Least Common Multiple (LCM) of the coefficients, scale the equations, and add them together to eliminate one variable.
+
+#### 3. Linear Functions & Slope
+*   **Slope Formula:** $m = \frac{y_2 - y_1}{x_2 - x_1}$
+*   **Forms:**
+    *   **Slope-Intercept:** $y = mx + b$ (Best for graphing).
+    *   **Point-Slope:** $y - y_1 = m(x - x_1)$ (Best for modeling).
+    *   **Standard:** $Ax + By = C$ (Best for word problems).
+*   **Interpretation:** Ensure the slope is a fraction $\frac{a}{b}$. The dependent variable (DV) changes by $a$ for every $b$ units of the independent variable (IV).
+
+#### 4. Triangles & Trigonometry
+*   **Right Triangle Trigonometry (SOH CAH TOA):**
+    *   $\sin(A) = \frac{\text{Opposite}}{\text{Hypotenuse}}$
+    *   $\cos(A) = \frac{\text{Adjacent}}{\text{Hypotenuse}}$
+    *   $\tan(A) = \frac{\text{Opposite}}{\text{Adjacent}}$
+*   **Special Right Triangles:**
+    *   **30-60-90:** Sides are $x, x\sqrt{3}, 2x$.
+    *   **45-45-90:** Sides are $x, x, x\sqrt{2}$.
+*   **Similar Triangles:** All three corresponding angles are congruent, and all three corresponding sides are proportional.
+*   **Area of a Triangle:** $A = \frac{1}{2}bh$ or using Heron’s Formula: $A = \sqrt{s(s-a)(s-b)(s-c)}$ where $s$ is the semi-perimeter.
+
+#### 5. Quadratics & Parabolas
+*   **Characteristics:** All parabolas have a **Vertex** (max or min point) and an **Axis of Symmetry** (AOS).
+*   **Direction:** If $a > 0$, the parabola opens up (Vertex is a minimum). If $a < 0$, it opens down (Vertex is a maximum).
+*   **Finding the Vertex:**
+    *   From Standard Form: $x = -\frac{b}{2a}$.
+    *   From Vertex Form: $(h, k)$.
+    *   From Intercept Form: $x = \frac{p+q}{2}$ (find the average of the roots).
+
+#### 6. Percents & Ratios
+*   **Percent Conversion:** Move the decimal two places to the left to convert a percent to a factor (e.g., $20\% = 0.20$).
+*   **Percent Change:** $\frac{\text{New} - \text{Old}}{\text{Old}} \times 100$.
+*   **Ratios:** A ratio is a simplified comparison. If the ratio of boys to girls is $2:3$, the number of boys is $2m$ and girls is $3m$, where $m$ is a multiplier.
