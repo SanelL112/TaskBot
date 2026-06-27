@@ -8,7 +8,7 @@ import subprocess
 sys.path.append("/home/sanel/personal-assistant-bot")
 
 from scrapers.mega_study_builder import generate_mega_guide
-from ai_processor import call_agy
+import requests
 
 def extract_dynamic_topics(pdf_text: str, num_topics: int = 3) -> list:
     """Uses the AI to extract new, highly specific topics from the user's classroom notes."""
@@ -19,12 +19,30 @@ Example: Quadratic Equations, Civil War History, Biology Cell Structure
 Notes:
 {pdf_text[:15000]}
 """
-    print("Extracting dynamic topics from classroom notes...")
-    # Using 3600 timeout to respect the new timeout architecture
-    result = call_agy(prompt, timeout=3600, model="flash")
-    if result:
-        topics = [t.strip() for t in result.split(",") if t.strip()]
-        return topics[:num_topics]
+    print("Extracting dynamic topics from classroom notes using OpenRouter...")
+    api_key = os.getenv("OPENROUTER_API_KEY")
+    if not api_key:
+        from dotenv import load_dotenv
+        load_dotenv("/home/sanel/personal-assistant-bot/.env")
+        api_key = os.getenv("OPENROUTER_API_KEY")
+        
+    try:
+        response = requests.post(
+            "https://openrouter.ai/api/v1/chat/completions",
+            headers={"Authorization": f"Bearer {api_key}"},
+            json={
+                "models": ["openrouter/owl-alpha:free", "openrouter/owl-alpha"],
+                "messages": [{"role": "user", "content": prompt}]
+            },
+            timeout=600
+        )
+        if response.status_code == 200:
+            result = response.json()["choices"][0]["message"]["content"]
+            topics = [t.strip() for t in result.split(",") if t.strip()]
+            return topics[:num_topics]
+    except Exception as e:
+        print(f"Extraction error: {e}")
+        
     return ["General Mathematics", "Advanced Grammar", "Test Strategies"]
 
 def build_and_push(topic: str):
@@ -65,7 +83,36 @@ DO NOT rewrite the entire study guide, ONLY output the new section to be appende
 --- NEW CLASSROOM NOTES ---
 {internal_notes}
 """
-        new_section = call_agy(prompt, timeout=600, model="flash")
+        import requests
+        api_key = os.getenv("OPENROUTER_API_KEY")
+        if not api_key:
+            from dotenv import load_dotenv
+            load_dotenv("/home/sanel/personal-assistant-bot/.env")
+            api_key = os.getenv("OPENROUTER_API_KEY")
+            
+        print("Calling OpenRouter (Owl-Alpha) for Delta-Append generation...")
+        try:
+            response = requests.post(
+                "https://openrouter.ai/api/v1/chat/completions",
+                headers={
+                    "Authorization": f"Bearer {api_key}",
+                    "HTTP-Referer": "https://github.com/SanelL112/Antigravity-Based-Assistant-Bot",
+                    "X-Title": "Antigravity-Based-Assistant-Bot"
+                },
+                json={
+                    "models": ["openrouter/owl-alpha:free", "openrouter/owl-alpha"],
+                    "messages": [{"role": "user", "content": prompt}]
+                },
+                timeout=600
+            )
+            if response.status_code == 200:
+                new_section = response.json()["choices"][0]["message"]["content"]
+            else:
+                print(f"OpenRouter returned {response.status_code}: {response.text}")
+                new_section = ""
+        except Exception as e:
+            print(f"OpenRouter connection error: {e}")
+            new_section = ""
         
         if new_section:
             # Clean up <thought> tags
