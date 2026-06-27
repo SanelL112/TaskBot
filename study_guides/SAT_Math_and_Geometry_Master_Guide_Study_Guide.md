@@ -2577,3 +2577,694 @@ You have found the correct answer, C, without performing a single calculation ba
 - [SAT Math Study Guide 2025: Your Path to Success - GeeksforGeeks](https://geeksforgeeks.org/sat-math-study-guide)
 - [SAT® Math Section Syllabus & Format 2026: Concepts & Question Types](https://collegeprep.uworld.com/sat/math-section/)
 - [The Math Section: Overview – SAT Suite | College Board](https://satsuite.collegeboard.org/sat/whats-on-the-test/math/overview)
+
+---
+
+## 📅 Update: 2026-06-27 - New Concepts
+
+---
+
+### 📚 PART 1: SAT MATH — ALGEBRA & ADVANCED CONCEPTS
+
+---
+
+#### 1.1 Factoring Quadratics ($a \neq 1$)
+
+When the leading coefficient is not 1, we use the **AC Method** (also called factoring by grouping):
+
+**Steps:**
+1. Multiply $a \cdot c$.
+2. Find two numbers that multiply to $ac$ and add to $b$.
+3. Split the middle term ($bx$) into two terms using those numbers.
+4. Factor by grouping (group the first two and last two terms).
+5. Pull out the common binomial.
+
+**Example:** Factor $6x^2 + 7x - 49$
+
+- $a = 6$, $b = 7$, $c = -49$
+- $ac = 6(-49) = -294$
+- We need two numbers that multiply to $-294$ and add to $7$: those are $21$ and $-14$
+- $6x^2 + 21x - 14x - 49$
+- Group: $(6x^2 + 21x) + (-14x - 49)$
+- Factor each group: $3x(2x + 7) - 7(2x + 7)$
+- Factor out $(2x + 7)$: $(2x + 7)(3x - 7)$
+
+**The 100 Problem Drill** provides extensive practice for this skill with every quadratic confirmably factorable over the integers.
+
+---
+
+#### 1.2 Solving Quadratics — Three Methods
+
+| Method | When to Use |
+|--------|------------|
+| **Zero Product Property** (Factoring) | When in intercept form: $y = a(x-p)(x-q)$ — roots are $x = p, q$ |
+| **Square Root Method** | When in vertex form: $y = a(x-h)^2 + k$ — isolate $(x-h)^2$, take square root |
+| **Quadratic Formula** | When in standard form $y = ax^2 + bx + c$: $x = \dfrac{-b \pm \sqrt{b^2-4ac}}{2a}$ |
+
+**Key Formulas for $ax^2 + bx + c$:**
+- Sum of roots: $-\dfrac{b}{a}$
+- Product of roots: $\dfrac{c}{a}$
+
+---
+
+#### 1.3 The Factor of Change Approach
+
+Use this when quantities change by a given percent or factor, and you must determine how a related quantity changes.
+
+**Steps:**
+1. Start with the formula relating the quantities.
+2. Eliminate all constants.
+3. Replace each variable with its factor of change.
+4. Solve for the unknown factor.
+5. Convert: factor $> 1$ means increase by $(factor - 1) \times 100\%$; factor $< 1$ means decrease by $(1 - factor) \times 100\%$.
+
+**Example:** $KE = \frac{1}{2}mv^2$. Mass decreases by 20% (factor $= 0.8$), speed increases by 20% (factor $= 1.2$).
+$$KE_{new} \sim (0.8)(1.2)^2 = 0.8 \times 1.44 = 1.152$$
+Kinetic energy increases by **15.2%**.
+
+---
+
+#### 1.4 Systems of Linear Equations — Full Classification
+
+| System Type | # of Solutions | Line Relationship | Slope Relationship |
+|-------------|---------------|-------------------|-------------------|
+| **Consistent & Independent** | Exactly 1 | Intersecting | $m_1 \neq m_2$ |
+| **Consistent & Dependent** | Infinitely many | Identical (same line) | $m_1 = m_2$ and $b_1 = b_2$ |
+| **Inconsistent** | 0 | Parallel | $m_1 = m_2$ and $b_1 \neq b_2$ |
+
+**Three Solution Methods:**
+
+- **Substitution:** Use when one variable has coefficient $\pm 1$. Solve for that variable, substitute into the other equation.
+- **Elimination:** Find the LCM of the coefficients of your chosen variable. Scale both equations so the chosen variable has opposite coefficients. Add the equations.
+- **Graphing:** Plot both lines; the intersection is the solution.
+
+**Finding Conditions for No/Infinite Solutions:**
+- No solution: Convert both to slope-intercept form. Set slopes equal and verify $y$-intercepts differ.
+- Infinite solutions: Slopes AND $y$-intercepts must be equal.
+
+**Example:** For what value of $c$ does the system $2x - 5y = 5$ and $3x - cy = 1$ have no solution?
+- Slope of first: $\frac{2}{5}$; slope of second: $\frac{3}{c}$
+- Set equal: $\frac{2}{5} = \frac{3}{5} \Rightarrow$ Wait — recheck: $y = \frac{2}{5}x - 1$ and $y = \frac{3}{c}x - \frac{1}{c}$
+- $\frac{2}{5} = \frac{3}{c} \Rightarrow 2c = 15 \Rightarrow c = \frac{15}{2}$
+
+---
+
+#### 1.5 Ratios, Rates, and Proportions
+
+**Ratios** are simplified comparisons. They do NOT give exact values — each part must be multiplied by a common multiplier $m$.
+
+**Example:** If the boy:girl ratio is $2:3$, then boys $= 2m$, girls $= 3m$, total $= 5m$. We can only find the actual numbers if given additional information (like the total).
+
+**Rates** are special ratios: $Rate = \dfrac{Quantity}{Consumption}$
+
+**Speed** is the most common rate: $Speed = \dfrac{Distance}{Time}$
+
+**Average Speed for a round trip:** If you travel distance $d$ at speed $v_1$ and return at speed $v_2$:
+$$\text{Average speed} = \dfrac{2d}{\frac{d}{v_1} + \frac{d}{v_2}}$$
+
+This is NOT the arithmetic mean of the two speeds.
+
+**Proportion Method for Three Collinear Points:** If point $m_2$ is the same fraction of the distance from $m_1$ to $m_3$ both horizontally and vertically:
+$$\dfrac{y_3 - y_1}{x_3 - x_1} = \dfrac{y_2 - y_1}{x_2 - x_1}$$
+
+---
+
+#### 1.6 Mixture Problems (Acid Solutions)
+
+**Setup:** Total acid in the mixture = Sum of acid from each component.
+
+$$(\text{Concentration}_1)(\text{Volume}_1) + (\text{Concentration}_2)(\text{Volume}_2) = (\text{Target Concentration})(\text{Total Volume})$$
+
+**Example:** How many liters of 25% acid must be added to 40L of 40% acid to get 30% acid?
+$$0.25x + 0.40(40) = 0.30(x + 40)$$
+$$0.25x + 16 = 0.30x + 12$$
+$$4 = 0.05x$$
+$$x = 80\text{ liters}$$
+
+---
+
+#### 1.7 Percent Mastery
+
+**Always distinguish:**
+- "**What percent of** $B$ is $A$" $\rightarrow \dfrac{A}{B} \times 100$ (the word "of" gives you the **standard/divisor**)
+- "**$A$ is what percent more/less than** $B$" $\rightarrow \dfrac{A - B}{B} \times 100$ (or $\dfrac{B - A}{B} \times 100$ for "less")
+
+**Converting percent to factor:**
+- Increase by 20% $\rightarrow$ multiply by $1.20$
+- Decrease by 20% $\rightarrow$ multiply by $0.80$
+
+**Reverse percent (finding the original):**
+If something costs $88 after a 20% discount AND 10% tax:
+$Original \times 0.80 \times 1.10 = Original \times 0.88 = 88$
+$Original = 100$
+
+**Solving "what percent younger/older":**
+- "A is 62.5% younger than B" means $A = B - 0.625B = 0.375B = \frac{3}{8}B$
+- "Ashish is 262.5% older than Aashni" means $Ashish = Aashni + 2.625 \times Aashni = 3.625 \times Aashni$
+
+---
+
+#### 1.8 Slope, Lines, and the xy-Plane
+
+**Slope formula:** $m = \dfrac{y_2 - y_1}{x_2 - x_1}$
+
+**Three Forms of a Line:**
+
+| Form | Equation | Best For |
+|------|----------|----------|
+| **Slope-Intercept** | $y = mx + b$ | Graphing and analysis |
+| **Point-Slope** | $y - y_1 = m(x - x_1)$ | Modeling from a point and slope |
+| **Standard** | $Ax + By = C$ | Word problems; $A, B, C$ should be integers |
+
+**Parallel lines:** Same slope, different $y$-intercepts.
+
+**Perpendicular lines:** Slopes are negative reciprocals ($m_1 \cdot m_2 = -1$).
+
+**Slope Interpretation:** In $y = mx + b$, the value of $m$ (as a fraction $\frac{a}{b}$) means the dependent variable changes by $a$ units for every $b$ units change in the independent variable.
+
+---
+
+#### 1.9 Functions and Relations
+
+- A **function** maps each input to exactly one output.
+- **Domain** = set of all $x$-values.
+- **Evaluating functions:** Replace every $x$ in the function definition with the given input.
+- **Composition:** $f(g(x))$ means substitute $g(x)$ into $f(x)$.
+- **"Wacky" functions:** Any strange symbol just represents a defined operation — follow the given rule.
+
+**Example:** If $z(q) = 4q + \frac{1}{2}$ and $z(u + \frac{1}{2}) = \frac{1}{2}$, find $u$.
+$$4(u + \frac{1}{2}) + \frac{1}{2} = \frac{1}{2}$$
+$$4u + 2 + \frac{1}{2} = \frac{1}{2}$$
+$$4u = -2$$
+$$u = -\frac{1}{2}$$
+
+---
+
+#### 1.10 HEART OF ALGEBRA — Guided Problem Solving
+
+**Strategy for Systems:**
+1. P.O.E. (Plug In & Solve): Test answer choices directly.
+2. Get rid of fractions first by multiplying both sides.
+3. Find the value of one variable, then substitute.
+
+**Strategy for Slope Interpretation:**
+1. Label: Match the equation to $y = mx + b$.
+2. P.O.E.: Test values.
+3. Interpret: Does the value make sense as a rate, initial value, or total?
+
+**Strategy for Inequalities:**
+1. Label: Identify what each part represents.
+2. Match: Map the word problem structure to the correct inequality structure.
+3. P.O.E.: Test boundary values.
+
+**"At least" means $\geq$; "at most" means $\leq$.**
+
+**Translation Practice:**
+- "The cost of 60 rides at $0.75 per ride" $\rightarrow 0.75(60) = 45$
+- "A number squared is 20 more than five times itself" $\rightarrow x^2 = 5x + 20$
+
+---
+
+### 📐 PART 2: SAT MATH — GEOMETRY & TRIGONOMETRY
+
+---
+
+#### 2.1 Angles of a Triangle
+
+- **Sum of interior angles:** $I_1 + I_2 + I_3 = 180°$
+- **Exterior Angle:** Forms a linear pair with the corresponding interior angle. $E = 180° - I$
+- **Exterior Angle Theorem:** Each exterior angle equals the sum of the two remote interior angles. $E_1 = I_2 + I_3$
+- **Sum of all exterior angles:** Always $360°$ (for any polygon)
+
+---
+
+#### 2.2 Sides of a Triangle (Triangle Inequality)
+
+The third side of any triangle must be:
+- **Greater than** the positive difference of the other two sides, AND
+- **Less than** the sum of the other two sides.
+
+If two sides are $p$ and $q$ (where $p \leq q$): $q - p < \text{third side} < p + q$
+
+**Largest side** is opposite the **largest angle**; **smallest side** is opposite the **smallest angle**.
+
+---
+
+#### 2.3 Right Triangles and the Pythagorean Theorem
+
+**Pythagorean Theorem** (right triangles only): $a^2 + b^2 = c^2$ where $c$ is the hypotenuse.
+
+**Common Pythagorean Triples to Memorize:**
+$3, 4, 5$ | $5, 12, 13$ | $8, 15, 17$ | $7, 24, 25$ | $9, 40, 41$
+Multiples also work (e.g., $6, 8, 10$).
+
+**Right Triangle Inequality:** A right triangle ALWAYS satisfies $a^2 + b^2 = c^2$, but satisfying the triangle inequality is not sufficient to prove it's right.
+
+---
+
+#### 2.4 Special Right Triangles
+
+**Isosceles Right Triangle ($45°-45°-90°$):**
+- Sides: $leg : leg : hypotenuse = s : s : s\sqrt{2}$
+- Area $= \frac{s^2}{2}$
+
+**$30°-60°-90°$ Triangle:**
+- Sides: $shorter\ leg : longer\ leg : hypotenuse = s : s\sqrt{3} : 2s$
+- The shorter leg is half the hypotenuse.
+- Area $= \frac{s^2\sqrt{3}}{2}$
+
+**Equilateral Triangle** (all sides equal, all angles $= 60°$):
+- Area $= \frac{s^2\sqrt{3}}{4}$
+- Side of isosceles right triangle = $s$; height of equilateral triangle = $s\sqrt{3}$
+- Semiperimeter $= \frac{a+b+c}{2}$
+
+---
+
+#### 2.5 SOH CAH TOA — Trigonometry
+
+Only applies to **right triangles**. For acute angle $A$:
+
+| Function | Ratio |
+|----------|-------|
+| $\sin A = \frac{a}{c}$ | Opposite over Hypotenuse |
+| $\cos A = \frac{b}{c}$ | Adjacent over Hypotenuse |
+| $\tan A = \frac{a}{b}$ | Opposite over Adjacent |
+
+| Reciprocal | Ratio |
+|------------|-------|
+| $\csc A = \frac{1}{\sin A}$ | Hyp over Opp |
+| $\sec A = \frac{1}{\cos A}$ | Hyp over Adj |
+| $\cot A = \frac{1}{\tan A}$ | Adj over Opp |
+
+**Process for Solving for a Missing Side:**
+1. Choose the acute angle you're working with.
+2. Label all three sides (Opposite, Adjacent, Hypotenuse) relative to that angle.
+3. Choose the trig function that connects the known and unknown sides.
+4. Set up the equation and solve.
+
+**Process for Solving for a Missing Angle:**
+1. Label all three sides.
+2. Choose the two sides that are given (or known).
+3. Select the appropriate trig function.
+4. Solve: angle = trig$_-$ratio
+
+---
+
+#### 2.6 Cofunction Identities and Complementary Angles
+
+$\sin(x°) = \cos(90° - x°)$
+
+They produce equivalent ratios when evaluated at **complementary angles**.
+
+**If $A + B = 90°$:** $\sin A = \cos B$ and $\tan A = \cot B$
+
+---
+
+#### 2.7 Similar Triangles
+
+Two triangles are **similar** if:
+- All three corresponding angles are congruent (AA Similarity Postulate suffices)
+- All three corresponding sides are proportional
+
+If $\triangle ABC \sim \triangle XYZ$: $\angle A = \angle X$, $\angle B = \angle Y$, $\angle C = \angle Z$
+
+Prove similarity using: **AA, SSS, SAS**
+
+**Triangle-Angle Bisector Theorem:** If an angle bisector in a triangle divides the opposite side, the ratio of the segments equals the ratio of the adjacent sides.
+
+---
+
+#### 2.8 Area of Triangles
+
+**General Formula:** $A = \frac{1}{2}bh$
+
+**Heron's Formula:** When you know all three sides and the semiperimeter $s = \frac{a+b+c}{2}$:
+$$A = \sqrt{s(s-a)(s-b)(s-c)}$$
+
+**Using Sine:** $A = \frac{1}{2}s_1 \cdot s_2 \cdot \sin\theta$ (where $\theta$ is the included angle)
+
+**Three ways to prove triangles congruent:** SSS, SAS, ASA, AAS, HL (Hypotenuse-Leg)
+
+**Note:** SSA (side-side-angle) does NOT necessarily prove congruence.
+
+---
+
+#### 2.9 Circles — Tangent and Chord Properties
+
+- A **tangent** to a circle is perpendicular to the radius at the point of tangency.
+- **Tangent segments** from an external point to a circle are equal in length.
+- The **exterior angle** made by two tangents equals half the difference of the intercepted arcs.
+- Tangent-Chord angle equals half the measure of the intercepted arc.
+- **Inscribed angle:** An angle whose vertex is on the circle equals half its intercepted arc.
+- **Chord-Tangent Angle Theorem:** $\angle$ between chord and tangent $= \frac{1}{2}(\text{intercepted arc})$
+
+---
+
+#### 2.10 Arc Length, Sector Area, and Proportions
+
+**Arc length proportion:**
+$$\frac{\text{arc}}{2\pi r} = \frac{\theta}{360°}$$
+
+**Sector area proportion:**
+$$\frac{\text{area of sector}}{\pi r^2} = \frac{\theta}{360°}$$
+
+---
+
+#### 2.11 Advanced Circle Geometry
+
+**Inscribed Angle vs. Central Angle:** Central angle = $2 \times$ inscribed angle (subtending the same arc)
+
+**Cyclic Quadrilateral:** Opposite angles are supplementary (sum to $180°$).
+
+**Prism/Cylinder volume:** $V = (\text{base area}) \times h$
+
+**Change in volume:** If radius increases by $r$ and height decreases by $h$, apply the factor of change to each dimension independently.
+
+**Concentric circles:** The area of the ring (annulus) $= \pi(R^2 - r^2)$ where $R$ is the outer radius and $r$ is the inner radius.
+
+---
+
+### 📝 PART 3: ACT ENGLISH & READING — GRAMMAR AND RHETORICAL SKILLS
+
+---
+
+#### 3.1 Identifying the Subject Crossing Out Useless Clauses
+
+To find the subject, you must recognize and ignore these "useless" clauses:
+
+1. **Relative Clauses** — Begin with who, whom, whose, which, that. Continue until the verb. Do NOT use commas before or after.
+2. **Comma Clauses** (3 types):
+   - **Introductory Comma Clause (ICC):** Dependent clause at the start. Look for comma after it.
+   - **Ending Comma Clause (ECC):** Defining/clarifying phrase, usually beginning with an -ing adverb.
+   - **Middle Comma Clause (MCC):** Appositive/nonessential clause interrupting the sentence.
+3. **Prepositional Phrases (PNP):** Begin with a preposition, continue until a noun.
+
+**Key Rule:** The subject is NEVER found within a relative clause, comma clause, or prepositional phrase. **Cross them out** to find the true subject.
+
+---
+
+#### 3.2 Subject-Verb Agreement (SVA)
+
+- **Singular subject** $\rightarrow$ singular verb (usually ends in $s$)
+- **Plural subject** $\rightarrow$ plural verb
+
+**Special Rules:**
+- "Each" and "Every" are always **singular** subjects.
+- A **number** (of) is **plural**; **the number** (of) is **singular**.
+- Possessives (my, yours, its, theirs, Kailyn's) can NEVER be subjects.
+- Compound subjects (connected by "and") are plural.
+- Subject comes before verb unless sentence begins with "there" or is a question.
+
+**Process:** (1) Strip out everything before the verb. (2) Eliminate relative clauses, comma clauses, prepositional phrases. (3) Find subject, determine singular/plural. (4) Match to verb.
+
+---
+
+#### 3.3 Punctuation Rules
+
+**Commas:**
+- Separate items in a list (Oxford comma optional but tested for placement).
+- Join two independent clauses with a coordinating conjunction (FANBOYS: for, and, nor, but, or, yet, so).
+- After an introductory dependent clause.
+- Before and after a middle comma clause (appositive).
+- Between two adjectives describing the same noun.
+
+**Semicolons:**
+- Separate list items that themselves contain commas.
+- Join two independent clauses without a conjunction.
+
+**Colons:**
+- Must have a complete sentence BEFORE the colon.
+- Used to introduce a list (no introductory phrase needed) or add information.
+
+**Dashes:**
+- Before and after a middle comma clause (alternative to commas).
+- Add information at the end of a sentence (shocking information).
+
+**Apostrophes:**
+- Contractions: it's = it is (the only acceptable contraction on the SAT).
+- Possession: nouns not ending in $s$ get $'s$; nouns ending in $s$ get just $'$.
+
+---
+
+#### 3.4 Transitions — Logical Relationships
+
+| Relationship | Transitions |
+|-------------|-------------|
+| **Contrast** | however, on the other hand, conversely, whereas, while, in contrast, yet, nevertheless |
+| **Emphasis/Example** | indeed, in fact, for example, to illustrate, specifically |
+| **Addition/Support** | furthermore, moreover, additionally, also, in addition |
+| **Cause & Effect** | consequently, therefore, thus, as a result, hence, accordingly |
+| **Concession** | granted, nevertheless, although, despite, regardless |
+| **Sequence** | subsequently, previously, next, then, eventually, finally |
+| **Similarity** | similarly, likewise, in the same way, by the same token |
+| **Conclusion** | in conclusion, in summary, in short, in other words |
+
+**Process:** (1) Read the sentence before the transition. (2) Read the sentence with the transition. (3) Identify the logical relationship. (4) Choose the matching transition.
+
+---
+
+#### 3.5 Reading Comprehension Strategy
+
+**Step 1:** Highlight/circle all transitional words, phrases, and transitional punctuation.
+
+**Step 2:** Focus on understanding what comes AFTER the transition — this is where the author's real point lies. Use it to **foreshadow** what will come.
+
+**Step 3:** As you read, confirm or deny your foreshadowing. If denied, stop and start over.
+
+**Key Distinction:**
+- **Contradiction** = critical; helps identify a missing factor.
+- **Unanimous** = everyone agrees; no tension.
+
+**For Evidence Questions:** Provide evidence from the text (or graphic) to support a specific claim. Write your own response first, then find the answer choice that matches.
+
+**For Inference Questions:** Verify your inference against the answer choices. Eliminate "dummy" responses (those that provide viewpoints not discussed, oppose the author, are too extreme with words like "always" or "never").
+
+---
+
+#### 3.6 Tense Rules
+
+| Tense | Signal Words/Usage |
+|-------|-------------------|
+| **Simple Present** | General truths, habits, ongoing states |
+| **Simple Past** | Completed actions in the past |
+| **Present Perfect** | Actions starting in past, continuing to present (since, for) |
+| **Past Perfect** | Action completed before another past action |
+| **Present Perfect Progressive** | Ongoing action from past to present (since, for) |
+
+**Key Indicators:**
+- "Since" and "for" $\rightarrow$ present perfect
+- "Had" + past participle $\rightarrow$ past perfect
+- Parallelism: maintain consistent tense within a sentence unless the timeline requires a shift.
+
+---
+
+#### 3.7 Verb Mood and Voice
+
+- **Subjunctive mood:** Use base form after verbs of demand/suggestion (suggest, recommend, require, insist, ask, demand).
+- **"Would" vs. "Will":** "Would" = hypothetical; "Will" = definite future.
+- **"Could have" vs. "Could of":** Always "could have" (never "could of").
+
+---
+
+#### 3.8 Rhetorical Synthesis
+
+**When given bullet-pointed research and asked to synthesize for a specific claim:**
+
+1. Read through each bullet and identify it as either **background** or **evidential**.
+2. Read the question header and highlight the **claim** you need to support.
+3. Choose the bullets that directly support the claim.
+4. Eliminate bullets that are irrelevant or that support a different/diametric claim.
+
+---
+
+### 📊 PART 4: ACT MATH — ADDITIONAL PRACTICE CONCEPTS
+
+---
+
+#### 4.1 Mean, Median, Mode
+
+- **Mean** = average = $\frac{\text{sum}}{\text{count}}$
+- **Median** = middle value when ordered (average of two middle values if even count)
+- **Mode** = most frequently occurring value
+
+---
+
+#### 4.2 Scientific Notation
+
+$670,000,000 + 700,000,000 = 1.37 \times 10^9$
+
+---
+
+#### 4.3 Distance, Rate, Time
+
+$d = rt$ (distance = rate $\times$ time)
+
+For two trips, use a chart:
+$$\begin{array}{c|c|c|c} & \text{Time} & \text{Distance} & \text{Rate} \\ \hline \text{Trip 1} & t_1 & d_1 & r_1 \\ \text{Trip 2} & t_2 & d_2 & r_2 \end{array}$$
+
+---
+
+#### 4.4 Exponent Rules
+
+- $(x^a)^b = x^{ab}$
+- $x^a \cdot x^b = x^{a+b}$
+- $\dfrac{x^a}{x^b} = x^{a-b}$
+- $(xy)^n = x^n y^n$
+- $\left(\dfrac{x}{y}\right)^n = \dfrac{x^n}{y^n}$
+
+---
+
+#### 4.5 Absolute Value Equations and Inequalities
+
+$|x - 3| = 7 \Rightarrow x - 3 = 7$ or $x - 3 = -7 \Rightarrow x = 10$ or $x = -4$
+
+$|x| < a \Rightarrow -a < x < a$
+
+$|x| > a \Rightarrow x < -a$ or $x > a$
+
+---
+
+#### 4.6 Probability
+
+$P(\text{event}) = \dfrac{\text{favorable outcomes}}{\text{total outcomes}}$
+
+$P(\text{not red}) = 1 - P(\text{red})$
+
+---
+
+#### 4.7 Circle Graph (Pie Chart) Angles
+
+$$\text{Central angle} = \dfrac{\text{part}}{\text{whole}} \times 360°$$
+
+---
+
+#### 4.8 Similar Figures
+
+If the ratio of corresponding sides is $a:b$, then:
+- The ratio of perimeters is $a:b$
+- The ratio of areas is $a^2:b^2$
+- The ratio of volumes is $a^3:b^3$
+
+---
+
+#### 4.9 Coordinate Geometry Essentials
+
+**Midpoint formula:** $M = \left(\dfrac{x_1+x_2}{2}, \dfrac{y_1+y_2}{2}\right)$
+
+**Distance formula:** $d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$
+
+**Quadrant Signs:**
+- QI: $(+, +)$
+- QII: $(-, +)$
+- QIII: $(-, -)$
+- QIV: $(+, -)$
+
+---
+
+#### 4.10 Parallelogram Properties
+
+- Opposite sides are equal and parallel.
+- Opposite angles are equal.
+- Consecutive angles are supplementary.
+- Diagonals bisect each other.
+- Area $= bh$ (NOT base $\times$ side — must use perpendicular height).
+
+---
+
+#### 4.11 Trapezoid Properties
+
+- One pair of parallel sides (bases).
+- Area $= \frac{1}{2}(b_1 + b_2)h$
+- Isosceles trapezoid: non-parallel sides are equal; base angles are equal.
+
+---
+
+#### 4.12 Composite Functions and Advanced Function Problems
+
+**Working "backwards":** If $h(x) = 3x + 5$ and $h(a) = 27$, find $a$:
+$$3a + 5 = 27 \Rightarrow 3a = 22 \Rightarrow a = \frac{22}{3}$$
+
+**Nested functions:** $f(g(x))$ — substitute $g(x)$ into $f$.
+
+**Wacky function symbols:** Follow the given definition exactly. The symbol is just a made-up operation.
+
+---
+
+#### 4.13 Polynomial Operations
+
+- **Adding/Subtracting:** Combine like terms.
+- **Multiplying:** Distribute each term; use FOIL for binomials.
+- **Factoring:** Look for GCF first, then apply appropriate method.
+
+---
+
+#### 4.14 Inequality Word Problems
+
+**Key translations:**
+- "No more than" $\rightarrow \leq$
+- "At least" $\rightarrow \geq$
+- "More than" $\rightarrow >$
+- "Less than" $\rightarrow <$
+- "At most" $\rightarrow \leq$
+
+**Systems of inequalities:** Graph each inequality; the solution is the intersection (overlapping region).
+
+---
+
+#### 4.15 Exponential Growth and Decay
+
+**Growth:** $y = a(1 + r)^t$ where $a$ is initial value, $r$ is rate, $t$ is time.
+
+**Decay:** $y = a(1 - r)^t$
+
+**Compound interest:** $A = P\left(1 + \frac{r}{n}\right)^{nt}$
+
+---
+
+#### 4.16 Data Interpretation
+
+- Read titles, labels, and scales carefully.
+- Identify trends (increasing, decreasing, constant rate).
+- Use specific data points to verify calculations.
+- For line of best fit: the slope represents the rate of change.
+
+---
+
+### 🎯 PART 5: KEY FORMULA REFERENCE SHEET
+
+---
+
+**Algebra:**
+- Quadratic Formula: $x = \dfrac{-b \pm \sqrt{b^2-4ac}}{2a}$
+- Difference of Squares: $a^2 - b^2 = (a+b)(a-b)$
+- Perfect Square Trinomial: $a^2 \pm 2ab + b^2 = (a \pm b)^2$
+- Sum of Cubes: $a^3 + b^3 = (a+b)(a^2 - ab + b^2)$
+- Difference of Cubes: $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$
+
+**Geometry:**
+- Pythagorean Theorem: $a^2 + b^2 = c^2$
+- Triangle Area: $A = \frac{1}{2}bh$
+- Rectangle Area: $A = lw$; Perimeter: $P = 2l + 2w$
+- Circle Area: $A = \pi r^2$; Circumference: $C = 2\pi r$
+- Arc Length: $\frac{\theta}{360} \times 2\pi r$
+- Sector Area: $\frac{\theta}{360} \times \pi r^2$
+- Cylinder Volume: $V = \pi r^2 h$
+- Sphere Volume: $V = \frac{4}{3}\pi r^3$
+
+**Coordinate:**
+- Slope: $m = \dfrac{y_2 - y_1}{x_2 - x_1}$
+- Midpoint: $\left(\dfrac{x_1+x_2}{2}, \dfrac{y_1+y_2}{2}\right)$
+- Distance: $\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$
+
+**Trigonometry:**
+- $\sin\theta = \frac{\text{opp}}{\text{hyp}}$
+- $\cos\theta = \frac{\text{adj}}{\text{hyp}}$
+- $\tan\theta = \frac{\text{opp}}{\text{adj}}$
+
+**Statistics:**
+- Mean: $\frac{\text{sum of values}}{\text{number of values}}$
+- Probability: $\frac{\text{favorable}}{\text{total}}$
+
+---
+
+*End of Update — 2026-06-27*
