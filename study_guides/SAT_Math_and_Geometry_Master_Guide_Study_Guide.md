@@ -3268,3 +3268,186 @@ $$3a + 5 = 27 \Rightarrow 3a = 22 \Rightarrow a = \frac{22}{3}$$
 ---
 
 *End of Update — 2026-06-27*
+
+
+---
+
+## 📅 Update: 2026-06-28 - New Concepts
+
+### 📐 Geometry & Trigonometry
+
+**Triangles – Core Relationships:**
+- **Angle Sum:** All three internal angles of a triangle sum to 180°.
+- **Exterior Angle Theorem:** An exterior angle equals the sum of the two remote interior angles. Each exterior angle forms a linear pair (180°) with its corresponding interior angle. The sum of all exterior angles (one per vertex) is always 360°.
+- **Triangle Inequality:** The third side must be greater than the positive difference of the other two sides AND less than their sum.
+- **Side-Angle Relationship:** The longest side is opposite the largest angle; the shortest side is opposite the smallest angle.
+
+**Right Triangles:**
+- The **hypotenuse** is the side opposite the 90° angle; the other two sides are **legs**.
+- **Pythagorean Theorem:** a² + b² = c² (only applies to right triangles).
+- **Pythagorean Triples** to memorize: 3-4-5, 5-12-13, 8-15-17, 7-24-25, 9-40-41, and their multiples.
+
+**Special Right Triangles:**
+- **Isosceles Right Triangle (45°-45°-90°):** Legs are equal; hypotenuse = leg × √2. Area = s²/2.
+- **30°-60°-90° Triangle:** Hypotenuse = 2 × shorter leg; longer leg = shorter leg × √3. Area = (s²√3)/2.
+- **Equilateral Triangle:** All sides congruent, all angles 60°. Area = (s²√3)/4.
+
+**Similar Triangles:** All three corresponding angles are congruent, and all three corresponding sides are proportional. Prove similarity using: AA (Angle-Angle), SSS (Side-Side-Side), or SAS (Side-Angle-Side) similarity postulates.
+
+**Trigonometry (Right Triangle Focus):**
+- **SOH-CAH-TOA:**
+  - sin(A) = Opposite/Hypotenuse
+  - cos(A) = Adjacent/Hypotenuse
+  - tan(A) = Opposite/Adjacent
+- **Reciprocal Functions:** csc = 1/sin, sec = 1/cos, cot = 1/tan
+- **Cofunction Identity:** sin(x°) = cos(90° − x°). Sine and cosine produce equivalent ratios when evaluated at complementary angles.
+- **Using Trig to Find Missing Sides/Angles:** The triangle MUST be right. Given at least two sides OR one side and an acute angle, use the appropriate trig ratio to solve.
+
+---
+
+### 📊 ACT Math – Key Problem Types from Practice
+
+**Linear Functions & Slope:**
+- Slope formula: m = (y₂ − y₁)/(x₂ − x₁)
+- **Slope-Intercept Form:** y = mx + b (m = slope, b = y-intercept)
+- **Point-Slope Form:** y − y₁ = m(x − x₁)
+- **Standard Form:** Ax + By = C (A should normally be positive integer)
+- **Parallel Lines:** Same slope (m₁ = m₂)
+- **Perpendicular Lines:** Slopes are negative reciprocals (m₁ × m₂ = −1)
+- **Slope Interpretation:** In y = mx + b, the value of the dependent variable changes by m units for each 1-unit increase in the independent variable.
+
+**Systems of Linear Equations:**
+- A system can have 0 solutions (parallel lines), 1 solution (intersecting lines), or infinitely many solutions (identical lines).
+- **Consistent:** At least one solution. **Inconsistent:** No solutions.
+- **Solving Methods:**
+  - **Substitution:** Best when one variable has a coefficient of 1.
+  - **Elimination:** Scale equations to produce opposite coefficients for one variable, then add.
+- **Classification:** Convert to slope-intercept form; compare slopes and y-intercepts.
+
+**Functions:**
+- A function maps each input to exactly one output.
+- **Domain:** Set of all valid x-values.
+- Evaluate f(a) by substituting a for x in the function expression.
+- **"Wacky Functions":** Unfamiliar symbols are defined in the problem—just follow the given rule.
+
+**Quadratics:**
+- **Standard Form:** y = ax² + bx + c
+- **Vertex Form:** y = a(x − h)² + k (vertex at (h, k))
+- **Intercept Form:** y = a(x − p)(x − q) (x-intercepts at p and q)
+- **Finding the Vertex:**
+  - From standard form: x = −b/(2a), then find y
+  - From intercept form: x = (p + q)/2 (midpoint of intercepts), then find y
+- **Axis of Symmetry:** x = h (vertical line through the vertex)
+- **Direction:** a > 0 → opens up (minimum); a < 0 → opens down (maximum)
+- **Roots (Zero Product Property):** If (x − p)(x − q) = 0, then x = p or x = q
+- **Converting Forms:** Expand vertex/intercept → standard; complete the square or factor standard → vertex/intercept.
+
+**Factoring Quadratics (a ≠ 1):**
+- When the leading coefficient is not 1, use methods like factoring by grouping, the AC method, or trial and error with factor pairs.
+- Always check for a GCF first.
+
+**Heart of Algebra Drills:**
+- **Inequalities:** "At least" means ≥; "no more than" means ≤. When multiplying/dividing by a negative, flip the inequality sign.
+- **English to Math Translation:** Carefully label variables, identify the relationship (sum, product, difference), and match to answer choices using P.O.E. (Plug Out Eliminate).
+- **Infinitely Many Solutions:** Occurs when two equations represent the same line (same slope AND same y-intercept).
+
+---
+
+### ✏️ ACT English – Grammar & Rhetorical Skills
+
+**Punctuation Rules:**
+- **Commas:**
+  - Separate items in a list (Oxford comma is optional but tested for placement).
+  - After an introductory dependent clause (ICC).
+  - Before a coordinating conjunction (FANBOYS: for, and, nor, but, or, yet, so) joining two independent clauses.
+  - Around nonessential/middle comma clauses (appositives).
+  - Do NOT use a comma to separate a subject from its verb.
+- **Semicolons:** Join two independent clauses without a conjunction; separate list items that themselves contain commas.
+- **Colons:** Must have a complete sentence before the colon; introduces a list or explanation.
+- **Dashes:** Set off nonessential information (like commas) or add emphasis/shocking information.
+- **Apostrophes:** Contractions (it's = it is) and possession (singular noun's, plural noun ending in s → just apostrophe).
+
+**Subject-Verb Agreement:**
+- A subject can NEVER be found within a relative clause, a prepositional phrase, or a comma clause.
+- The subject comes before the verb (except in "there is/are" constructions or questions).
+- "Each" and "every" are always singular subjects.
+- Compound subjects (joined by "and") are plural.
+
+**Verb Tenses:**
+- **Simple Present:** General truths, habitual actions.
+- **Simple Past:** Completed actions at a specific past time.
+- **Present Perfect:** Actions starting in the past and continuing to the present (keywords: since, for, yet, already).
+- **Past Perfect:** An action completed before another past action (keywords: before, by the time, already).
+- **Present Perfect Progressive:** Ongoing action from past to present (has/have been + −ing).
+
+**Transitions – Logical Relationships:**
+| Relationship | Common Transitions |
+|---|---|
+| **Contrast/Opposition** | however, but, yet, on the other hand, in contrast, conversely, whereas, although, nevertheless |
+| **Addition/Support** | furthermore, moreover, additionally, in addition, also, too |
+| **Evidence/Example** | for example, for instance, indeed, in fact, to illustrate, specifically |
+| **Cause/Effect** | therefore, consequently, thus, as a result, hence, accordingly, because |
+| **Conclusion/Summary** | in conclusion, in summary, to sum up, in short, in other words |
+| **Sequence/Order** | first, next, then, subsequently, finally, before, after, meanwhile |
+| **Similarity** | similarly, likewise, in the same way, by the same token |
+| **Concession** | granted, although, even so, nevertheless, nonetheless |
+
+**Rhetorical Synthesis:**
+1. Read each bullet point and identify it as background info or evidence supporting a claim.
+2. Read the question header and identify the claim you need to support.
+3. Select the bullets that directly support that claim.
+
+**Reading Comprehension Strategies:**
+- **Active Reading:** Annotate transitional words/phrases and transitional punctuation.
+- **Foreshadowing:** After each transition, predict what's coming; confirm or revise as you read.
+- **Inference Questions:** Must be supported directly by the text—not assumed.
+- **"Delete" Questions:** Consider what information would be lost if the underlined portion were removed.
+- **Author's Purpose/Tone:** Look at word choice and overall structure to determine the central point.
+
+---
+
+### 📝 ACT Reading – Passage Analysis Notes
+
+**Literary Narrative ("Pride" by Alice Munro):**
+- Focus on character motivation and the consequences of pride.
+- Horace Jantzen's downfall: invested improperly in a steam-car scheme; rather than being fired, was given a meaningless demotion (managing a tiny village bank).
+- His daughter Oneida drove him to work daily—an act of duty masked by pride.
+- Key theme: Pride can lead to self-destruction and loss of dignity.
+
+**Humanities ("Albany, 1958" by Lydia Minatoya):**
+- Central conflict: Mother's dignity through her sewing work vs. Father's shame about her serving wealthy clients.
+- Mother (Okaa-chan) asserts her identity: "I am a Designer!"—her work gives her self-worth regardless of others' contempt.
+- The dinner-dances symbolize a lost era of family joy and elegance.
+
+**Hedy Lamarr Passage (History/Science):**
+- Lamarr co-invented "spread spectrum" technology (frequency-hopping) to prevent torpedo jamming.
+- The Navy initially rejected it; decades later it became foundational for wireless communication (cell phones, GPS, Wi-Fi).
+- Key takeaway: Important inventions may not be recognized in their time.
+
+---
+
+### 🔢 ACT Math Practice – Problem-Solving Strategies
+
+**General Approach:**
+1. **Label** all given information.
+2. **Identify** what the question is asking.
+3. **Match** to a formula or method.
+4. **Solve** carefully.
+5. **Check** using P.O.E. or backsolving.
+
+**Key Formulas to Know:**
+- **Mean (Average):** Sum of values / Number of values
+- **Percent Change:** (New − Old)/Old × 100%
+- **Simple Interest:** I = Prt
+- **Compound Interest:** A = P(1 + r/n)^(nt)
+- **Distance = Rate × Time**
+- **Work/Rate:** 1/T_total = 1/T₁ + 1/T₂ (for combined work rates)
+- **Probability:** Favorable outcomes / Total outcomes
+- **Circle Graph Central Angle:** (Category % / 100) × 360°
+
+**Mixture Problems:**
+- Set up: (concentration₁)(amount₁) + (concentration₂)(amount₂) = (target concentration)(total amount)
+
+**Rate Problems with Multiple Speeds:**
+- Use a D = R × T chart for each segment of the trip.
+- Average speed = Total distance / Total time (NOT the average of the speeds).
