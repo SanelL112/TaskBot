@@ -7517,3 +7517,92 @@ When answering transition questions, use the **ICC (Identify, Categorize, Choose
 *   **Percent Conversion:** Move the decimal two places to the left to convert a percent to a factor (e.g., $20\% = 0.20$).
 *   **Percent Change:** $\frac{\text{New} - \text{Old}}{\text{Old}} \times 100$.
 *   **Ratios:** A ratio is a simplified comparison. If the ratio of boys to girls is $2:3$, the number of boys is $2m$ and girls is $3m$, where $m$ is a multiplier.
+
+
+---
+
+## 📅 Update: 2026-06-28 - New Concepts
+
+### 📖 PART I: SAT READING & WRITING — GRAMMAR & RHETORIC
+
+#### 🎯 Subject-Verb Agreement (SVA) Mastery
+A silent subject must agree in number with its verb.
+- **Core Rule:** Singular subject = Singular verb (-s); Plural subject = Plural verb (no -s).
+- **The "Useless Clause" Strategy:** To find the true subject, cross out (mentally delete) all relative clauses, prepositional phrases, and comma clauses. What remains is your true subject.
+    - *Example:* "The box of chocolates **is** on the table." (Not "are"; "box" is the subject, not "chocolates").
+- **Tricky Singular Indicators:** The words *each* and *every* are always singular, even if they precede a compound subject.
+- **Possessives are NEVER subjects:** Words like *mine, yours, its, theirs, John's* are objects/possessives, never the subject.
+
+#### 📝 Advanced Punctuation
+- **The Colon Rule:** You must have a COMPLETE SENTENCE before a colon. You can follow a colon with a list, a phrase, or another sentence. Never use a semicolon to introduce a list.
+    - **No Introductory Phrase:** "A big breakfast: bacon, eggs, and toast." (CAS)
+    - **With Introductory Phrase:** "A big breakfast, including bacon, eggs, and toast."
+- **Independent Clauses (IC + IC):** To join two complete sentences with a conjunctive adverb (however, therefore, moreover), use the **FANBOYS + Comma** or **Semicolon + Conjunctive Adverb + Comma** structure.
+    - *Correct:* "Tom is dating Emily**, but** he likes Julie."
+    - *Correct:* "Tom is dating Emily**.** **However,** he likes Julie."
+    - *Trap:* "Tom is dating Emily**;** however he likes Julie." (IC + IC requires a semicolon or a FANBOYS conjunction).
+- **The "However" Trap:** If "however" is used as an interrupter (opposition), it must be a part of the sentence (surrounded by commas), not the connector between two ICs.
+
+#### 🧠 Rhetorical Synthesis & Evidence Analysis
+When presented with bulleted notes and a specific claim to support:
+1.  **Identify the Claim:** Highlight the specific goal in the question prompt.
+2.  **Categorize the Bullets:** Classify each bullet point as either **Background** (context) or **Evidential** (specific data/proof).
+3.  **Select the Best Evidence:** Choose the bullets that are both "Evidential" and most specific to the claim.
+4.  **Write Your Own Response:** Before looking at choices, formulate a concise answer in your own words that uses the selected evidence to prove the claim.
+5.  **Eliminate "Dummy" Choices:** Cross out any answer that provides a viewpoint not stated in the text, is too extreme/absolute ("always," "never"), or significantly deviates from your pre-written response.
+
+#### 🗣️ ACT Reading: Advanced Literary Analysis
+Focus on **Alice Munro’s "Pride"** and **Lydia Minatoya’s "Albany, 1958"**:
+- **Paraphrasing:** To paraphrase a character's comments, find the core emotion/action described, not just the literal meaning.
+- **Foreshadowing:** Use descriptive adjectives or narrator cautionary phrases (e.g., "He wasn't a fool, though maybe not as quick as he should have been") as logical predictors of a character's downfall.
+- **Evidence-Based Inferences:** When making an assumption about a source (e.g., how the narrator knows a story), look for keywords in the text, such as "I believe," "my memory grows shaky," or actions like "earned a living."
+- **Character Dynamics:** Note how characters navigate "dignity" vs. "pride." In Munpr's work, external actions (being driven to a lesser job) reflect internal emotional states (pride choosing duty over refusal).
+
+---
+
+### 📐 PART II: SAT/ACT MATH — ADVANCED FACTORING & SYSTEMS
+
+#### 🔢 Quadratics: The 3 Forms & Finding Roots
+All quadratics produce a **parabola**. The way you find the "roots" (x-intercepts) depends on the form of the equation.
+1.  **Intercept Form:** $y = (x-p)(x-q)$
+    - Roots are simply $x = p$ and $x = q$ (using the Zero Product Property).
+2.  **Vertex Form:** $y = a(x-h)^2 + k$
+    - Use the **Square Root Method**: Set $y=0$, move $k$, divide by $a$, and take the square root of both sides. (Remember $\pm$).
+3.  **Standard Form:** $y = ax^2 + bx + c$
+    - Find roots via **Factoring** or the **Quadratic Formula**: $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$.
+
+#### 🚀 "a ≠ 1" Factoring (The Grouping Method)
+When the leading coefficient (the number in front of $x^2$) is not 1, use this fail-safe process:
+1.  **Find the Product:** Multiply $a \times c$.
+2.  **Find the Two Numbers:** Find two integers that **MULIPLY** to give that product and **ADD** to give $b$ (the middle coefficient).
+3.  **Split the Middle:** Break the lone $bx$ term into those two numbers (e.g., become $-8x + 3x$).
+4.  **Factor by Grouping:** Take the GCF out of the first two terms and the GCF out of the last two terms until you have two identical parenthetical groups.
+5.  **The "Balance" Outside:** Pull that "balanced" outside group to be a parenthetical GCF itself.
+    - *Mental Check:* If $+15$ is inside a parenthetical group that is factored out outside, the user must verify the sign trails.
+
+#### ⚖️ Systems of Linear Equations: Solution Logic
+To determine the number of solutions in a system of two lines without always graphing, look at the **Slope ($m$)** and **Y-Intercept ($b$)** ($y=mx+b$ format):
+- **1 Solution (Consistent/Independent):** The lines have **different** slopes ($m_1 \neq m_2$). They cross exactly once.
+- **No Solution (Inconsistent):** The lines have the **same** slope but **different** y-intercepts ($m_1 = m_2, b_1 \neq b_2$). They are parallel.
+- **Infinite Solutions (Consistent/Dependent):** The lines have the **same** slope and the **same** y-intercept ($m_1 = m_2, b_1 = b_2$). They are the exact same line.
+
+---
+
+### 📈 PART III: ALGEBRA 2 / TRIGONOMETRY — FOUNDATIONS
+
+#### 📊 Triangle Geometry Review
+- **Angle Sum Rule:** All internal angles of a triangle add to $180^\circ$.
+- **Exterior Angle Rule:** Any exterior angle equals the sum of the two remote interior angles.
+- **Triangle Inequality Rule:** The length of any side must be *greater* than the difference of the other two sides and *less* than their sum ($|a-b| < c < a+b$).
+
+#### 📐 Similar vs. Congruent Triangles
+- **Congruent (identical size/shape):** Prove using **SSS** (Side-Side-Side), **SAS**, **ASA**, **AAS**, or **HL** (Hypotenuse-Leg for right triangles).
+- **Similar (same shape, different size):** Prove using **AA** (Angle-Angle) or proportional sides.
+
+#### ⚡ The Trigonometric S.O.H.C.A.H.T.O.A.
+Focused on a specific **Acute Angle ($\theta$)** in a Right Triangle:
+- $\sin(\theta) = \text{Opposite} /$ Hypotenuse
+- $\cos(\theta) = \text{Adjacent} /$ Hypotenuse
+- $\tan(\theta) = \text{Opposite} /$ Adjacent
+- **Cofunction Relationship:** $\sin(x) = \cos(90-x)$ (They produce complementary ratios).
+- **Application:** To find a missing side, label all three sides relative to the known angle, choose the correct ratio (Sin/Cos/Tan), and solve the equation.
