@@ -801,14 +801,30 @@ async def check_updates(context: ContextTypes.DEFAULT_TYPE):
     ai_result = await asyncio.to_thread(_run_digest)
     
     # 1. Notion Tasks
+    import difflib
     new_tasks = []
+    
+    # Migrate old hash state to list of strings (hashes won't fuzzy match but we'll store new ones as strings)
+    seen_titles = state.setdefault("seen_tasks", [])
+    
     for task in ai_result.get("tasks", []):
         task_title = task.get("title", "").strip().lower()
-        task_source = task.get("source", "").strip().lower()
-        thash = get_hash(task_title + "_" + task_source)
-        if thash not in state.setdefault("seen_tasks", []):
+        if not task_title: continue
+        
+        # Fuzzy match against seen tasks
+        is_duplicate = False
+        for seen in seen_titles:
+            # If it's a legacy MD5 hash (length 32, hex), SequenceMatcher will just give 0.0 which is fine
+            similarity = difflib.SequenceMatcher(None, task_title, seen).ratio()
+            if similarity > 0.8:
+                is_duplicate = True
+                break
+                
+        if not is_duplicate:
             new_tasks.append(task)
-            state["seen_tasks"].append(thash)
+            seen_titles.append(task_title)
+            
+    state["seen_tasks"] = seen_titles
     save_state(state)
     
     if new_tasks:
