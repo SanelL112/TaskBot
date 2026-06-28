@@ -8382,3 +8382,96 @@ When the leading coefficient ($a$) is not 1, use the **AC Method**:
 *   **Triangle Inequality Theorem:** The sum of any two sides must be greater than the third side.
 *   **Angle-Side Relationship:** The largest side is opposite the largest angle; the smallest side is opposite the smallest angle.
 *   **Exterior Angle Theorem:** An exterior angle is equal to the sum of the two remote interior angles.
+
+
+---
+
+## 📅 Update: 2026-06-28 - New Concepts
+
+### 🧮 Math Focus: Trigonometry & Triangles (Day 9)
+
+Today's math instruction focused heavily on the properties of triangles, specifically right triangle trigonometry and the relationships between similar triangles.
+
+**Core Trigonometric Ratios (SOH CAH TOA)**
+For any acute angle $A$ in a right triangle:
+*   **Sine:** $\sin(A) = \frac{\text{Opposite}}{\text{Hypotenuse}}$
+*   **Cosine:** $\cos(A) = \frac{\text{Adjacent}}{\text{Hypotenuse}}$
+*   **Tangent:** $\tan(A) = \frac{\text{Opposite}}{\text{Adjacent}}$
+
+**Reciprocal Functions**
+*   **Cosecant:** $\csc(A) = \frac{1}{\sin(A)} = \frac{\text{Hypotenuse}}{\text{Opposite}}$
+*   **Secant:** $\sec(A) = \frac{1}{\cos(A)} = \frac{\text{Hypotenuse}}{\text{Adjacent}}$
+*   **Cotangent:** $\cot(A) = \frac{1}{\tan(A)} = \frac{\text{Adjacent}}{\text{Opposite}}$
+
+**Cofunctions**
+Sine and cosine are "cofunctions," meaning they produce equivalent ratios when evaluated at complementary angles (angles that sum to $90^\circ$).
+*   $\sin(x^\circ) = \cos(90^\circ - x^\circ)$
+*   $\sin(A) = \cos(B)$ if $A + B = 90^\circ$
+
+**Special Right Triangles**
+1.  **Isosceles Right Triangle ($45^\circ-45^\circ-90^\circ$):**
+    *   Sides are in the ratio $x : x : x\sqrt{2}$.
+2.  **($30^\circ-60^\circ-90^\circ$):**
+    *   Sides are in the ratio $x : x\sqrt{3} : 2x$ (where $x$ is the side opposite the $30^\circ$ angle).
+
+**Area of Triangles**
+*   **General Formula:** $A = \frac{1}{2}bh$
+*   **Equilateral Triangle:** $A = \frac{s^2\sqrt{3}}{4}$
+*   **Heron's Formula:** $A = \sqrt{s(s-a)(s-b)(s-c)}$, where $s$ is the semi-perimeter $\frac{a+b+c}{2}$.
+*   **SAS Formula:** $A = \frac{1}{2}ab\sin(C)$
+
+**Similar Triangles**
+Two triangles are similar if all three corresponding angles are congruent and all three corresponding sides are proportional.
+*   **Shortcuts to Prove Similarity:** AA (Angle-Angle), SSS (Side-Side-Side ratios), or SAS (Side-Angle-Side ratios).
+*   **Special Similar Triangles:** Occur when a line is drawn parallel to one side of a triangle (creating an "intermeshed" or "back-to-back" parallel configuration) or when dealing with a "triple right triangle" (an altitude drawn from the right angle to the hypotenuse).
+
+---
+
+### 📝 Grammar & Writing Focus: ACT English Strategies
+
+The grammar section reviewed several key conventions of Standard English tested on the ACT.
+
+**1. Subject-Verb Agreement (SVA)**
+*   A singular subject requires a singular verb; a plural subject requires a plural verb.
+*   **Key Rule:** Subjects can never be found within a relative clause, a prepositional phrase, or a comma clause.
+*   **Tricky Subjects:** "Each" and "every" are always singular. "A number" is plural; "The number" is singular.
+
+**2. Subject Modification**
+*   When a sentence begins with an **Introductory Comma Clause (ICC)**, the subject of the main clause must be the one performing the action of the ICC.
+*   *Example:* "After experiencing peaceful stargazing below the moon, **Jonah** noticed..." (Not "my favorite color turned into...").
+
+**3. Punctuation Rules**
+*   **Commas:** Used for lists, before a coordinating conjunction (FANBOYS) joining two independent clauses, after an introductory clause, and around non-essential (middle comma) clauses.
+*   **Semicolons:** Used to join two independent clauses without a conjunction or to separate items in a list that already contain internal commas.
+*   **Colons:** Must be preceded by a full independent clause. They are used to introduce lists or add clarifying information.
+*   **Dashes:** Used to add emphasis or shocking information at the end of a sentence, or to set off a middle comma clause.
+
+**4. Verb Tenses**
+*   **Present Perfect:** Used for actions starting in the past and continuing into the present (Keywords: *for, since*).
+*   **Past Perfect:** Used for an action that was completed before another action in the past (Keywords: *before, by the time*).
+
+---
+
+### 📖 Reading Focus: Transitions & Rhetorical Synthesis
+
+**Transition Categories**
+*   **Contrast:** *However, on the other hand, conversely, whereas, yet.*
+*   **Evidence/Support:** *Indeed, for example, as a matter of fact, to illustrate.*
+*   **Addition:** *Furthermore, moreover, additionally, in addition.*
+*   **Cause and Effect:** *Consequently, therefore, thus, as a result.*
+*   **Concession:** *Granted, nevertheless, although, despite.*
+*   **Sequencing:** *Subsequently, previously, next, eventually.*
+*   **Similarity:** *Similarly, likewise, in the same way.*
+*   **Conclusion:** *In conclusion, in summary, in short.*
+
+**Rhetorical Synthesis**
+*   **Goal:** To synthesize information from bulleted research notes to support a specific claim.
+*   **Process:**
+    1.  Identify the claim you need to support.
+    2.  Categorize the bullets as either "background" or "evidential."
+    3.  Select the specific bullets that directly provide evidence for the claim.
+
+**Reading Comprehension Strategies**
+*   **Annotation:** Highlight transitional words and punctuation to foreshadow the direction of the passage.
+*   **Inference:** Verify your foreshadowing by reading ahead. If the text contradicts your prediction, stop and re-evaluate.
+*   **Evidence Analysis:** When asked to support a claim, highlight the specific claim in the text and look for direct evidence (quotes or data) that matches it.
