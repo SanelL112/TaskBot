@@ -9850,3 +9850,72 @@ This chapter has provided the deepest possible treatment of every SAT Math and G
 - [SAT Math Topics: What to Know - Kaplan Test Prep](https://www.kaptest.com/study/sat/sat-math-topics-what-to-know/?srsltid=AfmBOoojDw7mcg8tFqD-4uyRjVfg2yiZJtzuCbK38aMiSJNYEaeflhFY)
 - [Advanced SAT Math Section Techniques for High-Scoring Students](https://sat.blog.targettestprep.com/advanced-sat-math-section-techniques/)
 - [SAT Math Mastery: Advanced Algebra, Geometry and Statistics](https://www.amazon.com/SAT-Math-Mastery-Advanced-Statistics/dp/1734852216)
+
+---
+
+## 📅 Update: 2026-06-29 - New Concepts
+
+### 📐 Deep Dive: Congruence vs. Similarity Proofs
+Our recent unit masterfully examined the architecture of triangles, with a significant focus on the rigorous proofs of congruence and similarity. Understanding the logical necessity of these postulates is critical for high-level geometry reasoning.
+
+1.  **Similarity Proofs (AA, SSS, SAS):**
+    We streamlined the logic for proving two triangles are similar. Because the Triangle Sum Theorem guarantees the third angle if two are known, similarity requires less initial information than congruence.
+    *   **Angle-Angle (AA) Postulate:** If two angles of one triangle are congruent to two angles of another triangle, then the triangles are similar. This is the most efficient and commonly tested method.
+    *   **Side-Side-Side (SSS) Similarity:** If all three corresponding sides are proportional, the triangles are similar.
+    *   **Side-Angle-Side (SAS) Similarity:** If two sides are proportional and the *included* angle is congruent, the triangles are similar. **Critical Note:** The angle must be the one enclosed by the two proportional sides.
+
+2.  **Congruence Proofs (SSS, SAS, ASA, AAS, HL):**
+    The recent notes expanded the congruence toolkit to include Right Triangle-specific logic. For two triangles to prove equal in both area and perimeter, their corresponding sides must be identical in length, not just proportional.
+    *   **Hypotenuse-Leg (HL):** A special case exclusive to right triangles. If the hypotenuse and one acute leg of a right triangle are congruent to the corresponding parts of another right triangle, the triangles are congruent. *Note: This uses the Pythagorean Theorem internally to guarantee the third side matches.*
+    *   **The "Forbidden" Methods:** We reviewed why **SSA** (Side-Side-Angle) fails to prove congruence reliably. The "Ambiguous Case" allows for two different triangles to be formed with the same two sides and a non-included angle. Similarly, **AAA** (Angle-Angle-Angle) only proves similarity, not congruence, as triangles can be the same shape but different sizes.
+
+---
+
+### 🔺 Special Right Triangles & Trigonometric Ratios
+A major component of the 9-series classwork and ACT math practice was moving from the abstract to the fixed ratios inherent in right triangles.
+
+1.  **The Core Trigonometric Functions:**
+    We established the relationship between the acute angles of a right triangle and the ratios of its sides.
+    *   **SOH CAH TOA:** 
+        *   $\sin(\theta) = \frac{\text{Opposite}}{\text{Hypotenuse}}$
+        *   $\cos(\theta) = \frac{\text{Adjacent}}{\text{Hypotenuse}}$
+        *   $\tan(\theta) = \frac{\text{Opposite}}{\text{Adjacent}}$
+    *   **Reciprocal Functions:**
+        *   $\csc(\theta) = \frac{1}{\sin(\theta)}$ (Hypotenuse/Opposite)
+        *   $\sec(\theta) = \frac{1}{\cos(\theta)}$ (Hypotenuse/Adjacent)
+        *   $\cot(\theta) = \frac{1}{\tan(\theta)}$ (Adjacent/Opposite)
+
+2.  **Finding Missing Angles & Sides (ACT Focus):**
+    The ACT frequently presents problems where you must solve for an unknown side ($x$) using a given angle.
+    *   **Example:** If $\tan(47^\circ) = \frac{x}{10}$, we rearrange to find $x = 10 \cdot \tan(47^\circ)$.
+    *   **Cofunction Relationships:** A key "shortcut" we memorized is that $\sin(x^\circ) = \cos(90^\circ - x^\circ)$. This is extremely useful for identifying equivalent ratios in complementary angles (e.g., $\sin(3x + 10)^\circ = \cos(4x - 30)^\circ \implies 3x + 10 + 4x - 30 = 90$).
+
+3.  **Equilateral & Isosceles Triangles:**
+    *   **Equilateral:** All sides equal, all angles exactly $60^\circ$.
+    *   **Right Triangle Medians:** We briefly revisited the rule that in a right triangle, the median to the hypotenuse creates two isosceles triangles and is exactly half the length of the hypotenuse.
+
+---
+
+### 🗣️ Verbal Precision: Mastering Transitions & Tenses
+Our grammar workshops focused on the subtle complexities of textual cohesion and the time-specificity of verb tenses.
+
+1.  **Transition Logic (Day 4-7 Review):**
+    We analyzed how transitions reveal the author's logical path. We shifted from basic transitions to nuanced contextual cues.
+    *   **Concession vs. Contrast:** While "However" and "On the other hand" denote a pivot to a conflicting point, transitions like "Granted," "To be sure," or "Admittedly" acknowledge the strength of a previous argument before diminishing it with a "but/however" clause.
+    *   **Cause and Effect:** Words like "Thus," "Consequently," and "Accordingly" require a strict relationship where the preceding clause is the *cause* and the following is the *effect*.
+    *   **Similarity:** "Similarly," "By the same token," and "Likewise" demand that the two subjects being compared share the exact same thematic alignment.
+
+2.  **Perfect Tense Timelines:**
+    The recent Tense notes (Ch. 15) drilled the distinction between *when* an action happened and *how long* it lasted.
+    *   **Present Perfect:** Connects the past to the present. E.g., "The team *has worked* since morning." (Action continues now).
+    *   **Past Perfect:** Clarifies an action completed before another past action (the "past-of-the-past"). E.g., "The inventor *had built* the prototype before the war *started*."
+    *   **SVA Clues:** Perfect tenses often act as a trap for Subject-Verb Agreement. Always ensure the helping verb (has/have/had) aligns with the singular/plural subject.
+
+---
+
+### 📊 ACT English: Rhetorical Skills in Action
+Applying our transition knowledge to the ACT exam passages requires synthesizing factual information with rhetorical purpose.
+
+*   **Rhetorical Synthesis:** Given bulleted notes (often researcher quotes), we must match the bullet strictly to the "claim" requested in the question prompt. *Strategy:* Read the question header first to identify the specific claim, then categorize the bullets as "Background" or "Evidential," and select the ones that directly prove the claim.
+*   **Words-in-Context:** We practiced identifying the definition of a word *contextually* rather than relying on outside vocabulary. 
+    *   *Process:* Step 1) Highlight the definition or contextual synonym by reading the sentence. Step 2) Draft your own word that fits that blank. Step 3) Match that drafted feeling to the answer choices.
