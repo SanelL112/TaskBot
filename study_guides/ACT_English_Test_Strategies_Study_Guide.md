@@ -10606,3 +10606,81 @@ In this sentence, we need a noun (following "a significant"): "a significant eff
 - [ACT English Tips -](https://prepexpert.com/act-english-tips/)
 - [ACT English Strategies](https://www.mytutor.com/blog/act-english-strategies-whats-on-act-english)
 - [ACT English: Everything You Need to Know - PrepMaven](https://prepmaven.com/blog/test-prep/act-english/)
+
+---
+
+## 📅 Update: 2026-06-29 - New Concepts
+
+### 📝 ACT English Test: Passage Analysis & Grammar Mastery
+
+Today’s session focused on mastering the **ACT English Test** through active passage analysis and the application of standard written English conventions. Below is a synthesis of the strategies and grammatical concepts reviewed using the provided assessment materials.
+
+---
+
+### 1. The ACT English Test Structure
+*   **Format:** 45 minutes, 75 questions across five prose passages.
+*   **Question Types:**
+    *   **Usage/Mechanics:** Questions regarding grammar, punctuation, and sentence structure (underlined portions).
+    *   **Rhetorical Skills:** Questions about the passage as a whole, including style, tone, and organization (identified by a number in a box).
+*   **Core Principle:** Always choose the alternative that best expresses the idea, maintains the style/tone, or adheres to standard written English. "NO CHANGE" is a valid choice if the original is optimal.
+
+---
+
+### 2. Strategic Approach to Answering Questions
+When tackling the English section, apply these three steps to every question:
+
+1.  **Read the Context:** Always read a sentence or two before and after the underlined portion to understand the logical flow.
+2.  **Identify the Goal:** Determine if the question is testing logic (transitions/paragraph order) or rules (punctuation/grammar).
+3.  **Use the Process of Elimination:**
+    *   **Avoid "Dummy" Answers:** Eliminate choices that introduce viewpoints not discussed in the text or are too absolute (e.g., "never," "always").
+    *   **Find the "Wrong" Answer:** In a tie between two choices, look for the subtle error in the remaining options—a single word or punctuation mark that breaks the rule.
+
+---
+
+### 3. Key Grammar & Punctuation Rules Reviewed
+Based on the practice passages (Ukulele Life, Hedy Lamarr, and Pride), we reviewed several high-frequency ACT topics:
+
+*   **Punctuation:**
+    *   **Commas:** Used to separate items in a list, after introductory dependent clauses, and around non-essential "middle" clauses (appositives).
+    *   **Semicolons:** Used to join two independent clauses (without a coordinating conjunction like FANBOYS) or to separate complex items in a list.
+    *   **Colons:** Must be preceded by a complete sentence; used to introduce a list or an explanation.
+    *   **Dashes:** Used to add emphasis or "extra" information at the end of a sentence.
+*   **Grammar:**
+    *   **Subject-Verb Agreement:** Subjects and verbs must agree in number. Remember that subjects are never found inside prepositional phrases or relative clauses.
+    *   **Pronoun Case:** "Who" is a subject pronoun; "Whom" is an object pronoun (e.g., "who assured me").
+    *   **Comparatives vs. Superlatives:** Use "than" for comparisons between two things; ensure logical comparisons (e.g., "narrower *than* that of a guitar," not "narrower *then* it").
+*   **Idioms & Word Choice:**
+    *   Watch for commonly confused words (e.g., *assaulted* vs. *approached*, *among* vs. *amid*).
+    *   Ensure word choices match the tone of the passage (e.g., "Hawaiian classics" vs. "things").
+
+---
+
+### 4. Rhetorical Skills: Transitions and Organization
+A significant portion of the test focuses on **Logical Flow**. We practiced identifying the relationship between sentences to choose the correct transition word.
+
+*   **Contrast:** *However, conversely, nevertheless, on the other hand, yet.*
+*   **Addition:** *Furthermore, moreover, in addition, also.*
+*   **Cause & Effect:** *Consequently, therefore, thus, as a result.*
+*   **Example/Illustration:** *For instance, for example, indeed, in fact.*
+*   **Sequence:** *Subsequently, next, finally, meanwhile.*
+
+**Paragraph Organization:** When asked where a sentence should be placed, look for chronological markers or pronouns that link the sentence to its neighbors.
+
+---
+
+### 5. Reading Comprehension Strategies
+For the Reading Test passages (Literary Narrative, Humanities), we focused on **Active Reading**:
+
+*   **Annotate Transitions:** Highlight or circle transition words to track the author's argument or the narrative's progression.
+*   **Foreshadowing:** Use transitions to predict where the passage is heading. If a "However" is coming, expect a shift in tone or a contradiction.
+*   **Inference vs. Sticking to the Text:** For "Inference" questions, the answer is not explicitly stated but is *strongly supported* by the text. Avoid answers that require outside assumptions.
+*   **Purpose Analysis:** When asked why a paragraph or detail is included, ask: "Does it provide background? Does it contrast with the previous paragraph? Does it support the main claim?"
+
+---
+
+### 6. Math & Science Readiness (Cross-Curricular Update)
+While the primary focus was ELA, the classroom notes also included updates on **Math** and **Trigonometry** to ensure holistic test readiness:
+*   **Math:** Continued practice on **Factoring Quadratics** (including difference of squares and grouping) and **Systems of Equations** (identifying no solution vs. infinitely many solutions).
+*   **Trigonometry:** Reviewed **SOH CAH TOA**, the relationships between sine and cosine (cofunctions), and properties of **30-60-90** and **45-45-90** special right triangles.
+
+**Key Takeaway:** Success on the ACT requires not just knowing the rules, but applying them efficiently under time pressure. Continue to practice the "Process of Elimination" and "Context Reading" strategies in your future practice tests.
