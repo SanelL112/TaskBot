@@ -8692,3 +8692,78 @@ Your job is to **overcome the snap judgment.** Do not select an answer because i
 - [Advanced: Craft and Structure | SAT Reading and Writing - Khan Academy](https://www.khanacademy.org/test-prep/sat-reading-and-writing/x0d47bcec73eb6c4b:advanced-craft-and-structure)
 - [Master SAT Reading Questions with Effective Strategies - TikTok](https://www.tiktok.com/@satpreptutor/video/7495151768028892458)
 - [Core Reading Skills - SAT Lesson - Varsity Tutors](https://www.varsitytutors.com/practice/subjects/sat/content/core-reading-skills)
+
+---
+
+## 📅 Update: 2026-06-29 - New Concepts
+
+### 📖 Reading & Writing: Deep Dive into Transitions & Rhetorical Synthesis
+
+Today's session focused heavily on the logic of transitions and the strategy for rhetorical synthesis, using both SAT-style questions and ACT English passages.
+
+#### 1. Transition Logic: Beyond the Basics
+We reviewed the core transition categories and applied them to complex scientific and historical texts. The key is to identify the relationship between Claim 1 and Claim 2 before looking at the answer choices.
+
+*   **Contrast (Opposition):** Used when the second claim opposes or balances the first.
+    *   *Keywords:* However, conversely, on the other hand, whereas, in contrast, yet.
+    *   *Example:* "The theory of natural selection was an obvious next step. It may not have been a coincidence, **therefore/for example**, that Darwin and Wallace arrived independently." (Note: Here, the second sentence provides an *example* of the first being true, making "for example" logical).
+*   **Continuance (Addition):** Used to add a new piece of evidence that supports the same theme.
+    *   *Keywords:* Furthermore, moreover, additionally, in addition.
+*   **Cause and Effect:** Used when the first claim causes the second.
+    *   *Keywords:* Consequently, therefore, thus, as a result.
+*   **Concession:** Used to admit a prior point is true but pivot to a more important counterpoint.
+    *   *Keywords:* Granted, nevertheless, regardless, even so.
+*   **Sequencing:** Used for chronological or step-by-step movement.
+    *   *Keywords:* Subsequently, previously, next, finally.
+
+**⚠️ SAT Trap Alert:** Be careful with words like "however" when they are used *within* a sentence versus *between* sentences. "Tom is dating Emily; he is attracted to Julie, **however**," is a comma splice. The SAT tests if you know that "however" cannot join two independent clauses without a semicolon or period.
+
+#### 2. Rhetorical Synthesis (SAT Strategy)
+This question type asks you to combine specific pieces of research (bullets) to support a specific claim.
+*   **Step 1:** Read the question header and highlight the **Claim** you need to support.
+*   **Step 2:** Go through each bullet point and categorize it as either **Background** (context) or **Evidential** (specific data/facts).
+*   **Step 3:** Select the bullets that directly prove the claim. Ignore interesting but irrelevant background info.
+
+#### 3. ACT English: Punctuation and Agreement
+We analyzed several passages (including "Ukulele Life" and "Hedy Lamarr") to test punctuation rules:
+*   **The Colon Rule:** There must be a **full sentence** before a colon. You cannot use a colon to introduce a list if the preceding text is a fragment.
+    *   *Incorrect:* "Devices that operate wirelessly: cellular phones, Wi-Fi..."
+    *   *Correct:* "Devices that operate wirelessly—cellular phones, Wi-Fi..." (Using a dash or rewriting the sentence).
+*   **Subject-Verb Agreement:** Always cross out prepositional phrases and relative clauses to find the true subject.
+    *   *Example:* "The box of chocolates **is** on the table." (Subject is "box," not "chocolates").
+*   **Tense Consistency:** Ensure the verb tense matches the timeline of the passage. If a passage starts in the past, do not shift to present perfect unless there is a specific keyword (like "since" or "for") indicating continuity.
+
+---
+
+### 🧮 Math: Trigonometry, Triangles, and Quadratics
+
+#### 1. Trigonometry: The Core Ratios (SOH CAH TOA)
+We moved into the study of right triangle trigonometry. Remember that these **only** work for right triangles.
+*   **Sine (sin):** Opposite / Hypotenuse
+*   **Cosine (cos):** Adjacent / Hypotenuse
+*   **Tangent (tan):** Opposite / Adjacent
+*   **Cofunctions:** Sine and Cosine are "cofunctions," meaning they produce equal ratios for complementary angles.
+    *   *Formula:* $\sin(x) = \cos(90^\circ - x)$
+
+#### 2. Special Right Triangles
+Memorize these side ratios to save time on the test:
+*   **30-60-90 Triangle:** Sides are $x$, $x\sqrt{3}$, and $2x$ (Hypotenuse).
+*   **45-45-90 Triangle:** Sides are $x$, $x$, and $x\sqrt{2}$ (Hypotenuse).
+
+#### 3. Similar Triangles
+Two triangles are similar if their angles are congruent (AA Postulate). This means their sides are proportional.
+*   *Strategy:* If you see a smaller triangle inside a larger one sharing an angle, or if a line is parallel to the base of a triangle, use proportions to find missing sides.
+
+#### 4. Quadratics: Factoring and Forms
+We practiced factoring quadratics where $a \neq 1$.
+*   **Standard Form:** $y = ax^2 + bx + c$
+*   **Intercept Form:** $y = a(x-p)(x-q)$ (where $p$ and $q$ are the roots/x-intercepts).
+*   **Vertex Form:** $y = a(x-h)^2 + k$ (where $(h,k)$ is the vertex).
+*   **Factoring by Grouping:** For $ax^2 + bx + c$, multiply $a \cdot c$, find two numbers that multiply to $ac$ and add to $b$, then split the middle term and factor by grouping.
+
+---
+
+### 📝 Homework & Practice Assignments
+*   **Reading:** Complete the "Heart of Algebra" drill focusing on Inequalities and Systems of Equations.
+*   **Math:** Finish the "100 Moderate Factoring Quadratics" worksheet. Focus on finding the GCF first.
+*   **Grammar:** Review the "Tenses" notes from Chapter 15 to ensure you can identify Past Perfect vs. Simple Past.
