@@ -85,7 +85,7 @@ def _start_ollama():
     """Try to start Ollama if it's not running. Non-blocking."""
     try:
         subprocess.Popen(
-            ["sudo", "-n", "systemctl", "start", "ollama"],
+            ["ollama", "serve"],
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
         )

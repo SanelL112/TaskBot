@@ -211,4 +211,4 @@ if __name__ == "__main__":
     
     # Nightly Build Complete: Stop Ollama to save RAM for the next day
     print("Nightly build complete. Stopping Ollama...")
-    subprocess.run('echo "Forgot@2023" | sudo -S systemctl stop ollama', shell=True, check=False)
+    subprocess.run(['pkill', '-f', 'ollama serve'], check=False)

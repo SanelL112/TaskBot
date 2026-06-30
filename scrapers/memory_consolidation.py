@@ -14,8 +14,10 @@ async def consolidate_memory():
     logger.info("Starting 1 AM Pipeline: Preparing system for heavy local AI processing...")
     try:
         # Start Ollama
-        subprocess.run(['sudo', '-n', 'systemctl', 'start', 'ollama'], check=False, timeout=10)
-        logger.info("System prepared successfully.")
+        # Start Ollama (background process, not systemd)
+        import subprocess as _sp
+        _sp.Popen(['ollama', 'serve'], stdout=_sp.DEVNULL, stderr=_sp.DEVNULL)
+        await asyncio.sleep(5)
     except Exception as e:
         logger.error(f"Failed to prepare system: {e}")
 

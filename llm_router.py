@@ -2,7 +2,7 @@
 llm_router.py — Unified LLM dispatch with cost tracking and smart fallbacks.
 
 SECURITY MODEL:
-- Local (Ollama Qwen2/Llama) and agy (flash/pro/flash_lite) handle ALL private data.
+- Local (Ollama Qwen2/Llama) and agy (flash/pro) handle ALL private data.
   These run on your server. Data never leaves.
 - OpenRouter is ONLY called for general/academic content that is NOT PII.
   The privacy filter in main.py/ai_processor.py decides the route BEFORE calling this.

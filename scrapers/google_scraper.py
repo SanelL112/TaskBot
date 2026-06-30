@@ -64,6 +64,15 @@ def get_google_credentials():
                     else:
                         logger.error(f"Failed to refresh token after 3 attempts: {e}")
                         creds = None
+        
+        if not creds or not creds.valid:
+            # Token missing or scopes changed — re-authenticate via local server flow
+            logger.info("Re-authenticating with Google (local server flow)...")
+            flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_PATH, SCOPES)
+            creds = flow.run_local_server(host='0.0.0.0', port=8080, prompt='consent', open_browser=False)
+            with open(TOKEN_PATH, 'w') as token_file:
+                token_file.write(creds.to_json())
+            logger.info("Google authentication successful with new scopes.")
 
         if not creds:
             logger.error("Token is missing or failed to refresh.")
@@ -322,6 +331,88 @@ def download_drive_file(file_id: str, output_path: str) -> bool:
     except Exception as e:
         logger.error(f"Failed to download/export file {file_id}: {e}")
         return False
+
+
+def download_classroom_pdfs(output_dir: str = "classroom_pdfs") -> str:
+    """Download all PDF attachments from recent Classroom assignments to a local folder."""
+    creds = get_google_credentials()
+    if not creds:
+        return "Google API credentials not configured."
+
+    os.makedirs(output_dir, exist_ok=True)
+    downloaded = []
+    skipped = 0
+
+    try:
+        service = build('classroom', 'v1', credentials=creds)
+        results = service.courses().list(courseStates=['ACTIVE']).execute()
+        courses = results.get('courses', [])
+
+        if not courses:
+            return "No active Google Classroom courses found."
+
+        import datetime
+        cutoff = datetime.datetime.utcnow() - datetime.timedelta(days=30)
+
+        for course in courses:
+            try:
+                coursework = service.courses().courseWork().list(
+                    courseId=course['id'],
+                    courseWorkStates=['PUBLISHED'],
+                    orderBy='updateTime desc',
+                    pageSize=20
+                ).execute()
+                works = coursework.get('courseWork', [])
+
+                for work in works:
+                    # Skip old assignments
+                    update_time = work.get('updateTime', '')
+                    if update_time:
+                        try:
+                            updated = datetime.datetime.fromisoformat(update_time.replace('Z', '+00:00'))
+                            if updated.replace(tzinfo=None) < cutoff:
+                                skipped += 1
+                                continue
+                        except Exception:
+                            pass
+
+                    title = work.get('title', 'Untitled')
+                    materials = work.get('materials', [])
+
+                    for mat in materials:
+                        if 'driveFile' in mat and 'driveFile' in mat['driveFile']:
+                            df = mat['driveFile']['driveFile']
+                            file_title = df.get('title', 'untitled')
+                            file_id = df.get('id')
+
+                            if not file_id:
+                                continue
+
+                            # Only download PDFs
+                            safe_name = "".join(c for c in file_title if c.isalnum() or c in (' ', '-', '_')).rstrip()
+                            if not safe_name.lower().endswith('.pdf'):
+                                safe_name += '.pdf'
+                            output_path = os.path.join(output_dir, f"{course['name']}_{safe_name}")
+
+                            # Skip if already downloaded
+                            if os.path.exists(output_path):
+                                skipped += 1
+                                continue
+
+                            if download_drive_file(file_id, output_path):
+                                downloaded.append(f"  {course['name']}/{file_title}")
+                            else:
+                                downloaded.append(f"  FAILED: {course['name']}/{file_title}")
+            except Exception as e:
+                logger.warning(f"Error downloading from {course['name']}: {e}")
+
+    except Exception as e:
+        return f"Error: {e}"
+
+    if not downloaded:
+        return f"No new PDFs downloaded (skipped {skipped} already downloaded or non-PDF items)."
+
+    return f"Downloaded {len(downloaded)} Classroom PDFs to {output_dir}/:\n" + "\n".join(downloaded)
 
 
 if __name__ == "__main__":
