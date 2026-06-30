@@ -8,42 +8,36 @@ import subprocess
 sys.path.append("/home/sanel/personal-assistant-bot")
 
 from scrapers.mega_study_builder import generate_mega_guide
-import requests
+from llm_router import call_openrouter
+from utils import scrub_pii
 
 def extract_dynamic_topics(pdf_text: str, num_topics: int = 3) -> list:
-    """Uses the AI to extract new, highly specific topics from the user's classroom notes."""
-    prompt = f"""You are an intelligent topic extractor. Scan the following classroom notes and identify exactly {num_topics} distinct, highly specific academic topics or chapters that would make great study guides.
-Respond ONLY with a comma-separated list of the topics. Do not include bullet points or numbers.
-Example: Quadratic Equations, Civil War History, Biology Cell Structure
+    def extract_dynamic_topics(pdf_text: str, num_topics: int = 3) -> list:
+        """Uses the AI to extract new, highly specific topics from the user's classroom notes."""
+        prompt = f"""You are an intelligent topic extractor. Scan the following classroom notes and identify exactly {num_topics} distinct, highly specific academic topics or chapters that would make great study guides.
+    Respond ONLY with a comma-separated list of the topics. Do not include bullet points or numbers.
+    Example: Quadratic Equations, Civil War History, Biology Cell Structure
 
-Notes:
-{pdf_text[:15000]}
-"""
-    print("Extracting dynamic topics from classroom notes using OpenRouter...")
-    api_key = os.getenv("OPENROUTER_API_KEY")
-    if not api_key:
-        from dotenv import load_dotenv
-        load_dotenv("/home/sanel/personal-assistant-bot/.env")
-        api_key = os.getenv("OPENROUTER_API_KEY")
-        
-    try:
-        response = requests.post(
-            "https://openrouter.ai/api/v1/chat/completions",
-            headers={"Authorization": f"Bearer {api_key}"},
-            json={
-                "models": ["meta-llama/llama-3.3-70b-instruct:free", "nvidia/nemotron-3-ultra-550b-a55b:free"],
-                "messages": [{"role": "user", "content": prompt}]
-            },
-            timeout=600
-        )
-        if response.status_code == 200:
-            result = response.json()["choices"][0]["message"]["content"]
-            topics = [t.strip() for t in result.split(",") if t.strip()]
-            return topics[:num_topics]
-    except Exception as e:
-        print(f"Extraction error: {e}")
-        
-    return ["General Mathematics", "Advanced Grammar", "Test Strategies"]
+    Notes:
+    {pdf_text[:15000]}"""
+        print("Extracting dynamic topics from classroom notes using OpenRouter...")
+    
+        scrubbed_prompt = scrub_pii(prompt)
+        try:
+            result = call_openrouter(
+                model="meta-llama/llama-3.3-70b-instruct:free",
+                prompt=scrubbed_prompt,
+                task="extract_topics",
+                max_tokens=500,
+                timeout=600,
+            )
+            if result:
+                topics = [t.strip() for t in result.split(",") if t.strip()]
+                return topics[:num_topics]
+        except Exception as e:
+            print(f"Extraction error: {e}")
+    
+        return ["General Mathematics", "Advanced Grammar", "Test Strategies"]
 
 def build_and_push(topic: str):
     """Generates or updates the massive study guide and automatically pushes it to GitHub."""
@@ -83,33 +77,17 @@ DO NOT rewrite the entire study guide, ONLY output the new section to be appende
 --- NEW CLASSROOM NOTES ---
 {internal_notes}
 """
-        import requests
-        api_key = os.getenv("OPENROUTER_API_KEY")
-        if not api_key:
-            from dotenv import load_dotenv
-            load_dotenv("/home/sanel/personal-assistant-bot/.env")
-            api_key = os.getenv("OPENROUTER_API_KEY")
-            
-        print("Calling OpenRouter (Owl-Alpha) for Delta-Append generation...")
+        print("Calling OpenRouter for Delta-Append generation...")
+        
+        scrubbed_prompt = scrub_pii(prompt)
         try:
-            response = requests.post(
-                "https://openrouter.ai/api/v1/chat/completions",
-                headers={
-                    "Authorization": f"Bearer {api_key}",
-                    "HTTP-Referer": "https://github.com/SanelL112/Antigravity-Based-Assistant-Bot",
-                    "X-Title": "Antigravity-Based-Assistant-Bot"
-                },
-                json={
-                    "models": ["meta-llama/llama-3.3-70b-instruct:free", "nvidia/nemotron-3-ultra-550b-a55b:free"],
-                    "messages": [{"role": "user", "content": prompt}]
-                },
-                timeout=600
+            new_section = call_openrouter(
+                model="meta-llama/llama-3.3-70b-instruct:free",
+                prompt=scrubbed_prompt,
+                task="delta_append",
+                max_tokens=4000,
+                timeout=600,
             )
-            if response.status_code == 200:
-                new_section = response.json()["choices"][0]["message"]["content"]
-            else:
-                print(f"OpenRouter returned {response.status_code}: {response.text}")
-                new_section = ""
         except Exception as e:
             print(f"OpenRouter connection error: {e}")
             new_section = ""
