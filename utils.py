@@ -712,11 +712,11 @@ def add_rate_limit_timestamp(chat_id: int):
 # Global session getters with cleanup
 def get_httpx_client() -> httpx.Client:
     """Get or create a shared httpx client with connection pooling."""
-    import httpx
     global _cached_sessions
     with _cached_sessions_lock:
         if 'httpx' not in _cached_sessions:
-            timeout = httpx.Timeout(connect=10.0, read=120.0, pool=5.0)
+            # httpx.Timeout requires all four parameters or a single default
+            timeout = httpx.Timeout(connect=10.0, read=120.0, write=30.0, pool=5.0)
             _cached_sessions['httpx'] = httpx.Client(
                 timeout=timeout,
                 limits=httpx.Limits(max_connections=10, max_keepalive_connections=5),

@@ -167,16 +167,16 @@ async def detect_topic(message: str, chat_id: int) -> str:
             asyncio.get_event_loop().run_in_executor(
                 None,
                 lambda: subprocess.run(
-                    [AGENTAPI_BIN, "--model", "flash", "--dangerously-skip-permissions", "--print", prompt],
-                    capture_output=True, text=True, timeout=15
+                    [AGENTAPI_BIN, "--model", "Gemini 3.5 Flash (Low)", "--dangerously-skip-permissions", "--print", prompt],
+                    capture_output=True, text=True, timeout=30
                 )
             ),
-            timeout=20
+            timeout=35
         )
         topic = result.stdout.strip().lower()
         topic = re.sub(r'[^a-z0-9_]', '', topic.replace(' ', '_'))
         if len(topic) > 30:
-            logger.warning(f"Topic name too long from flash model, falling back to 'general': {topic}")
+            logger.warning(f"Topic name too long from flash_lite model, falling back to 'general': {topic}")
             return "general"
         return topic if topic else "general"
     except Exception as e:
