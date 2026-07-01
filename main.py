@@ -1,6 +1,7 @@
 import os
 import json
 import logging
+import atexit
 try:
     import telegram_logger
     telegram_logger.setup_telegram_logging()
@@ -18,6 +19,27 @@ import pytz
 from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, CommandHandler, filters
+
+# ── Background Task Tracking ───────────────────────────────────────────────────
+# Track all background tasks for proper cleanup on shutdown
+_background_tasks: set[asyncio.Task] = set()
+
+def _track_task(task: asyncio.Task) -> asyncio.Task:
+    """Add task to tracking set and auto-remove when done."""
+    _background_tasks.add(task)
+    task.add_done_callback(_background_tasks.discard)
+    return task
+
+def _cleanup_background_tasks():
+    """Cancel all tracked background tasks on exit."""
+    if _background_tasks:
+        logger.info(f"Cancelling {len(_background_tasks)} background tasks...")
+        for task in _background_tasks:
+            if not task.done():
+                task.cancel()
+        # Note: we don't await here since this runs at exit
+
+atexit.register(_cleanup_background_tasks)
 
 # ── Config ─────────────────────────────────────────────────────────────────────
 load_dotenv()
@@ -571,7 +593,7 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0, cont
 
         if context:
             # Tell the user we are verifying in the background
-            asyncio.create_task(_run_verification_bg(summary_prompt, chat_id))
+            _track_task(asyncio.create_task(_run_verification_bg(summary_prompt, chat_id)))
         else:
             # Fallback for CLI standalone mode
             try:
@@ -583,17 +605,27 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0, cont
             except Exception as e:
                 logger.error(f"Summary agent error: {e}")
 
-    # Append turn to custom history file (with rotation)
-    with open(history_file, "a") as f:
-        f.write(f"User: {user_message}\nModel: {out}\n\n")
-    # Rotate if file exceeds 50KB to prevent unbounded growth
+    # Append turn to custom history file (with atomic write + rotation)
     try:
+        with open(history_file, "a", encoding="utf-8") as f:
+            f.write(f"User: {user_message}\nModel: {out}\n\n")
+        # Rotate if file exceeds 50KB to prevent unbounded growth
         if os.path.getsize(history_file) > 50000:
-            with open(history_file, "r") as f:
+            with open(history_file, "r", encoding="utf-8") as f:
                 content = f.read()
-            with open(history_file, "w") as f:
-                f.write(content[-40000:])  # Keep last 40KB
-            logger.info(f"Rotated history file: {os.path.basename(history_file)}")
+            # Atomic write: write to temp then rename
+            import tempfile
+            fd, tmp_path = tempfile.mkstemp(dir=os.path.dirname(history_file), suffix='.tmp')
+            try:
+                with os.fdopen(fd, 'w', encoding="utf-8") as f:
+                    f.write(content[-40000:])  # Keep last 40KB
+                os.replace(tmp_path, history_file)
+                logger.info(f"Rotated history file: {os.path.basename(history_file)}")
+            except Exception:
+                try:
+                    os.unlink(tmp_path)
+                except Exception:
+                    pass
     except Exception:
         pass
         
@@ -737,8 +769,18 @@ async def _watchdog_impl(context: ContextTypes.DEFAULT_TYPE):
                 queue_updated = True
                 
     if queue_updated:
-        with open(nightly_queue_path, "w") as f:
-            json.dump(nightly_queue, f)
+        # Atomic write for nightly_queue.json
+        import tempfile
+        fd, tmp_path = tempfile.mkstemp(dir=os.path.dirname(nightly_queue_path), suffix='.tmp')
+        try:
+            with os.fdopen(fd, 'w', encoding="utf-8") as f:
+                json.dump(nightly_queue, f, indent=2)
+            os.replace(tmp_path, nightly_queue_path)
+        except Exception:
+            try:
+                os.unlink(tmp_path)
+            except Exception:
+                pass
         await context.bot.send_message(chat_id=chat_id, text=f"🛏️ Queued {len(nightly_queue)} new practice materials for processing offline tonight.")
     
     prompt = (

@@ -70,12 +70,24 @@ def invalidate_cache():
 
 
 # ── Query embedding ───────────────────────────────────────────────────────────
+import httpx
+
+# Shared httpx client for connection pooling
+_ollama_client = None
+
+def _get_ollama_client() -> httpx.Client:
+    global _ollama_client
+    if _ollama_client is None:
+        timeout = httpx.Timeout(connect=5.0, read=30.0, pool=5.0)
+        _ollama_client = httpx.Client(timeout=timeout)
+    return _ollama_client
+
 
 def _ollama_is_running() -> bool:
     """Check if Ollama is reachable."""
-    import httpx
     try:
-        resp = httpx.get(f"{OLLAMA_URL}/api/tags", timeout=3.0)
+        client = _get_ollama_client()
+        resp = client.get(f"{OLLAMA_URL}/api/tags")
         return resp.status_code == 200
     except Exception:
         return False
@@ -103,8 +115,6 @@ def embed_query(query: str) -> np.ndarray | None:
     """Embed a single query string via Ollama. Returns float32 vector of shape (DIM,).
     Starts Ollama if needed. Returns None if embedding fails.
     """
-    import httpx
-
     # Try to start Ollama if not running
     if not _ollama_is_running():
         logger.info("Ollama not running, attempting to start...")
@@ -113,10 +123,10 @@ def embed_query(query: str) -> np.ndarray | None:
             return None
 
     try:
-        resp = httpx.post(
+        client = _get_ollama_client()
+        resp = client.post(
             f"{OLLAMA_URL}/api/embed",
             json={"model": EMBED_MODEL, "input": query},
-            timeout=30.0,
         )
         if resp.status_code != 200:
             logger.warning(f"Embedding failed: {resp.status_code}")
@@ -130,6 +140,9 @@ def embed_query(query: str) -> np.ndarray | None:
             if norm > 0:
                 vec = vec / norm
             return vec
+    except httpx.TimeoutException:
+        logger.warning(f"Query embedding timeout")
+        return None
     except Exception as e:
         logger.warning(f"Query embedding error: {e}")
     return None

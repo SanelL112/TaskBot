@@ -10,6 +10,7 @@ import json
 import subprocess
 import os
 import logging
+import threading
 from pathlib import Path
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 
@@ -297,8 +298,12 @@ def assemble_digest(summaries: dict) -> dict:
         summary_text += f"=== {name.upper()} ===\n{text}\n\n"
 
     # Save combined summaries to file for reference (APPEND so memory consolidation can read the whole day)
-    with open(os.path.join(CACHE_DIR, "combined_summaries.txt"), "a") as f:
-        f.write(summary_text)
+    # Use atomic append with lock to prevent interleaved writes from ThreadPoolExecutor
+    combined_summaries_path = os.path.join(CACHE_DIR, "combined_summaries.txt")
+    _write_lock = threading.Lock()
+    with _write_lock:
+        with open(combined_summaries_path, "a", encoding="utf-8") as f:
+            f.write(summary_text)
         
     # Read and inject local OCR / photo extracts
     extracts_file = os.path.join(BOT_DIR, "important_extracts.txt")

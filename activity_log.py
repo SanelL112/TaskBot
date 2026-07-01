@@ -23,6 +23,8 @@ import logging
 import threading
 from datetime import datetime, timezone
 
+from utils import scrub_pii
+
 logger = logging.getLogger(__name__)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -96,17 +98,23 @@ def _rotate_if_needed():
 
 
 def _send_telegram_notification(text: str):
-    """Send a muted (silent) Telegram message."""
+    """Send a muted (silent) Telegram message.
+    
+    SECURITY: PII is scrubbed before sending to Telegram cloud API.
+    """
     _init_telegram()
     if not _TELEGRAM_TOKEN or not _TELEGRAM_CHAT_ID:
         return
+    
+    # Scrub PII from notification text before sending to cloud
+    safe_text = scrub_pii(text, aggressive=True)
     try:
         import httpx
         httpx.post(
             f"https://api.telegram.org/bot{_TELEGRAM_TOKEN}/sendMessage",
             json={
                 "chat_id": _TELEGRAM_CHAT_ID,
-                "text": text,
+                "text": safe_text,
                 "parse_mode": "Markdown",
                 "disable_notification": True,  # MUTED!
             },

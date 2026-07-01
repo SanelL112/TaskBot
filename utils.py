@@ -11,9 +11,14 @@ import logging
 import functools
 import subprocess
 import tempfile
+import threading
+import atexit
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
+
+import httpx
+import requests
 
 from config import (
     BASE_DIR, CACHE_DIR, ARCHIVE_DIR, BACKUP_DIR, BACKUP_DIR,
@@ -72,20 +77,120 @@ def enforce_all_rotations():
 
 
 # ── BASH Safety (Fix #7) ─────────────────────────────────────────────────────
+# Allowlist of SAFE commands that can be executed.
+# Only these base commands are permitted. Arguments are validated.
+ALLOWED_COMMANDS = {
+    # System info
+    'free', 'uptime', 'df', 'ps', 'top', 'htop', 'lscpu', 'lsblk',
+    'systemctl', 'journalctl', 'dmesg', 'whoami', 'id', 'uname', 'hostname',
+    'echo', 'printf',
+    # File operations (read-only)
+    'cat', 'head', 'tail', 'less', 'more', 'wc', 'grep', 'rg', 'find', 'ls', 'stat',
+    'file', 'du', 'diff', 'sort', 'uniq', 'awk', 'sed', 'cut', 'tr',
+    # Network (read-only)
+    'ping', 'curl', 'wget', 'nslookup', 'dig', 'host', 'ss', 'netstat', 'lsof',
+    # Git (read-only)
+    'git', 'git status', 'git log', 'git diff', 'git show', 'git branch',
+    # Python/Node tools
+    'python3', 'python', 'pip', 'npm', 'node', 'npx',
+    # Archive/Compression
+    'tar', 'gzip', 'gunzip', 'zip', 'unzip',
+    # Process management
+    'kill', 'pkill', 'pgrep', 'pidof',
+    # Ollama
+    'ollama',
+    # Agy
+    'agy',
+    # Pandoc
+    'pandoc',
+    # PDF tools
+    'pdftotext', 'pdfinfo',
+    # Tesseract
+    'tesseract',
+}
+
+# Patterns that are NEVER allowed (blocklist as safety net)
 BLOCKED_PATTERNS = [
     'rm -rf /', 'mkfs', 'dd if=', ':(){', 'fork bomb',
     '> /dev/sda', 'chmod -R 777 /', 'shutdown', 'reboot',
-    'init 0', 'poweroff', 'halt', 'curl.*[|].*bash', 'wget.*[|].*sh',
+    'init 0', 'poweroff', 'halt',
+    'curl.*[|].*bash', 'wget.*[|].*sh',
+    'sudo', 'su ', 'doas', 'passwd', 'chown', 'chmod',
+    'mount', 'umount', 'fdisk', 'parted', 'mkfs',
+    'iptables', 'ufw', 'firewall-cmd',
+    'systemctl start', 'systemctl stop', 'systemctl restart', 'systemctl enable', 'systemctl disable',
+    'service ', '/etc/init.d/',
+    'reboot', 'poweroff', 'halt', 'shutdown',
+    'crontab', 'at ', 'batch',
+    'ssh', 'scp', 'rsync', 'sftp',
+    'docker', 'podman', 'kubectl', 'helm',
+    'chroot', 'pivot_root',
+    '> /dev/', '> /proc/', '> /sys/',
 ]
 
 _audit_log_path = BASE_DIR / "command_audit.log"
 _rate_limit = {}  # chat_id -> [timestamps]
 
 
+def _is_command_allowed(cmd: str) -> tuple[bool, str]:
+    """
+    Validate command against allowlist.
+    Returns (allowed, reason_if_blocked).
+    """
+    cmd_stripped = cmd.strip()
+    if not cmd_stripped:
+        return False, "Empty command"
+    
+    # Check blocklist first (safety net)
+    cmd_lower = cmd_stripped.lower()
+    for blocked in BLOCKED_PATTERNS:
+        if blocked in cmd_lower:
+            return False, f"Blocked pattern: {blocked}"
+    
+    # Parse command to get base command
+    import shlex
+    try:
+        parts = shlex.split(cmd_stripped)
+    except ValueError as e:
+        return False, f"Shell parsing error: {e}"
+    
+    if not parts:
+        return False, "No command parsed"
+    
+    base_cmd = parts[0]
+    
+    # Check if base command is in allowlist
+    if base_cmd not in ALLOWED_COMMANDS:
+        # Also check if it's a full command in allowlist (e.g., 'git status')
+        full_cmd = ' '.join(parts[:2]) if len(parts) >= 2 else base_cmd
+        if full_cmd not in ALLOWED_COMMANDS:
+            return False, f"Command not in allowlist: {base_cmd}"
+    
+    # Additional validation for specific commands
+    if base_cmd in ('curl', 'wget'):
+        # Prevent writing to files or piping to shell
+        if any(arg in ('-o', '-O', '--output', '|', '>', '>>') for arg in parts[1:]):
+            return False, "curl/wget output redirection not allowed"
+    
+    if base_cmd in ('python3', 'python'):
+        # Prevent dangerous imports
+        if '-c' in parts:
+            code_idx = parts.index('-c') + 1
+            if code_idx < len(parts):
+                code = parts[code_idx]
+                dangerous = ['os.system', 'subprocess', 'eval(', 'exec(', '__import__', 'open(', 'importlib']
+                if any(d in code for d in dangerous):
+                    return False, "Dangerous Python code detected"
+    
+    return True, "OK"
+
+
 def run_bash_safely(cmd: str, chat_id: int = 0, timeout: int = 60) -> str:
     """
     Run a shell command with safety checks and audit logging.
     Returns stdout+stderr or error message.
+    
+    SECURITY: Uses allowlist validation, NO shell=True, arguments passed as list.
     """
     import shlex
 
@@ -96,20 +201,25 @@ def run_bash_safely(cmd: str, chat_id: int = 0, timeout: int = 60) -> str:
         return "⛔ Rate limit exceeded (10 commands/min). Wait a bit."
     _rate_limit[chat_id] = recent + [now]
 
-    # Safety check
-    cmd_lower = cmd.lower()
-    for blocked in BLOCKED_PATTERNS:
-        if blocked in cmd_lower:
-            _audit_log(cmd, chat_id, "BLOCKED")
-            return f"⛔ BLOCKED: Command matched safety filter ({blocked})"
+    # Safety check - allowlist validation
+    allowed, reason = _is_command_allowed(cmd)
+    if not allowed:
+        _audit_log(cmd, chat_id, "BLOCKED")
+        return f"⛔ BLOCKED: {reason}"
 
     # Log the command
     _audit_log(cmd, chat_id, "EXECUTED")
 
+    # Parse command into args (NO shell=True)
+    try:
+        args = shlex.split(cmd)
+    except ValueError as e:
+        return f"⛔ Command parsing error: {e}"
+
     try:
         result = subprocess.run(
-            cmd,
-            shell=True,  # Some commands need shell (pipes, etc.) but we've sanitized
+            args,  # List of args, no shell
+            shell=False,  # CRITICAL: No shell=True
             capture_output=True,
             text=True,
             timeout=timeout,
@@ -118,7 +228,9 @@ def run_bash_safely(cmd: str, chat_id: int = 0, timeout: int = 60) -> str:
         output = "\n".join(l for l in output.splitlines() if not l.startswith("[sudo]"))
         return output[:2000] if output else "(no output)"
     except subprocess.TimeoutExpired:
-        return f"� Command timed out after {timeout}s"
+        return f"⏱ Command timed out after {timeout}s"
+    except FileNotFoundError:
+        return f"⛔ Command not found: {args[0]}"
     except Exception as e:
         return f"Error: {e}"
 
@@ -548,3 +660,91 @@ def retry(max_retries=3, base_delay=1.0, exceptions=(Exception,)):
             return func(*args, **kwargs)  # last attempt, let it raise
         return wrapper
     return decorator
+
+
+# ── Bounded LRU Caches ────────────────────────────────────────────────────────
+from functools import lru_cache
+import threading
+
+# Global cache instances with size limits and thread safety
+_rate_limit_cache = {}
+_rate_limit_lock = threading.Lock()
+_MAX_RATE_LIMIT_ENTRIES = 1000  # Max chat_ids to track
+
+# Session caches with TTL
+_cached_sessions = {}
+_cached_sessions_lock = threading.Lock()
+_MAX_SESSION_ENTRIES = 50
+
+def get_rate_limit_timestamps(chat_id: int) -> list[float]:
+    """Get recent timestamps for a chat_id, with automatic cleanup."""
+    global _rate_limit_cache
+    now = time.time()
+    with _rate_limit_lock:
+        # Clean old entries
+        recent = [t for t in _rate_limit_cache.get(chat_id, []) if now - t < 60]
+        _rate_limit_cache[chat_id] = recent
+        # Enforce global size limit
+        if len(_rate_limit_cache) > _MAX_RATE_LIMIT_ENTRIES:
+            # Remove oldest entries
+            all_entries = [(chat_id, ts) for chat_id, timestamps in _rate_limit_cache.items() for ts in timestamps]
+            all_entries.sort(key=lambda x: x[1])
+            to_remove = len(all_entries) - _MAX_RATE_LIMIT_ENTRIES + 100
+            if to_remove > 0:
+                for chat_id_rm, ts_rm in all_entries[:to_remove]:
+                    if chat_id_rm in _rate_limit_cache:
+                        try:
+                            _rate_limit_cache[chat_id_rm].remove(ts_rm)
+                            if not _rate_limit_cache[chat_id_rm]:
+                                del _rate_limit_cache[chat_id_rm]
+                        except ValueError:
+                            pass
+        return _rate_limit_cache.get(chat_id, [])
+
+def add_rate_limit_timestamp(chat_id: int):
+    """Add a timestamp for rate limiting."""
+    with _rate_limit_lock:
+        now = time.time()
+        if chat_id not in _rate_limit_cache:
+            _rate_limit_cache[chat_id] = []
+        _rate_limit_cache[chat_id].append(now)
+
+# Global session getters with cleanup
+def get_httpx_client() -> httpx.Client:
+    """Get or create a shared httpx client with connection pooling."""
+    import httpx
+    global _cached_sessions
+    with _cached_sessions_lock:
+        if 'httpx' not in _cached_sessions:
+            timeout = httpx.Timeout(connect=10.0, read=120.0, pool=5.0)
+            _cached_sessions['httpx'] = httpx.Client(
+                timeout=timeout,
+                limits=httpx.Limits(max_connections=10, max_keepalive_connections=5),
+            )
+        return _cached_sessions['httpx']
+
+def get_requests_session() -> requests.Session:
+    """Get or create a shared requests session."""
+    import requests
+    global _cached_sessions
+    with _cached_sessions_lock:
+        if 'requests' not in _cached_sessions:
+            _cached_sessions['requests'] = requests.Session()
+        return _cached_sessions['requests']
+
+# Cleanup function for atexit
+def _cleanup_caches():
+    """Close HTTP clients and clear caches on exit."""
+    with _cached_sessions_lock:
+        for name, session in _cached_sessions.items():
+            try:
+                session.close()
+            except Exception:
+                pass
+        _cached_sessions.clear()
+    
+    with _rate_limit_lock:
+        _rate_limit_cache.clear()
+
+import atexit
+atexit.register(_cleanup_caches)

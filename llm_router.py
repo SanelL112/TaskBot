@@ -29,9 +29,50 @@ from config import (
 logger = logging.getLogger(__name__)
 
 # ── OpenRouter Session (connection pooling) ──────────────────────────────────
+import httpx
+import atexit
+
 _or_session = None
+_or_client = None
+
+def _get_client() -> httpx.Client:
+    global _or_client
+    if _or_client is None:
+        # Configure timeouts: connect=10s, read=120s, pool=5s
+        timeout = httpx.Timeout(connect=10.0, read=120.0, pool=5.0)
+        _or_client = httpx.Client(
+            timeout=timeout,
+            headers={
+                "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+                "HTTP-Referer": "https://github.com/SanelL112/Antigravity-Based-Assistant-Bot",
+                "X-Title": "Personal Assistant Bot",
+            },
+            limits=httpx.Limits(max_connections=10, max_keepalive_connections=5),
+        )
+    return _or_client
+
+
+def _cleanup_clients():
+    """Clean up HTTP clients on exit."""
+    global _or_client, _or_session
+    if _or_client is not None:
+        try:
+            _or_client.close()
+        except Exception:
+            pass
+        _or_client = None
+    if _or_session is not None:
+        try:
+            _or_session.close()
+        except Exception:
+            pass
+        _or_session = None
+
+atexit.register(_cleanup_clients)
+
 
 def _get_session() -> requests.Session:
+    """Deprecated: use _get_client() for httpx instead."""
     global _or_session
     if _or_session is None:
         _or_session = requests.Session()
@@ -226,7 +267,7 @@ def _do_call(
     stream_to_status: Optional[tuple],
 ) -> str:
     """Execute a single OpenRouter API call. Supports streaming with live status updates."""
-    session = _get_session()
+    client = _get_client()
     from utils import scrub_pii
 
     # SECURITY: Scrub PII from all cloud-bound prompts
@@ -245,17 +286,16 @@ def _do_call(
 
     # Streaming path (for chat responses where we show typing)
     if stream_to_status:
-        return _streaming_call(session, model, messages, task, max_tokens, timeout, stream_to_status)
+        return _streaming_call(client, model, messages, task, max_tokens, timeout, stream_to_status)
     else:
         # Non-streaming (simpler, for everything else)
-        resp = session.post(
+        resp = client.post(
             "https://openrouter.ai/api/v1/chat/completions",
             json={
                 "model": model,
                 "messages": messages,
                 "max_tokens": max_tokens,
             },
-            timeout=timeout,
         )
         if resp.status_code == 200:
             choice = resp.json()["choices"][0]
@@ -267,8 +307,7 @@ def _do_call(
         else:
             raise Exception(f"HTTP {resp.status_code}: {resp.text[:200]}")
 
-
-def _streaming_call(session, model, messages, task, max_tokens, timeout, stream_to_status):
+def _streaming_call(client, model, messages, task, max_tokens, timeout, stream_to_status):
     """Handle streaming response with live Telegram status updates."""
     import asyncio
 
@@ -278,62 +317,69 @@ def _streaming_call(session, model, messages, task, max_tokens, timeout, stream_
     in_thought = False
     last_edit = 0
 
-    resp = session.post(
-        "https://openrouter.ai/api/v1/chat/completions",
-        json={
-            "model": model,
-            "messages": messages,
-            "max_tokens": max_tokens,
-            "stream": True,
-        },
-        timeout=timeout,
-        stream=True,
-    )
+    # Use httpx streaming with proper timeout
+    try:
+        resp = client.post(
+            "https://openrouter.ai/api/v1/chat/completions",
+            json={
+                "model": model,
+                "messages": messages,
+                "max_tokens": max_tokens,
+                "stream": True,
+            },
+            timeout=timeout,
+        )
+    except httpx.TimeoutException:
+        raise Exception(f"OpenRouter streaming timeout after {timeout}s")
 
     if resp.status_code != 200:
         raise Exception(f"HTTP {resp.status_code}")
 
-    for line in resp.iter_lines():
-        if not line or not line.startswith(b"data: "):
-            continue
-        data = line[6:]
-        if data == b"[DONE]":
-            break
-        try:
-            chunk = json.loads(data)
-            delta = chunk["choices"][0].get("delta", {})
-            content = delta.get("content", "")
-            if content:
-                full_response += content
+    try:
+        for line in resp.iter_lines():
+            if not line or not line.startswith(b"data: "):
+                continue
+            data = line[6:]
+            if data == b"[DONE]":
+                break
+            try:
+                chunk = json.loads(data)
+                delta = chunk["choices"][0].get("delta", {})
+                content = delta.get("content", "")
+                if content:
+                    full_response += content
 
-                if "<thought>" in full_response and "</thought>" not in full_response:
-                    in_thought = True
-                    current_thought = full_response.split("<thought>")[-1]
-                elif "</thought>" in full_response:
-                    in_thought = False
+                    if "<thought>" in full_response and "</thought>" not in full_response:
+                        in_thought = True
+                        current_thought = full_response.split("<thought>")[-1]
+                    elif "</thought>" in full_response:
+                        in_thought = False
 
-                now = time.time()
-                if now - last_edit > 1.5 and status_msg and context:
-                    last_edit = now
-                    try:
-                        if in_thought:
-                            import asyncio
-                            asyncio.create_task(context.bot.edit_message_text(
-                                chat_id=chat_id, message_id=status_msg.message_id,
-                                text=f"🧠 **Thinking...**\n_{disp}_", parse_mode="Markdown"
-                            ))
-                        else:
-                            final_text = full_response.split("</thought>")[-1] if "</thought>" in full_response else full_response
-                            disp = final_text[-800:].strip()
-                            if disp:
+                    now = time.time()
+                    if now - last_edit > 1.5 and status_msg and context:
+                        last_edit = now
+                        try:
+                            if in_thought:
+                                import asyncio
                                 asyncio.create_task(context.bot.edit_message_text(
                                     chat_id=chat_id, message_id=status_msg.message_id,
-                                    text=f"✍️ **Typing...**\n{disp}"
+                                    text=f"🧠 **Thinking...**\n_{current_thought[-400:].strip()}_", parse_mode="Markdown"
                                 ))
-                    except Exception:
-                        pass
-        except Exception:
-            continue
+                            else:
+                                final_text = full_response.split("</thought>")[-1] if "</thought>" in full_response else full_response
+                                disp = final_text[-800:].strip()
+                                if disp:
+                                    asyncio.create_task(context.bot.edit_message_text(
+                                        chat_id=chat_id, message_id=status_msg.message_id,
+                                        text=f"✍️ **Typing...**\n{disp}"
+                                    ))
+                        except Exception:
+                            pass
+            except Exception:
+                continue
+    finally:
+        # Ensure response is closed to release connection back to pool
+        resp.close()
 
     if "</thought>" in full_response:
         return full_response.split("</thought>")[-1].strip()
@@ -352,6 +398,9 @@ def call_ollama(prompt: str, model: str = "hf.co/Qwen/Qwen2-0.5B-Instruct-GGUF:l
         )
         if resp.status_code == 200:
             return resp.json().get("response", "").strip()
+        return ""
+    except requests.Timeout:
+        logger.error(f"Ollama call timed out after {timeout}s")
         return ""
     except Exception as e:
         logger.error(f"Ollama call failed: {e}")

@@ -2,6 +2,7 @@ import os
 import logging
 import warnings
 import time as _time
+import threading
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -14,6 +15,8 @@ os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '0'
 # ── Cached credentials (avoid re-reading token.json on every call) ────────────
 _google_creds = None
 _google_creds_refreshed_at = 0
+# Lock to prevent race conditions in token refresh
+_creds_lock = threading.Lock()
 
 CREDS = TOKEN_PATH  # alias for backward compatibility
 # Suppress the "Not all requested scopes were granted" oauthlib warning —
@@ -40,39 +43,49 @@ CREDENTIALS_PATH = os.path.join(os.path.dirname(__file__), '..', 'credentials.js
 TOKEN_PATH = os.path.join(os.path.dirname(__file__), '..', 'token.json')
 
 def get_google_credentials():
-    """Get Google credentials with caching and retry on refresh."""
+    """Get Google credentials with caching and retry on refresh.
+    
+    Thread-safe: uses _creds_lock to prevent concurrent refreshes.
+    """
     global _google_creds, _google_creds_refreshed_at
 
-    # Return cached creds if still valid (cache for 5 minutes)
+    # Fast path: return cached creds if still valid (cache for 5 minutes)
+    # This check is outside the lock for performance - stale check is OK
     if _google_creds and _google_creds.valid and (_time.time() - _google_creds_refreshed_at) < 300:
         return _google_creds
 
-    creds = None
-    if os.path.exists(TOKEN_PATH):
-        creds = Credentials.from_authorized_user_file(TOKEN_PATH, SCOPES)
+    # Slow path: need to refresh or re-authenticate - use lock
+    with _creds_lock:
+        # Re-check inside lock (double-checked locking pattern)
+        if _google_creds and _google_creds.valid and (_time.time() - _google_creds_refreshed_at) < 300:
+            return _google_creds
 
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            # Retry refresh up to 3 times with backoff
-            for attempt in range(3):
-                try:
-                    creds.refresh(Request())
-                    break
-                except Exception as e:
-                    if attempt < 2:
-                        _time.sleep(2 ** attempt)
-                    else:
-                        logger.error(f"Failed to refresh token after 3 attempts: {e}")
-                        creds = None
-        
+        creds = None
+        if os.path.exists(TOKEN_PATH):
+            creds = Credentials.from_authorized_user_file(TOKEN_PATH, SCOPES)
+
         if not creds or not creds.valid:
-            # Token missing or scopes changed — re-authenticate via local server flow
-            logger.info("Re-authenticating with Google (local server flow)...")
-            flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_PATH, SCOPES)
-            creds = flow.run_local_server(host='0.0.0.0', port=8080, prompt='consent', open_browser=False)
-            with open(TOKEN_PATH, 'w') as token_file:
-                token_file.write(creds.to_json())
-            logger.info("Google authentication successful with new scopes.")
+            if creds and creds.expired and creds.refresh_token:
+                # Retry refresh up to 3 times with backoff
+                for attempt in range(3):
+                    try:
+                        creds.refresh(Request())
+                        break
+                    except Exception as e:
+                        if attempt < 2:
+                            _time.sleep(2 ** attempt)
+                        else:
+                            logger.error(f"Failed to refresh token after 3 attempts: {e}")
+                            creds = None
+            
+            if not creds or not creds.valid:
+                # Token missing or scopes changed — re-authenticate via local server flow
+                logger.info("Re-authenticating with Google (local server flow)...")
+                flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_PATH, SCOPES)
+                creds = flow.run_local_server(host='127.0.0.1', port=8080, prompt='consent', open_browser=False)
+                with open(TOKEN_PATH, 'w') as token_file:
+                    token_file.write(creds.to_json())
+                logger.info("Google authentication successful with new scopes.")
 
         if not creds:
             logger.error("Token is missing or failed to refresh.")
@@ -81,9 +94,9 @@ def get_google_credentials():
         with open(TOKEN_PATH, 'w') as token:
             token.write(creds.to_json())
 
-    _google_creds = creds
-    _google_creds_refreshed_at = _time.time()
-    return creds
+        _google_creds = creds
+        _google_creds_refreshed_at = _time.time()
+        return creds
 
 def get_unread_emails(limit=5):
     """Fetch recent unread emails from Gmail."""

@@ -3,13 +3,42 @@ import os
 import sys
 import datetime
 import subprocess
+import shlex
+from functools import wraps
 
 # Ensure the parent directory is in sys.path
 sys.path.append("/home/sanel/personal-assistant-bot")
 
 from scrapers.mega_study_builder import generate_mega_guide
 from llm_router import call_openrouter
-from utils import scrub_pii
+from utils import scrub_pii, retry
+
+
+def run_cmd(cmd: str, timeout: int = 120, cwd: str = None) -> subprocess.CompletedProcess:
+    """Run a command with proper timeout and error handling."""
+    args = shlex.split(cmd)
+    return subprocess.run(
+        args,
+        capture_output=True,
+        text=True,
+        timeout=timeout,
+        cwd=cwd,
+        check=False,  # We'll check returncode manually
+    )
+
+
+def run_cmd_safe(cmd: str, timeout: int = 120, cwd: str = None) -> tuple[bool, str]:
+    """Run a command safely, returning (success, output)."""
+    try:
+        result = run_cmd(cmd, timeout=timeout, cwd=cwd)
+        if result.returncode == 0:
+            return True, result.stdout.strip()
+        else:
+            return False, f"Exit code {result.returncode}: {result.stderr.strip()}"
+    except subprocess.TimeoutExpired:
+        return False, f"Command timed out after {timeout}s"
+    except Exception as e:
+        return False, f"Error: {e}"
 
 def extract_dynamic_topics(pdf_text: str, num_topics: int = 3) -> list:
     def extract_dynamic_topics(pdf_text: str, num_topics: int = 3) -> list:
@@ -118,30 +147,41 @@ DO NOT rewrite the entire study guide, ONLY output the new section to be appende
 
     if result:
         # 3. Convert to DOCX format
-        print("Converting Markdown to DOCX format...")
-        try:
-            subprocess.run(["pandoc", output_md, "-o", output_docx], check=True)
-            print(f"Successfully created Word document at {output_docx}")
-            
-            # 4. Automatically Sync to GitHub
-            print("Pushing freshly generated study guide to GitHub...")
-            subprocess.run(["git", "add", output_md, output_docx], check=True)
-            subprocess.run(["git", "commit", "-m", f"docs: Nightly autonomous update of {filename_base} study guide"], check=True)
-            subprocess.run(["git", "push"], check=True)
-            print(f"Nightly build for '{topic}' completely successfully!")
-        except Exception as e:
-            print(f"Post-processing pipeline failed: {e}")
+                print("Converting Markdown to DOCX format...")
+                success, output = run_cmd_safe(f"pandoc {shlex.quote(output_md)} -o {shlex.quote(output_docx)}", timeout=60)
+                if not success:
+                    print(f"Pandoc failed: {output}")
+                    return
+                print(f"Successfully created Word document at {output_docx}")
+
+                # 4. Automatically Sync to GitHub
+                print("Pushing freshly generated study guide to GitHub...")
+                success, output = run_cmd_safe(f"git add {shlex.quote(output_md)} {shlex.quote(output_docx)}", timeout=30)
+                if not success:
+                    print(f"Git add failed: {output}")
+                    return
+                success, output = run_cmd_safe(f'git commit -m "docs: Nightly autonomous update of {filename_base} study guide"', timeout=30)
+                if not success:
+                    print(f"Git commit failed: {output}")
+                    return
+                success, output = run_cmd_safe("git push", timeout=60)
+                if not success:
+                    print(f"Git push failed: {output}")
+                    return
+                print(f"Nightly build for '{topic}' completely successfully!")
     else:
         print(f"Failed to process study guide for {topic}.")
 
 def main():
     print(f"=== Nightly Processor Started at {datetime.datetime.now()} ===")
-    
+
     # Ensure the script is running in the correct directory for git tracking
     os.chdir("/home/sanel/personal-assistant-bot")
-    
+
     # Ensure we have the latest updates
-    subprocess.run(["git", "pull"], check=False)
+    success, output = run_cmd_safe("git pull", timeout=60)
+    if not success:
+        print(f"Git pull failed (continuing anyway): {output}")
     
     # 0. Sync New Google Classroom & Google Drive Files
     print("Executing Google Classroom & Drive Sync...")
@@ -183,10 +223,12 @@ def main():
 if __name__ == "__main__":
     import subprocess
     import time
-    
+
     # Run the main processor
     main()
-    
+
     # Nightly Build Complete: Stop Ollama to save RAM for the next day
     print("Nightly build complete. Stopping Ollama...")
-    subprocess.run(['pkill', '-f', 'ollama serve'], check=False)
+    success, output = run_cmd_safe("pkill -f 'ollama serve'", timeout=10)
+    if not success:
+        print(f"Failed to stop Ollama: {output}")
