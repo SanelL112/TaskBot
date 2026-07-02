@@ -1,58 +1,28 @@
-"""
-config.py — Single source of truth for all constants, paths, and configuration.
-Import this everywhere instead of hardcoding values.
-"""
 import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-# ── Paths ─────────────────────────────────────────────────────────────────────
-BASE_DIR = Path("/home/sanel/personal-assistant-bot")
-SCRAPERS_DIR = BASE_DIR / "scrapers"
-CACHE_DIR = SCRAPERS_DIR / "source_cache"
-STUDY_GUIDES_DIR = BASE_DIR / "study_guides"
-KNOWLEDGE_BASE_DIR = BASE_DIR / "knowledge_base"
-STUDY_DB_DIR = BASE_DIR / "study_database"
-ARCHIVE_DIR = BASE_DIR / "offline_archive"
+# Load .env from the bot directory
+load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 
-for d in [CACHE_DIR, STUDY_GUIDES_DIR, KNOWLEDGE_BASE_DIR, STUDY_DB_DIR, ARCHIVE_DIR]:
-    d.mkdir(parents=True, exist_ok=True)
+# ── Base Paths ────────────────────────────────────────────────────────────────
+BASE_DIR = Path(os.path.dirname(os.path.abspath(__file__)))
+CACHE_DIR = BASE_DIR / "cache"
+CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-load_dotenv(BASE_DIR / ".env")
-
-# ── Identity ──────────────────────────────────────────────────────────────────
-SANEL_CHAT_ID = 8534649457
-
-# ── API Keys & Tokens ─────────────────────────────────────────────────────────
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
+# ── API Keys ──────────────────────────────────────────────────────────────────
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
-NOTION_API_KEY = os.getenv("NOTION_API_KEY", "")
-CANVAS_API_URL = os.getenv("CANVAS_API_URL", "https://canvas.instructure.com")
-CANVAS_API_TOKEN = os.getenv("CANVAS_API_TOKEN", "")
-GROUPME_ACCESS_TOKEN = os.getenv("GROUPME_ACCESS_TOKEN", "")
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = int(os.getenv("TELEGRAM_CHAT_ID", "0"))
+SANEL_CHAT_ID = int(os.getenv("TELEGRAM_CHAT_ID", "0"))  # Alias for backward compatibility
 
-# ── External IDs ──────────────────────────────────────────────────────────────
-NOTION_DATABASE_ID = "38309c49-e758-8004-8005-c5440093e2cb"
-NOTION_OWNER_ID = "2f9d872b-594c-8115-84a6-00028eb47924"
-GROUPME_GROUP_ID = "102851186"
-
-# ── agy / Local LLM ──────────────────────────────────────────────────────────
+# ── External Services ─────────────────────────────────────────────────────────
 AGENTAPI_BIN = os.getenv("AGENTAPI_BIN", "/home/sanel/.local/bin/agy")
 OLLAMA_URL = "http://localhost:11434"
 
 # ── OpenRouter Models ─────────────────────────────────────────────────────────
-OR_FREE_MODELS = [
-    "nvidia/nemotron-3-ultra-550b-a55b:free",
-    "meta-llama/llama-3.3-70b-instruct:free",
-    "openai/gpt-oss-120b:free",
-    "meta-llama/llama-3.2-3b-instruct:free",
-    "nvidia/nemotron-3-nano-30b-a3b:free",
-]
-OR_PAID_MODELS = [
-    "openrouter/auto",
-]
-OR_DEFAULT_MODEL = "meta-llama/llama-3.3-70b-instruct:free"
-OR_FALLBACK_MODEL = "nvidia/nemotron-3-ultra-550b-a55b:free"
+OR_DEFAULT_MODEL = "nvidia/nemotron-3-ultra-550b-a55b:free"  # Working, free, 1M context
+OR_FALLBACK_MODEL = "nvidia/nemotron-3-nano-30b-a3b:free"  # Smaller, free, less rate-limited
 
 # ── File Paths ────────────────────────────────────────────────────────────────
 TOKEN_PATH = BASE_DIR / "token.json"
@@ -68,6 +38,8 @@ CORRELATION_GRAPH_FILE = BASE_DIR / "correlation_graph.json"
 COMBINED_SUMMARIES_FILE = CACHE_DIR / "combined_summaries.txt"
 PDF_EXPORTS_FILE = CACHE_DIR / "pdf_exports.txt"
 BACKUP_DIR = BASE_DIR / "backups"
+ARCHIVE_DIR = BASE_DIR / "offline_archive"
+ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
 
 # ── Rotation Limits ──────────────────────────────────────────────────────────
 MAX_COMBINED_SUMMARIES_CHARS = 50_000      # ~7 days of digests

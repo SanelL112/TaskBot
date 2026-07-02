@@ -334,7 +334,7 @@ async def send_to_antigravity_and_wait(user_message: str, chat_id: int = 0, cont
             scrubbed_user_message = scrub_pii(user_message, aggressive=True)
             
             try:
-                async with httpx.AsyncClient() as client:
+                async with httpx.AsyncClient(timeout=httpx.Timeout(connect=10.0, read=180.0, write=10.0, pool=5.0)) as client:
                     async with client.stream(
                         "POST",
                         "https://openrouter.ai/api/v1/chat/completions",
